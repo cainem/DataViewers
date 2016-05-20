@@ -12,6 +12,12 @@
             "args": [],
             "isBuildCommand": true,
             "isWatching": false
-        }        
+        },
+        {
+            "taskName": "test",
+            "isTestCommand": true,
+            "isWatching": false
+        }
+
     ]
 }

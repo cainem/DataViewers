@@ -1,5 +1,5 @@
 {
-  "name": "Dataviewers",
+  "name": "dataviewers",
   "version": "1.0.0",
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
@@ -7,7 +7,9 @@
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "typings"
+    "typings": "typings",
+    "test-debug" : "mocha --debug-brk --recursive",
+    "test" : "mocha --recursive"
   },
   "license": "ISC",
   "dependencies": {
@@ -29,11 +31,14 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "concurrently": "^2.0.0",
     "gulp": "^3.9.1",
+    "gulp-mocha": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.13.4",
     "lite-server": "^2.2.0",
+    "mocha": "^2.4.5",
     "typescript": "^1.8.10",
     "typings": "^0.8.1"
   }
