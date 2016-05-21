@@ -8,8 +8,8 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings",
-    "test-debug" : "mocha --debug-brk --recursive",
-    "test" : "mocha --recursive"
+    "test-debug": "mocha --debug-brk --recursive",
+    "test": "mocha --recursive"
   },
   "license": "ISC",
   "dependencies": {
