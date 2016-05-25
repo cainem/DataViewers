@@ -1,0 +1,8 @@
+div.node {
+    border-color: blueviolet;
+    border-style: solid;
+    background-color: lightblue;
+}
+div.container-fluid {
+    padding-bottom: 2px;
+}

@@ -1,0 +1,33 @@
+<div class="container-fluid threadCreate">
+    <div class="container-fluid">
+        <div class="row">
+            <h4 (click)="isCollapsed = !isCollapsed">Logical thread control</h4>
+        </div>
+        <div [collapse]="isCollapsed" class="container-fluid">
+            
+            <div class="row">
+                <div class="col-lg-3"><strong>Thread lifetime</strong></div>
+                <div class="col-lg-9">{{model.threadLifetime}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3"><strong>Key search forward</strong></div>
+                <div class="col-lg-9">{{model.keySearchForward}}</div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3"><strong>Context based action switch</strong></div>
+            </div>
+            <div class="container-fluid">
+                <contextBasedActionSwitch [model]="model.contextBasedActionSwitch"></contextBasedActionSwitch>
+            </div>                        
+            
+            <div class="row">
+                <div class="col-lg-3"><strong>Key searched for</strong></div>
+            </div>
+            <div class="container-fluid">
+                <woollyKey [model]="model.keyToSearchFor"></woollyKey>
+            </div>                        
+        </div>
+    </div>
+</div>

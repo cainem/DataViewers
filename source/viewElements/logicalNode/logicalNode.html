@@ -1,0 +1,33 @@
+<div class="container-fluid node">
+    <div class="container-fluid">
+        <div class="row">
+            <h4 (click)="isCollapsed = !isCollapsed">Logical node</h4>
+        </div>
+        <div [collapse]="isCollapsed" class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3"><strong>Is synchronising</strong></div>
+                <div class="col-lg-9">{{model.isSynchronising}}</div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3"><strong>Logical implicit connection settings</strong></div>
+            </div>
+            <div class="container-fluid">
+                <logicalImplicitConnectionSettings [model]="model.logicalImplicitConnectionSettings"></logicalImplicitConnectionSettings>
+            </div>
+                        
+            <div class="row">
+                <div class="col-lg-3"><strong>Key</strong></div>
+            </div>
+            <div class="container-fluid">
+                <woollyKey [model]="model.key"></woollyKey>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"><strong>Node functions</strong></div>
+            </div>
+            <div class="container-fluid">
+                <logicalNodeFunction *ngFor="let t of model.logicalNodeFunctions" [model]="t"></logicalNodeFunction>
+            </div>
+        </div>
+    </div>
+</div>

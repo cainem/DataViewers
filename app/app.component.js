@@ -1,27 +1,13 @@
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.message = "hello world";
-    }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: '<div class="container-fluid"><button class="btn-lg btn-primary">{{message}}</button></div>'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
-}());
-exports.AppComponent = AppComponent;
+// import { Component } from '@angular/core';
+// @Component({
+//   selector: 'my-app',
+//   template: '<div class="container-fluid"><button class="btn-lg btn-primary">{{message}}</button></div>'
+// })
+// export class AppComponent {
+//   message : string;
+//   constructor() {  
+//     this.message = "hello world";  
+//   }
+//  } 
 
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7OztBQUFBLHFCQUEwQixlQUFlLENBQUMsQ0FBQTtBQU0xQztJQUVFO1FBQ0UsSUFBSSxDQUFDLE9BQU8sR0FBRyxhQUFhLENBQUM7SUFDL0IsQ0FBQztJQVJIO1FBQUMsZ0JBQVMsQ0FBQztZQUNULFFBQVEsRUFBRSxRQUFRO1lBQ2xCLFFBQVEsRUFBRSw0RkFBNEY7U0FDdkcsQ0FBQzs7b0JBQUE7SUFNRCxtQkFBQztBQUFELENBTEQsQUFLRSxJQUFBO0FBTFcsb0JBQVksZUFLdkIsQ0FBQSIsImZpbGUiOiJhcHAuY29tcG9uZW50LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ29tcG9uZW50IH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XHJcblxyXG5AQ29tcG9uZW50KHtcclxuICBzZWxlY3RvcjogJ215LWFwcCcsXHJcbiAgdGVtcGxhdGU6ICc8ZGl2IGNsYXNzPVwiY29udGFpbmVyLWZsdWlkXCI+PGJ1dHRvbiBjbGFzcz1cImJ0bi1sZyBidG4tcHJpbWFyeVwiPnt7bWVzc2FnZX19PC9idXR0b24+PC9kaXY+J1xyXG59KVxyXG5leHBvcnQgY2xhc3MgQXBwQ29tcG9uZW50IHtcclxuICBtZXNzYWdlIDogc3RyaW5nO1xyXG4gIGNvbnN0cnVjdG9yKCkgeyAgXHJcbiAgICB0aGlzLm1lc3NhZ2UgPSBcImhlbGxvIHdvcmxkXCI7ICBcclxuICB9XHJcbiB9Il0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsNkNBQTZDO0FBRTdDLGVBQWU7QUFDZix3QkFBd0I7QUFDeEIsMkdBQTJHO0FBQzNHLEtBQUs7QUFDTCw4QkFBOEI7QUFDOUIsc0JBQXNCO0FBQ3RCLHNCQUFzQjtBQUN0QixzQ0FBc0M7QUFDdEMsTUFBTTtBQUNOLEtBQUsiLCJmaWxlIjoiYXBwLmNvbXBvbmVudC5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIGltcG9ydCB7IENvbXBvbmVudCB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xyXG5cclxuLy8gQENvbXBvbmVudCh7XHJcbi8vICAgc2VsZWN0b3I6ICdteS1hcHAnLFxyXG4vLyAgIHRlbXBsYXRlOiAnPGRpdiBjbGFzcz1cImNvbnRhaW5lci1mbHVpZFwiPjxidXR0b24gY2xhc3M9XCJidG4tbGcgYnRuLXByaW1hcnlcIj57e21lc3NhZ2V9fTwvYnV0dG9uPjwvZGl2PidcclxuLy8gfSlcclxuLy8gZXhwb3J0IGNsYXNzIEFwcENvbXBvbmVudCB7XHJcbi8vICAgbWVzc2FnZSA6IHN0cmluZztcclxuLy8gICBjb25zdHJ1Y3RvcigpIHsgIFxyXG4vLyAgICAgdGhpcy5tZXNzYWdlID0gXCJoZWxsbyB3b3JsZFwiOyAgXHJcbi8vICAgfVxyXG4vLyAgfSJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==

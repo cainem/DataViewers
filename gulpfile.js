@@ -7,7 +7,7 @@ var gulp = require("gulp"),
 var tsProject = tsc.createProject("tsconfig.json");
 var tsProjectTest = tsc.createProject("tsconfig.json");
 
-gulp.task("build", function() {
+gulp.task("build-ts", function() {
     return gulp.src([
             "source/**/**.ts",
             "typings/main.d.ts/",
@@ -18,6 +18,16 @@ gulp.task("build", function() {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest("app/"));
 });   
+
+gulp.task('build-html', function () {
+    return gulp.src('source/**/*.html')
+        .pipe(gulp.dest("app/"));
+});
+
+gulp.task('build-css', function () {
+    return gulp.src('source/**/*.css')
+        .pipe(gulp.dest("app/"));
+});
 
 gulp.task("build-tests", function() {
     return gulp.src([
@@ -37,3 +47,4 @@ gulp.task("run-tests", function() {
 });
 
 gulp.task("test", ['build', 'build-tests', 'run-tests']);
+gulp.task("build", [ 'build-ts', 'build-html', 'build-css'])
