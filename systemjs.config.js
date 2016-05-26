@@ -5,7 +5,8 @@
     'app':                        'app', // 'dist',
     'rxjs':                       'node_modules/rxjs',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
-    '@angular':                   'node_modules/@angular'
+    '@angular':                   'node_modules/@angular',
+    'd3':                         'node_modules/d3'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -13,6 +14,7 @@
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { defaultExtension: 'js' },
+    'd3':                         { main: 'd3.js', defaultExtension: 'js' }
   };
 
   var packageNames = [
@@ -25,7 +27,7 @@
     '@angular/router',
     '@angular/router-deprecated',
     '@angular/testing',
-    '@angular/upgrade',
+    '@angular/upgrade',        
   ];
 
   // add package entries for angular packages in the form '@angular/common': { main: 'index.js', defaultExtension: 'js' }
