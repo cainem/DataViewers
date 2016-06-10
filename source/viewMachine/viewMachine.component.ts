@@ -1,50 +1,57 @@
-import {Component, OnChanges, ElementRef, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NodesAndConnections} from '../viewMachineElements/nodesAndConnections/nodesAndConnections.component';
+import {LinksAndNodesData} from '../viewMachineElements/nodesAndConnections/linksAndNodesData';
 import * as d3 from 'd3';
 
 @Component({
     templateUrl: './app/viewMachine/viewMachine.html',
-    directives: [],
+    directives: [NodesAndConnections],
     styleUrls: ['./app/viewMachine/viewMachine.css']
 })
-export class ViewMachine implements OnInit, OnChanges {
-    public message = "hello";
-    public data: Array<number> = [10, 20, 30, 40, 50]
-    public divs: any;
-    public width : number = 500;
-    public height: number = 500;
-    public el : any;
+export class ViewMachine implements OnInit {
     
-    public constructor(elementRef : ElementRef) {
-        this.el    = elementRef.nativeElement;
-    }
-        
-    ngOnInit () {                
-        var graph:any = d3.select('#d3Container');
+    public data : LinksAndNodesData;
 
-        this.divs = graph.
-        // append('div').
-        // attr({
-        //     'class': 'chart'
-        // }).
-        // style({
-        //     'width':  this.width  + 'px',
-        //     'height': this.height + 'px',
-        // }).
-        selectAll('div');             
-        this.render(this.data);   
+    initData = () => {
+        this.data = {
+            nodes: [
+                { 
+                    name: "A",
+                    x: 200,
+                    y: 150
+                },
+                {
+                    name: "B",
+                    x: 140,
+                    y: 300
+                },
+                {
+                    name: "C",
+                    x: 300,
+                    y: 300
+                },
+                {
+                    name: "D",
+                    x: 300,
+                    y: 180
+                }],
+            links: [
+                {
+                    source: 0,
+                    target: 1
+                },
+                {
+                    source: 1,
+                    target: 2
+                },
+                {
+                    source: 2,
+                    target: 3
+                }]
+        }
     }
-    
-    ngOnChanges (changes) {
-        this.render(this.data);
-    };
-    
-    public render = (newValue) => {        
-        if (!newValue) return;
-        // this.divs.data(newValue).enter().append('div')
-        this.divs.data(this.data).enter().append('div')
-        .transition().ease('elastic')
-        .style('width', d => d + '%')
-        .text(d => d + '%');
-    };
-
+       
+    ngOnInit () {               
+        this.initData();                 
+    }    
 }
