@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row col-lg-12">
+        <h2>Logical stream viewer</h2>
+    </div>
+    
+    <div class="row col-lg-12">
+        <jsInput></jsInput>
+    </div>
+    
+    <div class="row col-lg-12">
+        <div class="row col-lg-2"></div>
+        <div class="row viewer col-lg-8">
+            <chromosome *ngFor="let t of json; let i = index" [index]="i" [model]="t"></chromosome>
+        </div>
+        <div class="row col-lg-2"></div>
+    </div>       
+</div>

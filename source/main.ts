@@ -5,7 +5,7 @@
 
 import { bootstrap }    from '@angular/platform-browser-dynamic';
 import { ROUTER_PROVIDERS } from '@angular/router'
-import { RootMenuComponent } from "./rootMenu/rootMenu.component";
+import { RootMenuComponent } from "./routerMenus/rootMenu/rootMenu.component";
 import { RouteConfig } from "@angular/router-deprecated"
 
 

@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li>
+                <a [routerLink]="['ViewLogicalStream']">View logical stream</a>
+            </li>
+            <li>
+                <a [routerLink]="['ViewMachine']">View machine</a>
+            </li>
+            <li>
+                <a [routerLink]="['ViewThreadTree']">View thread tree</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <router-outlet></router-outlet>
+</div>
