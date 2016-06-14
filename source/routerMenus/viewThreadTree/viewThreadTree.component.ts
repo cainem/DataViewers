@@ -15,27 +15,43 @@ export class ViewThreadTree implements OnInit {
     initData = () => {
         this.data = {
             rootThread : {
+                debugText : "level 0",
+                depth: 0,
                 geneSets : [],
                 childThreads : [
                     {
+                        depth: 1,
+                        debugText : "level 1",
+                        geneSets : [],
                         childThreads : 
                         [
                             {
+                                depth : 2,
+                                debugText : "level 2",
                                 geneSets : [],
                                 childThreads : [
                                     {
+                                        depth : 3,
+                                        debugText : "level 3",
                                         geneSets : [],
                                         childThreads : [
                                             {
+                                                depth : 4,
+                                                debugText : "level 4",
                                                 geneSets : [],
                                                 childThreads :  []
+                                            },
+                                            {
+                                                depth : 4,
+                                                debugText : "level 4",
+                                                geneSets: [],
+                                                childThreads : []
                                             }
                                         ]
                                     }
                                 ]
                             }
                         ],
-                        geneSets : []
                     }
                 ]
             }

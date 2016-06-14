@@ -1,5 +1,6 @@
 import {Component, OnChanges, OnInit, Input} from '@angular/core';
 import {IThreadViewDataset} from '../data/IThreadViewDataset';
+import {IThread} from '../data/IThread';
 import * as d3 from 'd3';
 
 @Component({
@@ -22,81 +23,86 @@ export class ThreadViewContainer implements OnInit, OnChanges {
         this.render(this.data);
     };
     
-    public render = (newValue : IThreadViewDataset) => {        
+    public render = (newValue : IThreadViewDataset) => {
         if (!newValue) return;
         
-        var c10 = d3.scale.category20();
-        var svg = d3.select("#d3Container")
-            .append("svg")
-            .attr("width", 1200)
-            .attr("height", 800);
+        var margin = {top: 20, right: 120, bottom: 20, left: 120},
+            width = 2960 - margin.right - margin.left,
+            height = 2500 - margin.top - margin.bottom;
+            
+        var i = 0;
 
-//         var drag = d3.behavior.drag<Node>()
-//             .on("drag", function(d, i) 
-//             {
-//                 d.x += (<d3.DragEvent>d3.event).dx
-//                 d.y += (<d3.DragEvent>d3.event).dy
-//                 d3.select(this).attr("cx", d.x).attr("cy", d.y);
-//                 links.each(function(l : Link, li) {
-//                     if (l.source == i) {
-//                     d3.select(this).attr("x1", d.x).attr("y1", d.y);
-//                     } 
-//                     else if (l.target == i) {
-//                         d3.select(this).attr("x2", d.x).attr("y2", d.y);
-//                     }
-//                 });
-//             });
+        var tree : d3.layout.Tree<IThread> = d3.layout.tree<IThread>()
+            .size([height, width]);
 
-//             var links = svg.selectAll("link")
-//             .data(newValue.links)
-//             .enter()
-//             .append("line")
-//             .attr("class", "link")
-//             .attr("x1", function(l) {
-//                 var sourceNode = newValue.nodes.filter(function(d, i) {
-//                 return i == l.source
-//                 })[0];
-//                 d3.select(this).attr("y1", sourceNode.y);
-//                 return sourceNode.x
-//             })
-//    .attr("x2", function(l) {
-//      var targetNode = newValue.nodes.filter(function(d, i) {
-//        return i == l.target
-//      })[0];
-//      d3.select(this).attr("y2", targetNode.y);
-//      return targetNode.x
-//    })
-//    .attr("fill", "none")
-//    .attr("stroke", "white");
+        tree.children(function(d) {
+            return d.childThreads;
+        })
 
-//     var nodes = svg.selectAll("node")
-//     .data(newValue.nodes)
-//     .enter()
-//     .append("circle")
-//     .attr("class", "node")
-//     .attr("cx", function(d) {
-//         return d.x
-//     })
-//     .attr("cy", function(d) {
-//         return d.y
-//     })
-//     .attr("r", 15)
-//     .attr("fill", function(d, i) {
-//         return c10(i.toString());
-//     })
-//     .call(drag);    
+        var diagonal = d3.svg.diagonal<IThread>()
+            .projection(function(d) { return [d.y, d.x]; });
 
-    let button = svg.append("circle").        
-        // attr("height", "100").
-        // attr("width", "100").
-        attr("cx", 100).
-        attr("cy", 100).
-        attr("r", 100).
-        attr("fill", "purple");
+        var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.right + margin.left)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        let root = newValue.rootThread;
+        
+        let update = (source : IThread) => {
+
+            // Compute the new tree layout.
+            let nodes = tree.nodes(root).reverse(),
+                links = tree.links(nodes);
+
+            //let x : d3.layout.tree.Node = nodes[0];
+
+
+            // Normalize for fixed-depth.
+            nodes.forEach(function(d) { 
+                d.y = d.depth * 280; 
+            });
+
+            // Declare the nodes…
+            var node = svg.selectAll("g.node")
+                .data(nodes, function(d) { return (d.id || (d.id = ++i)).toString(); });
+
+            // Enter the nodes.
+            var nodeEnter = node.enter().append("g")
+                .attr("class", "node")
+                .attr("transform", function(d) { 
+                    return "translate(" + d.y + "," + d.x + ")"; });
+
+            nodeEnter.append("circle")
+                .attr("r", function(d) { return 15; })
+                .style("stroke", function(d) { return "red"; })
+                .style("fill", function(d) { return d.depth; });
+
+            nodeEnter.append("text")
+                .attr("x", function(d) { 
+                    return d.childThreads ? 
+                    20 * -1 : 20 })
+                .attr("dy", ".35em")
+                .attr("text-anchor", function(d) { 
+                    return d.childThreads ? "end" : "start"; })
+                .text(function(d) { return d.debugText; })
+                .style("fill-opacity", 1);
+
+            // Declare the links…
+            var link = svg.selectAll("path.link")
+                .data(links, function(d) { return d.target.id.toString(); });
+
+            // Enter the links.
+            link.enter().insert("path", "g")
+                .attr("class", "link")
+                .style("stroke", function(d) { return d.target.depth; })
+                .attr("d", diagonal);
+
+        }
+        
+        update(root);
 
 
     };
-
-
-
 }
