@@ -26,77 +26,90 @@ export class ThreadViewContainer implements OnInit, OnChanges {
     public render = (newValue : IThreadViewDataset) => {
         if (!newValue) return;
         
-        var margin = {top: 20, right: 120, bottom: 20, left: 120},
-            width = 2960 - margin.right - margin.left,
-            height = 2500 - margin.top - margin.bottom;
-            
-        var i = 0;
+        // define a square
+        let margin = {top: 20, right: 120, bottom: 20, left: 120},
+            width = 960 - margin.right - margin.left,
+            height = 500 - margin.top - margin.bottom;
 
-        var tree : d3.layout.Tree<IThread> = d3.layout.tree<IThread>()
+        // a global counter to id the nodes            
+        let i = 0;
+
+        //define the extent of the tree
+        let tree : d3.layout.Tree<IThread> = d3.layout.tree<IThread>()
             .size([height, width]);
 
-        tree.children(function(d) {
+        // define a function to get a nodes children
+        tree.children(function(d : IThread) {
             return d.childThreads;
         })
 
-        var diagonal = d3.svg.diagonal<IThread>()
-            .projection(function(d) { return [d.y, d.x]; });
+        // define a diagonal function in terms of "IThread"
+        let diagonal : d3.svg.Diagonal<d3.svg.diagonal.Link<IThread>, IThread> = d3.svg.diagonal<IThread>()
+            .projection((d : IThread) => { return [d.y, d.x]; });
 
+        // define an svg canvas    
         var svg = d3.select("body").append("svg")
             .attr("width", width + margin.right + margin.left)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        let root = newValue.rootThread;
+        // define root of tree
+        let root : IThread = newValue.rootThread;
         
         let update = (source : IThread) => {
 
             // Compute the new tree layout.
-            let nodes = tree.nodes(root).reverse(),
-                links = tree.links(nodes);
-
-            //let x : d3.layout.tree.Node = nodes[0];
-
+            let nodes : IThread[] = tree.nodes(root).reverse()
+            let links : d3.layout.tree.Link<IThread>[] = tree.links(nodes);
 
             // Normalize for fixed-depth.
-            nodes.forEach(function(d) { 
-                d.y = d.depth * 280; 
+            nodes.forEach(function(d : IThread) { 
+                d.y = d.depth * 180; 
             });
 
             // Declare the nodes…
-            var node = svg.selectAll("g.node")
-                .data(nodes, function(d) { return (d.id || (d.id = ++i)).toString(); });
+            let node : d3.selection.Update<IThread> = svg.selectAll("g.node")
+                .data(nodes, (d : IThread) => { 
+                    // returns an id for a node;
+                    // if a node hasn't yet got an id then add one
+                    return (d.id || (d.id = ++i)).toString(); 
+                });
 
-            // Enter the nodes.
+            // Enter the nodes (add new nodes).
+            // a new node is a "g" element presumably so that it can contain more than one element (circle and text)
             var nodeEnter = node.enter().append("g")
+                // add the class node; this will identify the nodes for selection with the selectAll
                 .attr("class", "node")
-                .attr("transform", function(d) { 
-                    return "translate(" + d.y + "," + d.x + ")"; });
+                // move the g to the correct position on screen
+                .attr("transform", (d : IThread) => { 
+                    return "translate(" + d.y + "," + d.x + ")"; 
+                });
 
+            // add a circle for the new nodes
             nodeEnter.append("circle")
-                .attr("r", function(d) { return 15; })
-                .style("stroke", function(d) { return "red"; })
-                .style("fill", function(d) { return d.depth; });
+                .attr("r", (d : IThread) => { return 15; })
+                .style("stroke", (d: IThread) => { return "red"; })
+                .style("fill", (d: IThread) => { return d.depth; });
 
+            // add text for the new nodes
             nodeEnter.append("text")
-                .attr("x", function(d) { 
-                    return d.childThreads ? 
-                    20 * -1 : 20 })
+                .attr("x", (d : IThread) => { 
+                    return d.childThreads ? 20 * -1 : 20 })
                 .attr("dy", ".35em")
-                .attr("text-anchor", function(d) { 
+                .attr("text-anchor", (d : IThread) => { 
                     return d.childThreads ? "end" : "start"; })
-                .text(function(d) { return d.debugText; })
+                .text((d : IThread) => { return d.debugText; })
                 .style("fill-opacity", 1);
 
             // Declare the links…
             var link = svg.selectAll("path.link")
-                .data(links, function(d) { return d.target.id.toString(); });
+                .data(links, (d) => { return d.target.id.toString(); });
 
             // Enter the links.
             link.enter().insert("path", "g")
                 .attr("class", "link")
-                .style("stroke", function(d) { return d.target.depth; })
+                .style("stroke", (d : d3.layout.tree.Link<IThread>) => { return d.target.depth; })
                 .attr("d", diagonal);
 
         }
