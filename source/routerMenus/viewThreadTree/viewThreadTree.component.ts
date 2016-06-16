@@ -52,6 +52,12 @@ export class ViewThreadTree implements OnInit {
                                 ]
                             }
                         ],
+                    },
+                    {
+                        depth : 1,
+                        debugText : "level 1",
+                        geneSets : [],
+                        childThreads: []
                     }
                 ]
             }

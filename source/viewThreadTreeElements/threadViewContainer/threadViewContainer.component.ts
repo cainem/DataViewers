@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, Input} from '@angular/core';
+import {Component, OnChanges, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {IThreadViewDataset} from '../data/IThreadViewDataset';
 import {IThread} from '../data/IThread';
 import {IMargin} from './IMargin';
@@ -12,6 +12,7 @@ import * as d3 from 'd3';
 })
 export class ThreadViewContainer implements OnInit, OnChanges {  
     @Input() data : IThreadViewDataset;
+	@Output() selectDataObjectChanged : EventEmitter<number> = new EventEmitter();
     
     private margin : IMargin;
     private height: number;
@@ -42,7 +43,7 @@ export class ThreadViewContainer implements OnInit, OnChanges {
     };
 
     ngOnChanges(data : any) {
-        this.svg = d3.select("#d3Container").append("svg")
+        this.svg = d3.select("#d3ThreadsContainer").append("svg")
                     .attr("width", this.width + this.margin.right + this.margin.left)
                     .attr("height", this.height + this.margin.top + this.margin.bottom)
                     .append("g")
@@ -52,6 +53,11 @@ export class ThreadViewContainer implements OnInit, OnChanges {
             this.render(this.data);
         }
     };
+
+    onClick() {
+        // this event is called when a thread is clicked upon in the left pane
+        alert("here");
+    }
 
     public render = (newValue : IThreadViewDataset) => {
         
@@ -87,6 +93,10 @@ export class ThreadViewContainer implements OnInit, OnChanges {
         // add a circle for the new nodes
         nodeEnter.append("circle")
             .attr("r", (d : IThread) => 15)
+            .attr("onclick", (d: IThread) => 
+                "document.getElementById('localInput').value = " + 
+                 d.id + 
+                 "; document.getElementById('other').click();")
             .style("stroke", (d: IThread) => "red")
             .style("fill", (d: IThread) => d.depth);
 
