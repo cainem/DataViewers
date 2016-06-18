@@ -1,11 +1,11 @@
 import { IThreadViewDataset  } from '../../viewThreadTreeElements/data/IThreadViewDataset';
-import { ThreadViewContainer } from '../../viewThreadTreeElements/threadViewcontainer/threadViewContainer.component';
+import { ThreadsView } from '../../viewThreadTreeElements/threadsView/threadsView.component';
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
     templateUrl: './app/routerMenus/viewThreadTree/viewThreadTree.html',
-    directives: [ ThreadViewContainer ],
+    directives: [ ThreadsView ],
     styleUrls: ['./app/routerMenus/viewThreadTree/viewThreadTree.css']
 })
 export class ViewThreadTree implements OnInit {

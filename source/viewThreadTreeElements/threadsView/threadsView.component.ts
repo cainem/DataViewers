@@ -5,12 +5,12 @@ import {IMargin} from './IMargin';
 import * as d3 from 'd3';
 
 @Component({
-    selector: 'thread-view-container',
-    templateUrl: './app/viewThreadTreeElements/threadViewContainer/threadViewContainer.html',
+    selector: 'threads-view',
+    templateUrl: './app/viewThreadTreeElements/threadsView/threadsView.html',
     directives: [],
     styleUrls: []
 })
-export class ThreadViewContainer implements OnInit, OnChanges {  
+export class ThreadsView implements OnInit, OnChanges {  
     @Input() data : IThreadViewDataset;
 	@Output() selectDataObjectChanged : EventEmitter<number> = new EventEmitter();
     
@@ -47,7 +47,9 @@ export class ThreadViewContainer implements OnInit, OnChanges {
                     .attr("width", this.width + this.margin.right + this.margin.left)
                     .attr("height", this.height + this.margin.top + this.margin.bottom)
                     .append("g")
-                    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");        
+                    .call(d3.behavior.zoom().scaleExtent([0.1, 8]).on("zoom", this.zoom))                    
+                    .append("g")
+                    //.attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");        
 
         if (this.svg) {
             this.render(this.data);
@@ -57,6 +59,11 @@ export class ThreadViewContainer implements OnInit, OnChanges {
     onClick() {
         // this event is called when a thread is clicked upon in the left pane
         alert("here");
+    }
+
+    public zoom = () => {
+        let ev : any = d3.event;
+        this.svg.attr("transform", "translate(" + ev.translate + ")scale(" + ev.scale + ")");
     }
 
     public render = (newValue : IThreadViewDataset) => {
@@ -93,10 +100,10 @@ export class ThreadViewContainer implements OnInit, OnChanges {
         // add a circle for the new nodes
         nodeEnter.append("circle")
             .attr("r", (d : IThread) => 15)
-            .attr("onclick", (d: IThread) => 
-                "document.getElementById('localInput').value = " + 
-                 d.id + 
-                 "; document.getElementById('other').click();")
+            // .attr("onclick", (d: IThread) => 
+            //     "document.getElementById('localInput').value = " + 
+            //      d.id + 
+            //      "; document.getElementById('eventRaiser').click();")
             .style("stroke", (d: IThread) => "red")
             .style("fill", (d: IThread) => d.depth);
 
