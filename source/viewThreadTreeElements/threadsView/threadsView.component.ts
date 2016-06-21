@@ -25,7 +25,7 @@ export class ThreadsView implements OnInit, OnChanges {
 
     constructor() {
         this.margin = {top: 20, right: 120, bottom: 20, left: 120};
-        this.height = 500 - this.margin.top - this.margin.bottom;
+        this.height = 600 - this.margin.top - this.margin.bottom;
         this.width = 960 - this.margin.right - this.margin.left;
         this.nodeIndexCounter = 0;
         this.tree = d3.layout.tree<IThread>()
@@ -45,23 +45,24 @@ export class ThreadsView implements OnInit, OnChanges {
 
     ngOnChanges(data : any) {
         this.svg = d3.select("#d3ThreadsContainer").append("svg")
-                    .attr("width", this.width + this.margin.left + this.margin.right)
-                    .attr("height", this.width + this.margin.left + this.margin.right)                    
+                    .attr("style","vertical-align: top")
+                    .attr("width", "100%")
+                    .attr("height", "80%")     
+                    .attr("viewBox", "0 0 " + (this.width + this.margin.left + this.margin.right) + " " + (this.height + this.margin.bottom + this.margin.top) + " ")               
                     .append("g")
                     .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")        
         
                     //add zoom control
                     .append("g")
-                    .call(d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", this.zoom));
+                    .call(d3.behavior.zoom().scaleExtent([0.1, 8]).on("zoom", this.zoom));
 
                     // why is this different from chaining all of the calls???
                     // it seems to be because call behaves differently
         this.svg.append("g")
                     .append("rect")
-                    .attr("z-order", "0")
                     .attr("style", "fill: pink; pointer-events: all;") 
-                    .attr("width", this.width + this.margin.left + this.margin.right)
-                    .attr("height", this.width + this.margin.left + this.margin.right);
+                    .attr("width", this.width)
+                    .attr("height", this.height);
 
 
         if (this.svg) {
