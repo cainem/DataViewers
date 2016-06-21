@@ -38,9 +38,3 @@
 span.messing {
   background-color: red
 }
-
-/* this has to be here for zooming to work */
-/*.overlay {
-  fill: none;
-  pointer-events: all;
-}*/
