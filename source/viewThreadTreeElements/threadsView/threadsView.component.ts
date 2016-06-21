@@ -19,8 +19,9 @@ export class ThreadsView implements OnInit, OnChanges {
     private width: number;
     private nodeIndexCounter: number;
     private tree: d3.layout.Tree<IThread>;
-    private diagonal : d3.svg.Diagonal<d3.svg.diagonal.Link<IThread>, IThread>
-    private svg : d3.Selection<any>
+    private diagonal : d3.svg.Diagonal<d3.svg.diagonal.Link<IThread>, IThread>;
+    private svg : d3.Selection<any>;
+    private radius: number;
 
     constructor() {
         this.margin = {top: 20, right: 120, bottom: 20, left: 120};
@@ -44,12 +45,24 @@ export class ThreadsView implements OnInit, OnChanges {
 
     ngOnChanges(data : any) {
         this.svg = d3.select("#d3ThreadsContainer").append("svg")
-                    .attr("width", this.width + this.margin.right + this.margin.left)
-                    .attr("height", this.height + this.margin.top + this.margin.bottom)
+                    .attr("width", this.width + this.margin.left + this.margin.right)
+                    .attr("height", this.width + this.margin.left + this.margin.right)                    
                     .append("g")
-                    .call(d3.behavior.zoom().scaleExtent([0.1, 8]).on("zoom", this.zoom))                    
+                    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")        
+        
+                    //add zoom control
                     .append("g")
-                    //.attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");        
+                    .call(d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", this.zoom));
+
+                    // why is this different from chaining all of the calls???
+                    // it seems to be because call behaves differently
+        this.svg.append("g")
+                    .append("rect")
+                    .attr("z-order", "0")
+                    .attr("style", "fill: pink; pointer-events: all;") 
+                    .attr("width", this.width + this.margin.left + this.margin.right)
+                    .attr("height", this.width + this.margin.left + this.margin.right);
+
 
         if (this.svg) {
             this.render(this.data);
@@ -89,6 +102,21 @@ export class ThreadsView implements OnInit, OnChanges {
                 // if a node hasn't yet got an id then add one
                 (d.id || (d.id = ++this.nodeIndexCounter)).toString());
 
+        // Declare the links…
+        let link : d3.selection.Update<d3.layout.tree.Link<IThread>> = this.svg.selectAll("path.link")
+            .data(links, (d : d3.layout.tree.Link<IThread>) => 
+            {
+                // returns the key for the link 
+                return d.target.id.toString(); 
+            });
+
+        // Enter the links, the links need to be drawn on first, the z-order is determined by the drawn order
+        link.enter().append("path")
+            .attr("class", "link")
+            .style("stroke", (d : d3.layout.tree.Link<IThread>) => { return d.target.depth; })
+            .attr("d", this.diagonal)
+            .attr("fill", "black");
+
         // Enter the nodes (add new nodes).
         // a new node is a "g" element presumably so that it can contain more than one element (circle and text)
         let nodeEnter : d3.Selection<IThread> = selectedNodes.enter().append("g")
@@ -100,34 +128,16 @@ export class ThreadsView implements OnInit, OnChanges {
         // add a circle for the new nodes
         nodeEnter.append("circle")
             .attr("r", (d : IThread) => 15)
-            // .attr("onclick", (d: IThread) => 
-            //     "document.getElementById('localInput').value = " + 
-            //      d.id + 
-            //      "; document.getElementById('eventRaiser').click();")
             .style("stroke", (d: IThread) => "red")
             .style("fill", (d: IThread) => d.depth);
 
         // add text for the new nodes
         nodeEnter.append("text")
-            .attr("x", (d : IThread) => d.childThreads ? 20 * -1 : 20 )
+            .attr("x", (d : IThread) => -20 )
             .attr("dy", ".35em")
             .attr("text-anchor", (d : IThread) => d.childThreads ? "end" : "start")
             .text((d : IThread) => d.debugText)
             .style("fill-opacity", 1);
-
-        // Declare the links…
-        let link : d3.selection.Update<d3.layout.tree.Link<IThread>> = this.svg.selectAll("path.link")
-            .data(links, (d : d3.layout.tree.Link<IThread>) => 
-            {
-                // returns the key for the link 
-                return d.target.id.toString(); 
-            });
-
-        // Enter the links.
-        link.enter().insert("path", "g")
-            .attr("class", "link")
-            .style("stroke", (d : d3.layout.tree.Link<IThread>) => { return d.target.depth; })
-            .attr("d", this.diagonal);
 
     };
 }
