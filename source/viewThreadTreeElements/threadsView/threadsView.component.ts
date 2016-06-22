@@ -2,6 +2,8 @@ import {Component, OnChanges, OnInit, Input, Output, EventEmitter} from '@angula
 import {IThreadViewDataset} from '../data/IThreadViewDataset';
 import {IThread} from '../data/IThread';
 import {IMargin} from './IMargin';
+import {NodeHelper} from './NodeHelper';
+import {SvgHelper} from './svgHelper';
 import * as d3 from 'd3';
 
 @Component({
@@ -14,29 +16,20 @@ export class ThreadsView implements OnInit, OnChanges {
     @Input() data : IThreadViewDataset;
 	@Output() selectDataObjectChanged : EventEmitter<number> = new EventEmitter();
     
-    private margin : IMargin;
-    private height: number;
-    private width: number;
+    private svgHelper : SvgHelper; 
     private nodeIndexCounter: number;
     private tree: d3.layout.Tree<IThread>;
-    private diagonal : d3.svg.Diagonal<d3.svg.diagonal.Link<IThread>, IThread>;
-    private svg : d3.Selection<any>;
     private radius: number;
 
     constructor() {
-        this.margin = {top: 20, right: 120, bottom: 20, left: 120};
-        this.height = 600 - this.margin.top - this.margin.bottom;
-        this.width = 960 - this.margin.right - this.margin.left;
+
+        this.svgHelper = new SvgHelper();
         this.nodeIndexCounter = 0;
         this.tree = d3.layout.tree<IThread>()
-            .size([this.height, this.width]);
+            .size([this.svgHelper.height, this.svgHelper.width]);
 
         // define a function to get a nodes children
         this.tree.children((d : IThread) => d.childThreads);
-
-        // define a diagonal function in terms of "IThread"
-        this.diagonal = d3.svg.diagonal<IThread>()
-            .projection((d : IThread) => [d.y, d.x]);
     }
 
     ngOnInit() {
@@ -44,28 +37,10 @@ export class ThreadsView implements OnInit, OnChanges {
     };
 
     ngOnChanges(data : any) {
-        this.svg = d3.select("#d3ThreadsContainer").append("svg")
-                    .attr("style","vertical-align: top")
-                    .attr("width", "100%")
-                    .attr("height", "80%")     
-                    .attr("viewBox", "0 0 " + (this.width + this.margin.left + this.margin.right) + " " + (this.height + this.margin.bottom + this.margin.top) + " ")               
-                    .append("g")
-                    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")        
-        
-                    //add zoom control
-                    .append("g")
-                    .call(d3.behavior.zoom().scaleExtent([0.1, 8]).on("zoom", this.zoom));
+        let div = d3.select("#d3ThreadsContainer");
 
-                    // why is this different from chaining all of the calls???
-                    // it seems to be because call behaves differently
-        this.svg.append("g")
-                    .append("rect")
-                    .attr("style", "fill: pink; pointer-events: all;") 
-                    .attr("width", this.width)
-                    .attr("height", this.height);
-
-
-        if (this.svg) {
+        if (div) {
+            this.svgHelper.configureSvgWithZoom(div);
             this.render(this.data);
         }
     };
@@ -73,11 +48,6 @@ export class ThreadsView implements OnInit, OnChanges {
     onClick() {
         // this event is called when a thread is clicked upon in the left pane
         alert("here");
-    }
-
-    public zoom = () => {
-        let ev : any = d3.event;
-        this.svg.attr("transform", "translate(" + ev.translate + ")scale(" + ev.scale + ")");
     }
 
     public render = (newValue : IThreadViewDataset) => {
@@ -93,52 +63,24 @@ export class ThreadsView implements OnInit, OnChanges {
         let nodes : IThread[] = this.tree.nodes(root).reverse()
         let links : d3.layout.tree.Link<IThread>[] = this.tree.links(nodes);
 
-        // Normalize for fixed-depth.
-        nodes.forEach((d : IThread) => d.y = d.depth * 180);
-
         // Declare the nodes…
-        let selectedNodes : d3.selection.Update<IThread> = this.svg.selectAll("g.node")
+        let selectedNodes : d3.selection.Update<IThread> = this.svgHelper.svg.selectAll("g.node")
             .data(nodes, (d : IThread) =>  
                 // returns an id for a node;
                 // if a node hasn't yet got an id then add one
                 (d.id || (d.id = ++this.nodeIndexCounter)).toString());
 
         // Declare the links…
-        let link : d3.selection.Update<d3.layout.tree.Link<IThread>> = this.svg.selectAll("path.link")
+        let link : d3.selection.Update<d3.layout.tree.Link<IThread>> = this.svgHelper.svg.selectAll("path.link")
             .data(links, (d : d3.layout.tree.Link<IThread>) => 
             {
                 // returns the key for the link 
                 return d.target.id.toString(); 
             });
 
-        // Enter the links, the links need to be drawn on first, the z-order is determined by the drawn order
-        link.enter().append("path")
-            .attr("class", "link")
-            .style("stroke", (d : d3.layout.tree.Link<IThread>) => { return d.target.depth; })
-            .attr("d", this.diagonal)
-            .attr("fill", "black");
 
         // Enter the nodes (add new nodes).
         // a new node is a "g" element presumably so that it can contain more than one element (circle and text)
-        let nodeEnter : d3.Selection<IThread> = selectedNodes.enter().append("g")
-            // add the class node; this will identify the nodes for selection with the selectAll
-            .attr("class", "node")
-            // move the g to the correct position on screen
-            .attr("transform", (d : IThread) => "translate(" + d.y + "," + d.x + ")");
-
-        // add a circle for the new nodes
-        nodeEnter.append("circle")
-            .attr("r", (d : IThread) => 15)
-            .style("stroke", (d: IThread) => "red")
-            .style("fill", (d: IThread) => d.depth);
-
-        // add text for the new nodes
-        nodeEnter.append("text")
-            .attr("x", (d : IThread) => -20 )
-            .attr("dy", ".35em")
-            .attr("text-anchor", (d : IThread) => d.childThreads ? "end" : "start")
-            .text((d : IThread) => d.debugText)
-            .style("fill-opacity", 1);
-
+        NodeHelper.drawNodes(selectedNodes.enter());    
     };
 }
