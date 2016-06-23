@@ -1,11 +1,8 @@
 <div class="container-fluid">
     <div class="row col-lg-12">
-        <span class="messing">Thread view</span>
-        <!-- hidden provides a place for the d3 events to place values -->
-        <input id="localInput" type="hidden" value="-1" />
-        <!-- the button provodes a place for the d3 events to inform angular that there is soemthing to look for -->
-        <button id="other" (click)="onClick()" >pressMe</button>
+        <span>Thread view</span>
     </div>
     <div id="d3ThreadsContainer" class="row col-lg-6">
+        <span>{{selectedIndex}}</span>
     </div>
 </div>

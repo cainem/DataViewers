@@ -3,6 +3,7 @@ import {IThreadViewDataset} from '../data/IThreadViewDataset';
 import {IThread} from '../data/IThread';
 import {IMargin} from './IMargin';
 import {NodeHelper} from './NodeHelper';
+import {LinkHelper} from './LinkHelper';
 import {SvgHelper} from './svgHelper';
 import * as d3 from 'd3';
 
@@ -16,10 +17,13 @@ export class ThreadsView implements OnInit, OnChanges {
     @Input() data : IThreadViewDataset;
 	@Output() selectDataObjectChanged : EventEmitter<number> = new EventEmitter();
     
+    public selectedIndex : string;
+
     private svgHelper : SvgHelper; 
     private nodeIndexCounter: number;
     private tree: d3.layout.Tree<IThread>;
     private radius: number;
+
 
     constructor() {
 
@@ -46,8 +50,9 @@ export class ThreadsView implements OnInit, OnChanges {
     };
 
     onClick() {
+        let element  = <HTMLInputElement>document.getElementById('localInput');
         // this event is called when a thread is clicked upon in the left pane
-        alert("here");
+        this.selectDataObjectChanged.next(Number(element.value));
     }
 
     public render = (newValue : IThreadViewDataset) => {
@@ -78,6 +83,8 @@ export class ThreadsView implements OnInit, OnChanges {
                 return d.target.id.toString(); 
             });
 
+
+        LinkHelper.drawLinks(link.enter());
 
         // Enter the nodes (add new nodes).
         // a new node is a "g" element presumably so that it can contain more than one element (circle and text)

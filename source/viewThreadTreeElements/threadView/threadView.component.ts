@@ -10,6 +10,9 @@ import * as d3 from 'd3';
     styleUrls: []
 })
 export class ThreadView implements OnChanges { 
+    @Input() data : IThreadViewDataset;   
+    @Input() selectedIndex : number;
+     
     ngOnChanges(data : any) {
 
     } 

@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <div class="row col-lg-6">
-        <threads-view [data]="data"></threads-view>
+        <threads-view [data]="data" (selectDataObjectChanged)="selectionChanged($event)"></threads-view>
     </div>
     <div class="row col-lg-6">
-        <thread-view></thread-view>
+        <thread-view [data]="data" [selectedIndex]="selectedIndex"></thread-view>
     </div>
 <div>
