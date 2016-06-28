@@ -31,13 +31,16 @@ gulp.task('build-css', function () {
 
 gulp.task("build-tests", function() {
     return gulp.src([
+            "source/**/**.ts",
             "test/source/**/**.ts",
             "typings/main.d.ts/",
             "source/interfaces/interfaces.d.ts"
         ])
         .pipe(sourcemaps.init())
         .pipe(tsc(tsProjectTest))
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write( { "sourceRoot": function(file) {
+            return file.cwd + "/test/source" 
+        }} ))
         .pipe(gulp.dest("test/out/"));
 });   
 

@@ -14,8 +14,7 @@ export class ViewThreadTree implements OnInit {
     public data : IThreadViewDataset
     public selectedIndex : number;
 
-    public selectionChanged(event : UIEvent) {
-        console.log(event);
+    public selectionChanged(event : number) {
         this.selectedIndex = event;
     }
 
