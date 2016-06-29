@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ROUTER_DIRECTIVES} from "@angular/router";
+import {ROUTER_DIRECTIVES} from "@angular/router-deprecated";
 import {LogicalNodeComponent} from '../logicalNode/logicalNode.component';
 import {LogicalConnectionComponent} from '../logicalConnection/logicalConnection.component';
 import {LogicalJumpComponent} from '../logicalJump/logicalJump.component';

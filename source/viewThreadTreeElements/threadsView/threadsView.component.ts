@@ -15,7 +15,7 @@ import * as d3 from 'd3';
 })
 export class ThreadsView implements OnInit, OnChanges {  
     @Input() data : IThreadViewDataset;
-	@Output() selectDataObjectChanged : EventEmitter<number> = new EventEmitter();
+	@Output() selectDataObjectChanged : EventEmitter<number> = new EventEmitter<number>();
     
     public selectedIndex : string;
 

@@ -8,6 +8,7 @@ describe('ThreadViewDataset tests', () => {
             let target = new ThreadViewDataset(
             {
                 debugText : "level 0",
+                id: 1,
                 depth: 0,
                 geneSets : [],
                 childThreads : []

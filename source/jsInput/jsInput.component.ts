@@ -1,6 +1,5 @@
 import {Component, Output, Input, EventEmitter} from '@angular/core';
 import {WrappedJson} from  '../wrappedJson';
-//import {ROUTER_DIRECTIVES, RouteConfig} from "@angular/router";
 import {ViewOfJson} from '../data/logicalBuildingUnitDisplay/viewOfJson';
 
 
@@ -32,7 +31,7 @@ export class JsInputComponent {
     {
         this._viewOfJson = viewOfJson;
         this.json = new WrappedJson();
-        this.jsonChanged = new EventEmitter();
+        this.jsonChanged = new EventEmitter<string>();
     }
          
 }

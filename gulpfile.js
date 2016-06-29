@@ -38,10 +38,8 @@ gulp.task("build-tests", function() {
         ])
         .pipe(sourcemaps.init())
         .pipe(tsc(tsProjectTest))
-        .pipe(sourcemaps.write( { "sourceRoot": function(file) {
-            return file.cwd + "/test/source" 
-        }} ))
-        .pipe(gulp.dest("test/out/"));
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest("test/out/"))
 });   
 
 gulp.task("run-tests", function() {

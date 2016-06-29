@@ -4,7 +4,7 @@
 // window.Zone = Zone;
 
 import { bootstrap }    from '@angular/platform-browser-dynamic';
-import { ROUTER_PROVIDERS } from '@angular/router'
+import { ROUTER_PROVIDERS } from '@angular/router-deprecated'
 import { RootMenuComponent } from "./routerMenus/rootMenu/rootMenu.component";
 import { RouteConfig } from "@angular/router-deprecated"
 
