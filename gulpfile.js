@@ -38,14 +38,14 @@ gulp.task("build-tests", function() {
         ])
         .pipe(sourcemaps.init())
         .pipe(tsc(tsProjectTest))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest("test/out/"))
+        .pipe(sourcemaps.write('.', { "includeContent" : true, "sourceRoot" : ".." }))
+        .pipe(gulp.dest("test/out/"));
 });   
 
-gulp.task("run-tests", function() {
+gulp.task("run-tests", [ "build-tests" ], function() {
     return gulp.src('test/out/**/*.test.js')
         .pipe(mocha({ui: 'bdd'}));
 });
 
-gulp.task("test", ['build', 'build-tests', 'run-tests']);
+gulp.task("test", [ 'build-tests', 'run-tests']);
 gulp.task("build", [ 'build-ts', 'build-html', 'build-css'])
