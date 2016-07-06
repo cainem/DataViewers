@@ -1,4 +1,4 @@
-import {ILogicalReaderReturn} from '../logicalBuildingUnitDisplay/logicalReaderReturnDto';
+import {LogicalReaderReturnDto} from '../AllDtos';
 import {Chromosome} from '../logicalBuildingUnitDisplay/chromosome';
 import {Gene} from '../logicalBuildingUnitDisplay/gene';
 import {Component, Input, Output, EventEmitter} from '@angular/core';
@@ -9,7 +9,7 @@ export class ViewOfJson {
 	@Output() rawJsonChanged : EventEmitter<Object> = new EventEmitter();
 
 	get jsonAsLogicalStream(): Chromosome[] {
-		let allLogicalReaderReturns = <ILogicalReaderReturn[]>this.rawJson;
+		let allLogicalReaderReturns = <LogicalReaderReturnDto[]>this.rawJson;
 		let chromosomes : Chromosome[] = [];
 		
 		if (!allLogicalReaderReturns || allLogicalReaderReturns.length === 0) {

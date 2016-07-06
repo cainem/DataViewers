@@ -1,7 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {LogicalNodeDto} from '../../data/logicalBuildingUnitDisplay/logicalNodeDto';
-import {LogicalNodeFunctionDto} from '../../data/logicalBuildingUnitDisplay/logicalNodeFunctionDto';
-import {LogicalImplicitConnectionSettingsDto} from '../../data/logicalBuildingUnitDisplay/logicalImplicitConnectionSettingsDto';
+import {LogicalNodeDto, LogicalNodeFunctionDto, LogicalImplicitConnectionSettingsDto} from '../../data/AllDtos';
 import {WoollyKey} from '../woollyKey/woollyKey.component';
 import {LogicalNodeFunctionComponent} from '../logicalNodeFunction/logicalNodeFunction.component';
 import {Collapse} from '../../sharedControls/collapsibleDiv/collapsibleDiv.component';

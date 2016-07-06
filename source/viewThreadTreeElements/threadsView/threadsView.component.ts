@@ -1,10 +1,10 @@
 import {Component, OnChanges, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {IThreadViewDataset} from '../data/IThreadViewDataset';
 import {IThread} from '../data/IThread';
-import {IMargin} from './IMargin';
+import {IMargin} from '../d3Helpers/IMargin';
 import {NodeHelper} from './NodeHelper';
 import {LinkHelper} from './LinkHelper';
-import {SvgHelper} from './svgHelper';
+import {SvgHelper} from '../d3Helpers/svgHelper';
 import * as d3 from 'd3';
 
 @Component({
@@ -24,9 +24,7 @@ export class ThreadsView implements OnInit, OnChanges {
     private tree: d3.layout.Tree<IThread>;
     private radius: number;
 
-
     constructor() {
-
         this.svgHelper = new SvgHelper();
         this.nodeIndexCounter = 0;
         this.tree = d3.layout.tree<IThread>()

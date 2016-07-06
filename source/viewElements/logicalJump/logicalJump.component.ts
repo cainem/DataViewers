@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {LogicalJumpDto} from '../../data/logicalBuildingUnitDisplay/logicalJumpDto';
+import {LogicalJumpDto} from '../../data/AllDtos';
 import {WoollyKey} from '../woollyKey/woollyKey.component';
 import {ContextBasedActionSwitchComponent} from '../contextBasedActionSwitch/contextBasedActionSwitch.component';
 import {Collapse} from '../../sharedControls/collapsibleDiv/collapsibleDiv.component';

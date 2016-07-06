@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {LogicalThreadControlDto} from '../../data/logicalBuildingUnitDisplay/logicalThreadControlDto';
+import {LogicalThreadControlDto} from '../../data/AllDtos';
 import {WoollyKey} from '../woollyKey/woollyKey.component';
 import {ContextBasedActionSwitchComponent} from '../contextBasedActionSwitch/contextBasedActionSwitch.component';
 import {Collapse} from '../../sharedControls/collapsibleDiv/collapsibleDiv.component';

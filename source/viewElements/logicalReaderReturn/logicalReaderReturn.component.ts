@@ -5,7 +5,7 @@ import {LogicalConnectionComponent} from '../logicalConnection/logicalConnection
 import {LogicalJumpComponent} from '../logicalJump/logicalJump.component';
 import {LogicalThreadControlComponent} from '../logicalThreadControl/logicalThreadControl.component';
 import {GenomePositionComponent} from '../genomePosition/genomePosition.component';
-import {ILogicalReaderReturn} from '../../data/logicalBuildingUnitDisplay/logicalReaderReturnDto';
+import {LogicalReaderReturnDto} from '../../data/AllDtos';
 import {Collapse} from '../../sharedControls/collapsibleDiv/collapsibleDiv.component';
 
 @Component({
@@ -18,5 +18,5 @@ import {Collapse} from '../../sharedControls/collapsibleDiv/collapsibleDiv.compo
     
 })
 export class LogicalReaderReturnComponent {
-    @Input() model : ILogicalReaderReturn;    
+    @Input() model : LogicalReaderReturnDto;    
 }

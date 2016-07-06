@@ -1,7 +1,7 @@
-import {ILogicalReaderReturn} from './logicalReaderReturnDto'
+import {LogicalReaderReturnDto} from '../AllDtos';
 
 export class Gene {
-    public logicalReaderReturns : ILogicalReaderReturn[];
+    public logicalReaderReturns : LogicalReaderReturnDto[];
     
     constructor() {
         this.logicalReaderReturns = [];

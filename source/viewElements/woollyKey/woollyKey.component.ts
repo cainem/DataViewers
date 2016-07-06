@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {WoollyKeyDto} from '../../data/infrastructure/woollyKeyDto';
+import {WoollyKeyDto} from '../../data/AllDtos';
 import {Collapse} from '../../sharedControls/collapsibleDiv/collapsibleDiv.component';
 
 @Component({

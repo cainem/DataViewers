@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {GenomePositionDto} from '../../data/infrastructure/genomePositionDto';
+import {GenomePositionDto} from '../../data/AllDtos';
 import {Collapse} from '../../sharedControls/collapsibleDiv/collapsibleDiv.component';
 
 @Component({

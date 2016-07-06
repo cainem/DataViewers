@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {LogicalNodeFunctionDto} from '../../data/logicalBuildingUnitDisplay/logicalNodeFunctionDto';
+import {LogicalNodeFunctionDto} from '../../data/AllDtos';
 import {Collapse} from '../../sharedControls/collapsibleDiv/collapsibleDiv.component';
 
 

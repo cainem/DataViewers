@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ContextBasedActionSwitchDto} from '../../data/logicalBuildingUnitDisplay/contextBasedActionSwitchDto';
+import {ContextBasedActionSwitchDto} from '../../data/AllDtos';
 import {Collapse} from '../../sharedControls/collapsibleDiv/collapsibleDiv.component';
 
 @Component({

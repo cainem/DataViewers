@@ -3,7 +3,7 @@ import {JsInputComponent} from '../../jsInput/jsInput.component'
 //import {WrappedJson} from '../wrappedJson'
 import {ChromosomeComponent} from '../../viewElements/chromosome/chromosome.component';
 import {ViewOfJson} from '../../data/logicalBuildingUnitDisplay/viewOfJson'
-import {ILogicalReaderReturn} from '../../data/logicalBuildingUnitDisplay/logicalReaderReturnDto';
+import {LogicalReaderReturnDto} from '../../data/AllDtos';
 import {Chromosome} from '../../data/logicalBuildingUnitDisplay/chromosome';
 
 @Component({

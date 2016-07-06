@@ -1,10 +1,9 @@
-
 import {LogicalReaderReturnComponent} from '../logicalReaderReturn/logicalReaderReturn.component'
-import {ILogicalReaderReturn} from '../../data/logicalBuildingUnitDisplay/logicalReaderReturnDto'
+import {LogicalReaderReturnDto} from '../../data/AllDtos';
 
 export class TransformService {
     
-    public transform(data :ILogicalReaderReturn[]) : LogicalReaderReturnComponent[] {        
+    public transform(data :LogicalReaderReturnDto[]) : LogicalReaderReturnComponent[] {        
         for (let value of data) {
             let logicalReaderReturnComponent = new LogicalReaderReturnComponent();
             

@@ -1,4 +1,5 @@
 import { IThreadViewDataset  } from '../../viewThreadTreeElements/data/IThreadViewDataset';
+import { ThreadViewDataset  } from '../../viewThreadTreeElements/data/ThreadViewDataset';
 import { ThreadsView } from '../../viewThreadTreeElements/threadsView/threadsView.component';
 import { ThreadView } from '../../viewThreadTreeElements/threadView/threadView.component'
 import { Component, OnInit } from '@angular/core';
@@ -19,8 +20,7 @@ export class ViewThreadTree implements OnInit {
     }
 
     initData = () => {
-        this.data = {
-            rootThread : {
+        this.data = new ThreadViewDataset({
                 id : 1,
                 debugText : "level 0",
                 depth: 0,
@@ -74,7 +74,7 @@ export class ViewThreadTree implements OnInit {
                     }
                 ]
             }
-        };
+        );
 
     }
        

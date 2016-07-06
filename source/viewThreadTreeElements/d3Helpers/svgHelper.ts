@@ -1,5 +1,5 @@
 import {IThread} from '../data/IThread';
-import {IMargin} from './IMargin';
+import {IMargin} from '../d3Helpers/IMargin';
 
 /*
     This class helps with the setting up of a zoomable svg container.

@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {WoollyKey} from '../woollyKey/woollyKey.component';
 import {Collapse} from '../../sharedControls/collapsibleDiv/collapsibleDiv.component';
-import {LogicalConnectionDto} from '../../data/logicalBuildingUnitDisplay/logicalConnectionDto';
+import {LogicalConnectionDto} from '../../data/AllDtos';
 
 
 @Component({
