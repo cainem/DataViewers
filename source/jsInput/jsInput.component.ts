@@ -1,6 +1,6 @@
 import {Component, Output, Input, EventEmitter} from '@angular/core';
 import {WrappedJson} from  '../wrappedJson';
-import {ViewOfJson} from '../data/logicalBuildingUnitDisplay/viewOfJson';
+import {ViewOfJson} from '../viewElements/data/viewOfJson';
 
 
 @Component({

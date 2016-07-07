@@ -1,0 +1,26 @@
+<div class="container-fluid threadControl">
+    <div class="container-fluid">
+        <div class="row">
+            <h4 (click)="isCollapsed = !isCollapsed">Logical thread control</h4>
+        </div>
+        <div [collapse]="isCollapsed" class="container-fluid">
+            
+            <div class="row">
+                <div class="col-lg-3"><strong>Mark thread complete</strong></div>
+                <div class="col-lg-9">{{model.markThreadComplete}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3"><strong>Return control food limit</strong></div>
+                <div class="col-lg-9">{{model.returnControlFoodLimit}}</div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3"><strong>Context based action switch</strong></div>
+            </div>
+            <div class="container-fluid">
+                <contextBasedActionSwitch [model]="model.contextBasedActionSwitch"></contextBasedActionSwitch>
+            </div>                        
+        </div>
+    </div>
+</div>

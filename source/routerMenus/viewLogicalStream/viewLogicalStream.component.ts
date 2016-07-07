@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {JsInputComponent} from '../../jsInput/jsInput.component'
 //import {WrappedJson} from '../wrappedJson'
-import {ChromosomeComponent} from '../../viewElements/chromosome/chromosome.component';
-import {ViewOfJson} from '../../data/logicalBuildingUnitDisplay/viewOfJson'
+import {ChromosomeComponent} from '../../viewElements/components/chromosome/chromosome.component';
+import {ViewOfJson} from '../../viewElements/data/viewOfJson'
 import {LogicalReaderReturnDto} from '../../data/AllDtos';
-import {Chromosome} from '../../data/logicalBuildingUnitDisplay/chromosome';
+import {Chromosome} from '../../viewElements/data/chromosome';
 
 @Component({
     templateUrl: './app/routerMenus/viewLogicalStream/viewLogicalStream.html',

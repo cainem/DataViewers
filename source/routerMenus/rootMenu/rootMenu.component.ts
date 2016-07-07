@@ -4,8 +4,8 @@ import {ViewLogicalStream} from "../viewLogicalStream/viewLogicalStream.componen
 import {ViewMachine} from "../viewMachine/viewMachine.component";
 import {ViewThreadTree} from "../viewThreadTree/viewThreadTree.component";
 
-import {LogicalConnectionComponent} from '../../viewElements/logicalConnection/logicalConnection.component';
-import {LogicalNodeComponent} from '../../viewElements/logicalNode/logicalNode.component';
+import {LogicalConnectionComponent} from '../../viewElements/components/logicalConnection/logicalConnection.component';
+import {LogicalNodeComponent} from '../../viewElements/components/logicalNode/logicalNode.component';
 
 @Component({
     selector: 'rootMenu',

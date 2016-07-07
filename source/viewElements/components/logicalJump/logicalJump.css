@@ -1,0 +1,8 @@
+div.jump {
+    border-color: brown;
+    border-style: solid;
+    background-color: burlywood;
+}
+div.container-fluid {
+    padding-bottom: 2px;
+}
