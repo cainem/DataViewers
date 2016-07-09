@@ -1,5 +1,5 @@
 import {Component, provide, Inject} from '@angular/core';
-import {JsInputComponent} from '../../jsInput/jsInput.component'
+import {JsInputComponent} from '../../jsInput/jsInput.component';
 import {ChromosomeComponent} from '../../viewElements/components/chromosome/chromosome.component';
 import {TransformJsonToLogicalStream} from '../data/transformJsonToLogicalStream'
 import {LogicalReaderReturnDto} from '../../data/AllDtos';

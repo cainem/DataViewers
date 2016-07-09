@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteConfig} from "@angular/router-deprecated"
 import {ViewLogicalStream} from "../../viewElements/rootComponent/viewLogicalStream.component";
 import {ViewMachine} from "../viewMachine/viewMachine.component";
-import {ViewThreadTree} from "../viewThreadTree/viewThreadTree.component";
+import {ViewThreadTree} from "../../viewThreadTreeElements/rootComponent/viewThreadTree.component";
 
 import {LogicalConnectionComponent} from '../../viewElements/components/logicalConnection/logicalConnection.component';
 import {LogicalNodeComponent} from '../../viewElements/components/logicalNode/logicalNode.component';

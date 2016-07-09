@@ -4,15 +4,17 @@ import { ThreadsView } from '../../viewThreadTreeElements/threadsView/threadsVie
 import { ThreadView } from '../../viewThreadTreeElements/threadView/threadView.component'
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
+import {JsInputComponent} from '../../jsInput/jsInput.component';
+
 
 @Component({
-    templateUrl: './app/routerMenus/viewThreadTree/viewThreadTree.html',
-    directives: [ ThreadsView, ThreadView ],
-    styleUrls: ['./app/routerMenus/viewThreadTree/viewThreadTree.css']
+    templateUrl: './app/viewThreadTreeElements/rootComponent/viewThreadTree.html',
+    directives: [ JsInputComponent, ThreadsView, ThreadView ],
+    styleUrls: ['./app/viewThreadTreeElements/rootComponent/viewThreadTree.css']
 })
 export class ViewThreadTree implements OnInit {
     
-    public data : IThreadViewDataset
+    public data : IThreadViewDataset;
     public selectedIndex : number;
 
     public selectionChanged(event : number) {
