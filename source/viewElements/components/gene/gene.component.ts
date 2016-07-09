@@ -5,9 +5,9 @@ import {LogicalReaderReturnComponent} from '../logicalReaderReturn/logicalReader
 
 @Component({
     selector: 'gene',
-    templateUrl: './app/viewElements/gene/gene.html',
+    templateUrl: './app/viewElements/components/gene/gene.html',
     directives: [Collapse, LogicalReaderReturnComponent],
-    styleUrls: ['./app/viewElements/gene/gene.css']
+    styleUrls: ['./app/viewElements/components/gene/gene.css']
 })
 export class GeneComponent {
     @Input() model : Gene;

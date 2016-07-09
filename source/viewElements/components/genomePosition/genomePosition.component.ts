@@ -4,9 +4,9 @@ import {Collapse} from '../../../sharedControls/collapsibleDiv/collapsibleDiv.co
 
 @Component({
     selector: 'genomePosition',
-    templateUrl: './app/viewElements/genomePosition/genomePosition.html',
+    templateUrl: './app/viewElements/components/genomePosition/genomePosition.html',
     directives: [Collapse],
-    styleUrls: ['./app/viewElements/genomePosition/genomePosition.css']
+    styleUrls: ['./app/viewElements/components/genomePosition/genomePosition.css']
 })
 export class GenomePositionComponent {
     @Input() model : GenomePositionDto    

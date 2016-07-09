@@ -6,9 +6,9 @@ import {Collapse} from '../../../sharedControls/collapsibleDiv/collapsibleDiv.co
 
 @Component({
     selector: 'logicalThreadControl',
-    templateUrl: './app/viewElements/logicalThreadControl/logicalThreadControl.html',
+    templateUrl: './app/viewElements/components/logicalThreadControl/logicalThreadControl.html',
     directives: [WoollyKey, Collapse, ContextBasedActionSwitchComponent],
-    styleUrls: ['./app/viewElements/logicalThreadControl/logicalThreadControl.css']
+    styleUrls: ['./app/viewElements/components/logicalThreadControl/logicalThreadControl.css']
 })
 export class LogicalThreadControlComponent {    
     @Input() model : LogicalThreadControlDto    

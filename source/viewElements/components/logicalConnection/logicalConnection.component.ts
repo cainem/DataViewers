@@ -6,9 +6,9 @@ import {LogicalConnectionDto} from '../../../data/AllDtos';
 
 @Component({
     selector: 'logicalConnection',
-    templateUrl: './app/viewElements/logicalConnection/logicalConnection.html',
+    templateUrl: './app/viewElements/components/logicalConnection/logicalConnection.html',
     directives: [WoollyKey, Collapse],
-    styleUrls: ['./app/viewElements/logicalConnection/logicalConnection.css']
+    styleUrls: ['./app/viewElements/components/logicalConnection/logicalConnection.css']
 })
 export class LogicalConnectionComponent {
     @Input() model : LogicalConnectionDto    

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteConfig} from "@angular/router-deprecated"
-import {ViewLogicalStream} from "../viewLogicalStream/viewLogicalStream.component";
+import {ViewLogicalStream} from "../../viewElements/rootComponent/viewLogicalStream.component";
 import {ViewMachine} from "../viewMachine/viewMachine.component";
 import {ViewThreadTree} from "../viewThreadTree/viewThreadTree.component";
 

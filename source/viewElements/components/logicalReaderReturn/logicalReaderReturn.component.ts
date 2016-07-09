@@ -10,11 +10,11 @@ import {Collapse} from '../../../sharedControls/collapsibleDiv/collapsibleDiv.co
 
 @Component({
     selector: 'logicalReaderReturn',
-    templateUrl: './app/viewElements/logicalReaderReturn/logicalReaderReturn.html',
+    templateUrl: './app/viewElements/components/logicalReaderReturn/logicalReaderReturn.html',
     directives: [LogicalNodeComponent, LogicalConnectionComponent, LogicalJumpComponent, LogicalThreadControlComponent,
                  GenomePositionComponent, Collapse],
     providers : [],
-    styleUrls: ['./app/viewElements/logicalReaderReturn/logicalReaderReturn.css']
+    styleUrls: ['./app/viewElements/components/logicalReaderReturn/logicalReaderReturn.css']
     
 })
 export class LogicalReaderReturnComponent {

@@ -22,31 +22,31 @@ export class SvgHelper {
         this.width = 960 - this.margin.right - this.margin.left;
     }
 
-    zoom () : void {
-        let ev : any = d3.event;
-        this.svg.attr("transform", "translate(" + ev.translate + ")scale(" + ev.scale + ")");
+    public zoom : () => void = () => {
+            let ev : any = d3.event;
+            this.svg.attr("transform", "translate(" + ev.translate + ")scale(" + ev.scale + ")");
     }
 
-    configureSvgWithZoom (selection : d3.Selection<any>) : d3.Selection<any> {
+    public configureSvgWithZoom : (selection : d3.Selection<any>) => d3.Selection<any> = (selection : d3.Selection<any>) => {
         this.svg = selection.append("svg")
-                    .attr("style","vertical-align: top")
-                    .attr("width", "100%")
-                    .attr("height", "80%")     
-                    .attr("viewBox", "0 0 " + (this.width + this.margin.left + this.margin.right) + " " + (this.height + this.margin.bottom + this.margin.top) + " ")               
-                    .append("g")
-                    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")        
-        
-                    //add zoom control
-                    .append("g")
-                    .call(d3.behavior.zoom().scaleExtent([0.1, 8]).on("zoom", this.zoom));
+                .attr("style","vertical-align: top")
+                .attr("width", "100%")
+                .attr("height", "80%")     
+                .attr("viewBox", "0 0 " + (this.width + this.margin.left + this.margin.right) + " " + (this.height + this.margin.bottom + this.margin.top) + " ")               
+                .append("g")
+                .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")        
+    
+                //add zoom control
+                .append("g")
+                .call(d3.behavior.zoom().scaleExtent([0.1, 8]).on("zoom", this.zoom));
 
-                    // why is this different from chaining all of the calls???
-                    // it seems to be because call behaves differently
+                // why is this different from chaining all of the calls???
+                // it seems to be because call behaves differently
         this.svg.append("g")
-                    .append("rect")
-                    .attr("style", "fill: pink; pointer-events: all;") 
-                    .attr("width", this.width)
-                    .attr("height", this.height);
+                .append("rect")
+                .attr("style", "fill: pink; pointer-events: all;") 
+                .attr("width", this.width)
+                .attr("height", this.height);
 
         return this.svg;
     }

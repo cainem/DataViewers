@@ -4,9 +4,9 @@ import {Collapse} from '../../../sharedControls/collapsibleDiv/collapsibleDiv.co
 
 @Component({
     selector: 'contextBasedActionSwitch',
-    templateUrl: './app/viewElements/contextBasedActionSwitch/contextBasedActionSwitch.html',
+    templateUrl: './app/viewElements/components/contextBasedActionSwitch/contextBasedActionSwitch.html',
     directives: [Collapse],
-    styleUrls: ['./app/viewElements/contextBasedActionSwitch/contextBasedActionSwitch.css']
+    styleUrls: ['./app/viewElements/components/contextBasedActionSwitch/contextBasedActionSwitch.css']
 })
 export class ContextBasedActionSwitchComponent {    
     @Input() model : ContextBasedActionSwitchDto    

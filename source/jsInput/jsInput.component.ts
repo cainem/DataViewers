@@ -1,7 +1,6 @@
-import {Component, Output, Input, EventEmitter} from '@angular/core';
+import {Component, Output, Input, EventEmitter, Inject} from '@angular/core';
 import {WrappedJson} from  '../wrappedJson';
-import {ViewOfJson} from '../viewElements/data/viewOfJson';
-
+import {JsonTransformationService} from '../service/jsonTransformationService';
 
 @Component({
     selector: 'jsInput',
@@ -10,7 +9,7 @@ import {ViewOfJson} from '../viewElements/data/viewOfJson';
 })
 export class JsInputComponent {
     
-    private _viewOfJson : ViewOfJson;
+    private _viewOfJson : JsonTransformationService;
     
     @Input() public json : WrappedJson;
     @Output() jsonChanged : EventEmitter<string>;
@@ -27,7 +26,7 @@ export class JsInputComponent {
         this._viewOfJson.rawJson = this.json.parsedJson;
     }
         
-    public constructor(viewOfJson : ViewOfJson)
+    public constructor(@Inject("JsonTransformationService") viewOfJson : JsonTransformationService)
     {
         this._viewOfJson = viewOfJson;
         this.json = new WrappedJson();
