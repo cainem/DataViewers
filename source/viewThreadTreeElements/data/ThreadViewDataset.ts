@@ -1,13 +1,13 @@
-import { IThreadViewDataset } from './IThreadViewDataset';
-import { IThread } from './IThread';
 
-export class ThreadViewDataset implements IThreadViewDataset {
-    public rootThread : IThread;
+import { ThreadD3node } from './ThreadD3node'
+
+export class ThreadViewDataset {
+    public rootThread : ThreadD3node;
     findThreadById = (id : number) => {
         return this.findThreadInThreadById(this.rootThread, id);
     }
 
-    public findThreadInThreadById = (currentThread : IThread, id : number) => {
+    public findThreadInThreadById = (currentThread : ThreadD3node, id : number) => {
         if (currentThread.id === id) {
             return currentThread;
         }
@@ -26,7 +26,7 @@ export class ThreadViewDataset implements IThreadViewDataset {
         return null;
     }
 
-    constructor(rootThread : IThread) {
+    constructor(rootThread : ThreadD3node) {
         this.rootThread = rootThread;
     }
 

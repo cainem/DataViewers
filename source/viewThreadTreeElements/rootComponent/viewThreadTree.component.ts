@@ -1,4 +1,3 @@
-import { IThreadViewDataset  } from '../../viewThreadTreeElements/data/IThreadViewDataset';
 import { ThreadViewDataset  } from '../../viewThreadTreeElements/data/ThreadViewDataset';
 import { ThreadsView } from '../../viewThreadTreeElements/threadsView/threadsView.component';
 import { ThreadView } from '../../viewThreadTreeElements/threadView/threadView.component'
@@ -14,7 +13,7 @@ import {JsInputComponent} from '../../jsInput/jsInput.component';
 })
 export class ViewThreadTree implements OnInit {
     
-    public data : IThreadViewDataset;
+    public data : ThreadViewDataset;
     public selectedIndex : number;
 
     public selectionChanged(event : number) {

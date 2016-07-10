@@ -1,27 +1,27 @@
-import {IThread} from '../data/IThread';
+import {ThreadD3node} from '../data/ThreadD3node';
 
 export class NodeHelper {
-    static drawNodes (selection : d3.Selection<IThread> | d3.selection.Enter<IThread>) : d3.Selection<IThread> {
-        let nodeSelection : d3.Selection<IThread> = selection.append("g")
+    static drawNodes (selection : d3.Selection<ThreadD3node> | d3.selection.Enter<ThreadD3node>) : d3.Selection<ThreadD3node> {
+        let nodeSelection : d3.Selection<ThreadD3node> = selection.append("g")
             // add the class node; this will identify the nodes for selection with the selectAll
             .attr("class", "node")
             // move the g to the correct position on screen
-            .attr("transform", (d : IThread) => "translate(" + d.y + "," + d.x + ")");
+            .attr("transform", (d : ThreadD3node) => "translate(" + d.y + "," + d.x + ")");
 
         // add a circle for the new nodes
         nodeSelection.append("circle")
-            .attr("r", (d : IThread) => 15)
-            .style("stroke", (d: IThread) => "red")
-            .style("fill", (d: IThread) => d.depth)
-            .attr("onclick", (d: IThread) => 
+            .attr("r", (d : ThreadD3node) => 15)
+            .style("stroke", (d: ThreadD3node) => "red")
+            .style("fill", (d: ThreadD3node) => d.depth)
+            .attr("onclick", (d: ThreadD3node) => 
                 "document.getElementById('localInput').value = " + d.id + "; document.getElementById('eventRaiser').click();")            
 
         // add text for the new nodes
         nodeSelection.append("text")
-            .attr("x", (d : IThread) => -20 )
+            .attr("x", (d : ThreadD3node) => -20 )
             .attr("dy", ".35em")
-            .attr("text-anchor", (d : IThread) => d.childThreads ? "end" : "start")
-            .text((d : IThread) => d.debugText)
+            .attr("text-anchor", (d : ThreadD3node) => d.childThreads ? "end" : "start")
+            .text((d : ThreadD3node) => d.debugText)
             .style("fill-opacity", 1);        
 
         return nodeSelection;

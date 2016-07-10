@@ -1,6 +1,6 @@
 import {Component, OnChanges, OnInit, Input, Output, EventEmitter, SimpleChange} from '@angular/core';
-import {IThreadViewDataset} from '../data/IThreadViewDataset';
-import {IThread} from '../data/IThread';
+import {ThreadViewDataset} from '../data/ThreadViewDataset';
+import {ThreadD3node} from '../data/ThreadD3node';
 import {SvgHelper} from '../d3Helpers/svgHelper'
 import * as d3 from 'd3';
 
@@ -11,9 +11,9 @@ import * as d3 from 'd3';
     styleUrls: []
 })
 export class ThreadView implements OnChanges { 
-    @Input() data : IThreadViewDataset;   
+    @Input() data : ThreadViewDataset;   
     @Input() selectedIndex : number;
-    private selectedThread : IThread;
+    private selectedThread : ThreadD3node;
     private svgHelper : SvgHelper; 
      
     constructor() {
@@ -37,7 +37,7 @@ export class ThreadView implements OnChanges {
         }
     } 
 
-    public render = (newValue : IThreadViewDataset) => {
+    public render = (newValue : ThreadViewDataset) => {
 
 
         

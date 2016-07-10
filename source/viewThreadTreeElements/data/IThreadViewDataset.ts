@@ -1,6 +1,6 @@
-import { IThread } from './IThread'
+// import { ThreadD3node } from './ThreadD3node'
 
-export interface IThreadViewDataset {
-    rootThread : IThread;
-    findThreadById : (id : number) => IThread;    
-}
+// export interface IThreadViewDataset {
+//     rootThread : ThreadD3node;
+//     findThreadById : (id : number) => IThread;    
+// }
