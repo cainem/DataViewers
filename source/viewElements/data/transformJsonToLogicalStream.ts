@@ -6,12 +6,8 @@ import {JsonTransformationService} from '../../service/JsonTransformationService
 
 @Injectable()
 export class TransformJsonToLogicalStream implements JsonTransformationService {
-	private _rawJson : any;
-
-	rawJsonChanged : EventEmitter<Object> = new EventEmitter();
-
-	get transformedJson(): Chromosome[] {
-		let allLogicalReaderReturns = <LogicalReaderReturnDto[]>this.rawJson;
+	transformedJson = (rawJson : any) => {
+		let allLogicalReaderReturns = <LogicalReaderReturnDto[]>rawJson;
 		let chromosomes : Chromosome[] = [];
 		
 		if (!allLogicalReaderReturns || allLogicalReaderReturns.length === 0) {
@@ -49,13 +45,5 @@ export class TransformJsonToLogicalStream implements JsonTransformationService {
 		chromosomes.push(currentChromosome);
 		
 		return chromosomes;			
-	}
-    			
-    get rawJson(): any {
-        return this._rawJson;
-    }
-	set rawJson(value : any) {
-		this._rawJson = value;
-		this.rawJsonChanged.next(value);
-	}    	
+	}    			
 }

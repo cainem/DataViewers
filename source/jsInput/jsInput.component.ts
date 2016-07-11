@@ -1,5 +1,5 @@
 import {Component, Output, Input, EventEmitter, Inject} from '@angular/core';
-import {WrappedJson} from  '../wrappedJson';
+import {WrappedJson} from  './wrappedJson';
 import {JsonTransformationService} from '../service/jsonTransformationService';
 
 @Component({
@@ -8,11 +8,9 @@ import {JsonTransformationService} from '../service/jsonTransformationService';
     directives: []
 })
 export class JsInputComponent {
-    
-    private _viewOfJson : JsonTransformationService;
-    
+        
     @Input() public json : WrappedJson;
-    @Output() jsonChanged : EventEmitter<string>;
+    @Output() jsonChanged : EventEmitter<any>;
     
     get jsonString(): string {
         if (this.json)
@@ -23,14 +21,17 @@ export class JsInputComponent {
     }
     set jsonString(value : string) {
         this.json.unparsedJson = value;
-        this._viewOfJson.rawJson = this.json.parsedJson;
     }
         
-    public constructor(@Inject("JsonTransformationService") viewOfJson : JsonTransformationService)
+    public constructor()
     {
-        this._viewOfJson = viewOfJson;
-        this.json = new WrappedJson();
+        this.json = new WrappedJson();       
+        this.json.parsedJsonChanged.subscribe(this.wrappedJsonChanged); 
         this.jsonChanged = new EventEmitter<string>();
     }
          
+    wrappedJsonChanged : (value : any) => void = (value : any) => {
+        this.jsonChanged.next(value);
+    }
+
 }

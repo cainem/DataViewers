@@ -1,4 +1,4 @@
-import {Component, provide, Inject} from '@angular/core';
+import {Component, provide, Inject, EventEmitter} from '@angular/core';
 import {JsInputComponent} from '../../jsInput/jsInput.component';
 import {ChromosomeComponent} from '../../viewElements/components/chromosome/chromosome.component';
 import {TransformJsonToLogicalStream} from '../data/transformJsonToLogicalStream'
@@ -13,16 +13,20 @@ import {JsonTransformationService} from '../../service/JsonTransformationService
 })
 export class ViewLogicalStream {          
     public json : Chromosome[];
-    private _viewOfJson : JsonTransformationService;
-    private _onJsonChanged : () => void;
-    
-    constructor(@Inject("JsonTransformationService") inputJson :  JsonTransformationService) {
-        this._viewOfJson = inputJson;
+    private _transformationService : JsonTransformationService;
+    //private _onJsonChanged : (value : string) => void;    
+    //public jsonChanged : EventEmitter<any>;
+    public onJsonChanged : (value : any) => void = (value: any) => {
+        this.json = this._transformationService.transformedJson(value);
+        //this.jsonChanged.next(value);
+    }
+
+    constructor(@Inject("JsonTransformationService") transformationService :  JsonTransformationService) {
+        this._transformationService = transformationService;
         
-        this._onJsonChanged = () => {
-            this.json = this._viewOfJson.transformedJson;
-        }
-        
-        this._viewOfJson.rawJsonChanged.subscribe(this._onJsonChanged);
+        //this.jsonChanged = new EventEmitter<any>();
+        // this._onJsonChanged = (value : string) => {
+        //     this.json = this._transformationService.transformedJson(value);
+        // }        
     }         
 }
