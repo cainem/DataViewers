@@ -1,0 +1,230 @@
+[
+	{
+		"typeOfLogicalBuildingUnit": "LogicalNode",
+		"logicalBuildingUnit": {
+			"logicalNodeFunctions": [],
+			"logicalImplicitConnectionSettings": null,
+			"isSynchronising": true,
+			"key": {
+				"internalKey": 1,
+				"keyLength": 3
+			}
+		},
+		"nextGenomePosition": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 2
+				}
+			}
+		},
+		"currentPositionInGenome": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 1
+				}
+			}
+		},
+		"foodUnitsUsed": 1
+	},
+	{
+		"typeOfLogicalBuildingUnit": "LogicalNode",
+		"logicalBuildingUnit": {
+			"logicalNodeFunctions": [],
+			"logicalImplicitConnectionSettings": null,
+			"isSynchronising": true,
+			"key": {
+				"internalKey": 2,
+				"keyLength": 3
+			}
+		},
+		"nextGenomePosition": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 3
+				}
+			}
+		},
+		"currentPositionInGenome": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 2
+				}
+			}
+		},
+		"foodUnitsUsed": 1
+	},
+	{
+		"typeOfLogicalBuildingUnit": "LogicalConnection",
+		"logicalBuildingUnit": {
+			"keyToSearchFor": {
+				"internalKey": 3,
+				"keyLength": 2
+			},
+			"connectionFunctionType": "Identity",
+			"isLocal": true,
+			"isConnectToSearchedForNode": true,
+			"associatedConstant": 0.0,
+			"searchRange": 255
+		},
+		"nextGenomePosition": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 5
+				}
+			}
+		},
+		"currentPositionInGenome": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 4
+				}
+			}
+		},
+		"foodUnitsUsed": 2
+	},
+	{
+		"typeOfLogicalBuildingUnit": "LogicalConnection",
+		"logicalBuildingUnit": {
+			"keyToSearchFor": {
+				"internalKey": 3,
+				"keyLength": 2
+			},
+			"connectionFunctionType": "Identity",
+			"isLocal": true,
+			"isConnectToSearchedForNode": true,
+			"associatedConstant": 1.0,
+			"searchRange": 255
+		},
+		"nextGenomePosition": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 7
+				}
+			}
+		},
+		"currentPositionInGenome": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 6
+				}
+			}
+		},
+		"foodUnitsUsed": 2
+	},
+	{
+		"typeOfLogicalBuildingUnit": "LogicalNode",
+		"logicalBuildingUnit": {
+			"logicalNodeFunctions": [],
+			"logicalImplicitConnectionSettings": null,
+			"isSynchronising": true,
+			"key": {
+				"internalKey": 3,
+				"keyLength": 3
+			}
+		},
+		"nextGenomePosition": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 8
+				}
+			}
+		},
+		"currentPositionInGenome": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 7
+				}
+			}
+		},
+		"foodUnitsUsed": 1
+	},
+	{
+		"typeOfLogicalBuildingUnit": "LogicalNode",
+		"logicalBuildingUnit": {
+			"logicalNodeFunctions": [],
+			"logicalImplicitConnectionSettings": null,
+			"isSynchronising": false,
+			"key": {
+				"internalKey": 1,
+				"keyLength": 3
+			}
+		},
+		"nextGenomePosition": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 9
+				}
+			}
+		},
+		"currentPositionInGenome": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 8
+				}
+			}
+		},
+		"foodUnitsUsed": 1
+	},
+	{
+		"typeOfLogicalBuildingUnit": "LogicalConnection",
+		"logicalBuildingUnit": {
+			"keyToSearchFor": {
+				"internalKey": 3,
+				"keyLength": 2
+			},
+			"connectionFunctionType": "Identity",
+			"isLocal": true,
+			"isConnectToSearchedForNode": true,
+			"associatedConstant": 0.0,
+			"searchRange": 255
+		},
+		"nextGenomePosition": null,
+		"currentPositionInGenome": {
+			"chromosomePositionInGenome": 0,
+			"chromosomePosition": {
+				"positionInChromosome": 0,
+				"genePairPosition": {
+					"isMother": true,
+					"genePosition": 9
+				}
+			}
+		},
+		"foodUnitsUsed": 1
+	}
+]

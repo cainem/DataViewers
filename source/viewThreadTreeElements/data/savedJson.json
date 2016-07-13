@@ -1,7 +1,7 @@
 [{
 	"allThreads": [{
 		"creationGeneSet": null,
-		"lazyThreadMapThreadReference": null,
+		"lazyParentThread": null,
 		"internalGeneSets": [{
 			"threadMapNodes": [{
 				"pendingConnectionList": {
@@ -173,7 +173,7 @@
 	}],
 	"rootThreadMapThread": {
 		"creationGeneSet": null,
-		"lazyThreadMapThreadReference": null,
+		"lazyParentThread": null,
 		"internalGeneSets": [{
 			"threadMapNodes": [{
 				"pendingConnectionList": {

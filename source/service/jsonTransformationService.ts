@@ -1,3 +1,3 @@
 export interface JsonTransformationService {
-    transformedJson : (json :any) => any;    			
+    transformJson : (json :any) => any;    			
 }

@@ -6,7 +6,7 @@ import {JsonTransformationService} from '../../service/JsonTransformationService
 
 @Injectable()
 export class TransformJsonToLogicalStream implements JsonTransformationService {
-	transformedJson = (rawJson : any) => {
+	transformJson = (rawJson : any) => {
 		let allLogicalReaderReturns = <LogicalReaderReturnDto[]>rawJson;
 		let chromosomes : Chromosome[] = [];
 		

@@ -17,7 +17,7 @@ export class ViewLogicalStream {
     //private _onJsonChanged : (value : string) => void;    
     //public jsonChanged : EventEmitter<any>;
     public onJsonChanged : (value : any) => void = (value: any) => {
-        this.json = this._transformationService.transformedJson(value);
+        this.json = this._transformationService.transformJson(value);
         //this.jsonChanged.next(value);
     }
 
