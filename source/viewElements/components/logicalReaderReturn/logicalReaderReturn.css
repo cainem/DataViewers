@@ -10,7 +10,7 @@ div.container-fluid {
 div.LogicalNode {
     border-color: blueviolet;
     border-style: solid;
-    background-color: lightblue;
+    background-color: lightskyblue;
     margin-bottom: 20px;
 }
 div.LogicalConnection {
@@ -29,5 +29,11 @@ div.LogicalThreadControl {
     border-color: crimson;
     border-style: solid;
     background-color: rosybrown;
+    margin-bottom: 20px;
+}
+div.LogicalThreadCreate {
+    border-color: blue;
+    border-style: solid;
+    background-color: lightblue;
     margin-bottom: 20px;
 }

@@ -39,7 +39,9 @@
             <div class="container-fluid" *ngIf="model.typeOfLogicalBuildingUnit == 'LogicalThreadControl'">
                 <logicalThreadControl [model]="model.logicalBuildingUnit"></logicalThreadControl>
             </div>
-            
+            <div class="container-fluid" *ngIf="model.typeOfLogicalBuildingUnit == 'LogicalThreadCreate'">
+                <logicalThreadCreate [model]="model.logicalBuildingUnit"></logicalThreadCreate>
+            </div>
         </div>
     </div>
 </div>

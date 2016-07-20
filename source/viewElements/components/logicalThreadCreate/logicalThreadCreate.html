@@ -1,10 +1,9 @@
 <div class="container-fluid threadCreate">
     <div class="container-fluid">
         <div class="row">
-            <h4 (click)="isCollapsed = !isCollapsed">Logical thread control</h4>
+            <h4 (click)="isCollapsed = !isCollapsed">Logical thread create</h4>
         </div>
-        <div [collapse]="isCollapsed" class="container-fluid">
-            
+        <div [collapse]="isCollapsed" class="container-fluid">            
             <div class="row">
                 <div class="col-lg-3"><strong>Thread lifetime</strong></div>
                 <div class="col-lg-9">{{model.threadLifetime}}</div>

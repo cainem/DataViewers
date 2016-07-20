@@ -2,7 +2,7 @@
  import {ThreadMapThreadDto} from './ThreadMapThreadDto'
  
  export class LazyThreadMapThreadReferenceDto { 
-        public containingThread: ThreadMapThreadDto;
+        public isConnected: boolean;
         public threadMapThreadKey: ThreadMapThreadKeyDto;
         public targetThreadMapThread: ThreadMapThreadDto;
     }

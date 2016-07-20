@@ -5,11 +5,11 @@ import {ContextBasedActionSwitchComponent} from '../contextBasedActionSwitch/con
 import {Collapse} from '../../../sharedControls/collapsibleDiv/collapsibleDiv.component';
 
 @Component({
-    selector: 'logicalThreadControl',
-    templateUrl: './app/viewElements/components/logicalThreadControl/logicalThreadControl.html',
+    selector: 'logicalThreadCreate',
+    templateUrl: './app/viewElements/components/logicalThreadCreate/logicalThreadCreate.html',
     directives: [WoollyKey, Collapse, ContextBasedActionSwitchComponent],
-    styleUrls: ['./app/viewElements/components/logicalThreadControl/logicalThreadControl.css']
+    styleUrls: ['./app/viewElements/components/logicalThreadCreate/logicalThreadCreate.css']
 })
-export class LogicalThreadControlComponent {    
+export class LogicalThreadCreateComponent {    
     @Input() model : LogicalThreadCreateDto    
 }

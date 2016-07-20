@@ -4,15 +4,17 @@ import {LogicalNodeComponent} from '../logicalNode/logicalNode.component';
 import {LogicalConnectionComponent} from '../logicalConnection/logicalConnection.component';
 import {LogicalJumpComponent} from '../logicalJump/logicalJump.component';
 import {LogicalThreadControlComponent} from '../logicalThreadControl/logicalThreadControl.component';
+import {LogicalThreadCreateComponent} from '../logicalThreadCreate/logicalThreadCreate.component';
 import {GenomePositionComponent} from '../genomePosition/genomePosition.component';
 import {LogicalReaderReturnDto} from '../../../data/AllDtos';
 import {Collapse} from '../../../sharedControls/collapsibleDiv/collapsibleDiv.component';
+
 
 @Component({
     selector: 'logicalReaderReturn',
     templateUrl: './app/viewElements/components/logicalReaderReturn/logicalReaderReturn.html',
     directives: [LogicalNodeComponent, LogicalConnectionComponent, LogicalJumpComponent, LogicalThreadControlComponent,
-                 GenomePositionComponent, Collapse],
+                 GenomePositionComponent, Collapse, LogicalThreadCreateComponent],
     providers : [],
     styleUrls: ['./app/viewElements/components/logicalReaderReturn/logicalReaderReturn.css']
     
