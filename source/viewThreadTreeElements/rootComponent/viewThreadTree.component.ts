@@ -1,9 +1,11 @@
+import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
 import { ThreadViewDataset  } from '../../viewThreadTreeElements/data/ThreadViewDataset';
 import { ThreadsView } from '../../viewThreadTreeElements/threadsView/threadsView.component';
 import { ThreadView } from '../../viewThreadTreeElements/threadView/threadView.component'
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import {JsInputComponent} from '../../jsInput/jsInput.component';
+import {JsonTransformationService} from '../../service/JsonTransformationService';
+import {ThreadMapRootDto} from '../../data/AllDtos';
 
 
 @Component({
@@ -15,6 +17,17 @@ export class ViewThreadTree implements OnInit {
     
     public data : ThreadViewDataset;
     public selectedIndex : number;
+    public json : ThreadMapRootDto;
+
+    private _transformationService : JsonTransformationService;
+    public onJsonChanged : (value : any) => void = (value: any) => {
+        this.json = this._transformationService.transformJson(value);
+    }
+
+    constructor(@Inject("JsonTransformationService") transformationService :  JsonTransformationService) {
+        this._transformationService = transformationService;        
+    }         
+
 
     public selectionChanged(event : number) {
         this.selectedIndex = event;

@@ -14,19 +14,11 @@ import {JsonTransformationService} from '../../service/JsonTransformationService
 export class ViewLogicalStream {          
     public json : Chromosome[];
     private _transformationService : JsonTransformationService;
-    //private _onJsonChanged : (value : string) => void;    
-    //public jsonChanged : EventEmitter<any>;
     public onJsonChanged : (value : any) => void = (value: any) => {
         this.json = this._transformationService.transformJson(value);
-        //this.jsonChanged.next(value);
     }
 
     constructor(@Inject("JsonTransformationService") transformationService :  JsonTransformationService) {
-        this._transformationService = transformationService;
-        
-        //this.jsonChanged = new EventEmitter<any>();
-        // this._onJsonChanged = (value : string) => {
-        //     this.json = this._transformationService.transformedJson(value);
-        // }        
+        this._transformationService = transformationService;        
     }         
 }

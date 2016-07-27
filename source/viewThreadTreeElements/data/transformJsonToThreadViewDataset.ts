@@ -18,4 +18,7 @@ export class TransformJsonToThreadViewDataset implements JsonTransformationServi
     typedTransformJson : (json : ThreadMapRootDto) => ThreadViewDataset = (json: ThreadMapRootDto) => {
         return null;
     }
+
+    
+
 }
