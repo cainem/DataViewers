@@ -1,7 +1,7 @@
 import { ThreadViewDataset  } from '../../viewThreadTreeElements/data/ThreadViewDataset';
 import { ThreadsView } from '../../viewThreadTreeElements/threadsView/threadsView.component';
 import { ThreadView } from '../../viewThreadTreeElements/threadView/threadView.component'
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import {JsInputComponent} from '../../jsInput/jsInput.component';
 
@@ -9,7 +9,7 @@ import {JsInputComponent} from '../../jsInput/jsInput.component';
 @Component({
     templateUrl: './app/viewThreadTreeElements/rootComponent/viewThreadTree.html',
     directives: [ JsInputComponent, ThreadsView, ThreadView ],
-    styleUrls: ['./app/viewThreadTreeElements/rootComponent/viewThreadTree.css']
+    styleUrls: ['./app/viewThreadTreeElements/rootComponent/viewThreadTree.css'],
 })
 export class ViewThreadTree implements OnInit {
     

@@ -12,9 +12,10 @@ export class LinkHelper {
         // Enter the links, the links need to be drawn on first, the z-order is determined by the drawn order
         let linkSelection = selection.append("path")
             .attr("class", "link")
-            .style("stroke", (d : d3.layout.tree.Link<ThreadD3node>) => { return d.target.depth; })
+            .style("fill", "none").style("stroke", "#ccc").style("stroke-width", "5.5px")
+            //.style("stroke", (d : d3.layout.tree.Link<ThreadD3node>) => { return d.target.depth; })
             .attr("d", this.diagonal)
-            .attr("fill", "black");
+            //.attr("fill", "black");
 
         return linkSelection;
     }     

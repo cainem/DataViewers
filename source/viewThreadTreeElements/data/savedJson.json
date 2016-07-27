@@ -64,7 +64,7 @@
 								"internalKey": 2,
 								"keyLength": 3
 							},
-							"isSynchronizing": true,
+							"isSynchronizing": false,
 							"implicitThreadMapConnectionSettings": {
 								"createsAnImplicitConnection": true,
 								"associatedConstant": 0.0,
@@ -80,6 +80,39 @@
 				},
 				{
 					"threadMapNodes": [
+						{
+							"pendingConnectionList": {
+								"outputConnections": [
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchedForNode": true,
+										"connectionFunctionType": "Identity",
+										"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+										"woollyKeySearchDefinition": null,
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": null
+									}
+								],
+								"inputConnections": []
+							},
+							"nodeFunctions": [],
+							"threadMapNodeKey": {
+								"shortFormKey": "0.1.0",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=0]"
+							},
+							"nodeKey": {
+								"internalKey": 3,
+								"keyLength": 3
+							},
+							"isSynchronizing": false,
+							"implicitThreadMapConnectionSettings": {
+								"createsAnImplicitConnection": true,
+								"associatedConstant": 0.0,
+								"isConnectedToSearchNode": true,
+								"connectionFunctionType": "Identity"
+							}
+						},
 						{
 							"pendingConnectionList": {
 								"outputConnections": [
@@ -105,47 +138,29 @@
 										"associatedConstant": 0.0,
 										"isConnectedToSearchedForNode": true,
 										"connectionFunctionType": "Identity",
-										"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+										"threadMapConnectionType": "ThreadImplicitLaunchThreadMapConnection",
 										"woollyKeySearchDefinition": null,
-										"newThreadThreadMapThreadKeyPosition": 0,
+										"newThreadThreadMapThreadKeyPosition": 3,
 										"geneSetSearchKey": null
 									}
 								],
-								"inputConnections": [
-									{
-										"threadMapNodeKeyStore": null,
-										"associatedConstant": 0.0,
-										"isConnectedToSearchedForNode": false,
-										"connectionFunctionType": "Identity",
-										"threadMapConnectionType": "ExplicitThreadMapConnection",
-										"woollyKeySearchDefinition": {
-											"searchForNodeKey": {
-												"internalKey": 2,
-												"keyLength": 2
-											},
-											"isLocal": false,
-											"searchRange": 255
-										},
-										"newThreadThreadMapThreadKeyPosition": 0,
-										"geneSetSearchKey": null
-									}
-								]
+								"inputConnections": []
 							},
 							"nodeFunctions": [
 								{
-									"nodeFunctionType": "MultiplyIgnoringNulls",
+									"nodeFunctionType": "SumIgnoringNulls",
 									"associatedConstant": 0.0
 								}
 							],
 							"threadMapNodeKey": {
-								"shortFormKey": "0.1.0",
-								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=0]"
+								"shortFormKey": "1.1.0",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=1]"
 							},
 							"nodeKey": {
-								"internalKey": 3,
-								"keyLength": 3
+								"internalKey": 99,
+								"keyLength": 8
 							},
-							"isSynchronizing": true,
+							"isSynchronizing": false,
 							"implicitThreadMapConnectionSettings": {
 								"createsAnImplicitConnection": true,
 								"associatedConstant": 0.0,
@@ -158,6 +173,206 @@
 						"shortFormKey": "0.1",
 						"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1]"
 					}
+				},
+				{
+					"threadMapNodes": [
+						{
+							"pendingConnectionList": {
+								"outputConnections": [],
+								"inputConnections": [
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 1.0,
+										"isConnectedToSearchedForNode": false,
+										"connectionFunctionType": "AddAssociatedConstant",
+										"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+										"woollyKeySearchDefinition": {
+											"searchForNodeKey": {
+												"internalKey": 101,
+												"keyLength": 7
+											},
+											"isLocal": true,
+											"searchRange": -1
+										},
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": null
+									}
+								]
+							},
+							"nodeFunctions": [
+								{
+									"nodeFunctionType": "MultiplyByAssociatedConstant",
+									"associatedConstant": 0.0
+								}
+							],
+							"threadMapNodeKey": {
+								"shortFormKey": "0.2.0",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2], ThreadNodePositionInGeneSet=0]"
+							},
+							"nodeKey": {
+								"internalKey": 102,
+								"keyLength": 8
+							},
+							"isSynchronizing": false,
+							"implicitThreadMapConnectionSettings": {
+								"createsAnImplicitConnection": false,
+								"associatedConstant": 2.0,
+								"isConnectedToSearchNode": false,
+								"connectionFunctionType": "Identity"
+							}
+						},
+						{
+							"pendingConnectionList": {
+								"outputConnections": [
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchedForNode": true,
+										"connectionFunctionType": "Reciprocal",
+										"threadMapConnectionType": "ExplicitThreadMapConnection",
+										"woollyKeySearchDefinition": {
+											"searchForNodeKey": {
+												"internalKey": 99,
+												"keyLength": 7
+											},
+											"isLocal": false,
+											"searchRange": 255
+										},
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": null
+									},
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchedForNode": true,
+										"connectionFunctionType": "Identity",
+										"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+										"woollyKeySearchDefinition": null,
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": null
+									}
+								],
+								"inputConnections": []
+							},
+							"nodeFunctions": [],
+							"threadMapNodeKey": {
+								"shortFormKey": "1.2.0",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2], ThreadNodePositionInGeneSet=1]"
+							},
+							"nodeKey": {
+								"internalKey": 101,
+								"keyLength": 8
+							},
+							"isSynchronizing": false,
+							"implicitThreadMapConnectionSettings": {
+								"createsAnImplicitConnection": true,
+								"associatedConstant": 0.0,
+								"isConnectedToSearchNode": true,
+								"connectionFunctionType": "Identity"
+							}
+						}
+					],
+					"geneSetKey": {
+						"shortFormKey": "0.2",
+						"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2]"
+					}
+				},
+				{
+					"threadMapNodes": [
+						{
+							"pendingConnectionList": {
+								"outputConnections": [],
+								"inputConnections": [
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 1.0,
+										"isConnectedToSearchedForNode": false,
+										"connectionFunctionType": "SubtractAssociatedConstant",
+										"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+										"woollyKeySearchDefinition": {
+											"searchForNodeKey": {
+												"internalKey": 514,
+												"keyLength": 12
+											},
+											"isLocal": true,
+											"searchRange": -1
+										},
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": null
+									}
+								]
+							},
+							"nodeFunctions": [
+								{
+									"nodeFunctionType": "NegativeIdentity",
+									"associatedConstant": 0.0
+								},
+								{
+									"nodeFunctionType": "MultiplyByAssociatedConstant",
+									"associatedConstant": 0.0
+								}
+							],
+							"threadMapNodeKey": {
+								"shortFormKey": "0.3.0",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3], ThreadNodePositionInGeneSet=0]"
+							},
+							"nodeKey": {
+								"internalKey": 202,
+								"keyLength": 8
+							},
+							"isSynchronizing": false,
+							"implicitThreadMapConnectionSettings": {
+								"createsAnImplicitConnection": false,
+								"associatedConstant": 2.0,
+								"isConnectedToSearchNode": false,
+								"connectionFunctionType": "Identity"
+							}
+						},
+						{
+							"pendingConnectionList": {
+								"outputConnections": [
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchedForNode": true,
+										"connectionFunctionType": "Reciprocal",
+										"threadMapConnectionType": "ExplicitThreadMapConnection",
+										"woollyKeySearchDefinition": {
+											"searchForNodeKey": {
+												"internalKey": 99,
+												"keyLength": 7
+											},
+											"isLocal": false,
+											"searchRange": 255
+										},
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": null
+									}
+								],
+								"inputConnections": []
+							},
+							"nodeFunctions": [],
+							"threadMapNodeKey": {
+								"shortFormKey": "1.3.0",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3], ThreadNodePositionInGeneSet=1]"
+							},
+							"nodeKey": {
+								"internalKey": 6,
+								"keyLength": 3
+							},
+							"isSynchronizing": false,
+							"implicitThreadMapConnectionSettings": {
+								"createsAnImplicitConnection": false,
+								"associatedConstant": 2.0,
+								"isConnectedToSearchNode": false,
+								"connectionFunctionType": "Identity"
+							}
+						}
+					],
+					"geneSetKey": {
+						"shortFormKey": "0.3",
+						"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3]"
+					}
 				}
 			],
 			"key": {
@@ -167,15 +382,15 @@
 			"lifeManager": {
 				"threadPosition": {
 					"upperRange": {
-						"lowerInclusive": 6917529027641081856,
-						"upperInclusive": 9223372036854775807
+						"lowerInclusive": 5764607523034234880,
+						"upperInclusive": 6917529027641081855
 					},
 					"lowerRange": {
 						"lowerInclusive": 4611686018427387904,
-						"upperInclusive": 6917529027641081855
+						"upperInclusive": 5764607523034234879
 					},
 					"depth": 1,
-					"isUpperNext": true,
+					"isUpperNext": false,
 					"position": 4611686018427387903
 				},
 				"ageOfThread": 0,
@@ -183,15 +398,15 @@
 			},
 			"threadPosition": {
 				"upperRange": {
-					"lowerInclusive": 6917529027641081856,
-					"upperInclusive": 9223372036854775807
+					"lowerInclusive": 5764607523034234880,
+					"upperInclusive": 6917529027641081855
 				},
 				"lowerRange": {
 					"lowerInclusive": 4611686018427387904,
-					"upperInclusive": 6917529027641081855
+					"upperInclusive": 5764607523034234879
 				},
 				"depth": 1,
-				"isUpperNext": true,
+				"isUpperNext": false,
 				"position": 4611686018427387903
 			}
 		},
@@ -202,10 +417,6 @@
 			},
 			"lazyParentThread": {
 				"isConnected": true,
-				"connectedThreadMapThreadKey": {
-					"longForm": "ThreadMapThreadKey[ThreadMapThreadPosition=1]",
-					"shortForm": "1"
-				},
 				"threadMapThreadKey": {
 					"longForm": "ThreadMapThreadKey[ThreadMapThreadPosition=0]",
 					"shortForm": "0"
@@ -274,7 +485,7 @@
 										"internalKey": 2,
 										"keyLength": 3
 									},
-									"isSynchronizing": true,
+									"isSynchronizing": false,
 									"implicitThreadMapConnectionSettings": {
 										"createsAnImplicitConnection": true,
 										"associatedConstant": 0.0,
@@ -290,6 +501,39 @@
 						},
 						{
 							"threadMapNodes": [
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+												"woollyKeySearchDefinition": null,
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [],
+									"threadMapNodeKey": {
+										"shortFormKey": "0.1.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=0]"
+									},
+									"nodeKey": {
+										"internalKey": 3,
+										"keyLength": 3
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": true,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchNode": true,
+										"connectionFunctionType": "Identity"
+									}
+								},
 								{
 									"pendingConnectionList": {
 										"outputConnections": [
@@ -315,47 +559,29 @@
 												"associatedConstant": 0.0,
 												"isConnectedToSearchedForNode": true,
 												"connectionFunctionType": "Identity",
-												"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+												"threadMapConnectionType": "ThreadImplicitLaunchThreadMapConnection",
 												"woollyKeySearchDefinition": null,
-												"newThreadThreadMapThreadKeyPosition": 0,
+												"newThreadThreadMapThreadKeyPosition": 3,
 												"geneSetSearchKey": null
 											}
 										],
-										"inputConnections": [
-											{
-												"threadMapNodeKeyStore": null,
-												"associatedConstant": 0.0,
-												"isConnectedToSearchedForNode": false,
-												"connectionFunctionType": "Identity",
-												"threadMapConnectionType": "ExplicitThreadMapConnection",
-												"woollyKeySearchDefinition": {
-													"searchForNodeKey": {
-														"internalKey": 2,
-														"keyLength": 2
-													},
-													"isLocal": false,
-													"searchRange": 255
-												},
-												"newThreadThreadMapThreadKeyPosition": 0,
-												"geneSetSearchKey": null
-											}
-										]
+										"inputConnections": []
 									},
 									"nodeFunctions": [
 										{
-											"nodeFunctionType": "MultiplyIgnoringNulls",
+											"nodeFunctionType": "SumIgnoringNulls",
 											"associatedConstant": 0.0
 										}
 									],
 									"threadMapNodeKey": {
-										"shortFormKey": "0.1.0",
-										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=0]"
+										"shortFormKey": "1.1.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=1]"
 									},
 									"nodeKey": {
-										"internalKey": 3,
-										"keyLength": 3
+										"internalKey": 99,
+										"keyLength": 8
 									},
-									"isSynchronizing": true,
+									"isSynchronizing": false,
 									"implicitThreadMapConnectionSettings": {
 										"createsAnImplicitConnection": true,
 										"associatedConstant": 0.0,
@@ -368,6 +594,206 @@
 								"shortFormKey": "0.1",
 								"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1]"
 							}
+						},
+						{
+							"threadMapNodes": [
+								{
+									"pendingConnectionList": {
+										"outputConnections": [],
+										"inputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 1.0,
+												"isConnectedToSearchedForNode": false,
+												"connectionFunctionType": "AddAssociatedConstant",
+												"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+												"woollyKeySearchDefinition": {
+													"searchForNodeKey": {
+														"internalKey": 101,
+														"keyLength": 7
+													},
+													"isLocal": true,
+													"searchRange": -1
+												},
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										]
+									},
+									"nodeFunctions": [
+										{
+											"nodeFunctionType": "MultiplyByAssociatedConstant",
+											"associatedConstant": 0.0
+										}
+									],
+									"threadMapNodeKey": {
+										"shortFormKey": "0.2.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2], ThreadNodePositionInGeneSet=0]"
+									},
+									"nodeKey": {
+										"internalKey": 102,
+										"keyLength": 8
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": false,
+										"associatedConstant": 2.0,
+										"isConnectedToSearchNode": false,
+										"connectionFunctionType": "Identity"
+									}
+								},
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Reciprocal",
+												"threadMapConnectionType": "ExplicitThreadMapConnection",
+												"woollyKeySearchDefinition": {
+													"searchForNodeKey": {
+														"internalKey": 99,
+														"keyLength": 7
+													},
+													"isLocal": false,
+													"searchRange": 255
+												},
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											},
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+												"woollyKeySearchDefinition": null,
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [],
+									"threadMapNodeKey": {
+										"shortFormKey": "1.2.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2], ThreadNodePositionInGeneSet=1]"
+									},
+									"nodeKey": {
+										"internalKey": 101,
+										"keyLength": 8
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": true,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchNode": true,
+										"connectionFunctionType": "Identity"
+									}
+								}
+							],
+							"geneSetKey": {
+								"shortFormKey": "0.2",
+								"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2]"
+							}
+						},
+						{
+							"threadMapNodes": [
+								{
+									"pendingConnectionList": {
+										"outputConnections": [],
+										"inputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 1.0,
+												"isConnectedToSearchedForNode": false,
+												"connectionFunctionType": "SubtractAssociatedConstant",
+												"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+												"woollyKeySearchDefinition": {
+													"searchForNodeKey": {
+														"internalKey": 514,
+														"keyLength": 12
+													},
+													"isLocal": true,
+													"searchRange": -1
+												},
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										]
+									},
+									"nodeFunctions": [
+										{
+											"nodeFunctionType": "NegativeIdentity",
+											"associatedConstant": 0.0
+										},
+										{
+											"nodeFunctionType": "MultiplyByAssociatedConstant",
+											"associatedConstant": 0.0
+										}
+									],
+									"threadMapNodeKey": {
+										"shortFormKey": "0.3.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3], ThreadNodePositionInGeneSet=0]"
+									},
+									"nodeKey": {
+										"internalKey": 202,
+										"keyLength": 8
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": false,
+										"associatedConstant": 2.0,
+										"isConnectedToSearchNode": false,
+										"connectionFunctionType": "Identity"
+									}
+								},
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Reciprocal",
+												"threadMapConnectionType": "ExplicitThreadMapConnection",
+												"woollyKeySearchDefinition": {
+													"searchForNodeKey": {
+														"internalKey": 99,
+														"keyLength": 7
+													},
+													"isLocal": false,
+													"searchRange": 255
+												},
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [],
+									"threadMapNodeKey": {
+										"shortFormKey": "1.3.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3], ThreadNodePositionInGeneSet=1]"
+									},
+									"nodeKey": {
+										"internalKey": 6,
+										"keyLength": 3
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": false,
+										"associatedConstant": 2.0,
+										"isConnectedToSearchNode": false,
+										"connectionFunctionType": "Identity"
+									}
+								}
+							],
+							"geneSetKey": {
+								"shortFormKey": "0.3",
+								"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3]"
+							}
 						}
 					],
 					"key": {
@@ -377,15 +803,15 @@
 					"lifeManager": {
 						"threadPosition": {
 							"upperRange": {
-								"lowerInclusive": 6917529027641081856,
-								"upperInclusive": 9223372036854775807
+								"lowerInclusive": 5764607523034234880,
+								"upperInclusive": 6917529027641081855
 							},
 							"lowerRange": {
 								"lowerInclusive": 4611686018427387904,
-								"upperInclusive": 6917529027641081855
+								"upperInclusive": 5764607523034234879
 							},
 							"depth": 1,
-							"isUpperNext": true,
+							"isUpperNext": false,
 							"position": 4611686018427387903
 						},
 						"ageOfThread": 0,
@@ -393,15 +819,15 @@
 					},
 					"threadPosition": {
 						"upperRange": {
-							"lowerInclusive": 6917529027641081856,
-							"upperInclusive": 9223372036854775807
+							"lowerInclusive": 5764607523034234880,
+							"upperInclusive": 6917529027641081855
 						},
 						"lowerRange": {
 							"lowerInclusive": 4611686018427387904,
-							"upperInclusive": 6917529027641081855
+							"upperInclusive": 5764607523034234879
 						},
 						"depth": 1,
-						"isUpperNext": true,
+						"isUpperNext": false,
 						"position": 4611686018427387903
 					}
 				}
@@ -409,6 +835,39 @@
 			"internalGeneSets": [
 				{
 					"threadMapNodes": [
+						{
+							"pendingConnectionList": {
+								"outputConnections": [
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchedForNode": true,
+										"connectionFunctionType": "Identity",
+										"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+										"woollyKeySearchDefinition": null,
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": null
+									}
+								],
+								"inputConnections": []
+							},
+							"nodeFunctions": [],
+							"threadMapNodeKey": {
+								"shortFormKey": "0.0.1",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=0]"
+							},
+							"nodeKey": {
+								"internalKey": 3,
+								"keyLength": 3
+							},
+							"isSynchronizing": false,
+							"implicitThreadMapConnectionSettings": {
+								"createsAnImplicitConnection": true,
+								"associatedConstant": 0.0,
+								"isConnectedToSearchNode": true,
+								"connectionFunctionType": "Identity"
+							}
+						},
 						{
 							"pendingConnectionList": {
 								"outputConnections": [
@@ -434,47 +893,29 @@
 										"associatedConstant": 0.0,
 										"isConnectedToSearchedForNode": true,
 										"connectionFunctionType": "Identity",
-										"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+										"threadMapConnectionType": "ThreadImplicitLaunchThreadMapConnection",
 										"woollyKeySearchDefinition": null,
-										"newThreadThreadMapThreadKeyPosition": 0,
+										"newThreadThreadMapThreadKeyPosition": 2,
 										"geneSetSearchKey": null
 									}
 								],
-								"inputConnections": [
-									{
-										"threadMapNodeKeyStore": null,
-										"associatedConstant": 0.0,
-										"isConnectedToSearchedForNode": false,
-										"connectionFunctionType": "Identity",
-										"threadMapConnectionType": "ExplicitThreadMapConnection",
-										"woollyKeySearchDefinition": {
-											"searchForNodeKey": {
-												"internalKey": 2,
-												"keyLength": 2
-											},
-											"isLocal": false,
-											"searchRange": 255
-										},
-										"newThreadThreadMapThreadKeyPosition": 0,
-										"geneSetSearchKey": null
-									}
-								]
+								"inputConnections": []
 							},
 							"nodeFunctions": [
 								{
-									"nodeFunctionType": "MultiplyIgnoringNulls",
+									"nodeFunctionType": "SumIgnoringNulls",
 									"associatedConstant": 0.0
 								}
 							],
 							"threadMapNodeKey": {
-								"shortFormKey": "0.0.1",
-								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=0]"
+								"shortFormKey": "1.0.1",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=1]"
 							},
 							"nodeKey": {
-								"internalKey": 3,
-								"keyLength": 3
+								"internalKey": 99,
+								"keyLength": 8
 							},
-							"isSynchronizing": true,
+							"isSynchronizing": false,
 							"implicitThreadMapConnectionSettings": {
 								"createsAnImplicitConnection": true,
 								"associatedConstant": 0.0,
@@ -487,6 +928,50 @@
 						"shortFormKey": "1.0",
 						"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=0]"
 					}
+				},
+				{
+					"threadMapNodes": [
+						{
+							"pendingConnectionList": {
+								"outputConnections": [
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchedForNode": true,
+										"connectionFunctionType": "Identity",
+										"threadMapConnectionType": "ThreadImplicitReturnThreadMapConnection",
+										"woollyKeySearchDefinition": null,
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": {
+											"shortFormKey": "0.0",
+											"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=0]"
+										}
+									}
+								],
+								"inputConnections": []
+							},
+							"nodeFunctions": [],
+							"threadMapNodeKey": {
+								"shortFormKey": "0.1.1",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=0]"
+							},
+							"nodeKey": {
+								"internalKey": 0,
+								"keyLength": 0
+							},
+							"isSynchronizing": false,
+							"implicitThreadMapConnectionSettings": {
+								"createsAnImplicitConnection": true,
+								"associatedConstant": 0.0,
+								"isConnectedToSearchNode": true,
+								"connectionFunctionType": "Identity"
+							}
+						}
+					],
+					"geneSetKey": {
+						"shortFormKey": "1.1",
+						"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=1]"
+					}
 				}
 			],
 			"key": {
@@ -496,15 +981,15 @@
 			"lifeManager": {
 				"threadPosition": {
 					"upperRange": {
-						"lowerInclusive": 2305843009213693952,
+						"lowerInclusive": 3458764513820540928,
 						"upperInclusive": 4611686018427387903
 					},
 					"lowerRange": {
-						"lowerInclusive": 0,
-						"upperInclusive": 2305843009213693951
+						"lowerInclusive": 2305843009213693952,
+						"upperInclusive": 3458764513820540927
 					},
 					"depth": 2,
-					"isUpperNext": false,
+					"isUpperNext": true,
 					"position": 2305843009213693951
 				},
 				"ageOfThread": 0,
@@ -512,16 +997,1335 @@
 			},
 			"threadPosition": {
 				"upperRange": {
-					"lowerInclusive": 2305843009213693952,
+					"lowerInclusive": 3458764513820540928,
 					"upperInclusive": 4611686018427387903
 				},
 				"lowerRange": {
-					"lowerInclusive": 0,
+					"lowerInclusive": 2305843009213693952,
+					"upperInclusive": 3458764513820540927
+				},
+				"depth": 2,
+				"isUpperNext": true,
+				"position": 2305843009213693951
+			}
+		},
+		{
+			"creationGeneSet": {
+				"shortFormKey": "1.0",
+				"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=0]"
+			},
+			"lazyParentThread": {
+				"isConnected": true,
+				"threadMapThreadKey": {
+					"longForm": "ThreadMapThreadKey[ThreadMapThreadPosition=1]",
+					"shortForm": "1"
+				},
+				"targetThreadMapThread": {
+					"creationGeneSet": {
+						"shortFormKey": "0.0",
+						"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=0]"
+					},
+					"lazyParentThread": {
+						"isConnected": true,
+						"threadMapThreadKey": {
+							"longForm": "ThreadMapThreadKey[ThreadMapThreadPosition=0]",
+							"shortForm": "0"
+						},
+						"targetThreadMapThread": {
+							"creationGeneSet": null,
+							"lazyParentThread": null,
+							"internalGeneSets": [
+								{
+									"threadMapNodes": [
+										{
+											"pendingConnectionList": {
+												"outputConnections": [
+													{
+														"threadMapNodeKeyStore": null,
+														"associatedConstant": 0.0,
+														"isConnectedToSearchedForNode": true,
+														"connectionFunctionType": "Identity",
+														"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+														"woollyKeySearchDefinition": null,
+														"newThreadThreadMapThreadKeyPosition": 0,
+														"geneSetSearchKey": null
+													}
+												],
+												"inputConnections": []
+											},
+											"nodeFunctions": [],
+											"threadMapNodeKey": {
+												"shortFormKey": "0.0.0",
+												"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=0]"
+											},
+											"nodeKey": {
+												"internalKey": 1,
+												"keyLength": 3
+											},
+											"isSynchronizing": true,
+											"implicitThreadMapConnectionSettings": {
+												"createsAnImplicitConnection": true,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchNode": true,
+												"connectionFunctionType": "Identity"
+											}
+										},
+										{
+											"pendingConnectionList": {
+												"outputConnections": [
+													{
+														"threadMapNodeKeyStore": null,
+														"associatedConstant": 0.0,
+														"isConnectedToSearchedForNode": true,
+														"connectionFunctionType": "Identity",
+														"threadMapConnectionType": "ThreadImplicitLaunchThreadMapConnection",
+														"woollyKeySearchDefinition": null,
+														"newThreadThreadMapThreadKeyPosition": 1,
+														"geneSetSearchKey": null
+													}
+												],
+												"inputConnections": []
+											},
+											"nodeFunctions": [],
+											"threadMapNodeKey": {
+												"shortFormKey": "1.0.0",
+												"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=1]"
+											},
+											"nodeKey": {
+												"internalKey": 2,
+												"keyLength": 3
+											},
+											"isSynchronizing": false,
+											"implicitThreadMapConnectionSettings": {
+												"createsAnImplicitConnection": true,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchNode": true,
+												"connectionFunctionType": "Identity"
+											}
+										}
+									],
+									"geneSetKey": {
+										"shortFormKey": "0.0",
+										"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=0]"
+									}
+								},
+								{
+									"threadMapNodes": [
+										{
+											"pendingConnectionList": {
+												"outputConnections": [
+													{
+														"threadMapNodeKeyStore": null,
+														"associatedConstant": 0.0,
+														"isConnectedToSearchedForNode": true,
+														"connectionFunctionType": "Identity",
+														"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+														"woollyKeySearchDefinition": null,
+														"newThreadThreadMapThreadKeyPosition": 0,
+														"geneSetSearchKey": null
+													}
+												],
+												"inputConnections": []
+											},
+											"nodeFunctions": [],
+											"threadMapNodeKey": {
+												"shortFormKey": "0.1.0",
+												"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=0]"
+											},
+											"nodeKey": {
+												"internalKey": 3,
+												"keyLength": 3
+											},
+											"isSynchronizing": false,
+											"implicitThreadMapConnectionSettings": {
+												"createsAnImplicitConnection": true,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchNode": true,
+												"connectionFunctionType": "Identity"
+											}
+										},
+										{
+											"pendingConnectionList": {
+												"outputConnections": [
+													{
+														"threadMapNodeKeyStore": null,
+														"associatedConstant": 2.0,
+														"isConnectedToSearchedForNode": true,
+														"connectionFunctionType": "Identity",
+														"threadMapConnectionType": "ExplicitThreadMapConnection",
+														"woollyKeySearchDefinition": {
+															"searchForNodeKey": {
+																"internalKey": 1,
+																"keyLength": 2
+															},
+															"isLocal": false,
+															"searchRange": 255
+														},
+														"newThreadThreadMapThreadKeyPosition": 0,
+														"geneSetSearchKey": null
+													},
+													{
+														"threadMapNodeKeyStore": null,
+														"associatedConstant": 0.0,
+														"isConnectedToSearchedForNode": true,
+														"connectionFunctionType": "Identity",
+														"threadMapConnectionType": "ThreadImplicitLaunchThreadMapConnection",
+														"woollyKeySearchDefinition": null,
+														"newThreadThreadMapThreadKeyPosition": 3,
+														"geneSetSearchKey": null
+													}
+												],
+												"inputConnections": []
+											},
+											"nodeFunctions": [
+												{
+													"nodeFunctionType": "SumIgnoringNulls",
+													"associatedConstant": 0.0
+												}
+											],
+											"threadMapNodeKey": {
+												"shortFormKey": "1.1.0",
+												"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=1]"
+											},
+											"nodeKey": {
+												"internalKey": 99,
+												"keyLength": 8
+											},
+											"isSynchronizing": false,
+											"implicitThreadMapConnectionSettings": {
+												"createsAnImplicitConnection": true,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchNode": true,
+												"connectionFunctionType": "Identity"
+											}
+										}
+									],
+									"geneSetKey": {
+										"shortFormKey": "0.1",
+										"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1]"
+									}
+								},
+								{
+									"threadMapNodes": [
+										{
+											"pendingConnectionList": {
+												"outputConnections": [],
+												"inputConnections": [
+													{
+														"threadMapNodeKeyStore": null,
+														"associatedConstant": 1.0,
+														"isConnectedToSearchedForNode": false,
+														"connectionFunctionType": "AddAssociatedConstant",
+														"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+														"woollyKeySearchDefinition": {
+															"searchForNodeKey": {
+																"internalKey": 101,
+																"keyLength": 7
+															},
+															"isLocal": true,
+															"searchRange": -1
+														},
+														"newThreadThreadMapThreadKeyPosition": 0,
+														"geneSetSearchKey": null
+													}
+												]
+											},
+											"nodeFunctions": [
+												{
+													"nodeFunctionType": "MultiplyByAssociatedConstant",
+													"associatedConstant": 0.0
+												}
+											],
+											"threadMapNodeKey": {
+												"shortFormKey": "0.2.0",
+												"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2], ThreadNodePositionInGeneSet=0]"
+											},
+											"nodeKey": {
+												"internalKey": 102,
+												"keyLength": 8
+											},
+											"isSynchronizing": false,
+											"implicitThreadMapConnectionSettings": {
+												"createsAnImplicitConnection": false,
+												"associatedConstant": 2.0,
+												"isConnectedToSearchNode": false,
+												"connectionFunctionType": "Identity"
+											}
+										},
+										{
+											"pendingConnectionList": {
+												"outputConnections": [
+													{
+														"threadMapNodeKeyStore": null,
+														"associatedConstant": 0.0,
+														"isConnectedToSearchedForNode": true,
+														"connectionFunctionType": "Reciprocal",
+														"threadMapConnectionType": "ExplicitThreadMapConnection",
+														"woollyKeySearchDefinition": {
+															"searchForNodeKey": {
+																"internalKey": 99,
+																"keyLength": 7
+															},
+															"isLocal": false,
+															"searchRange": 255
+														},
+														"newThreadThreadMapThreadKeyPosition": 0,
+														"geneSetSearchKey": null
+													},
+													{
+														"threadMapNodeKeyStore": null,
+														"associatedConstant": 0.0,
+														"isConnectedToSearchedForNode": true,
+														"connectionFunctionType": "Identity",
+														"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+														"woollyKeySearchDefinition": null,
+														"newThreadThreadMapThreadKeyPosition": 0,
+														"geneSetSearchKey": null
+													}
+												],
+												"inputConnections": []
+											},
+											"nodeFunctions": [],
+											"threadMapNodeKey": {
+												"shortFormKey": "1.2.0",
+												"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2], ThreadNodePositionInGeneSet=1]"
+											},
+											"nodeKey": {
+												"internalKey": 101,
+												"keyLength": 8
+											},
+											"isSynchronizing": false,
+											"implicitThreadMapConnectionSettings": {
+												"createsAnImplicitConnection": true,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchNode": true,
+												"connectionFunctionType": "Identity"
+											}
+										}
+									],
+									"geneSetKey": {
+										"shortFormKey": "0.2",
+										"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2]"
+									}
+								},
+								{
+									"threadMapNodes": [
+										{
+											"pendingConnectionList": {
+												"outputConnections": [],
+												"inputConnections": [
+													{
+														"threadMapNodeKeyStore": null,
+														"associatedConstant": 1.0,
+														"isConnectedToSearchedForNode": false,
+														"connectionFunctionType": "SubtractAssociatedConstant",
+														"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+														"woollyKeySearchDefinition": {
+															"searchForNodeKey": {
+																"internalKey": 514,
+																"keyLength": 12
+															},
+															"isLocal": true,
+															"searchRange": -1
+														},
+														"newThreadThreadMapThreadKeyPosition": 0,
+														"geneSetSearchKey": null
+													}
+												]
+											},
+											"nodeFunctions": [
+												{
+													"nodeFunctionType": "NegativeIdentity",
+													"associatedConstant": 0.0
+												},
+												{
+													"nodeFunctionType": "MultiplyByAssociatedConstant",
+													"associatedConstant": 0.0
+												}
+											],
+											"threadMapNodeKey": {
+												"shortFormKey": "0.3.0",
+												"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3], ThreadNodePositionInGeneSet=0]"
+											},
+											"nodeKey": {
+												"internalKey": 202,
+												"keyLength": 8
+											},
+											"isSynchronizing": false,
+											"implicitThreadMapConnectionSettings": {
+												"createsAnImplicitConnection": false,
+												"associatedConstant": 2.0,
+												"isConnectedToSearchNode": false,
+												"connectionFunctionType": "Identity"
+											}
+										},
+										{
+											"pendingConnectionList": {
+												"outputConnections": [
+													{
+														"threadMapNodeKeyStore": null,
+														"associatedConstant": 0.0,
+														"isConnectedToSearchedForNode": true,
+														"connectionFunctionType": "Reciprocal",
+														"threadMapConnectionType": "ExplicitThreadMapConnection",
+														"woollyKeySearchDefinition": {
+															"searchForNodeKey": {
+																"internalKey": 99,
+																"keyLength": 7
+															},
+															"isLocal": false,
+															"searchRange": 255
+														},
+														"newThreadThreadMapThreadKeyPosition": 0,
+														"geneSetSearchKey": null
+													}
+												],
+												"inputConnections": []
+											},
+											"nodeFunctions": [],
+											"threadMapNodeKey": {
+												"shortFormKey": "1.3.0",
+												"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3], ThreadNodePositionInGeneSet=1]"
+											},
+											"nodeKey": {
+												"internalKey": 6,
+												"keyLength": 3
+											},
+											"isSynchronizing": false,
+											"implicitThreadMapConnectionSettings": {
+												"createsAnImplicitConnection": false,
+												"associatedConstant": 2.0,
+												"isConnectedToSearchNode": false,
+												"connectionFunctionType": "Identity"
+											}
+										}
+									],
+									"geneSetKey": {
+										"shortFormKey": "0.3",
+										"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3]"
+									}
+								}
+							],
+							"key": {
+								"longForm": "ThreadMapThreadKey[ThreadMapThreadPosition=0]",
+								"shortForm": "0"
+							},
+							"lifeManager": {
+								"threadPosition": {
+									"upperRange": {
+										"lowerInclusive": 5764607523034234880,
+										"upperInclusive": 6917529027641081855
+									},
+									"lowerRange": {
+										"lowerInclusive": 4611686018427387904,
+										"upperInclusive": 5764607523034234879
+									},
+									"depth": 1,
+									"isUpperNext": false,
+									"position": 4611686018427387903
+								},
+								"ageOfThread": 0,
+								"remainingLife": 10000
+							},
+							"threadPosition": {
+								"upperRange": {
+									"lowerInclusive": 5764607523034234880,
+									"upperInclusive": 6917529027641081855
+								},
+								"lowerRange": {
+									"lowerInclusive": 4611686018427387904,
+									"upperInclusive": 5764607523034234879
+								},
+								"depth": 1,
+								"isUpperNext": false,
+								"position": 4611686018427387903
+							}
+						}
+					},
+					"internalGeneSets": [
+						{
+							"threadMapNodes": [
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+												"woollyKeySearchDefinition": null,
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [],
+									"threadMapNodeKey": {
+										"shortFormKey": "0.0.1",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=0]"
+									},
+									"nodeKey": {
+										"internalKey": 3,
+										"keyLength": 3
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": true,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchNode": true,
+										"connectionFunctionType": "Identity"
+									}
+								},
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 2.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "ExplicitThreadMapConnection",
+												"woollyKeySearchDefinition": {
+													"searchForNodeKey": {
+														"internalKey": 1,
+														"keyLength": 2
+													},
+													"isLocal": false,
+													"searchRange": 255
+												},
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											},
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "ThreadImplicitLaunchThreadMapConnection",
+												"woollyKeySearchDefinition": null,
+												"newThreadThreadMapThreadKeyPosition": 2,
+												"geneSetSearchKey": null
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [
+										{
+											"nodeFunctionType": "SumIgnoringNulls",
+											"associatedConstant": 0.0
+										}
+									],
+									"threadMapNodeKey": {
+										"shortFormKey": "1.0.1",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=1]"
+									},
+									"nodeKey": {
+										"internalKey": 99,
+										"keyLength": 8
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": true,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchNode": true,
+										"connectionFunctionType": "Identity"
+									}
+								}
+							],
+							"geneSetKey": {
+								"shortFormKey": "1.0",
+								"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=0]"
+							}
+						},
+						{
+							"threadMapNodes": [
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "ThreadImplicitReturnThreadMapConnection",
+												"woollyKeySearchDefinition": null,
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": {
+													"shortFormKey": "0.0",
+													"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=0]"
+												}
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [],
+									"threadMapNodeKey": {
+										"shortFormKey": "0.1.1",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=0]"
+									},
+									"nodeKey": {
+										"internalKey": 0,
+										"keyLength": 0
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": true,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchNode": true,
+										"connectionFunctionType": "Identity"
+									}
+								}
+							],
+							"geneSetKey": {
+								"shortFormKey": "1.1",
+								"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=1]"
+							}
+						}
+					],
+					"key": {
+						"longForm": "ThreadMapThreadKey[ThreadMapThreadPosition=1]",
+						"shortForm": "1"
+					},
+					"lifeManager": {
+						"threadPosition": {
+							"upperRange": {
+								"lowerInclusive": 3458764513820540928,
+								"upperInclusive": 4611686018427387903
+							},
+							"lowerRange": {
+								"lowerInclusive": 2305843009213693952,
+								"upperInclusive": 3458764513820540927
+							},
+							"depth": 2,
+							"isUpperNext": true,
+							"position": 2305843009213693951
+						},
+						"ageOfThread": 0,
+						"remainingLife": 31
+					},
+					"threadPosition": {
+						"upperRange": {
+							"lowerInclusive": 3458764513820540928,
+							"upperInclusive": 4611686018427387903
+						},
+						"lowerRange": {
+							"lowerInclusive": 2305843009213693952,
+							"upperInclusive": 3458764513820540927
+						},
+						"depth": 2,
+						"isUpperNext": true,
+						"position": 2305843009213693951
+					}
+				}
+			},
+			"internalGeneSets": [
+				{
+					"threadMapNodes": [
+						{
+							"pendingConnectionList": {
+								"outputConnections": [],
+								"inputConnections": [
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 1.0,
+										"isConnectedToSearchedForNode": false,
+										"connectionFunctionType": "AddAssociatedConstant",
+										"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+										"woollyKeySearchDefinition": {
+											"searchForNodeKey": {
+												"internalKey": 101,
+												"keyLength": 7
+											},
+											"isLocal": true,
+											"searchRange": -1
+										},
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": null
+									}
+								]
+							},
+							"nodeFunctions": [
+								{
+									"nodeFunctionType": "MultiplyByAssociatedConstant",
+									"associatedConstant": 0.0
+								}
+							],
+							"threadMapNodeKey": {
+								"shortFormKey": "0.0.2",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=2], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=0]"
+							},
+							"nodeKey": {
+								"internalKey": 102,
+								"keyLength": 8
+							},
+							"isSynchronizing": false,
+							"implicitThreadMapConnectionSettings": {
+								"createsAnImplicitConnection": false,
+								"associatedConstant": 2.0,
+								"isConnectedToSearchNode": false,
+								"connectionFunctionType": "Identity"
+							}
+						},
+						{
+							"pendingConnectionList": {
+								"outputConnections": [
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchedForNode": true,
+										"connectionFunctionType": "Reciprocal",
+										"threadMapConnectionType": "ExplicitThreadMapConnection",
+										"woollyKeySearchDefinition": {
+											"searchForNodeKey": {
+												"internalKey": 99,
+												"keyLength": 7
+											},
+											"isLocal": false,
+											"searchRange": 255
+										},
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": null
+									},
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchedForNode": true,
+										"connectionFunctionType": "Identity",
+										"threadMapConnectionType": "ThreadImplicitReturnThreadMapConnection",
+										"woollyKeySearchDefinition": null,
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": {
+											"shortFormKey": "1.0",
+											"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=1], GeneSetPositionInThread=0]"
+										}
+									}
+								],
+								"inputConnections": []
+							},
+							"nodeFunctions": [],
+							"threadMapNodeKey": {
+								"shortFormKey": "1.0.2",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=2], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=1]"
+							},
+							"nodeKey": {
+								"internalKey": 101,
+								"keyLength": 8
+							},
+							"isSynchronizing": false,
+							"implicitThreadMapConnectionSettings": {
+								"createsAnImplicitConnection": true,
+								"associatedConstant": 0.0,
+								"isConnectedToSearchNode": true,
+								"connectionFunctionType": "Identity"
+							}
+						}
+					],
+					"geneSetKey": {
+						"shortFormKey": "2.0",
+						"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=2], GeneSetPositionInThread=0]"
+					}
+				}
+			],
+			"key": {
+				"longForm": "ThreadMapThreadKey[ThreadMapThreadPosition=2]",
+				"shortForm": "2"
+			},
+			"lifeManager": {
+				"threadPosition": {
+					"upperRange": {
+						"lowerInclusive": 1152921504606846976,
+						"upperInclusive": 2305843009213693951
+					},
+					"lowerRange": {
+						"lowerInclusive": 0,
+						"upperInclusive": 1152921504606846975
+					},
+					"depth": 3,
+					"isUpperNext": false,
+					"position": 1152921504606846975
+				},
+				"ageOfThread": 0,
+				"remainingLife": 31
+			},
+			"threadPosition": {
+				"upperRange": {
+					"lowerInclusive": 1152921504606846976,
 					"upperInclusive": 2305843009213693951
+				},
+				"lowerRange": {
+					"lowerInclusive": 0,
+					"upperInclusive": 1152921504606846975
+				},
+				"depth": 3,
+				"isUpperNext": false,
+				"position": 1152921504606846975
+			}
+		},
+		{
+			"creationGeneSet": {
+				"shortFormKey": "0.1",
+				"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1]"
+			},
+			"lazyParentThread": {
+				"isConnected": true,
+				"threadMapThreadKey": {
+					"longForm": "ThreadMapThreadKey[ThreadMapThreadPosition=0]",
+					"shortForm": "0"
+				},
+				"targetThreadMapThread": {
+					"creationGeneSet": null,
+					"lazyParentThread": null,
+					"internalGeneSets": [
+						{
+							"threadMapNodes": [
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+												"woollyKeySearchDefinition": null,
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [],
+									"threadMapNodeKey": {
+										"shortFormKey": "0.0.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=0]"
+									},
+									"nodeKey": {
+										"internalKey": 1,
+										"keyLength": 3
+									},
+									"isSynchronizing": true,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": true,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchNode": true,
+										"connectionFunctionType": "Identity"
+									}
+								},
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "ThreadImplicitLaunchThreadMapConnection",
+												"woollyKeySearchDefinition": null,
+												"newThreadThreadMapThreadKeyPosition": 1,
+												"geneSetSearchKey": null
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [],
+									"threadMapNodeKey": {
+										"shortFormKey": "1.0.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=1]"
+									},
+									"nodeKey": {
+										"internalKey": 2,
+										"keyLength": 3
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": true,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchNode": true,
+										"connectionFunctionType": "Identity"
+									}
+								}
+							],
+							"geneSetKey": {
+								"shortFormKey": "0.0",
+								"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=0]"
+							}
+						},
+						{
+							"threadMapNodes": [
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+												"woollyKeySearchDefinition": null,
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [],
+									"threadMapNodeKey": {
+										"shortFormKey": "0.1.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=0]"
+									},
+									"nodeKey": {
+										"internalKey": 3,
+										"keyLength": 3
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": true,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchNode": true,
+										"connectionFunctionType": "Identity"
+									}
+								},
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 2.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "ExplicitThreadMapConnection",
+												"woollyKeySearchDefinition": {
+													"searchForNodeKey": {
+														"internalKey": 1,
+														"keyLength": 2
+													},
+													"isLocal": false,
+													"searchRange": 255
+												},
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											},
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "ThreadImplicitLaunchThreadMapConnection",
+												"woollyKeySearchDefinition": null,
+												"newThreadThreadMapThreadKeyPosition": 3,
+												"geneSetSearchKey": null
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [
+										{
+											"nodeFunctionType": "SumIgnoringNulls",
+											"associatedConstant": 0.0
+										}
+									],
+									"threadMapNodeKey": {
+										"shortFormKey": "1.1.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=1]"
+									},
+									"nodeKey": {
+										"internalKey": 99,
+										"keyLength": 8
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": true,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchNode": true,
+										"connectionFunctionType": "Identity"
+									}
+								}
+							],
+							"geneSetKey": {
+								"shortFormKey": "0.1",
+								"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1]"
+							}
+						},
+						{
+							"threadMapNodes": [
+								{
+									"pendingConnectionList": {
+										"outputConnections": [],
+										"inputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 1.0,
+												"isConnectedToSearchedForNode": false,
+												"connectionFunctionType": "AddAssociatedConstant",
+												"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+												"woollyKeySearchDefinition": {
+													"searchForNodeKey": {
+														"internalKey": 101,
+														"keyLength": 7
+													},
+													"isLocal": true,
+													"searchRange": -1
+												},
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										]
+									},
+									"nodeFunctions": [
+										{
+											"nodeFunctionType": "MultiplyByAssociatedConstant",
+											"associatedConstant": 0.0
+										}
+									],
+									"threadMapNodeKey": {
+										"shortFormKey": "0.2.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2], ThreadNodePositionInGeneSet=0]"
+									},
+									"nodeKey": {
+										"internalKey": 102,
+										"keyLength": 8
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": false,
+										"associatedConstant": 2.0,
+										"isConnectedToSearchNode": false,
+										"connectionFunctionType": "Identity"
+									}
+								},
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Reciprocal",
+												"threadMapConnectionType": "ExplicitThreadMapConnection",
+												"woollyKeySearchDefinition": {
+													"searchForNodeKey": {
+														"internalKey": 99,
+														"keyLength": 7
+													},
+													"isLocal": false,
+													"searchRange": 255
+												},
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											},
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Identity",
+												"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+												"woollyKeySearchDefinition": null,
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [],
+									"threadMapNodeKey": {
+										"shortFormKey": "1.2.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2], ThreadNodePositionInGeneSet=1]"
+									},
+									"nodeKey": {
+										"internalKey": 101,
+										"keyLength": 8
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": true,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchNode": true,
+										"connectionFunctionType": "Identity"
+									}
+								}
+							],
+							"geneSetKey": {
+								"shortFormKey": "0.2",
+								"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2]"
+							}
+						},
+						{
+							"threadMapNodes": [
+								{
+									"pendingConnectionList": {
+										"outputConnections": [],
+										"inputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 1.0,
+												"isConnectedToSearchedForNode": false,
+												"connectionFunctionType": "SubtractAssociatedConstant",
+												"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+												"woollyKeySearchDefinition": {
+													"searchForNodeKey": {
+														"internalKey": 514,
+														"keyLength": 12
+													},
+													"isLocal": true,
+													"searchRange": -1
+												},
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										]
+									},
+									"nodeFunctions": [
+										{
+											"nodeFunctionType": "NegativeIdentity",
+											"associatedConstant": 0.0
+										},
+										{
+											"nodeFunctionType": "MultiplyByAssociatedConstant",
+											"associatedConstant": 0.0
+										}
+									],
+									"threadMapNodeKey": {
+										"shortFormKey": "0.3.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3], ThreadNodePositionInGeneSet=0]"
+									},
+									"nodeKey": {
+										"internalKey": 202,
+										"keyLength": 8
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": false,
+										"associatedConstant": 2.0,
+										"isConnectedToSearchNode": false,
+										"connectionFunctionType": "Identity"
+									}
+								},
+								{
+									"pendingConnectionList": {
+										"outputConnections": [
+											{
+												"threadMapNodeKeyStore": null,
+												"associatedConstant": 0.0,
+												"isConnectedToSearchedForNode": true,
+												"connectionFunctionType": "Reciprocal",
+												"threadMapConnectionType": "ExplicitThreadMapConnection",
+												"woollyKeySearchDefinition": {
+													"searchForNodeKey": {
+														"internalKey": 99,
+														"keyLength": 7
+													},
+													"isLocal": false,
+													"searchRange": 255
+												},
+												"newThreadThreadMapThreadKeyPosition": 0,
+												"geneSetSearchKey": null
+											}
+										],
+										"inputConnections": []
+									},
+									"nodeFunctions": [],
+									"threadMapNodeKey": {
+										"shortFormKey": "1.3.0",
+										"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3], ThreadNodePositionInGeneSet=1]"
+									},
+									"nodeKey": {
+										"internalKey": 6,
+										"keyLength": 3
+									},
+									"isSynchronizing": false,
+									"implicitThreadMapConnectionSettings": {
+										"createsAnImplicitConnection": false,
+										"associatedConstant": 2.0,
+										"isConnectedToSearchNode": false,
+										"connectionFunctionType": "Identity"
+									}
+								}
+							],
+							"geneSetKey": {
+								"shortFormKey": "0.3",
+								"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3]"
+							}
+						}
+					],
+					"key": {
+						"longForm": "ThreadMapThreadKey[ThreadMapThreadPosition=0]",
+						"shortForm": "0"
+					},
+					"lifeManager": {
+						"threadPosition": {
+							"upperRange": {
+								"lowerInclusive": 5764607523034234880,
+								"upperInclusive": 6917529027641081855
+							},
+							"lowerRange": {
+								"lowerInclusive": 4611686018427387904,
+								"upperInclusive": 5764607523034234879
+							},
+							"depth": 1,
+							"isUpperNext": false,
+							"position": 4611686018427387903
+						},
+						"ageOfThread": 0,
+						"remainingLife": 10000
+					},
+					"threadPosition": {
+						"upperRange": {
+							"lowerInclusive": 5764607523034234880,
+							"upperInclusive": 6917529027641081855
+						},
+						"lowerRange": {
+							"lowerInclusive": 4611686018427387904,
+							"upperInclusive": 5764607523034234879
+						},
+						"depth": 1,
+						"isUpperNext": false,
+						"position": 4611686018427387903
+					}
+				}
+			},
+			"internalGeneSets": [
+				{
+					"threadMapNodes": [
+						{
+							"pendingConnectionList": {
+								"outputConnections": [],
+								"inputConnections": [
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 1.0,
+										"isConnectedToSearchedForNode": false,
+										"connectionFunctionType": "AddAssociatedConstant",
+										"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+										"woollyKeySearchDefinition": {
+											"searchForNodeKey": {
+												"internalKey": 101,
+												"keyLength": 7
+											},
+											"isLocal": true,
+											"searchRange": -1
+										},
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": null
+									}
+								]
+							},
+							"nodeFunctions": [
+								{
+									"nodeFunctionType": "MultiplyByAssociatedConstant",
+									"associatedConstant": 0.0
+								}
+							],
+							"threadMapNodeKey": {
+								"shortFormKey": "0.0.3",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=3], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=0]"
+							},
+							"nodeKey": {
+								"internalKey": 102,
+								"keyLength": 8
+							},
+							"isSynchronizing": false,
+							"implicitThreadMapConnectionSettings": {
+								"createsAnImplicitConnection": false,
+								"associatedConstant": 2.0,
+								"isConnectedToSearchNode": false,
+								"connectionFunctionType": "Identity"
+							}
+						},
+						{
+							"pendingConnectionList": {
+								"outputConnections": [
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchedForNode": true,
+										"connectionFunctionType": "Reciprocal",
+										"threadMapConnectionType": "ExplicitThreadMapConnection",
+										"woollyKeySearchDefinition": {
+											"searchForNodeKey": {
+												"internalKey": 99,
+												"keyLength": 7
+											},
+											"isLocal": false,
+											"searchRange": 255
+										},
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": null
+									},
+									{
+										"threadMapNodeKeyStore": null,
+										"associatedConstant": 0.0,
+										"isConnectedToSearchedForNode": true,
+										"connectionFunctionType": "Identity",
+										"threadMapConnectionType": "ThreadImplicitReturnThreadMapConnection",
+										"woollyKeySearchDefinition": null,
+										"newThreadThreadMapThreadKeyPosition": 0,
+										"geneSetSearchKey": {
+											"shortFormKey": "0.1",
+											"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1]"
+										}
+									}
+								],
+								"inputConnections": []
+							},
+							"nodeFunctions": [],
+							"threadMapNodeKey": {
+								"shortFormKey": "1.0.3",
+								"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=3], GeneSetPositionInThread=0], ThreadNodePositionInGeneSet=1]"
+							},
+							"nodeKey": {
+								"internalKey": 101,
+								"keyLength": 8
+							},
+							"isSynchronizing": false,
+							"implicitThreadMapConnectionSettings": {
+								"createsAnImplicitConnection": true,
+								"associatedConstant": 0.0,
+								"isConnectedToSearchNode": true,
+								"connectionFunctionType": "Identity"
+							}
+						}
+					],
+					"geneSetKey": {
+						"shortFormKey": "3.0",
+						"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=3], GeneSetPositionInThread=0]"
+					}
+				}
+			],
+			"key": {
+				"longForm": "ThreadMapThreadKey[ThreadMapThreadPosition=3]",
+				"shortForm": "3"
+			},
+			"lifeManager": {
+				"threadPosition": {
+					"upperRange": {
+						"lowerInclusive": 8070450532247928832,
+						"upperInclusive": 9223372036854775807
+					},
+					"lowerRange": {
+						"lowerInclusive": 6917529027641081856,
+						"upperInclusive": 8070450532247928831
+					},
+					"depth": 2,
+					"isUpperNext": false,
+					"position": 8070450532247928831
+				},
+				"ageOfThread": 0,
+				"remainingLife": 31
+			},
+			"threadPosition": {
+				"upperRange": {
+					"lowerInclusive": 8070450532247928832,
+					"upperInclusive": 9223372036854775807
+				},
+				"lowerRange": {
+					"lowerInclusive": 6917529027641081856,
+					"upperInclusive": 8070450532247928831
 				},
 				"depth": 2,
 				"isUpperNext": false,
-				"position": 2305843009213693951
+				"position": 8070450532247928831
 			}
 		}
 	],
@@ -589,7 +2393,7 @@
 							"internalKey": 2,
 							"keyLength": 3
 						},
-						"isSynchronizing": true,
+						"isSynchronizing": false,
 						"implicitThreadMapConnectionSettings": {
 							"createsAnImplicitConnection": true,
 							"associatedConstant": 0.0,
@@ -605,6 +2409,39 @@
 			},
 			{
 				"threadMapNodes": [
+					{
+						"pendingConnectionList": {
+							"outputConnections": [
+								{
+									"threadMapNodeKeyStore": null,
+									"associatedConstant": 0.0,
+									"isConnectedToSearchedForNode": true,
+									"connectionFunctionType": "Identity",
+									"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+									"woollyKeySearchDefinition": null,
+									"newThreadThreadMapThreadKeyPosition": 0,
+									"geneSetSearchKey": null
+								}
+							],
+							"inputConnections": []
+						},
+						"nodeFunctions": [],
+						"threadMapNodeKey": {
+							"shortFormKey": "0.1.0",
+							"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=0]"
+						},
+						"nodeKey": {
+							"internalKey": 3,
+							"keyLength": 3
+						},
+						"isSynchronizing": false,
+						"implicitThreadMapConnectionSettings": {
+							"createsAnImplicitConnection": true,
+							"associatedConstant": 0.0,
+							"isConnectedToSearchNode": true,
+							"connectionFunctionType": "Identity"
+						}
+					},
 					{
 						"pendingConnectionList": {
 							"outputConnections": [
@@ -630,47 +2467,29 @@
 									"associatedConstant": 0.0,
 									"isConnectedToSearchedForNode": true,
 									"connectionFunctionType": "Identity",
-									"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+									"threadMapConnectionType": "ThreadImplicitLaunchThreadMapConnection",
 									"woollyKeySearchDefinition": null,
-									"newThreadThreadMapThreadKeyPosition": 0,
+									"newThreadThreadMapThreadKeyPosition": 3,
 									"geneSetSearchKey": null
 								}
 							],
-							"inputConnections": [
-								{
-									"threadMapNodeKeyStore": null,
-									"associatedConstant": 0.0,
-									"isConnectedToSearchedForNode": false,
-									"connectionFunctionType": "Identity",
-									"threadMapConnectionType": "ExplicitThreadMapConnection",
-									"woollyKeySearchDefinition": {
-										"searchForNodeKey": {
-											"internalKey": 2,
-											"keyLength": 2
-										},
-										"isLocal": false,
-										"searchRange": 255
-									},
-									"newThreadThreadMapThreadKeyPosition": 0,
-									"geneSetSearchKey": null
-								}
-							]
+							"inputConnections": []
 						},
 						"nodeFunctions": [
 							{
-								"nodeFunctionType": "MultiplyIgnoringNulls",
+								"nodeFunctionType": "SumIgnoringNulls",
 								"associatedConstant": 0.0
 							}
 						],
 						"threadMapNodeKey": {
-							"shortFormKey": "0.1.0",
-							"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=0]"
+							"shortFormKey": "1.1.0",
+							"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1], ThreadNodePositionInGeneSet=1]"
 						},
 						"nodeKey": {
-							"internalKey": 3,
-							"keyLength": 3
+							"internalKey": 99,
+							"keyLength": 8
 						},
-						"isSynchronizing": true,
+						"isSynchronizing": false,
 						"implicitThreadMapConnectionSettings": {
 							"createsAnImplicitConnection": true,
 							"associatedConstant": 0.0,
@@ -683,6 +2502,206 @@
 					"shortFormKey": "0.1",
 					"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=1]"
 				}
+			},
+			{
+				"threadMapNodes": [
+					{
+						"pendingConnectionList": {
+							"outputConnections": [],
+							"inputConnections": [
+								{
+									"threadMapNodeKeyStore": null,
+									"associatedConstant": 1.0,
+									"isConnectedToSearchedForNode": false,
+									"connectionFunctionType": "AddAssociatedConstant",
+									"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+									"woollyKeySearchDefinition": {
+										"searchForNodeKey": {
+											"internalKey": 101,
+											"keyLength": 7
+										},
+										"isLocal": true,
+										"searchRange": -1
+									},
+									"newThreadThreadMapThreadKeyPosition": 0,
+									"geneSetSearchKey": null
+								}
+							]
+						},
+						"nodeFunctions": [
+							{
+								"nodeFunctionType": "MultiplyByAssociatedConstant",
+								"associatedConstant": 0.0
+							}
+						],
+						"threadMapNodeKey": {
+							"shortFormKey": "0.2.0",
+							"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2], ThreadNodePositionInGeneSet=0]"
+						},
+						"nodeKey": {
+							"internalKey": 102,
+							"keyLength": 8
+						},
+						"isSynchronizing": false,
+						"implicitThreadMapConnectionSettings": {
+							"createsAnImplicitConnection": false,
+							"associatedConstant": 2.0,
+							"isConnectedToSearchNode": false,
+							"connectionFunctionType": "Identity"
+						}
+					},
+					{
+						"pendingConnectionList": {
+							"outputConnections": [
+								{
+									"threadMapNodeKeyStore": null,
+									"associatedConstant": 0.0,
+									"isConnectedToSearchedForNode": true,
+									"connectionFunctionType": "Reciprocal",
+									"threadMapConnectionType": "ExplicitThreadMapConnection",
+									"woollyKeySearchDefinition": {
+										"searchForNodeKey": {
+											"internalKey": 99,
+											"keyLength": 7
+										},
+										"isLocal": false,
+										"searchRange": 255
+									},
+									"newThreadThreadMapThreadKeyPosition": 0,
+									"geneSetSearchKey": null
+								},
+								{
+									"threadMapNodeKeyStore": null,
+									"associatedConstant": 0.0,
+									"isConnectedToSearchedForNode": true,
+									"connectionFunctionType": "Identity",
+									"threadMapConnectionType": "NodeImplicitThreadMapConnection",
+									"woollyKeySearchDefinition": null,
+									"newThreadThreadMapThreadKeyPosition": 0,
+									"geneSetSearchKey": null
+								}
+							],
+							"inputConnections": []
+						},
+						"nodeFunctions": [],
+						"threadMapNodeKey": {
+							"shortFormKey": "1.2.0",
+							"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2], ThreadNodePositionInGeneSet=1]"
+						},
+						"nodeKey": {
+							"internalKey": 101,
+							"keyLength": 8
+						},
+						"isSynchronizing": false,
+						"implicitThreadMapConnectionSettings": {
+							"createsAnImplicitConnection": true,
+							"associatedConstant": 0.0,
+							"isConnectedToSearchNode": true,
+							"connectionFunctionType": "Identity"
+						}
+					}
+				],
+				"geneSetKey": {
+					"shortFormKey": "0.2",
+					"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=2]"
+				}
+			},
+			{
+				"threadMapNodes": [
+					{
+						"pendingConnectionList": {
+							"outputConnections": [],
+							"inputConnections": [
+								{
+									"threadMapNodeKeyStore": null,
+									"associatedConstant": 1.0,
+									"isConnectedToSearchedForNode": false,
+									"connectionFunctionType": "SubtractAssociatedConstant",
+									"threadMapConnectionType": "ExplicitLocalThreadMapConnection",
+									"woollyKeySearchDefinition": {
+										"searchForNodeKey": {
+											"internalKey": 514,
+											"keyLength": 12
+										},
+										"isLocal": true,
+										"searchRange": -1
+									},
+									"newThreadThreadMapThreadKeyPosition": 0,
+									"geneSetSearchKey": null
+								}
+							]
+						},
+						"nodeFunctions": [
+							{
+								"nodeFunctionType": "NegativeIdentity",
+								"associatedConstant": 0.0
+							},
+							{
+								"nodeFunctionType": "MultiplyByAssociatedConstant",
+								"associatedConstant": 0.0
+							}
+						],
+						"threadMapNodeKey": {
+							"shortFormKey": "0.3.0",
+							"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3], ThreadNodePositionInGeneSet=0]"
+						},
+						"nodeKey": {
+							"internalKey": 202,
+							"keyLength": 8
+						},
+						"isSynchronizing": false,
+						"implicitThreadMapConnectionSettings": {
+							"createsAnImplicitConnection": false,
+							"associatedConstant": 2.0,
+							"isConnectedToSearchNode": false,
+							"connectionFunctionType": "Identity"
+						}
+					},
+					{
+						"pendingConnectionList": {
+							"outputConnections": [
+								{
+									"threadMapNodeKeyStore": null,
+									"associatedConstant": 0.0,
+									"isConnectedToSearchedForNode": true,
+									"connectionFunctionType": "Reciprocal",
+									"threadMapConnectionType": "ExplicitThreadMapConnection",
+									"woollyKeySearchDefinition": {
+										"searchForNodeKey": {
+											"internalKey": 99,
+											"keyLength": 7
+										},
+										"isLocal": false,
+										"searchRange": 255
+									},
+									"newThreadThreadMapThreadKeyPosition": 0,
+									"geneSetSearchKey": null
+								}
+							],
+							"inputConnections": []
+						},
+						"nodeFunctions": [],
+						"threadMapNodeKey": {
+							"shortFormKey": "1.3.0",
+							"longFormKey": "ThreadMapNodeKey[GeneSetKey=GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3], ThreadNodePositionInGeneSet=1]"
+						},
+						"nodeKey": {
+							"internalKey": 6,
+							"keyLength": 3
+						},
+						"isSynchronizing": false,
+						"implicitThreadMapConnectionSettings": {
+							"createsAnImplicitConnection": false,
+							"associatedConstant": 2.0,
+							"isConnectedToSearchNode": false,
+							"connectionFunctionType": "Identity"
+						}
+					}
+				],
+				"geneSetKey": {
+					"shortFormKey": "0.3",
+					"longFormKey": "GeneSetKey[ThreadMapThreadKey=ThreadMapThreadKey[ThreadMapThreadPosition=0], GeneSetPositionInThread=3]"
+				}
 			}
 		],
 		"key": {
@@ -692,15 +2711,15 @@
 		"lifeManager": {
 			"threadPosition": {
 				"upperRange": {
-					"lowerInclusive": 6917529027641081856,
-					"upperInclusive": 9223372036854775807
+					"lowerInclusive": 5764607523034234880,
+					"upperInclusive": 6917529027641081855
 				},
 				"lowerRange": {
 					"lowerInclusive": 4611686018427387904,
-					"upperInclusive": 6917529027641081855
+					"upperInclusive": 5764607523034234879
 				},
 				"depth": 1,
-				"isUpperNext": true,
+				"isUpperNext": false,
 				"position": 4611686018427387903
 			},
 			"ageOfThread": 0,
@@ -708,15 +2727,15 @@
 		},
 		"threadPosition": {
 			"upperRange": {
-				"lowerInclusive": 6917529027641081856,
-				"upperInclusive": 9223372036854775807
+				"lowerInclusive": 5764607523034234880,
+				"upperInclusive": 6917529027641081855
 			},
 			"lowerRange": {
 				"lowerInclusive": 4611686018427387904,
-				"upperInclusive": 6917529027641081855
+				"upperInclusive": 5764607523034234879
 			},
 			"depth": 1,
-			"isUpperNext": true,
+			"isUpperNext": false,
 			"position": 4611686018427387903
 		}
 	}

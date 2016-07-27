@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnChanges, OnInit, Input, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
 import {ThreadViewDataset} from '../data/ThreadViewDataset';
 import {ThreadD3node} from '../data/ThreadD3node';
 import {IMargin} from '../d3Helpers/IMargin';
@@ -11,7 +11,7 @@ import * as d3 from 'd3';
     selector: 'threads-view',
     templateUrl: './app/viewThreadTreeElements/threadsView/threadsView.html',
     directives: [],
-    styleUrls: []
+    styleUrls: ['./app/viewThreadTreeElements/threadsView/threadsView.css'],
 })
 export class ThreadsView implements OnInit, OnChanges {  
     @Input() data : ThreadViewDataset;
