@@ -1,4 +1,4 @@
-import {ThreadD3node} from '../data/ThreadD3node';
+import {ThreadD3node} from '../data/threadD3node';
 
 export class LinkHelper {
 

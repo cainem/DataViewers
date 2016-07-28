@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
-import { ThreadViewDataset  } from '../../viewThreadTreeElements/data/ThreadViewDataset';
+import { ThreadViewDataset  } from '../../viewThreadTreeElements/data/threadViewDataset';
 import { ThreadsView } from '../../viewThreadTreeElements/threadsView/threadsView.component';
 import { ThreadView } from '../../viewThreadTreeElements/threadView/threadView.component'
 import * as d3 from 'd3';

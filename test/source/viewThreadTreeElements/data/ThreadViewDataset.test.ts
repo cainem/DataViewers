@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { ThreadViewDataset } from '../../../../source/viewThreadTreeElements/data/ThreadViewDataset';
-import { ThreadD3node } from '../../../../source/viewThreadTreeElements/data/ThreadD3node';
+import { ThreadD3node } from '../../../../source/viewThreadTreeElements/data/threadD3node';
 
 describe('ThreadViewDataset tests', () => {
     describe("findThreadInThreadById", () => {

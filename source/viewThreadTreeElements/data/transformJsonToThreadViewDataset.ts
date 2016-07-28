@@ -1,7 +1,7 @@
 import {Component, Input, Output, EventEmitter, Injectable} from '@angular/core';
 import {JsonTransformationService} from '../../service/jsonTransformationService';
 import {ThreadMapRootDto} from '../../data/AllDtos';
-import {ThreadViewDataset} from './ThreadViewDataset';
+import {ThreadViewDataset} from './threadViewDataset';
 
 /*
     This class is responsible is transforming a ThreadMapRootDto into a ThreadViewDataset

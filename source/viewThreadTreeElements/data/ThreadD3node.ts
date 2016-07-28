@@ -1,5 +1,5 @@
 import {ThreadMapThreadDto} from '../../data/generatedTypescript/ThreadMapThreadDto';
-import { GeneSetD3node } from './GeneSetD3node';
+import { GeneSetD3node } from './geneSetD3node';
 
 export interface ThreadD3node {
     geneSets : GeneSetD3node[];    
