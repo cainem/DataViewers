@@ -2,6 +2,7 @@ import {Component, Input, Output, EventEmitter, Injectable} from '@angular/core'
 import {JsonTransformationService} from '../../service/jsonTransformationService';
 import {ThreadMapRootDto} from '../../data/AllDtos';
 import {ThreadViewDataset} from './threadViewDataset';
+import {IKeyGenerator} from './IKeyGenerator';
 
 /*
     This class is responsible is transforming a ThreadMapRootDto into a ThreadViewDataset
@@ -11,6 +12,10 @@ import {ThreadViewDataset} from './threadViewDataset';
 */
 
 export class TransformJsonToThreadViewDataset implements JsonTransformationService  {
+
+    constructor(private _keyGeneratorService : IKeyGenerator) {        
+    }
+
     transformJson : (json :any) => any = (json: any) => {
         return null;
     } 
@@ -18,7 +23,5 @@ export class TransformJsonToThreadViewDataset implements JsonTransformationServi
     typedTransformJson : (json : ThreadMapRootDto) => ThreadViewDataset = (json: ThreadMapRootDto) => {
         return null;
     }
-
-    
 
 }

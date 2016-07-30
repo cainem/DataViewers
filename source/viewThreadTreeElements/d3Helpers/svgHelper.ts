@@ -1,4 +1,3 @@
-import {ThreadD3node} from '../data/ThreadD3node';
 import {IMargin} from '../d3Helpers/IMargin';
 
 /*

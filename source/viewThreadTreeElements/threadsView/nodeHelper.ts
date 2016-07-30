@@ -1,27 +1,27 @@
-import {ThreadD3node} from '../data/ThreadD3node';
+import {IThreadD3node} from '../data/IThreadD3node';
 
 export class NodeHelper {
-    static drawNodes (selection : d3.Selection<ThreadD3node> | d3.selection.Enter<ThreadD3node>) : d3.Selection<ThreadD3node> {
-        let nodeSelection : d3.Selection<ThreadD3node> = selection.append("g")
+    static drawNodes (selection : d3.Selection<IThreadD3node> | d3.selection.Enter<IThreadD3node>) : d3.Selection<IThreadD3node> {
+        let nodeSelection : d3.Selection<IThreadD3node> = selection.append("g")
             // add the class node; this will identify the nodes for selection with the selectAll
             .attr("class", "node")
             // move the g to the correct position on screen
-            .attr("transform", (d : ThreadD3node) => "translate(" + d.y + "," + d.x + ")");
+            .attr("transform", (d : IThreadD3node) => "translate(" + d.y + "," + d.x + ")");
 
         // add a circle for the new nodes
         nodeSelection.append("circle")
-            .attr("r", (d : ThreadD3node) => 15)
-            .style("stroke", (d: ThreadD3node) => "red")
-            .style("fill", (d: ThreadD3node) => d.depth)
-            .attr("onclick", (d: ThreadD3node) => 
+            .attr("r", (d : IThreadD3node) => 15)
+            .style("stroke", (d: IThreadD3node) => "red")
+            .style("fill", (d: IThreadD3node) => d.depth)
+            .attr("onclick", (d: IThreadD3node) => 
                 "document.getElementById('localInput').value = " + d.id + "; document.getElementById('eventRaiser').click();")            
 
         // add text for the new nodes
         nodeSelection.append("text")
-            .attr("x", (d : ThreadD3node) => -20 )
+            .attr("x", (d : IThreadD3node) => -20 )
             .attr("dy", ".35em")
-            .attr("text-anchor", (d : ThreadD3node) => d.childThreads ? "end" : "start")
-            .text((d : ThreadD3node) => d.debugText)
+            .attr("text-anchor", (d : IThreadD3node) => d.childThreads ? "end" : "start")
+            .text((d : IThreadD3node) => d.debugText)
             .style("fill-opacity", 1);        
 
         return nodeSelection;
