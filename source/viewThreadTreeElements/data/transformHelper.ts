@@ -1,5 +1,6 @@
 import {ThreadMapThreadDto, LazyThreadMapThreadReferenceDto, ThreadMapThreadKeyDto} from '../../data/AllDtos'
 import {ThreadMapThreadDtoWithChildren} from './ThreadMapThreadDtoWithChildren';
+import {IStringToThreadMapThreadDtoWithChildrenMap} from './IStringToThreadMapThreadDtoWithChildrenMap';
 
 export class TransformHelper {
     static isKeyMatch (thread: ThreadMapThreadDtoWithChildren, key: ThreadMapThreadKeyDto) : boolean {
@@ -10,36 +11,22 @@ export class TransformHelper {
         return thread.threadMapThreadDto.key.shortForm === key.shortForm;
     }
 
-    static findParentThread(allThreads : ThreadMapThreadDtoWithChildren[], 
-        parentReference : LazyThreadMapThreadReferenceDto ) : ThreadMapThreadDtoWithChildren {
-
-        if (allThreads === null || parentReference === null) {
-            return null;
-        }
-        for (let i = 0; i < allThreads.length; i++) {
-            if (TransformHelper.isKeyMatch(allThreads[i], parentReference.threadMapThreadKey)) {
-                return allThreads[i];
-            }
-        }
-        //no match
-        return null;
-    }
-
-    static createThreadMapThreadDtoWithChildrenArray(allThreads : ThreadMapThreadDtoWithChildren[]) : ThreadMapThreadDtoWithChildren[] {
-        let result : ThreadMapThreadDtoWithChildren[] = [];
+    static createThreadMapThreadDtoWithChildrenMap(allThreads : ThreadMapThreadDto[]) :IStringToThreadMapThreadDtoWithChildrenMap {
+        let result : IStringToThreadMapThreadDtoWithChildrenMap = {};
         // build the array completely with no child relationships
         for (let i = 0; i < allThreads.length; i++) {
             let element = allThreads[i];
-            result.push(element);
+            result[element.key.shortForm] = new ThreadMapThreadDtoWithChildren(element);
         }
 
         // loop over a second time filling in the child relationships
-        for (let i = 0; i < result.length; i++) {
-            let element = result[i];
+        for(let key in result) {
+            let element = result[key];
             if (element.threadMapThreadDto.lazyParentThread !== null) {
-                let parent = TransformHelper.findParentThread(result, element.threadMapThreadDto.lazyParentThread);
+                let parent = result[element.threadMapThreadDto.lazyParentThread.threadMapThreadKey.shortForm];
                 parent.addChild(element);
             }
+            
         }
         
         return result;

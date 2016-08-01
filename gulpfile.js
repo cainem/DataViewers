@@ -44,7 +44,9 @@ gulp.task("build-tests", function() {
 
 gulp.task("run-tests", [ "build-tests" ], function() {
     return gulp.src('test/out/**/*.test.js')
-        .pipe(mocha({ui: 'bdd'}));
+        .pipe(mocha({ui: 'bdd'}).on("error", function(err) {
+            console.log(err.toString());
+        }));
 });
 
 gulp.task("test", [ 'build-tests', 'run-tests']);

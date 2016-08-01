@@ -2,6 +2,7 @@
 // // workaround for https://github.com/angular/angular/issues/6007
 // import Zone from 'zone.js';
 // window.Zone = Zone;
+/// <reference path="../typings/index.d.ts" />
 
 import { bootstrap }    from '@angular/platform-browser-dynamic';
 import { ROUTER_PROVIDERS } from '@angular/router-deprecated'

@@ -66,101 +66,103 @@ describe('TransformHelper tests', () => {
 
     }),
 
-describe("findParentThread", () => {
-    it("null allThreads passed in returns null", () =>  {            
-            let allThreads : ThreadMapThreadDtoWithChildren[] = null;
-            let parentThreadReference = null;
+// describe("findParentThread", () => {
+//     it("null allThreads passed in returns null", () =>  {            
+//             let allThreads : ThreadMapThreadDtoWithChildren[] = null;
+//             let parentThreadReference = null;
 
-            let result = TransformHelper.findParentThread(allThreads, parentThreadReference)
+//             let result = TransformHelper.findParentThread(allThreads, parentThreadReference)
 
-            assert.isNull(result);
-        }
-    )
-    ,it("allThreads contains one thread with the matching thread reference, returns thread", () =>  {
-            let thread1 : ThreadMapThreadDto = new ThreadMapThreadDto ();
-            thread1.key = new ThreadMapThreadKeyDto();
-            thread1.key.shortForm = "key1";            
-            let thread1WithChildren = new ThreadMapThreadDtoWithChildren(thread1);
+//             assert.isNull(result);
+//         }
+//     )
+//     ,it("allThreads contains one thread with the matching thread reference, returns thread", () =>  {
+//             let thread1 : ThreadMapThreadDto = new ThreadMapThreadDto ();
+//             thread1.key = new ThreadMapThreadKeyDto();
+//             thread1.key.shortForm = "key1";            
+//             let thread1WithChildren = new ThreadMapThreadDtoWithChildren(thread1);
         
-            let allThreads : ThreadMapThreadDtoWithChildren[] = [ thread1WithChildren ];
-            let parentThreadReference : LazyThreadMapThreadReferenceDto = new LazyThreadMapThreadReferenceDto();
-            parentThreadReference.threadMapThreadKey = new ThreadMapThreadKeyDto();
-            parentThreadReference.threadMapThreadKey.shortForm = "key1";
+//             let allThreads : ThreadMapThreadDtoWithChildren[] = [ thread1WithChildren ];
+//             let parentThreadReference : LazyThreadMapThreadReferenceDto = new LazyThreadMapThreadReferenceDto();
+//             parentThreadReference.threadMapThreadKey = new ThreadMapThreadKeyDto();
+//             parentThreadReference.threadMapThreadKey.shortForm = "key1";
 
-            let result = TransformHelper.findParentThread(allThreads, parentThreadReference)
+//             let result = TransformHelper.findParentThread(allThreads, parentThreadReference)
 
-            assert.equal(result, thread1WithChildren);
-        }
-    )
-    ,it("allThreads contains two threads one matches the thread reference, returns matching thread", () =>  {
-            let thread1 : ThreadMapThreadDto = new ThreadMapThreadDto ();
-            thread1.key = new ThreadMapThreadKeyDto();
-            thread1.key.shortForm = "key1";
-            let thread1WithChildren = new ThreadMapThreadDtoWithChildren(thread1);
+//             assert.equal(result, thread1WithChildren);
+//         }
+//     )
+//     ,it("allThreads contains two threads one matches the thread reference, returns matching thread", () =>  {
+//             let thread1 : ThreadMapThreadDto = new ThreadMapThreadDto ();
+//             thread1.key = new ThreadMapThreadKeyDto();
+//             thread1.key.shortForm = "key1";
+//             let thread1WithChildren = new ThreadMapThreadDtoWithChildren(thread1);
 
-            let thread2 : ThreadMapThreadDto = new ThreadMapThreadDto ();
-            thread2.key = new ThreadMapThreadKeyDto();
-            thread2.key.shortForm = "key2";
-            let thread2WithChildren = new ThreadMapThreadDtoWithChildren(thread2);
+//             let thread2 : ThreadMapThreadDto = new ThreadMapThreadDto ();
+//             thread2.key = new ThreadMapThreadKeyDto();
+//             thread2.key.shortForm = "key2";
+//             let thread2WithChildren = new ThreadMapThreadDtoWithChildren(thread2);
         
-            let allThreads : ThreadMapThreadDtoWithChildren[] = [ thread1WithChildren, thread2WithChildren ];
-            let parentThreadReference : LazyThreadMapThreadReferenceDto = new LazyThreadMapThreadReferenceDto();
-            parentThreadReference.threadMapThreadKey = new ThreadMapThreadKeyDto();
-            parentThreadReference.threadMapThreadKey.shortForm = "key2";
+//             let allThreads : ThreadMapThreadDtoWithChildren[] = [ thread1WithChildren, thread2WithChildren ];
+//             let parentThreadReference : LazyThreadMapThreadReferenceDto = new LazyThreadMapThreadReferenceDto();
+//             parentThreadReference.threadMapThreadKey = new ThreadMapThreadKeyDto();
+//             parentThreadReference.threadMapThreadKey.shortForm = "key2";
 
-            let result = TransformHelper.findParentThread(allThreads, parentThreadReference)
+//             let result = TransformHelper.findParentThread(allThreads, parentThreadReference)
 
-            assert.equal(result, thread2WithChildren);
-        }
-    )
-    ,it("allThreads contains two threads null thread reference, returns null", () =>  {
-            let thread1 : ThreadMapThreadDto = new ThreadMapThreadDto ();
-            thread1.key = new ThreadMapThreadKeyDto();
-            thread1.key.shortForm = "key1";
-            let thread1WithChildren = new ThreadMapThreadDtoWithChildren(thread1);
+//             assert.equal(result, thread2WithChildren);
+//         }
+//     )
+//     ,it("allThreads contains two threads null thread reference, returns null", () =>  {
+//             let thread1 : ThreadMapThreadDto = new ThreadMapThreadDto ();
+//             thread1.key = new ThreadMapThreadKeyDto();
+//             thread1.key.shortForm = "key1";
+//             let thread1WithChildren = new ThreadMapThreadDtoWithChildren(thread1);
             
-            let thread2 : ThreadMapThreadDto = new ThreadMapThreadDto ();
-            thread2.key = new ThreadMapThreadKeyDto();
-            thread2.key.shortForm = "key2";
-            let thread2WithChildren = new ThreadMapThreadDtoWithChildren(thread2);            
+//             let thread2 : ThreadMapThreadDto = new ThreadMapThreadDto ();
+//             thread2.key = new ThreadMapThreadKeyDto();
+//             thread2.key.shortForm = "key2";
+//             let thread2WithChildren = new ThreadMapThreadDtoWithChildren(thread2);            
         
-            let allThreads : ThreadMapThreadDtoWithChildren[] = [ thread1WithChildren, thread2WithChildren ];
-            let parentThreadReference : LazyThreadMapThreadReferenceDto = null;
+//             let allThreads : ThreadMapThreadDtoWithChildren[] = [ thread1WithChildren, thread2WithChildren ];
+//             let parentThreadReference : LazyThreadMapThreadReferenceDto = null;
 
-            let result = TransformHelper.findParentThread(allThreads, parentThreadReference)
+//             let result = TransformHelper.findParentThread(allThreads, parentThreadReference)
 
-            assert.isNull(result);
-        }
-    )
+//             assert.isNull(result);
+//         }
+//     )
     
-    }),
+//     }),
 
 describe("createThreadMapThreadDtoWithChildrenArray", () => {
     it("empty array passed in empty array returned", () =>  {            
-            let allThreads : ThreadMapThreadDtoWithChildren[] = [];
+            let allThreads : ThreadMapThreadDto[] = [];
 
-            let result = TransformHelper.createThreadMapThreadDtoWithChildrenArray(allThreads)
+            let result = TransformHelper.createThreadMapThreadDtoWithChildrenMap(allThreads)
 
             assert.isNotNull(result);
-            assert.equal(0, result.length);
+            assert.equal(0, Object.keys(result).length);
         }
     )
     ,it("an array with one (root) thread, returns single element array", () =>  {
 
             let thread1 = new ThreadMapThreadDto();
             thread1.lazyParentThread = null
+            thread1.key = new ThreadMapThreadKeyDto();
+            thread1.key.shortForm = "rootkey";            
             let thread1WithChildren = new ThreadMapThreadDtoWithChildren(thread1);
 
-            let allThreads : ThreadMapThreadDtoWithChildren[] = [
-                thread1WithChildren
+            let allThreads : ThreadMapThreadDto[] = [
+                thread1
             ];
 
-            let result = TransformHelper.createThreadMapThreadDtoWithChildrenArray(allThreads)
+            let result = TransformHelper.createThreadMapThreadDtoWithChildrenMap(allThreads)
 
             assert.isNotNull(result);
-            assert.equal(1, result.length);
-            assert.equal(result[0].threadMapThreadDto, thread1);
-            assert.equal(0, result[0].children.length);
+            assert.equal(1, Object.keys(result).length);
+            assert.equal(result["rootkey"].threadMapThreadDto, thread1);
+            assert.equal(0, result["rootkey"].children.length);
         }
     )
     ,it("an array with one (root) thread and one child thread returns 2 elements children properties as expected", () =>  {
@@ -180,19 +182,19 @@ describe("createThreadMapThreadDtoWithChildrenArray", () => {
             thread2.lazyParentThread.threadMapThreadKey.shortForm = "rootkey";
             let thread2WithChildren = new ThreadMapThreadDtoWithChildren(thread2);
 
-            let allThreads : ThreadMapThreadDtoWithChildren[] = [
-                thread1WithChildren,
-                thread2WithChildren
+            let allThreads : ThreadMapThreadDto[] = [
+                thread1,
+                thread2
             ];
 
-            let result = TransformHelper.createThreadMapThreadDtoWithChildrenArray(allThreads)
+            let result = TransformHelper.createThreadMapThreadDtoWithChildrenMap(allThreads)
 
             assert.isNotNull(result);
-            assert.equal(2, result.length);
-            assert.equal(result[0].threadMapThreadDto, thread1);
-            assert.equal(result[1].threadMapThreadDto, thread2);
-            assert.equal(1, result[0].children.length);
-            assert.equal(result[0].children[0], thread2WithChildren);
+            assert.equal(2, Object.keys(result).length);
+            assert.equal(result["rootkey"].threadMapThreadDto, thread1);
+            assert.equal(result["childkey"].threadMapThreadDto, thread2);
+            assert.equal(1, result["rootkey"].children.length);
+            assert.equal(result["rootkey"].children[0].threadMapThreadDto, thread2WithChildren.threadMapThreadDto);
         }
     )
     ,it("an array with one (root) thread and two child threads returns 3 elements, children properties as expected", () =>  {
@@ -220,22 +222,22 @@ describe("createThreadMapThreadDtoWithChildrenArray", () => {
             thread3.lazyParentThread.threadMapThreadKey.shortForm = "rootkey";
             let thread3WithChildren = new ThreadMapThreadDtoWithChildren(thread3);
 
-            let allThreads : ThreadMapThreadDtoWithChildren[] = [
-                thread1WithChildren,
-                thread2WithChildren,
-                thread3WithChildren
+            let allThreads : ThreadMapThreadDto[] = [
+                thread1,
+                thread2,
+                thread3
             ];
 
-            let result = TransformHelper.createThreadMapThreadDtoWithChildrenArray(allThreads)
+            let result = TransformHelper.createThreadMapThreadDtoWithChildrenMap(allThreads)
 
             assert.isNotNull(result);
-            assert.equal(3, result.length);
-            assert.equal(result[0].threadMapThreadDto, thread1);
-            assert.equal(result[1].threadMapThreadDto, thread2);
-            assert.equal(result[2].threadMapThreadDto, thread3);
-            assert.equal(2, result[0].children.length);
-            assert.equal(result[0].children[0], thread2WithChildren);
-            assert.equal(result[0].children[1], thread3WithChildren);
+            assert.equal(3, Object.keys(result).length);
+            assert.equal(result["rootkey"].threadMapThreadDto, thread1);
+            assert.equal(result["childkey1"].threadMapThreadDto, thread2);
+            assert.equal(result["childkey2"].threadMapThreadDto, thread3);
+            assert.equal(2, result["rootkey"].children.length);
+            assert.equal(result["rootkey"].children[0].threadMapThreadDto, thread2WithChildren.threadMapThreadDto);
+            assert.equal(result["rootkey"].children[1].threadMapThreadDto, thread3WithChildren.threadMapThreadDto);
         }
     )
 

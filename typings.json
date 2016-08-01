@@ -1,11 +1,9 @@
 {
-  "ambientDependencies": {
-    "chai": "registry:dt/chai#3.4.0+20160317120654",
-    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
-    "mocha": "registry:dt/mocha#2.2.5+20160317120654",
-    "node": "registry:dt/node#4.0.0+20160509154515",
-    "d3": "registry:npm/d3#3.0.0+20160211003958"
-  },
-  "dependencies": {
+  "globalDependencies": {
+    "chai": "registry:dt/chai#3.4.0+20160601211834",
+    "core-js": "registry:dt/core-js#0.0.0+20160602141332",
+    "d3": "registry:dt/d3#0.0.0+20160727131401",
+    "mocha": "registry:dt/mocha#2.2.5+20160720003353",
+    "node": "registry:dt/node#6.0.0+20160621231320"
   }
 }
