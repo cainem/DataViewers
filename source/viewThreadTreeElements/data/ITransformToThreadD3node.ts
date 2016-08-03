@@ -1,5 +1,5 @@
 import {ThreadMapRootDto, ThreadMapThreadDto} from '../../data/AllDtos';
-import {IKeyGenerator} from './IKeyGenerator';
+import {keyGeneratorInterface} from './keyGenerator.interface';
 import {ThreadD3node} from './ThreadD3node';
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
 import {IStringToThreadMapThreadDtoWithChildrenMap} from './IStringToThreadMapThreadDtoWithChildrenMap';

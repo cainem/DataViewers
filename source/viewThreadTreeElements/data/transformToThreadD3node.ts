@@ -1,5 +1,5 @@
 import {ThreadMapRootDto, ThreadMapThreadDto} from '../../data/AllDtos';
-import {IKeyGenerator} from './IKeyGenerator';
+import {keyGeneratorInterface} from './keyGenerator.interface';
 import {ThreadD3node} from './ThreadD3node';
 import {ITransformToThreadD3node} from './ITransformToThreadD3node'
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
@@ -7,7 +7,7 @@ import {IStringToThreadMapThreadDtoWithChildrenMap} from './IStringToThreadMapTh
 
 export class TransformToThreadD3node implements ITransformToThreadD3node {
 
-    constructor(private keyGeneratorService : IKeyGenerator) {
+    constructor(private keyGeneratorService : keyGeneratorInterface) {
     }
 
     createThreadD3nodes = (allThreads :IStringToThreadMapThreadDtoWithChildrenMap,

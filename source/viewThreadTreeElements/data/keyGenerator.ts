@@ -1,6 +1,6 @@
-import {IKeyGenerator} from './IKeyGenerator'
+import {keyGeneratorInterface} from './keyGenerator.interface'
 
-export class KeyGenerator implements IKeyGenerator {
+export class KeyGenerator implements keyGeneratorInterface {
     private _counter : number = 0;
     getNextKey = () => {
         this._counter++;
