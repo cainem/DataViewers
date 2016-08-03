@@ -1,11 +1,11 @@
 import {ThreadMapRootDto, ThreadMapThreadDto} from '../../data/AllDtos';
 import {keyGeneratorInterface} from './keyGenerator.interface';
 import {ThreadD3node} from './ThreadD3node';
-import {ITransformToThreadD3node} from './ITransformToThreadD3node'
+import {transformToThreadD3nodeInterface} from './transformToThreadD3node.interface'
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
 import {keyedThreadMapInterface} from './keyedThreadMap.interface';
 
-export class TransformToThreadD3node implements ITransformToThreadD3node {
+export class TransformToThreadD3node implements transformToThreadD3nodeInterface {
 
     constructor(private keyGeneratorService : keyGeneratorInterface) {
     }

@@ -5,7 +5,7 @@ import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
 import {keyedThreadMapInterface} from './keyedThreadMap.interface';
 
 
-export interface ITransformToThreadD3node {
+export interface transformToThreadD3nodeInterface {
     createThreadD3nodes: (allThreads :keyedThreadMapInterface,
         rootThreadMapThreadDto : ThreadMapThreadDtoWithChildren) => ThreadD3node;
 

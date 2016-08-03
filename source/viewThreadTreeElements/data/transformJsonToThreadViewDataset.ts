@@ -2,8 +2,9 @@ import {Component, Input, Output, EventEmitter, Injectable} from '@angular/core'
 import {JsonTransformationService} from '../../service/jsonTransformationService';
 import {ThreadMapRootDto} from '../../data/AllDtos';
 import {ThreadViewDataset} from './threadViewDataset';
-import {ITransformToThreadD3node} from './ITransformToThreadD3node';
+import {transformToThreadD3nodeInterface} from './transformToThreadD3node.interface';
 import {mapCreatorInterface} from './mapCreator.interface';
+import {threadViewDatasetFactoryInterface} from './threadViewDatasetFactory.interface';
 
 /*
     This class is responsible is transforming a ThreadMapRootDto into a ThreadViewDataset
@@ -14,8 +15,9 @@ import {mapCreatorInterface} from './mapCreator.interface';
 
 export class TransformJsonToThreadViewDataset implements JsonTransformationService  {
 
-    constructor(private _transformToThreadD3node : ITransformToThreadD3node,
-        private _mapCreator : mapCreatorInterface) {        
+    constructor(private _transformToThreadD3node : transformToThreadD3nodeInterface,
+        private _mapCreator : mapCreatorInterface,
+        private threadViewDatasetFactoryInterface : threadViewDatasetFactoryInterface) {        
     }
 
     transformJson : (json :any) => any = (json: any) => {

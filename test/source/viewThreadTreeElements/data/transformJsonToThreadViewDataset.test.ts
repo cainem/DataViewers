@@ -6,7 +6,7 @@ import { TransformJsonToThreadViewDataset } from '../../../../source/viewThreadT
 import { ThreadMapThreadDtoWithChildren } from '../../../../source/viewThreadTreeElements/data/threadMapThreadDtoWithChildren';
 import { mapCreatorInterface } from '../../../../source/viewThreadTreeElements/data/mapCreator.interface';
 import { keyedThreadMapInterface } from '../../../../source/viewThreadTreeElements/data/keyedThreadMap.interface';
-import { ITransformToThreadD3node } from '../../../../source/viewThreadTreeElements/data/ITransformToThreadD3node';
+import { transformToThreadD3nodeInterface } from '../../../../source/viewThreadTreeElements/data/transformToThreadD3node.interface';
 import { ThreadD3node } from '../../../../source/viewThreadTreeElements/data/ThreadD3node';
 
 
@@ -35,7 +35,7 @@ describe('TransformJsonToThreadViewDataset tests', () => {
                     return mockResult;
                 }
             };
-            let transformMock : ITransformToThreadD3node = {
+            let transformMock : transformToThreadD3nodeInterface = {
                 createThreadD3nodes : (allThreads, rootThreadMapThreadDto) =>
                 {
                     calledWithMap1 = allThreads;
