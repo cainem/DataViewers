@@ -1,6 +1,6 @@
 import {ThreadMapThreadDto, LazyThreadMapThreadReferenceDto, ThreadMapThreadKeyDto} from '../../data/AllDtos';
-import {IStringToThreadMapThreadDtoWithChildrenMap} from './IStringToThreadMapThreadDtoWithChildrenMap';
+import {keyedThreadMapInterface} from './keyedThreadMap.interface';
 
 export interface mapCreatorInterface {
-    createThreadMapThreadDtoWithChildrenMap : (allThreads : ThreadMapThreadDto[]) => IStringToThreadMapThreadDtoWithChildrenMap;
+    createThreadMapThreadDtoWithChildrenMap : (allThreads : ThreadMapThreadDto[]) => keyedThreadMapInterface;
 }

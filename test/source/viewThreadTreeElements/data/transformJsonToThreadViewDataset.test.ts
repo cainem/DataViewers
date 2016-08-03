@@ -5,7 +5,7 @@ import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReference
 import { TransformJsonToThreadViewDataset } from '../../../../source/viewThreadTreeElements/data/transformJsonToThreadViewDataset';
 import { ThreadMapThreadDtoWithChildren } from '../../../../source/viewThreadTreeElements/data/threadMapThreadDtoWithChildren';
 import { mapCreatorInterface } from '../../../../source/viewThreadTreeElements/data/mapCreator.interface';
-import { IStringToThreadMapThreadDtoWithChildrenMap } from '../../../../source/viewThreadTreeElements/data/IStringToThreadMapThreadDtoWithChildrenMap';
+import { keyedThreadMapInterface } from '../../../../source/viewThreadTreeElements/data/keyedThreadMap.interface';
 import { ITransformToThreadD3node } from '../../../../source/viewThreadTreeElements/data/ITransformToThreadD3node';
 import { ThreadD3node } from '../../../../source/viewThreadTreeElements/data/ThreadD3node';
 
@@ -26,7 +26,7 @@ describe('TransformJsonToThreadViewDataset tests', () => {
             var calledWithMap1;
             var calledWithRootThreadMapThreadDto;
 
-            var mockResult : IStringToThreadMapThreadDtoWithChildrenMap = {};
+            var mockResult : keyedThreadMapInterface = {};
 
             let rootNode = new ThreadD3node();
             let mapCreatorMock : mapCreatorInterface = {

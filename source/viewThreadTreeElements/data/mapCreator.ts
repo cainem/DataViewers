@@ -1,11 +1,11 @@
 import {ThreadMapThreadDto, LazyThreadMapThreadReferenceDto, ThreadMapThreadKeyDto} from '../../data/AllDtos'
 import {ThreadMapThreadDtoWithChildren} from './ThreadMapThreadDtoWithChildren';
-import {IStringToThreadMapThreadDtoWithChildrenMap} from './IStringToThreadMapThreadDtoWithChildrenMap';
+import {keyedThreadMapInterface} from './keyedThreadMap.interface';
 import {mapCreatorInterface} from './mapCreator.interface';
 
 export class MapCreator implements mapCreatorInterface {
-    createThreadMapThreadDtoWithChildrenMap = (allThreads : ThreadMapThreadDto[]) :IStringToThreadMapThreadDtoWithChildrenMap => {
-        let result : IStringToThreadMapThreadDtoWithChildrenMap = {};
+    createThreadMapThreadDtoWithChildrenMap = (allThreads : ThreadMapThreadDto[]) :keyedThreadMapInterface => {
+        let result : keyedThreadMapInterface = {};
         // build the array completely with no child relationships
         for (let i = 0; i < allThreads.length; i++) {
             let element = allThreads[i];

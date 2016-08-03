@@ -3,19 +3,19 @@ import {keyGeneratorInterface} from './keyGenerator.interface';
 import {ThreadD3node} from './ThreadD3node';
 import {ITransformToThreadD3node} from './ITransformToThreadD3node'
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
-import {IStringToThreadMapThreadDtoWithChildrenMap} from './IStringToThreadMapThreadDtoWithChildrenMap';
+import {keyedThreadMapInterface} from './keyedThreadMap.interface';
 
 export class TransformToThreadD3node implements ITransformToThreadD3node {
 
     constructor(private keyGeneratorService : keyGeneratorInterface) {
     }
 
-    createThreadD3nodes = (allThreads :IStringToThreadMapThreadDtoWithChildrenMap,
+    createThreadD3nodes = (allThreads :keyedThreadMapInterface,
         rootThreadMapThreadDto : ThreadMapThreadDtoWithChildren) => {
             return this.createThreadD3node(allThreads, rootThreadMapThreadDto, 0);
     }    
 
-    createThreadD3node = (allThreads :IStringToThreadMapThreadDtoWithChildrenMap,
+    createThreadD3node = (allThreads :keyedThreadMapInterface,
         threadMapThreadDtoWithChildren : ThreadMapThreadDtoWithChildren, depth : number) : ThreadD3node => {
 
         let threadD3Node = new ThreadD3node();
