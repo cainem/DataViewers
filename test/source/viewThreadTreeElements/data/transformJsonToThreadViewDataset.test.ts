@@ -4,6 +4,11 @@ import { IThreadD3node } from '../../../../source/viewThreadTreeElements/data/IT
 import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto, ThreadMapRootDto } from '../../../../source/data/AllDtos';
 import { TransformJsonToThreadViewDataset } from '../../../../source/viewThreadTreeElements/data/transformJsonToThreadViewDataset';
 import { ThreadMapThreadDtoWithChildren } from '../../../../source/viewThreadTreeElements/data/threadMapThreadDtoWithChildren';
+import { IMapCreator } from '../../../../source/viewThreadTreeElements/data/IMapCreator';
+import { IStringToThreadMapThreadDtoWithChildrenMap } from '../../../../source/viewThreadTreeElements/data/IStringToThreadMapThreadDtoWithChildrenMap';
+import { ITransformToThreadD3node } from '../../../../source/viewThreadTreeElements/data/ITransformToThreadD3node';
+import { ThreadD3node } from '../../../../source/viewThreadTreeElements/data/ThreadD3node';
+
 
 describe('TransformJsonToThreadViewDataset tests', () => {
     describe("typedTransformJson", () => {
@@ -16,23 +21,41 @@ describe('TransformJsonToThreadViewDataset tests', () => {
                 to.throw('json not valid');
         })
     ,it("calls map creator as expected (1)", () =>  {
-            let target = new TransformJsonToThreadViewDataset(null, null);
 
             var calledWithAllThreads;
+            var calledWithMap1;
+            var calledWithRootThreadMapThreadDto;
 
-            var mockResult = {};
+            var mockResult : IStringToThreadMapThreadDtoWithChildrenMap = {};
 
-            let mapCreatorMock = {
+            let rootNode = new ThreadD3node();
+            let mapCreatorMock : IMapCreator = {
                 createThreadMapThreadDtoWithChildrenMap : (allThreads : ThreadMapThreadDto[]) => {
                     calledWithAllThreads = allThreads;
                     return mockResult;
                 }
             };
+            let transformMock : ITransformToThreadD3node = {
+                createThreadD3nodes : (allThreads, rootThreadMapThreadDto) =>
+                {
+                    calledWithMap1 = allThreads;
+                    calledWithRootThreadMapThreadDto = rootThreadMapThreadDto;
+                    return rootNode;
+                },
+                createThreadD3node : (allThreads) => new ThreadD3node()
+            }
+
+            let target = new TransformJsonToThreadViewDataset(null, null);
 
             let threadMapRootDto = new ThreadMapRootDto();
+            threadMapRootDto.allThreads = [];
+            threadMapRootDto.rootThreadMapThread = new ThreadMapThreadDto();
+            threadMapRootDto.rootThreadMapThread.key = new ThreadMapThreadKeyDto();
+            threadMapRootDto.rootThreadMapThread.key.shortForm = "key";
 
             let result = target.typedTransformJson(threadMapRootDto);
 
+            assert.equal(calledWithAllThreads, threadMapRootDto.rootThreadMapThread);
             assert.equal(result, mockResult);
         })
     })
