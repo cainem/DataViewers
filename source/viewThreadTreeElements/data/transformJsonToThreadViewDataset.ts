@@ -3,7 +3,7 @@ import {JsonTransformationService} from '../../service/jsonTransformationService
 import {ThreadMapRootDto} from '../../data/AllDtos';
 import {ThreadViewDataset} from './threadViewDataset';
 import {ITransformToThreadD3node} from './ITransformToThreadD3node';
-import {IMapCreator} from './IMapCreator';
+import {mapCreatorInterface} from './mapCreator.interface';
 
 /*
     This class is responsible is transforming a ThreadMapRootDto into a ThreadViewDataset
@@ -15,7 +15,7 @@ import {IMapCreator} from './IMapCreator';
 export class TransformJsonToThreadViewDataset implements JsonTransformationService  {
 
     constructor(private _transformToThreadD3node : ITransformToThreadD3node,
-        private _mapCreator : IMapCreator) {        
+        private _mapCreator : mapCreatorInterface) {        
     }
 
     transformJson : (json :any) => any = (json: any) => {

@@ -4,7 +4,7 @@ import { IThreadD3node } from '../../../../source/viewThreadTreeElements/data/IT
 import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto, ThreadMapRootDto } from '../../../../source/data/AllDtos';
 import { TransformJsonToThreadViewDataset } from '../../../../source/viewThreadTreeElements/data/transformJsonToThreadViewDataset';
 import { ThreadMapThreadDtoWithChildren } from '../../../../source/viewThreadTreeElements/data/threadMapThreadDtoWithChildren';
-import { IMapCreator } from '../../../../source/viewThreadTreeElements/data/IMapCreator';
+import { mapCreatorInterface } from '../../../../source/viewThreadTreeElements/data/mapCreator.interface';
 import { IStringToThreadMapThreadDtoWithChildrenMap } from '../../../../source/viewThreadTreeElements/data/IStringToThreadMapThreadDtoWithChildrenMap';
 import { ITransformToThreadD3node } from '../../../../source/viewThreadTreeElements/data/ITransformToThreadD3node';
 import { ThreadD3node } from '../../../../source/viewThreadTreeElements/data/ThreadD3node';
@@ -29,7 +29,7 @@ describe('TransformJsonToThreadViewDataset tests', () => {
             var mockResult : IStringToThreadMapThreadDtoWithChildrenMap = {};
 
             let rootNode = new ThreadD3node();
-            let mapCreatorMock : IMapCreator = {
+            let mapCreatorMock : mapCreatorInterface = {
                 createThreadMapThreadDtoWithChildrenMap : (allThreads : ThreadMapThreadDto[]) => {
                     calledWithAllThreads = allThreads;
                     return mockResult;
