@@ -1,4 +1,4 @@
-import {IMargin} from '../d3Helpers/IMargin';
+import {MarginInterface} from '../d3Helpers/margin.interface';
 
 /*
     This class helps with the setting up of a zoomable svg container.
@@ -13,7 +13,7 @@ export class SvgHelper {
     public height: number;
     public width: number;
 
-    private margin : IMargin;
+    private margin : MarginInterface;
 
     constructor() {
         this.margin = {top: 20, right: 120, bottom: 20, left: 120};

@@ -1,4 +1,4 @@
-export interface IMargin {
+export interface MarginInterface {
     top : number;
     bottom : number;
     left : number;

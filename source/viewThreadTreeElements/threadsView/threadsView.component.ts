@@ -1,7 +1,7 @@
 import {Component, OnChanges, OnInit, Input, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
 import {ThreadViewDataset} from '../data/threadViewDataset';
 import {ThreadD3nodeInterface} from '../data/threadD3node.interface';
-import {IMargin} from '../d3Helpers/IMargin';
+import {MarginInterface} from '../d3Helpers/margin.interface';
 import {NodeHelper} from './NodeHelper';
 import {LinkHelper} from './LinkHelper';
 import {SvgHelper} from '../d3Helpers/svgHelper';
