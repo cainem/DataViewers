@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { ThreadViewDataset } from '../../../../source/viewThreadTreeElements/data/threadViewDataset';
-import { IThreadD3node } from '../../../../source/viewThreadTreeElements/data/IThreadD3node';
+import { threadD3nodeInterface } from '../../../../source/viewThreadTreeElements/data/threadD3node.interface';
 import { ThreadMapThreadDtoWithChildren } from '../../../../source/viewThreadTreeElements/data/threadMapThreadDtoWithChildren';
 import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto } from '../../../../source/data/AllDtos';
 import { MapCreator } from '../../../../source/viewThreadTreeElements/data/mapCreator';
