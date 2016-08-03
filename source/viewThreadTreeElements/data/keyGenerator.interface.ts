@@ -1,3 +1,3 @@
-export interface keyGeneratorInterface {
+export interface KeyGeneratorInterface {
     getNextKey: () => number;
 }

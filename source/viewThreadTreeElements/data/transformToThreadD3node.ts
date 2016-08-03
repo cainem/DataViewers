@@ -1,21 +1,21 @@
 import {ThreadMapRootDto, ThreadMapThreadDto} from '../../data/AllDtos';
-import {keyGeneratorInterface} from './keyGenerator.interface';
+import {KeyGeneratorInterface} from './keyGenerator.interface';
 import {ThreadD3node} from './ThreadD3node';
-import {transformToThreadD3nodeInterface} from './transformToThreadD3node.interface'
+import {TransformToThreadD3nodeInterface} from './transformToThreadD3node.interface'
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
-import {keyedThreadMapInterface} from './keyedThreadMap.interface';
+import {KeyedThreadMapInterface} from './keyedThreadMap.interface';
 
-export class TransformToThreadD3node implements transformToThreadD3nodeInterface {
+export class TransformToThreadD3node implements TransformToThreadD3nodeInterface {
 
-    constructor(private keyGeneratorService : keyGeneratorInterface) {
+    constructor(private keyGeneratorService : KeyGeneratorInterface) {
     }
 
-    createThreadD3nodes = (allThreads :keyedThreadMapInterface,
+    createThreadD3nodes = (allThreads :KeyedThreadMapInterface,
         rootThreadMapThreadDto : ThreadMapThreadDtoWithChildren) => {
             return this.createThreadD3node(allThreads, rootThreadMapThreadDto, 0);
     }    
 
-    createThreadD3node = (allThreads :keyedThreadMapInterface,
+    createThreadD3node = (allThreads :KeyedThreadMapInterface,
         threadMapThreadDtoWithChildren : ThreadMapThreadDtoWithChildren, depth : number) : ThreadD3node => {
 
         let threadD3Node = new ThreadD3node();

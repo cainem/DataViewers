@@ -1,19 +1,19 @@
 import { assert, expect } from "chai";
 import { ThreadViewDataset } from '../../../../source/viewThreadTreeElements/data/threadViewDataset';
-import { threadD3nodeInterface } from '../../../../source/viewThreadTreeElements/data/threadD3node.interface';
+import { ThreadD3nodeInterface } from '../../../../source/viewThreadTreeElements/data/threadD3node.interface';
 import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto, ThreadMapRootDto } from '../../../../source/data/AllDtos';
 import { TransformJsonToThreadViewDataset } from '../../../../source/viewThreadTreeElements/data/transformJsonToThreadViewDataset';
 import { ThreadMapThreadDtoWithChildren } from '../../../../source/viewThreadTreeElements/data/threadMapThreadDtoWithChildren';
-import { mapCreatorInterface } from '../../../../source/viewThreadTreeElements/data/mapCreator.interface';
-import { keyedThreadMapInterface } from '../../../../source/viewThreadTreeElements/data/keyedThreadMap.interface';
-import { transformToThreadD3nodeInterface } from '../../../../source/viewThreadTreeElements/data/transformToThreadD3node.interface';
+import { MapCreatorInterface } from '../../../../source/viewThreadTreeElements/data/mapCreator.interface';
+import { KeyedThreadMapInterface } from '../../../../source/viewThreadTreeElements/data/keyedThreadMap.interface';
+import { TransformToThreadD3nodeInterface } from '../../../../source/viewThreadTreeElements/data/transformToThreadD3node.interface';
 import { ThreadD3node } from '../../../../source/viewThreadTreeElements/data/ThreadD3node';
 
 
 describe('TransformJsonToThreadViewDataset tests', () => {
     describe("typedTransformJson", () => {
     it("when null ThreadMapRootDto is passed in returns throws", () =>  {
-            let target = new TransformJsonToThreadViewDataset(null, null);
+            let target = new TransformJsonToThreadViewDataset(null, null, null);
 
             let threadMapRootDto = null;
 
@@ -26,16 +26,16 @@ describe('TransformJsonToThreadViewDataset tests', () => {
             var calledWithMap1;
             var calledWithRootThreadMapThreadDto;
 
-            var mockResult : keyedThreadMapInterface = {};
+            var mockResult : KeyedThreadMapInterface = {};
 
             let rootNode = new ThreadD3node();
-            let mapCreatorMock : mapCreatorInterface = {
+            let mapCreatorMock : MapCreatorInterface = {
                 createThreadMapThreadDtoWithChildrenMap : (allThreads : ThreadMapThreadDto[]) => {
                     calledWithAllThreads = allThreads;
                     return mockResult;
                 }
             };
-            let transformMock : transformToThreadD3nodeInterface = {
+            let transformMock : TransformToThreadD3nodeInterface = {
                 createThreadD3nodes : (allThreads, rootThreadMapThreadDto) =>
                 {
                     calledWithMap1 = allThreads;
@@ -45,7 +45,7 @@ describe('TransformJsonToThreadViewDataset tests', () => {
                 createThreadD3node : (allThreads) => new ThreadD3node()
             }
 
-            let target = new TransformJsonToThreadViewDataset(null, null);
+            let target = new TransformJsonToThreadViewDataset(null, null, null);
 
             let threadMapRootDto = new ThreadMapRootDto();
             threadMapRootDto.allThreads = [];

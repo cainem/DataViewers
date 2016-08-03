@@ -1,5 +1,5 @@
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
 
-export interface keyedThreadMapInterface {
+export interface KeyedThreadMapInterface {
     [key : string] : ThreadMapThreadDtoWithChildren;
 }

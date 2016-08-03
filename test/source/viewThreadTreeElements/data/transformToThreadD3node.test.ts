@@ -1,6 +1,6 @@
 import {assert} from "chai";
 import {ThreadViewDataset} from '../../../../source/viewThreadTreeElements/data/threadViewDataset';
-import {threadD3nodeInterface} from '../../../../source/viewThreadTreeElements/data/threadD3node.interface';
+import {ThreadD3nodeInterface} from '../../../../source/viewThreadTreeElements/data/threadD3node.interface';
 import {KeyGenerator} from '../../../../source/viewThreadTreeElements/data/keyGenerator';
 import {TransformToThreadD3node} from '../../../../source/viewThreadTreeElements/data/transformToThreadD3node';
 import {ThreadMapThreadDtoWithChildren} from '../../../../source/viewThreadTreeElements/data/threadMapThreadDtoWithChildren';
