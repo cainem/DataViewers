@@ -1,21 +1,18 @@
 import {ThreadMapRootDto, ThreadMapThreadDto} from '../../data/AllDtos';
 import {IKeyGenerator} from './IKeyGenerator';
 import {ThreadD3node} from './ThreadD3node';
-import {TransformHelper} from './TransformHelper';
+import {ITransformToThreadD3node} from './ITransformToThreadD3node'
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
 import {IStringToThreadMapThreadDtoWithChildrenMap} from './IStringToThreadMapThreadDtoWithChildrenMap';
 
-export class TransformToThreadD3node {
+export class TransformToThreadD3node implements ITransformToThreadD3node {
 
     constructor(private keyGeneratorService : IKeyGenerator) {
     }
 
     createThreadD3nodes = (allThreads :IStringToThreadMapThreadDtoWithChildrenMap,
         rootThreadMapThreadDto : ThreadMapThreadDtoWithChildren) => {
-
-
-        return null;
-
+            return this.createThreadD3node(allThreads, rootThreadMapThreadDto, 0);
     }    
 
     createThreadD3node = (allThreads :IStringToThreadMapThreadDtoWithChildrenMap,
@@ -35,7 +32,6 @@ export class TransformToThreadD3node {
         }  
 
         return threadD3Node;
-
     }
 
 }

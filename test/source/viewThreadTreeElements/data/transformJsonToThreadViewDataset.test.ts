@@ -1,31 +1,39 @@
-import { assert } from "chai";
+import { assert, expect } from "chai";
 import { ThreadViewDataset } from '../../../../source/viewThreadTreeElements/data/threadViewDataset';
 import { IThreadD3node } from '../../../../source/viewThreadTreeElements/data/IThreadD3node';
-import { TransformHelper } from '../../../../source/viewThreadTreeElements/data/transformHelper';
 import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto, ThreadMapRootDto } from '../../../../source/data/AllDtos';
 import { TransformJsonToThreadViewDataset } from '../../../../source/viewThreadTreeElements/data/transformJsonToThreadViewDataset';
+import { ThreadMapThreadDtoWithChildren } from '../../../../source/viewThreadTreeElements/data/threadMapThreadDtoWithChildren';
 
-// TODO - fix and put back
+describe('TransformJsonToThreadViewDataset tests', () => {
+    describe("typedTransformJson", () => {
+    it("when null ThreadMapRootDto is passed in returns throws", () =>  {
+            let target = new TransformJsonToThreadViewDataset(null, null);
 
-// describe('TransformJsonToThreadViewDataset tests', () => {
-//     describe("typedTransformJson", () => {
-//     it("when null ThreadMapRootDto is passed in returns ThreadViewDataset with null root", () =>  {
-//             let target = new TransformJsonToThreadViewDataset(null);
+            let threadMapRootDto = null;
 
-//             let threadMapRootDto = null;
+            expect(target.typedTransformJson.bind(threadMapRootDto)).
+                to.throw('json not valid');
+        })
+    ,it("calls map creator as expected (1)", () =>  {
+            let target = new TransformJsonToThreadViewDataset(null, null);
 
-//             var result = target.typedTransformJson(threadMapRootDto);
+            var calledWithAllThreads;
 
-//             assert.isNull(result.rootThread);
-//         })
-//     ,it("when null ThreadMapRootDto is passed in returns null", () =>  {
-//             let target = new TransformJsonToThreadViewDataset(null);
+            var mockResult = {};
 
-//             let threadMapRootDto = null;
+            let mapCreatorMock = {
+                createThreadMapThreadDtoWithChildrenMap : (allThreads : ThreadMapThreadDto[]) => {
+                    calledWithAllThreads = allThreads;
+                    return mockResult;
+                }
+            };
 
-//             var result = target.typedTransformJson(threadMapRootDto);
+            let threadMapRootDto = new ThreadMapRootDto();
 
-//             assert.isNull(result);
-//         })
-//     })
-// });
+            let result = target.typedTransformJson(threadMapRootDto);
+
+            assert.equal(result, mockResult);
+        })
+    })
+});

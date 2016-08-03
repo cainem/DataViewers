@@ -1,11 +1,12 @@
 import {assert} from "chai";
 import {ThreadViewDataset} from '../../../../source/viewThreadTreeElements/data/threadViewDataset';
 import {IThreadD3node} from '../../../../source/viewThreadTreeElements/data/IThreadD3node';
-import {TransformHelper} from '../../../../source/viewThreadTreeElements/data/transformHelper';
 import {KeyGenerator} from '../../../../source/viewThreadTreeElements/data/keyGenerator';
 import {TransformToThreadD3node} from '../../../../source/viewThreadTreeElements/data/transformToThreadD3node';
 import {ThreadMapThreadDtoWithChildren} from '../../../../source/viewThreadTreeElements/data/threadMapThreadDtoWithChildren';
 import {ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto} from '../../../../source/data/AllDtos';
+import {MapCreator} from '../../../../source/viewThreadTreeElements/data/mapCreator';
+
 
 describe('TransformToThreadD3node tests', () => {
     describe("createThreadD3node", () => {
@@ -20,7 +21,7 @@ describe('TransformToThreadD3node tests', () => {
             thread1
         ];
 
-        var map = TransformHelper.createThreadMapThreadDtoWithChildrenMap(allThreads);
+        var map = new MapCreator().createThreadMapThreadDtoWithChildrenMap(allThreads);
         var keyGenerator = new KeyGenerator();
 
         let target = new TransformToThreadD3node(keyGenerator);
@@ -50,7 +51,7 @@ describe('TransformToThreadD3node tests', () => {
             thread2
         ];
 
-        var map = TransformHelper.createThreadMapThreadDtoWithChildrenMap(allThreads);
+        var map = new MapCreator().createThreadMapThreadDtoWithChildrenMap(allThreads);
         var keyGenerator = new KeyGenerator();
 
         let target = new TransformToThreadD3node(keyGenerator);
@@ -94,7 +95,7 @@ describe('TransformToThreadD3node tests', () => {
             thread3
         ];
 
-        var map = TransformHelper.createThreadMapThreadDtoWithChildrenMap(allThreads);
+        var map = new MapCreator().createThreadMapThreadDtoWithChildrenMap(allThreads);
         var keyGenerator = new KeyGenerator();
 
         let target = new TransformToThreadD3node(keyGenerator);
@@ -145,7 +146,7 @@ describe('TransformToThreadD3node tests', () => {
             thread3
         ];
 
-        var map = TransformHelper.createThreadMapThreadDtoWithChildrenMap(allThreads);
+        var map = new MapCreator().createThreadMapThreadDtoWithChildrenMap(allThreads);
         var keyGenerator = new KeyGenerator();
 
         let target = new TransformToThreadD3node(keyGenerator);

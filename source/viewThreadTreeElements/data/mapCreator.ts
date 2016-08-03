@@ -1,17 +1,10 @@
 import {ThreadMapThreadDto, LazyThreadMapThreadReferenceDto, ThreadMapThreadKeyDto} from '../../data/AllDtos'
 import {ThreadMapThreadDtoWithChildren} from './ThreadMapThreadDtoWithChildren';
 import {IStringToThreadMapThreadDtoWithChildrenMap} from './IStringToThreadMapThreadDtoWithChildrenMap';
+import {IMapCreator} from './IMapCreator';
 
-export class TransformHelper {
-    static isKeyMatch (thread: ThreadMapThreadDtoWithChildren, key: ThreadMapThreadKeyDto) : boolean {
-        if (key === undefined || thread.threadMapThreadDto.key === undefined) {
-            return false;
-        }
-        
-        return thread.threadMapThreadDto.key.shortForm === key.shortForm;
-    }
-
-    static createThreadMapThreadDtoWithChildrenMap(allThreads : ThreadMapThreadDto[]) :IStringToThreadMapThreadDtoWithChildrenMap {
+export class MapCreator implements IMapCreator {
+    createThreadMapThreadDtoWithChildrenMap = (allThreads : ThreadMapThreadDto[]) :IStringToThreadMapThreadDtoWithChildrenMap => {
         let result : IStringToThreadMapThreadDtoWithChildrenMap = {};
         // build the array completely with no child relationships
         for (let i = 0; i < allThreads.length; i++) {
@@ -31,5 +24,5 @@ export class TransformHelper {
         
         return result;
     }
-
+    
 }

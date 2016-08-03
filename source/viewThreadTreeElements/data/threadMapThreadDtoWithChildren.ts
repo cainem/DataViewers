@@ -1,4 +1,4 @@
-import {ThreadMapThreadDto} from '../../data/AllDtos'
+import {ThreadMapThreadDto, ThreadMapThreadKeyDto} from '../../data/AllDtos'
 
 export class ThreadMapThreadDtoWithChildren {
     threadMapThreadDto : ThreadMapThreadDto;
@@ -16,4 +16,14 @@ export class ThreadMapThreadDtoWithChildren {
     addChild = (child : ThreadMapThreadDtoWithChildren) => {
         this._internalChildren.push(child);
     }
+
+    isKeyMatch = (key: ThreadMapThreadKeyDto) => {
+        if (key === undefined || this.threadMapThreadDto.key === undefined) {
+            return false;
+        }
+        
+        return this.threadMapThreadDto.key.shortForm === key.shortForm;
+    }
+
+
 }
