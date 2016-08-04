@@ -17,7 +17,7 @@ export class TransformJsonToThreadViewDataset implements JsonTransformationServi
 
     constructor(private _transformToThreadD3node : TransformToThreadD3nodeInterface,
         private _mapCreator : MapCreatorInterface,
-        private threadViewDatasetFactoryInterface : ThreadViewDatasetFactoryInterface) {        
+        private _threadViewDatasetFactory : ThreadViewDatasetFactoryInterface) {        
     }
 
     transformJson : (json :any) => any = (json: any) => {
@@ -25,17 +25,18 @@ export class TransformJsonToThreadViewDataset implements JsonTransformationServi
     } 
 
     typedTransformJson : (json : ThreadMapRootDto) => ThreadViewDataset = (json: ThreadMapRootDto) => {
-        //let map = TransformHelper.createThreadMapThreadDtoWithChildrenMap(json.allThreads);
-
-        // var transformed = this._transformToThreadD3node.createThreadD3nodes(map,
-        //     map[json.rootThreadMapThread.key.shortForm]);
- 
-        // var result = new ThreadViewDataset(transformed);
         if (!json) {
             throw ("json not valid");            
         }
 
-        return null;
+        let map = this._mapCreator.createThreadMapThreadDtoWithChildrenMap(json.allThreads);
+
+        let transformed = this._transformToThreadD3node.createThreadD3nodes(map,
+             map[json.rootThreadMapThread.key.shortForm]);
+ 
+        var result = this._threadViewDatasetFactory.create(transformed);
+
+        return result;
     }
 
 }

@@ -25,27 +25,39 @@ describe('TransformJsonToThreadViewDataset tests', () => {
             var calledWithAllThreads;
             var calledWithMap1;
             var calledWithRootThreadMapThreadDto;
+            var calledWithRootThreadD3Node;
 
-            var mockResult : KeyedThreadMapInterface = {};
+            let rootThreadMapThreadDtoWithChildren = new ThreadMapThreadDtoWithChildren(null); 
+            let mapResultMock : KeyedThreadMapInterface = 
+            {
+            };
+            mapResultMock["key"] = rootThreadMapThreadDtoWithChildren; 
 
+            let threadViewDatasetMock = new ThreadViewDataset(null);
             let rootNode = new ThreadD3node();
             let mapCreatorMock : MapCreatorInterface = {
                 createThreadMapThreadDtoWithChildrenMap : (allThreads : ThreadMapThreadDto[]) => {
                     calledWithAllThreads = allThreads;
-                    return mockResult;
+                    return mapResultMock;
                 }
             };
             let transformMock : TransformToThreadD3nodeInterface = {
-                createThreadD3nodes : (allThreads, rootThreadMapThreadDto) =>
+                createThreadD3nodes : (map, rootThreadMapThreadDto) =>
                 {
-                    calledWithMap1 = allThreads;
+                    calledWithMap1 = map;
                     calledWithRootThreadMapThreadDto = rootThreadMapThreadDto;
                     return rootNode;
                 },
                 createThreadD3node : (allThreads) => new ThreadD3node()
-            }
+            };
+            let threadViewDatasetFactoryMock = {
+                create : (rootThread) => {
+                    calledWithRootThreadD3Node = rootThread;
+                    return threadViewDatasetMock;
+                }
+            };
 
-            let target = new TransformJsonToThreadViewDataset(null, null, null);
+            let target = new TransformJsonToThreadViewDataset(transformMock, mapCreatorMock, threadViewDatasetFactoryMock);
 
             let threadMapRootDto = new ThreadMapRootDto();
             threadMapRootDto.allThreads = [];
@@ -55,8 +67,11 @@ describe('TransformJsonToThreadViewDataset tests', () => {
 
             let result = target.typedTransformJson(threadMapRootDto);
 
-            assert.equal(calledWithAllThreads, threadMapRootDto.rootThreadMapThread);
-            assert.equal(result, mockResult);
+            assert.equal(calledWithAllThreads, threadMapRootDto.allThreads);
+            assert.equal(calledWithMap1, mapResultMock);
+            assert.equal(calledWithRootThreadMapThreadDto, rootThreadMapThreadDtoWithChildren);
+            assert.equal(calledWithRootThreadD3Node, rootNode);
+            assert.equal(result, threadViewDatasetMock);
         })
     })
 });
