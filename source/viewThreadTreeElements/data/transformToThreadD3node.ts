@@ -23,6 +23,7 @@ export class TransformToThreadD3node implements TransformToThreadD3nodeInterface
         threadD3Node.id = this.keyGeneratorService.getNextKey();
         threadD3Node.threadMapThread = threadMapThreadDtoWithChildren.threadMapThreadDto;
         threadD3Node.childThreads = [];
+        threadD3Node.geneSets = null;
 
         if (threadMapThreadDtoWithChildren.children && threadMapThreadDtoWithChildren.children.length > 0) {
             for(let i = 0; i < threadMapThreadDtoWithChildren.children.length; i++) {
