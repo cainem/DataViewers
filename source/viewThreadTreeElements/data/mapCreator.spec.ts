@@ -4,7 +4,7 @@ import { ThreadMapThreadDtoWithChildren } from './threadMapThreadDtoWithChildren
 import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto } from '../../data/AllDtos';
 import { MapCreator } from './mapCreator';
 
-describe('TransformHelper tests', () => {
+describe('MapCreator tests', () => {
 
     describe("createThreadMapThreadDtoWithChildrenArray", () => {
     it("empty array passed in empty array returned", () =>  {            

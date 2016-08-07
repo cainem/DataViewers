@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Inject, provide } from '@angular/core';
 import { ThreadViewDataset  } from '../../viewThreadTreeElements/data/threadViewDataset';
 import { ThreadsView } from '../../viewThreadTreeElements/threadsView/threadsView.component';
 import { ThreadView } from '../../viewThreadTreeElements/threadView/threadView.component'
@@ -6,12 +6,23 @@ import * as d3 from 'd3';
 import {JsInputComponent} from '../../jsInput/jsInput.component';
 import {JsonTransformationService} from '../../service/JsonTransformationService';
 import {ThreadMapRootDto} from '../../data/AllDtos';
-
+import {TransformJsonToThreadViewDataset} from '../data/transformJsonToThreadViewDataset';
+import {MapCreator} from '../data/mapCreator';
+import {TransformToThreadD3node} from '../data/TransformToThreadD3node';
+import {ThreadViewDatasetFactory} from '../data/threadviewDatasetFactory';
+import {KeyGenerator} from '../data/keyGenerator';
 
 @Component({
     templateUrl: './app/viewThreadTreeElements/rootComponent/viewThreadTree.html',
     directives: [ JsInputComponent, ThreadsView, ThreadView ],
     styleUrls: ['./app/viewThreadTreeElements/rootComponent/viewThreadTree.css'],
+    providers: [
+          provide("JsonTransformationService", { useClass: TransformJsonToThreadViewDataset }),
+          provide("TransformToThreadD3nodeInterface", { useClass: TransformToThreadD3node }),
+          provide("MapCreatorInterface", { useClass: MapCreator }),
+          provide("ThreadViewDatasetFactoryInterface", { useClass: ThreadViewDatasetFactory }),  
+          provide("KeyGeneratorInterface", { useClass: KeyGenerator})        
+    ]
 })
 export class ViewThreadTree implements OnInit {
     
