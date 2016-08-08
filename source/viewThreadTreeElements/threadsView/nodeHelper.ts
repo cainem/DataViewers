@@ -21,7 +21,7 @@ export class NodeHelper {
             .attr("x", (d : ThreadD3nodeInterface) => -20 )
             .attr("dy", ".35em")
             .attr("text-anchor", (d : ThreadD3nodeInterface) => d.childThreads ? "end" : "start")
-            .text((d : ThreadD3nodeInterface) => d.debugText)
+            .text((d : ThreadD3nodeInterface) => d.threadMapThread.key.shortForm)
             .style("fill-opacity", 1);        
 
         return nodeSelection;

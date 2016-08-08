@@ -28,11 +28,11 @@ export class ViewThreadTree implements OnInit {
     
     public data : ThreadViewDataset;
     public selectedIndex : number;
-    public json : ThreadMapRootDto;
+    //public json : ThreadMapRootDto;
 
     private _transformationService : JsonTransformationService;
     public onJsonChanged : (value : any) => void = (value: any) => {
-        this.json = this._transformationService.transformJson(value);
+        this.data = this._transformationService.transformJson(value);
     }
 
     constructor(@Inject("JsonTransformationService") transformationService :  JsonTransformationService) {
@@ -44,66 +44,66 @@ export class ViewThreadTree implements OnInit {
         this.selectedIndex = event;
     }
 
-    initData = () => {
-        this.data = new ThreadViewDataset({
-                id : 1,
-                debugText : "level 0",
-                depth: 0,
-                geneSets : [],
-                childThreads : [
-                    {
-                        id : 2,
-                        depth: 1,
-                        debugText : "level 1",
-                        geneSets : [],
-                        childThreads : 
-                        [
-                            {
-                                id : 3,
-                                depth : 2,
-                                debugText : "level 2",
-                                geneSets : [],
-                                childThreads : [
-                                    {
-                                        id : 4,
-                                        depth : 3,
-                                        debugText : "level 3",
-                                        geneSets : [],
-                                        childThreads : [
-                                            {
-                                                id : 5,
-                                                depth : 4,
-                                                debugText : "level 4",
-                                                geneSets : [],
-                                                childThreads :  []
-                                            },
-                                            {
-                                                id : 6,
-                                                depth : 4,
-                                                debugText : "level 4",
-                                                geneSets: [],
-                                                childThreads : []
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                    },
-                    {
-                        id : 7,
-                        depth : 1,
-                        debugText : "level 1",
-                        geneSets : [],
-                        childThreads: []
-                    }
-                ]
-            }
-        );
+    // initData = () => {
+    //     this.data = new ThreadViewDataset({
+    //             id : 1,
+    //             debugText : "level 0",
+    //             depth: 0,
+    //             geneSets : [],
+    //             childThreads : [
+    //                 {
+    //                     id : 2,
+    //                     depth: 1,
+    //                     debugText : "level 1",
+    //                     geneSets : [],
+    //                     childThreads : 
+    //                     [
+    //                         {
+    //                             id : 3,
+    //                             depth : 2,
+    //                             debugText : "level 2",
+    //                             geneSets : [],
+    //                             childThreads : [
+    //                                 {
+    //                                     id : 4,
+    //                                     depth : 3,
+    //                                     debugText : "level 3",
+    //                                     geneSets : [],
+    //                                     childThreads : [
+    //                                         {
+    //                                             id : 5,
+    //                                             depth : 4,
+    //                                             debugText : "level 4",
+    //                                             geneSets : [],
+    //                                             childThreads :  []
+    //                                         },
+    //                                         {
+    //                                             id : 6,
+    //                                             depth : 4,
+    //                                             debugText : "level 4",
+    //                                             geneSets: [],
+    //                                             childThreads : []
+    //                                         }
+    //                                     ]
+    //                                 }
+    //                             ]
+    //                         }
+    //                     ],
+    //                 },
+    //                 {
+    //                     id : 7,
+    //                     depth : 1,
+    //                     debugText : "level 1",
+    //                     geneSets : [],
+    //                     childThreads: []
+    //                 }
+    //             ]
+    //         }
+    //     );
 
-    }
+    // }
        
     ngOnInit () {               
-        this.initData();                 
+        // this.initData();                 
     }    
 }
