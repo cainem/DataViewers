@@ -6,24 +6,26 @@ import {ViewThreadTree} from "../../viewThreadTreeElements/rootComponent/viewThr
 
 import {LogicalConnectionComponent} from '../../viewElements/components/logicalConnection/logicalConnection.component';
 import {LogicalNodeComponent} from '../../viewElements/components/logicalNode/logicalNode.component';
+import {PropertyExplorer} from '../../propertyExplorer/rootComponent/propertyExplorer.component';
 
 @Component({
     selector: 'rootMenu',
     templateUrl: './app/routerMenus/rootMenu/rootMenu.html',
-    directives: [ViewLogicalStream, ViewMachine, ROUTER_DIRECTIVES, LogicalConnectionComponent, LogicalNodeComponent, ViewThreadTree],
+    directives: [ViewLogicalStream, ViewMachine, ROUTER_DIRECTIVES, LogicalConnectionComponent, LogicalNodeComponent, ViewThreadTree, PropertyExplorer],
     providers: [ ROUTER_PROVIDERS ]
 })
 @RouteConfig([
     { path: '/viewLogicalStream', name: 'ViewLogicalStream', component: ViewLogicalStream, useAsDefault: true },
     { path: '/viewMachine', name: 'ViewMachine', component: ViewMachine },
-    { path: '/viewThreadTree', name: 'ViewThreadTree', component : ViewThreadTree }
+    { path: '/viewThreadTree', name: 'ViewThreadTree', component : ViewThreadTree },
+    { path: '/propertyExplorer', name: 'PropertyExplorer', component : PropertyExplorer },
 ])
 export class RootMenuComponent {
         
-    public elementArray: any[] = [
-            new LogicalNodeComponent(),
-            new LogicalNodeComponent(),
-            new LogicalConnectionComponent(),
-            new LogicalNodeComponent()    
-        ];                     
+    // public elementArray: any[] = [
+    //         new LogicalNodeComponent(),
+    //         new LogicalNodeComponent(),
+    //         new LogicalConnectionComponent(),
+    //         new LogicalNodeComponent()    
+    //     ];                     
 }

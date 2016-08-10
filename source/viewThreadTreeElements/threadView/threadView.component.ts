@@ -13,7 +13,7 @@ import * as d3 from 'd3';
 export class ThreadView implements OnChanges { 
     @Input() data : ThreadViewDataset;   
     @Input() selectedIndex : number;
-    private selectedThread : ThreadD3nodeInterface;
+    @Output() selectedThread : ThreadD3nodeInterface;
     private svgHelper : SvgHelper; 
      
     constructor() {
@@ -37,11 +37,7 @@ export class ThreadView implements OnChanges {
         }
     } 
 
-    public render = (newValue : ThreadViewDataset) => {
-
-
-        
+    public render = (newValue : ThreadViewDataset) => {     
     }
-
 
 }

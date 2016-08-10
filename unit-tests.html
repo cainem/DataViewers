@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <base href="/">    
+  <!--<base href="/unit-tests">    -->
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <title>Ng App Unit Tests</title>
   <link rel="stylesheet" href="node_modules/jasmine-core/lib/jasmine-core/jasmine.css">
@@ -25,14 +25,16 @@
     });
 
     // #3. Import the spec file explicitly
-    Promise.all([
-       System.import('app/viewThreadTreeElements/data/mapCreator.spec')
-      ,System.import('app/viewThreadTreeElements/data/keyGenerator.spec')      
-      ,System.import('app/viewThreadTreeElements/data/threadMapThreadDtoWithChildren.spec')      
-      ,System.import('app/viewThreadTreeElements/data/threadViewDataset.spec')            
-      ,System.import('app/viewThreadTreeElements/data/transformJsonToThreadViewDataset.spec')    
-      ,System.import('app/viewThreadTreeElements/data/transformToThreadD3node.spec')    
-    ])
+    // Promise.all([
+    //   System.import('app/viewThreadTreeElements/data/mapCreator.spec')
+      // ,System.import('app/viewThreadTreeElements/data/keyGenerator.spec')      
+      // ,System.import('app/viewThreadTreeElements/data/threadMapThreadDtoWithChildren.spec')      
+      // ,System.import('app/viewThreadTreeElements/data/threadViewDataset.spec')            
+      // ,System.import('app/viewThreadTreeElements/data/transformJsonToThreadViewDataset.spec')    
+      // ,System.import('app/viewThreadTreeElements/data/transformToThreadD3node.spec')
+      System.import('app/propertyExplorer/model/transformToCollapsibleIndentedNode.spec')
+          
+    //])
 
       // #4. wait for all imports to load ...
       //     then re-execute `window.onload` which
