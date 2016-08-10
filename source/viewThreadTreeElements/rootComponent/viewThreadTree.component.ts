@@ -10,7 +10,7 @@ import {TransformJsonToThreadViewDataset} from '../data/transformJsonToThreadVie
 import {MapCreator} from '../data/mapCreator';
 import {TransformToThreadD3node} from '../data/TransformToThreadD3node';
 import {ThreadViewDatasetFactory} from '../data/threadviewDatasetFactory';
-import {KeyGenerator} from '../data/keyGenerator';
+import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 
 @Component({
     templateUrl: './app/viewThreadTreeElements/rootComponent/viewThreadTree.html',
@@ -21,7 +21,7 @@ import {KeyGenerator} from '../data/keyGenerator';
           provide("TransformToThreadD3nodeInterface", { useClass: TransformToThreadD3node }),
           provide("MapCreatorInterface", { useClass: MapCreator }),
           provide("ThreadViewDatasetFactoryInterface", { useClass: ThreadViewDatasetFactory }),  
-          provide("KeyGeneratorInterface", { useClass: KeyGenerator})        
+          provide("KeyGenerator", { useClass: KeyGenerator})        
     ]
 })
 export class ViewThreadTree {

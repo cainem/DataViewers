@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
-import {KeyGeneratorInterface} from './keyGenerator.interface'
 
 @Injectable()
-export class KeyGenerator implements KeyGeneratorInterface {
+export class KeyGenerator {
     private _counter : number = 0;
     getNextKey = () => {
         this._counter++;

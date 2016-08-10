@@ -1,7 +1,7 @@
 import {ThreadViewDataset} from './threadViewDataset';
 import {ThreadD3nodeInterface} from './threadD3node.interface';
-import {KeyGenerator} from './keyGenerator';
 import {TransformToThreadD3node} from './transformToThreadD3node';
+import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
 import {ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto} from '../../data/AllDtos';
 import {MapCreator} from './mapCreator';
