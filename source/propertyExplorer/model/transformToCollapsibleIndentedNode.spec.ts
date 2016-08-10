@@ -1,4 +1,5 @@
-import {TransformToCollapsibleIndentedNode} from './transformToCollapsibleIndentedNode'
+import {TransformToCollapsibleIndentedNode} from './transformToCollapsibleIndentedNode';
+import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 
 describe('TransformToCollapsibleIndentedNode tests', () => {
     describe("transform", () => {
@@ -6,7 +7,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
         let o = {
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("o", o);
 
@@ -23,7 +24,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
         let o = {
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("x", o);
 
@@ -41,7 +42,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
             "property1" : "hello"
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("o", o);
 
@@ -58,7 +59,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
             "aProperty" : "helloAlso"
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("o", o);
 
@@ -75,7 +76,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
             "complex" : {}
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("o", o);
 
@@ -92,7 +93,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
             "aProperty" : 1
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("o", o);
 
@@ -109,7 +110,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
             "aBoolProperty" : false
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("o", o);
 
@@ -126,7 +127,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
             "complexProperty" : {}
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("o", o);
 
@@ -146,7 +147,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
             }
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("o", o);
 
@@ -169,7 +170,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
             }
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("o", o);
 
@@ -191,7 +192,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
             "simple2" : 2 
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("o", o);
 
@@ -201,14 +202,14 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
         expect(result.children[1].id).toEqual(3);
     })
 
-    ,it("Simple object with two properties one complex, one simple, produces parent-children-(child) result with ids as expected", () =>  {
+    ,it("Simple object with two properties one complex, one simple, produces parent-children result with ids as expected", () =>  {
         let o = {
             "complex" : {         
             },
             "simple1" : 1,
         };
 
-        let target = new TransformToCollapsibleIndentedNode();
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
 
         let result = target.transform("o", o);
 
@@ -217,7 +218,23 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
         expect(result.children[1].id).toEqual(3);
     })
 
+    ,it("Simple object with two properties one complex, one simple, produces parent-children-(child) result with ids as expected", () =>  {
+        let o = {
+            "complex" : {         
+                "simple2" : 2
+            },
+            "simple1" : 1,
+        };
 
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
+
+        let result = target.transform("o", o);
+
+        expect(result.id).toEqual(1);
+        expect(result.children[0].id).toEqual(2);
+        expect(result.children[0].children[0].id).toEqual(3)
+        expect(result.children[1].id).toEqual(4);
+    })
 
     })
 });
