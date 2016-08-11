@@ -2,8 +2,8 @@ import {Component, Input, Output, EventEmitter, Injectable, Inject} from '@angul
 import {JsonTransformationService} from '../../service/jsonTransformationService';
 import {ThreadMapRootDto} from '../../data/AllDtos';
 import {ThreadViewDataset} from './threadViewDataset';
-import {TransformToThreadD3nodeInterface} from './transformToThreadD3node.interface';
 import {MapCreatorInterface} from './mapCreator.interface';
+import {TransformToThreadD3node} from './transformToThreadD3node';
 import {ThreadViewDatasetFactoryInterface} from './threadViewDatasetFactory.interface';
 
 /*
@@ -16,7 +16,7 @@ import {ThreadViewDatasetFactoryInterface} from './threadViewDatasetFactory.inte
 @Injectable()
 export class TransformJsonToThreadViewDataset implements JsonTransformationService  {
 
-    constructor(@Inject("TransformToThreadD3nodeInterface") private _transformToThreadD3node : TransformToThreadD3nodeInterface,
+    constructor(@Inject(TransformToThreadD3node) private _transformToThreadD3node : TransformToThreadD3node,
         @Inject("MapCreatorInterface") private _mapCreator : MapCreatorInterface,
         @Inject("ThreadViewDatasetFactoryInterface") private _threadViewDatasetFactory : ThreadViewDatasetFactoryInterface) {        
     }

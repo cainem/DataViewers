@@ -1,6 +1,8 @@
+import {Injectable} from '@angular/core'; 
 import {CollapsibleIndentedNode} from './collapsibleIndentedNode';
 import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 
+@Injectable()
 export class TransformToCollapsibleIndentedNode {
 
     constructor(private _keyGenerator : KeyGenerator) {

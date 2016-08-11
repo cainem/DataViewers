@@ -2,14 +2,13 @@ import {Injectable, Inject} from '@angular/core';
 import {ThreadMapRootDto, ThreadMapThreadDto} from '../../data/AllDtos';
 import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 import {ThreadD3node} from './ThreadD3node';
-import {TransformToThreadD3nodeInterface} from './transformToThreadD3node.interface'
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
 import {KeyedThreadMapInterface} from './keyedThreadMap.interface';
 
 @Injectable()
-export class TransformToThreadD3node implements TransformToThreadD3nodeInterface {
+export class TransformToThreadD3node {
 
-    constructor(@Inject("KeyGenerator") private keyGeneratorService : KeyGenerator) {
+    constructor(@Inject(KeyGenerator)public keyGeneratorService : KeyGenerator) {
     }
 
     createThreadD3nodes = (allThreads :KeyedThreadMapInterface,

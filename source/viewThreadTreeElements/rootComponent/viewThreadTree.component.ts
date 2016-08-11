@@ -17,8 +17,8 @@ import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
     directives: [ JsInputComponent, ThreadsView, ThreadView ],
     styleUrls: ['./app/viewThreadTreeElements/rootComponent/viewThreadTree.css'],
     providers: [
-          provide("JsonTransformationService", { useClass: TransformJsonToThreadViewDataset }),
-          provide("TransformToThreadD3nodeInterface", { useClass: TransformToThreadD3node }),
+          provide(JsonTransformationService, { useClass: TransformJsonToThreadViewDataset }),
+          provide(TransformToThreadD3node, { useClass: TransformToThreadD3node }),
           provide("MapCreatorInterface", { useClass: MapCreator }),
           provide("ThreadViewDatasetFactoryInterface", { useClass: ThreadViewDatasetFactory }),  
           provide("KeyGenerator", { useClass: KeyGenerator})        
@@ -34,7 +34,7 @@ export class ViewThreadTree {
         this.data = this._transformationService.transformJson(value);
     }
 
-    constructor(@Inject("JsonTransformationService") transformationService :  JsonTransformationService) {
+    constructor(@Inject(JsonTransformationService) transformationService :  JsonTransformationService) {
         this._transformationService = transformationService;        
     }         
 
