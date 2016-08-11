@@ -7,11 +7,6 @@ export class TransformToCollapsibleIndentedNode {
     }
 
     transform : (name : string, json : any) => CollapsibleIndentedNode = (name : string, json :any) => {
-
-        // if (!depth) {
-        //     depth = 1;
-        // }
-
         let result = new CollapsibleIndentedNode();
         result.id = this._keyGenerator.getNextKey();
         result.name = name;
@@ -22,6 +17,7 @@ export class TransformToCollapsibleIndentedNode {
                 let value = json[key];
                 if (type === "string" || type === "number" || type === "boolean")
                 {
+                    // is a simple type, create a leaf node with a value
                     let child = new CollapsibleIndentedNode();
                     child.id = this._keyGenerator.getNextKey();
                     child.name = key;
@@ -30,6 +26,7 @@ export class TransformToCollapsibleIndentedNode {
                 }
                 else
                 {
+                    // is a complex type, create a branch node
                     let child = this.transform(key, value)
                     result.children.push(child);                    
                 }

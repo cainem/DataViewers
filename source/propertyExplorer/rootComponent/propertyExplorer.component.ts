@@ -1,7 +1,7 @@
 import {Component, provide} from '@angular/core';
 
 @Component({
-    templateUrl: './app/propertyExplorer/propertyExplorer.html',
+    templateUrl: './app/propertyExplorer/rootComponent/propertyExplorer.html',
     directives: [],
     providers: [],
 })

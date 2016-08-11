@@ -1,4 +1,4 @@
-import {MarginInterface} from '../d3Helpers/margin.interface';
+import {MarginInterface} from './margin.interface';
 
 /*
     This class helps with the setting up of a zoomable svg container.

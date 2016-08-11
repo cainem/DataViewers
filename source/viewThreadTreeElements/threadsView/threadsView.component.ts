@@ -1,10 +1,10 @@
 import {Component, OnChanges, OnInit, Input, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
-import {ThreadViewDataset} from '../data/threadViewDataset';
-import {ThreadD3nodeInterface} from '../data/threadD3node.interface';
-import {MarginInterface} from '../d3Helpers/margin.interface';
+import {ThreadViewDataset} from '../model/threadViewDataset';
+import {ThreadD3nodeInterface} from '../model/threadD3node.interface';
+import {MarginInterface} from '../../utils/d3Helpers/margin.interface';
+import {SvgHelper} from '../../utils/d3Helpers/svgHelper';
 import {NodeHelper} from './NodeHelper';
 import {LinkHelper} from './LinkHelper';
-import {SvgHelper} from '../d3Helpers/svgHelper';
 import * as d3 from 'd3';
 
 @Component({

@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewEncapsulation, Inject, provide } from '@angular/core';
-import { ThreadViewDataset  } from '../../viewThreadTreeElements/data/threadViewDataset';
+import { ThreadViewDataset  } from '../../viewThreadTreeElements/model/threadViewDataset';
 import { ThreadsView } from '../../viewThreadTreeElements/threadsView/threadsView.component';
 import { ThreadView } from '../../viewThreadTreeElements/threadView/threadView.component'
 import * as d3 from 'd3';
 import {JsInputComponent} from '../../jsInput/jsInput.component';
 import {JsonTransformationService} from '../../service/JsonTransformationService';
 import {ThreadMapRootDto} from '../../data/AllDtos';
-import {TransformJsonToThreadViewDataset} from '../data/transformJsonToThreadViewDataset';
-import {MapCreator} from '../data/mapCreator';
-import {TransformToThreadD3node} from '../data/TransformToThreadD3node';
-import {ThreadViewDatasetFactory} from '../data/threadviewDatasetFactory';
+import {TransformJsonToThreadViewDataset} from '../model/transformJsonToThreadViewDataset';
+import {MapCreator} from '../model/mapCreator';
+import {TransformToThreadD3node} from '../model/TransformToThreadD3node';
+import {ThreadViewDatasetFactory} from '../model/threadviewDatasetFactory';
 import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 
 @Component({
