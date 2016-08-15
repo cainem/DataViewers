@@ -1,6 +1,5 @@
 import {Component, Output, Input, EventEmitter, Inject} from '@angular/core';
 import {WrappedJson} from  './wrappedJson';
-import {JsonTransformationService} from '../service/jsonTransformationService';
 
 @Component({
     selector: 'jsInput',

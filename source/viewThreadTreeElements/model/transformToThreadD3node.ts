@@ -8,7 +8,7 @@ import {KeyedThreadMapInterface} from './keyedThreadMap.interface';
 @Injectable()
 export class TransformToThreadD3node {
 
-    constructor(@Inject(KeyGenerator)public keyGeneratorService : KeyGenerator) {
+    constructor(@Inject("KeyGenerator") public keyGeneratorService : KeyGenerator) {
     }
 
     createThreadD3nodes = (allThreads :KeyedThreadMapInterface,

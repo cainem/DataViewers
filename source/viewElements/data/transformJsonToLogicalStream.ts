@@ -2,10 +2,10 @@ import {LogicalReaderReturnDto} from '../../data/AllDtos';
 import {Chromosome} from './chromosome';
 import {Gene} from './gene';
 import {Component, Input, Output, EventEmitter, Injectable} from '@angular/core';
-import {JsonTransformationService} from '../../service/JsonTransformationService'
+import {JsonTransformationInterface} from '../../service/JsonTransformationService'
 
 @Injectable()
-export class TransformJsonToLogicalStream implements JsonTransformationService {
+export class TransformJsonToLogicalStream implements JsonTransformationInterface {
 	transformJson = (rawJson : any) => {
 		let allLogicalReaderReturns = <LogicalReaderReturnDto[]>rawJson;
 		let chromosomes : Chromosome[] = [];

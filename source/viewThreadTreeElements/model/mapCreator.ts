@@ -2,10 +2,9 @@ import {Injectable} from '@angular/core';
 import {ThreadMapThreadDto, LazyThreadMapThreadReferenceDto, ThreadMapThreadKeyDto} from '../../data/AllDtos'
 import {ThreadMapThreadDtoWithChildren} from './ThreadMapThreadDtoWithChildren';
 import {KeyedThreadMapInterface} from './keyedThreadMap.interface';
-import {MapCreatorInterface} from './mapCreator.interface';
 
 @Injectable()
-export class MapCreator implements MapCreatorInterface {
+export class MapCreator {
     createThreadMapThreadDtoWithChildrenMap = (allThreads : ThreadMapThreadDto[]) :KeyedThreadMapInterface => {
         let result : KeyedThreadMapInterface = {};
         // build the array completely with no child relationships

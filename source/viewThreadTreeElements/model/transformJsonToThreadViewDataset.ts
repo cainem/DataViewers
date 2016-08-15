@@ -1,10 +1,10 @@
-import {Component, Input, Output, EventEmitter, Injectable, Inject} from '@angular/core';
-import {JsonTransformationService} from '../../service/jsonTransformationService';
+import {Component, Input, Output, EventEmitter, Injectable, Inject, Injector} from '@angular/core';
+import {JsonTransformationInterface} from '../../service/jsonTransformationService';
 import {ThreadMapRootDto} from '../../data/AllDtos';
 import {ThreadViewDataset} from './threadViewDataset';
-import {MapCreatorInterface} from './mapCreator.interface';
+import {MapCreator} from './mapCreator';
 import {TransformToThreadD3node} from './transformToThreadD3node';
-import {ThreadViewDatasetFactoryInterface} from './threadViewDatasetFactory.interface';
+import {ThreadViewDatasetCreator} from './threadViewDatasetCreator';
 
 /*
     This class is responsible is transforming a ThreadMapRootDto into a ThreadViewDataset
@@ -14,11 +14,13 @@ import {ThreadViewDatasetFactoryInterface} from './threadViewDatasetFactory.inte
 */
 
 @Injectable()
-export class TransformJsonToThreadViewDataset implements JsonTransformationService  {
+export class TransformJsonToThreadViewDataset implements JsonTransformationInterface  {
 
-    constructor(@Inject(TransformToThreadD3node) private _transformToThreadD3node : TransformToThreadD3node,
-        @Inject("MapCreatorInterface") private _mapCreator : MapCreatorInterface,
-        @Inject("ThreadViewDatasetFactoryInterface") private _threadViewDatasetFactory : ThreadViewDatasetFactoryInterface) {        
+    constructor(
+        @Inject("TransformToThreadD3node") private _transformToThreadD3node : TransformToThreadD3node,
+        @Inject("MapCreator") private _mapCreator : MapCreator,
+        @Inject("ThreadViewDatasetCreator") private _threadViewDatasetCreator : ThreadViewDatasetCreator) {      
+            console.log("here");  
     }
 
     transformJson : (json :any) => any = (json: any) => {
@@ -35,7 +37,7 @@ export class TransformJsonToThreadViewDataset implements JsonTransformationServi
         let transformed = this._transformToThreadD3node.createThreadD3nodes(map,
              map[json.rootThreadMapThread.key.shortForm]);
  
-        var result = this._threadViewDatasetFactory.create(transformed);
+        var result = this._threadViewDatasetCreator.create(transformed);
 
         return result;
     }

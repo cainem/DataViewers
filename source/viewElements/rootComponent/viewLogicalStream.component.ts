@@ -4,21 +4,22 @@ import {ChromosomeComponent} from '../../viewElements/components/chromosome/chro
 import {TransformJsonToLogicalStream} from '../data/transformJsonToLogicalStream'
 import {LogicalReaderReturnDto} from '../../data/AllDtos';
 import {Chromosome} from '../../viewElements/data/chromosome';
-import {JsonTransformationService} from '../../service/JsonTransformationService';
+import {JsonTransformationToken, JsonTransformationInterface} from '../../service/JsonTransformationService';
 
 @Component({
     templateUrl: './app/viewElements/rootComponent/viewLogicalStream.html',
     directives: [ChromosomeComponent, JsInputComponent],
-    providers: [  provide("JsonTransformationService", { useClass: TransformJsonToLogicalStream }) ],
+    providers: [   
+        provide(JsonTransformationToken, { useClass: TransformJsonToLogicalStream }) 
+        ],
 })
 export class ViewLogicalStream {          
-    public json : Chromosome[];
-    private _transformationService : JsonTransformationService;
+    public json : Chromosome[];    
     public onJsonChanged : (value : any) => void = (value: any) => {
-        this.json = this._transformationService.transformJson(value);
+        this.json = this.transformationService.transformJson(value);
     }
 
-    constructor(@Inject("JsonTransformationService") transformationService :  JsonTransformationService) {
-        this._transformationService = transformationService;        
+    constructor(@Inject(JsonTransformationToken) private transformationService :  JsonTransformationInterface) {
+        this.transformationService = transformationService;        
     }         
 }
