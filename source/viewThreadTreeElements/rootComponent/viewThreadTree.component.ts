@@ -20,14 +20,8 @@ import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
         provide(JsonTransformationToken, { useClass: TransformJsonToThreadViewDataset }),
         provide("ThreadViewDatasetCreator", { useClass : ThreadViewDatasetCreator }),        
         provide("TransformToThreadD3node", { useClass : TransformToThreadD3node}),
-        provide("KeyGenerator", {useClass : KeyGenerator}),
-        provide("MapCreator", { useClass : MapCreator})   
-
-        // provide(JsonTransformationToken, { useClass: TransformJsonToThreadViewDataset }),
-        // provide("ThreadViewDatasetCreator", { useClass : ThreadViewDatasetCreator }),        
-        // TransformToThreadD3node,
-        // KeyGenerator,
-        // MapCreator        
+        KeyGenerator,
+        MapCreator   
     ]
 })
 export class ViewThreadTree {

@@ -18,7 +18,7 @@ export class TransformJsonToThreadViewDataset implements JsonTransformationInter
 
     constructor(
         @Inject("TransformToThreadD3node") private _transformToThreadD3node : TransformToThreadD3node,
-        @Inject("MapCreator") private _mapCreator : MapCreator,
+        private _mapCreator : MapCreator,
         @Inject("ThreadViewDatasetCreator") private _threadViewDatasetCreator : ThreadViewDatasetCreator) {      
             console.log("here");  
     }
