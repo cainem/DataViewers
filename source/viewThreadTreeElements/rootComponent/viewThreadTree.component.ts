@@ -9,7 +9,7 @@ import {ThreadMapRootDto} from '../../data/AllDtos';
 import {TransformJsonToThreadViewDataset} from '../model/transformJsonToThreadViewDataset';
 import {MapCreator} from '../model/mapCreator';
 import {TransformToThreadD3node} from '../model/TransformToThreadD3node';
-import {ThreadViewDatasetCreator} from '../model/threadviewDatasetCreator';
+import {ThreadViewDatasetCreator, ThreadViewDatasetCreatorToken} from '../model/threadviewDatasetCreator';
 import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 
 @Component({
@@ -18,7 +18,7 @@ import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
     styleUrls: ['./app/viewThreadTreeElements/rootComponent/viewThreadTree.css'],
     providers: [ 
         provide(JsonTransformationToken, { useClass: TransformJsonToThreadViewDataset }),
-        provide("ThreadViewDatasetCreator", { useClass : ThreadViewDatasetCreator }),        
+        provide ("ThreadViewDatasetCreatorToken", { useClass : ThreadViewDatasetCreator }),
         provide("TransformToThreadD3node", { useClass : TransformToThreadD3node}),
         KeyGenerator,
         MapCreator   

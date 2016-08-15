@@ -4,8 +4,7 @@ import {ThreadMapRootDto} from '../../data/AllDtos';
 import {ThreadViewDataset} from './threadViewDataset';
 import {MapCreator} from './mapCreator';
 import {TransformToThreadD3node} from './transformToThreadD3node';
-import {ThreadViewDatasetCreator} from './threadViewDatasetCreator';
-
+import {ThreadViewDatasetCreator, ThreadViewDatasetCreatorToken} from './threadViewDatasetCreator';
 /*
     This class is responsible is transforming a ThreadMapRootDto into a ThreadViewDataset
 
@@ -19,7 +18,7 @@ export class TransformJsonToThreadViewDataset implements JsonTransformationInter
     constructor(
         @Inject("TransformToThreadD3node") private _transformToThreadD3node : TransformToThreadD3node,
         private _mapCreator : MapCreator,
-        @Inject("ThreadViewDatasetCreator") private _threadViewDatasetCreator : ThreadViewDatasetCreator) {      
+        @Inject("ThreadViewDatasetCreatorToken") private _threadViewDatasetCreator : ThreadViewDatasetCreator) {      
             console.log("here");  
     }
 

@@ -16,7 +16,7 @@ import {JsonTransformationInterface, JsonTransformationToken} from './service/js
 import {TransformJsonToThreadViewDataset} from './viewThreadTreeElements/model/transformJsonToThreadViewDataset';
 //import {MapCreator} from './viewThreadTreeElements/model/mapCreator';
 import {TransformToThreadD3node} from './viewThreadTreeElements/model/TransformToThreadD3node';
-import {ThreadViewDatasetCreator} from './viewThreadTreeElements/model/threadviewDatasetCreator';
+//import {ThreadViewDatasetCreator} from './viewThreadTreeElements/model/threadviewDatasetCreator';
 //import {KeyGenerator} from './service/keyGenerator/keyGenerator';
 //import {JsonTransformationToken, JsonTransformationInterface} from '../../service/JsonTransformationService';
 
