@@ -11,7 +11,7 @@ import {JsonTransformationToken, JsonTransformationInterface} from '../../servic
     directives: [ChromosomeComponent, JsInputComponent],
     providers: [   
         provide(JsonTransformationToken, { useClass: TransformJsonToLogicalStream }) 
-        ],
+    ],
 })
 export class ViewLogicalStream {          
     public json : Chromosome[];    
@@ -20,6 +20,6 @@ export class ViewLogicalStream {
     }
 
     constructor(@Inject(JsonTransformationToken) private transformationService :  JsonTransformationInterface) {
-        this.transformationService = transformationService;        
+         this.transformationService = transformationService;        
     }         
 }
