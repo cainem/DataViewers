@@ -5,25 +5,24 @@ import {ViewLogicalStream} from "./viewElements/rootComponent/viewLogicalStream.
 import {ViewMachine} from "./routerMenus/viewMachine/viewMachine.component";
 import {ViewThreadTree} from "./viewThreadTreeElements/rootComponent/viewThreadTree.component";
 import {PropertyExplorer} from './propertyExplorer/rootComponent/propertyExplorer.component';
+import {ViewProperties} from './propertyExplorer/viewProperties/viewProperties.component';
 
 import {routing} from './app.routing'
 import {RootMenuComponent}  from './routerMenus/rootMenu/rootMenu.component';
-// import {JsInputComponent} from './jsInput/jsInput.component';
 
 @NgModule({
   imports: [ 
       BrowserModule ,
-      // Forms
       FormsModule, 
       routing,
   ],
   declarations: [
      RootMenuComponent,
-     //JsInputComponent,
      ViewLogicalStream,
      ViewMachine,
      ViewThreadTree,
-     PropertyExplorer
+     PropertyExplorer,
+     ViewProperties,
      ],
   bootstrap:    [ RootMenuComponent ]
 })

@@ -1,3 +1,9 @@
-<div id="d3PropertyExplorer">
-    testing
-</div>
+<div class="container-fluid">
+    <div class="row col-lg-12">
+        <jsInput (jsonChanged)="onJsonChanged($event)"></jsInput>
+    </div>
+
+    <div class="row col-lg-12">
+        <view-properties [data]="data" (selectDataObjectChanged)="selectionChanged($event)"></view-properties>
+    </div>
+<div>

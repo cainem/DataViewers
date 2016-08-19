@@ -1,9 +1,11 @@
 import {Injectable} from '@angular/core'; 
 import {CollapsibleIndentedNode} from './collapsibleIndentedNode';
 import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
+import {JsonTransformationInterface} from '../../service/JsonTransformationService';
+
 
 @Injectable()
-export class TransformToCollapsibleIndentedNode {
+export class TransformToCollapsibleIndentedNode implements JsonTransformationInterface {
 
     constructor(private _keyGenerator : KeyGenerator) {
     }
@@ -37,4 +39,10 @@ export class TransformToCollapsibleIndentedNode {
 
         return result;
     }
+
+    transformJson = (json :any) => {
+        return this.transform("object", json);
+    }    	
+
+
 }
