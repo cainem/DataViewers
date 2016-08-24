@@ -7,6 +7,10 @@ export class CollapsibleIndentedNode {
     id : number;
     value : string | number | boolean;
 
+    _children : CollapsibleIndentedNode[];
+    x0 : number;
+    y0 : number;
+
     constructor() {
         this.x = 0;
         this.y = 0;

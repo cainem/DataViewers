@@ -63,7 +63,7 @@ export class ThreadsView implements OnInit, OnChanges {
         let root : ThreadD3nodeInterface = newValue.rootThread;
         
         // Compute the new tree layout.
-        let nodes : ThreadD3nodeInterface[] = this.tree.nodes(root).reverse()
+        let nodes : ThreadD3nodeInterface[] = this.tree.nodes(root).reverse();
         let links : d3.layout.tree.Link<ThreadD3nodeInterface>[] = this.tree.links(nodes);
 
         // Declare the nodes…
