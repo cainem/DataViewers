@@ -1,4 +1,4 @@
-import {Component, provide, Input, OnChanges, Inject, SimpleChanges} from '@angular/core';
+import {Component, provide, Input, OnChanges, Inject, SimpleChanges, ElementRef} from '@angular/core';
 import {SvgHelper} from '../../utils/d3Helpers/svgHelper';
 import {TransformToCollapsibleIndentedNode} from '../model/transformToCollapsibleIndentedNode';
 import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
@@ -19,6 +19,7 @@ export class ViewProperties implements OnChanges {
     //private svgHelper: SvgHelper;
     private tree: d3.layout.Tree<CollapsibleIndentedNode>;
     private svg : d3.Selection<CollapsibleIndentedNode>;
+    private div : d3.Selection<CollapsibleIndentedNode>;
 
     private duration: number = 400;
     private margin : MarginInterface
@@ -29,10 +30,8 @@ export class ViewProperties implements OnChanges {
     private diagonal;
 
     constructor(public transformToCollapsibleIndentedNode: TransformToCollapsibleIndentedNode) {
-        //this.svgHelper = new SvgHelper();
 
         this.tree = d3.layout.tree<CollapsibleIndentedNode>()
-            //.size([this.svgHelper.height, this.svgHelper.width])
             .nodeSize([0, 20]); // not sure what this does
 
         this.diagonal = d3.svg.diagonal()
@@ -48,18 +47,17 @@ export class ViewProperties implements OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        let div = d3.select("#d3ProperyExplorer");
+        this.div = d3.select("#d3ProperyExplorer");
 
         let actual = <CollapsibleIndentedNode>changes["data"].currentValue;
 
-        if (div && actual) {
+        if (this.div && actual) {
 
-            this.svg = div.append("svg")
+            this.svg = this.div.append("svg")
                 .attr("width", this.width + this.margin.left + this.margin.right)
                 .append("g")
                 .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
-            // this.svgHelper.configureSvgWithZoom(div);
             actual.x0 = 0;
             actual.y0 = 0;
             this.root = actual;
@@ -93,13 +91,10 @@ export class ViewProperties implements OnChanges {
 
         let height = Math.max(500, nodes.length * this.barHeight + this.margin.top + this.margin.bottom);
 
-        d3.select("svg").transition()
+        //this.svg.transition()
+        let local = d3.select("svg").transition()
             .duration(this.duration)
             .attr("height", height);
-
-        d3.select(self.frameElement).transition()
-            .duration(this.duration)
-            .style("height", height + "px");
 
         // Compute the "layout".
         nodes.forEach((n, i) => {
@@ -108,7 +103,6 @@ export class ViewProperties implements OnChanges {
 
         // Update the nodes…
         let node = this.svg.selectAll<CollapsibleIndentedNode>("g.node");
-
         let selectedNodes: d3.selection.Update<CollapsibleIndentedNode> = this.svg.selectAll("g.node")
             .data(nodes, (d: CollapsibleIndentedNode) =>
                 // returns an id for a node;
@@ -131,7 +125,12 @@ export class ViewProperties implements OnChanges {
         nodeEnter.append("text")
             .attr("dy", 3.5)
             .attr("dx", 5.5)
-            .text(d => { return d.name; });
+            .text(d => {
+                if (d.value) {
+                    return d.name + ' : ' + d.value;                    
+                } 
+                return d.name;
+             });
 
         // Transition nodes to their new position.
         nodeEnter.transition()
