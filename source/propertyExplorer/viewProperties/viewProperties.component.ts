@@ -16,10 +16,9 @@ import {MarginInterface} from '../../utils/d3Helpers/margin.interface';
 export class ViewProperties implements OnChanges {
     @Input() data: any;
 
-    //private svgHelper: SvgHelper;
     private tree: d3.layout.Tree<CollapsibleIndentedNode>;
-    private svg : d3.Selection<CollapsibleIndentedNode>;
-    private div : d3.Selection<CollapsibleIndentedNode>;
+    private svgSelection : d3.Selection<CollapsibleIndentedNode>;
+    private diagonal : d3.svg.Diagonal<d3.svg.diagonal.Link<d3.svg.diagonal.Node>, d3.svg.diagonal.Node>;
 
     private duration: number = 400;
     private margin : MarginInterface
@@ -27,13 +26,15 @@ export class ViewProperties implements OnChanges {
     private barHeight: number;
     private barWidth: number;
     private root: CollapsibleIndentedNode;
-    private diagonal;
 
     constructor(public transformToCollapsibleIndentedNode: TransformToCollapsibleIndentedNode) {
 
         this.tree = d3.layout.tree<CollapsibleIndentedNode>()
+            // i think this is saying when you calculate the y position of the nodes
+            // seperate them by 20; the x coordinate will always be zero
             .nodeSize([0, 20]); // not sure what this does
 
+        // define the diagonal function
         this.diagonal = d3.svg.diagonal()
             .projection(d => { return [d.y, d.x]; });
 
@@ -47,13 +48,17 @@ export class ViewProperties implements OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        this.div = d3.select("#d3ProperyExplorer");
+        let divSelection = d3.select("#d3ProperyExplorer");
 
         let actual = <CollapsibleIndentedNode>changes["data"].currentValue;
 
-        if (this.div && actual) {
+        if (divSelection && actual) {
 
-            this.svg = this.div.append("svg")
+            // remove svg and re-add
+            divSelection.select("svg").remove();
+
+            // create
+            this.svgSelection = divSelection.append("svg")
                 .attr("width", this.width + this.margin.left + this.margin.right)
                 .append("g")
                 .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
@@ -86,29 +91,29 @@ export class ViewProperties implements OnChanges {
             return;
         }
 
-        // Compute the flattened node list. TODO use d3.layout.hierarchy.
+        // compute relative x and y's'
         let nodes: CollapsibleIndentedNode[] = this.tree.nodes(this.root);
 
         let height = Math.max(500, nodes.length * this.barHeight + this.margin.top + this.margin.bottom);
-
-        //this.svg.transition()
-        let local = d3.select("svg").transition()
+        // recalculate the height of the required area (minimum 500)
+        d3.select("svg").transition()
             .duration(this.duration)
             .attr("height", height);
 
-        // Compute the "layout".
-        nodes.forEach((n, i) => {
-            n.x = i * this.barHeight;
+        // Compute the "layout". what?
+        nodes.forEach((node, i) => {
+            // this is how far down the page it will appear; x and y are flipped by the translate
+            // function. y is therefore the left/right coordinate
+            node.x = i * this.barHeight;
         });
 
-        // Update the nodes…
-        let node = this.svg.selectAll<CollapsibleIndentedNode>("g.node");
-        let selectedNodes: d3.selection.Update<CollapsibleIndentedNode> = this.svg.selectAll("g.node")
+        // select all of the nodes based on the data
+        let selectedNodes: d3.selection.Update<CollapsibleIndentedNode> = this.svgSelection.selectAll("g.node")
             .data(nodes, (d: CollapsibleIndentedNode) =>
                 // returns an id for a node;
                 d.id.toString());
 
-
+        // select the new nodes        
         var nodeEnter = selectedNodes.enter().append("g")
             .attr("class", "node")
             .attr("transform", d => { return "translate(" + source.y0 + "," + source.x0 + ")"; })
@@ -138,14 +143,14 @@ export class ViewProperties implements OnChanges {
             .attr("transform", d => { return "translate(" + d.y + "," + d.x + ")"; })
             .style("opacity", 1);
 
-        node.transition()
+        selectedNodes.transition()
             .duration(this.duration)
             .attr("transform", d => { return "translate(" + d.y + "," + d.x + ")"; })
             .style("opacity", 1)
             .select("rect")
             .style("fill", this.color);
 
-        // Transition exiting nodes to the parent's new position.
+        // Transition exiting nodes to the parent's new position whilst fading out and then remove.
         selectedNodes.exit().transition()
             .duration(this.duration)
             .attr("transform", d => { return "translate(" + source.y + "," + source.x + ")"; })
@@ -154,7 +159,7 @@ export class ViewProperties implements OnChanges {
 
         // Update the links…
         let links: d3.layout.tree.Link<CollapsibleIndentedNode>[] = this.tree.links(nodes);
-        let link: d3.selection.Update<d3.layout.tree.Link<CollapsibleIndentedNode>> = this.svg.selectAll("path.link")
+        let link: d3.selection.Update<d3.layout.tree.Link<CollapsibleIndentedNode>> = this.svgSelection.selectAll("path.link")
             .data(links, (d: d3.layout.tree.Link<CollapsibleIndentedNode>) => {
                 return d.target.id.toString();
             });
