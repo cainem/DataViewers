@@ -70,10 +70,9 @@ export class ViewProperties implements OnChanges {
         }
     };
 
-    color = (node: CollapsibleIndentedNode) => {
+    color = (node : CollapsibleIndentedNode) => {
         return node._children ? "#3182bd" : node.children ? "#c6dbef" : "#fd8d3c";
     }
-
     click = (data: CollapsibleIndentedNode) => {
         if (data.children) {
             data._children = data.children;
@@ -114,35 +113,32 @@ export class ViewProperties implements OnChanges {
                 d.id.toString());
 
         // select the new nodes        
-        var nodeEnter = selectedNodes.enter().append("g")
-            .attr("class", "node")
-            .attr("transform", d => { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-            .style("opacity", 1e-6);
+        var nodeEnter = selectedNodes.enter();
+        NodeHelper.drawNodes(this, nodeEnter, source, this.barHeight, this.barWidth);
+        // .append("g")
+        //     .attr("class", "node")
+        //     .attr("transform", d => { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+        //     .style("opacity", 1e-6);
 
-        // Enter any new nodes at the parent's previous position.
-        nodeEnter.append("rect")
-            .attr("y", -this.barHeight / 2)
-            .attr("height", this.barHeight)
-            .attr("width", this.barWidth)
-            .style("fill", this.color)
-            .on("click", this.click);
+        // // Enter any new nodes at the parent's previous position.
+        // nodeEnter.append("rect")
+        //     .attr("y", -this.barHeight / 2)
+        //     .attr("height", this.barHeight)
+        //     .attr("width", this.barWidth)
+        //     .style("fill", this.color)
+        //     .on("click", this.click);
 
-        nodeEnter.append("text")
-            .attr("dy", 3.5)
-            .attr("dx", 5.5)
-            .text(d => {
-                if (d.value) {
-                    return d.name + ' : ' + d.value;                    
-                } 
-                return d.name;
-             });
+        // nodeEnter.append("text")
+        //     .attr("dy", 3.5)
+        //     .attr("dx", 5.5)
+        //     .text(d => {
+        //         if (d.value) {
+        //             return d.name + ' : ' + d.value;                    
+        //         } 
+        //         return d.name;
+        //      });
 
         // Transition nodes to their new position.
-        nodeEnter.transition()
-            .duration(this.duration)
-            .attr("transform", d => { return "translate(" + d.y + "," + d.x + ")"; })
-            .style("opacity", 1);
-
         selectedNodes.transition()
             .duration(this.duration)
             .attr("transform", d => { return "translate(" + d.y + "," + d.x + ")"; })
