@@ -3,59 +3,68 @@ import {ViewProperties} from './viewProperties.component'
 
 export class NodeHelper {
 
-    // static color(node : CollapsibleIndentedNode) : string {
-    //     return node._children ? "#3182bd" : node.children ? "#c6dbef" : "#fd8d3c";
-    // }
+    static add(
+        caller: ViewProperties,
+        selection: d3.selection.Enter<CollapsibleIndentedNode>,
+        source: CollapsibleIndentedNode,
+        barHeight: number,
+        barWidth: number): d3.Selection<CollapsibleIndentedNode> {
 
-    // static click(node : CollapsibleIndentedNode) : void {
-
-    // }
-
-    static drawNodes (
-        caller : ViewProperties,
-        selection : d3.Selection<CollapsibleIndentedNode> | d3.selection.Enter<CollapsibleIndentedNode>,
-        source : CollapsibleIndentedNode,
-        barHeight : number,
-        barWidth: number) : d3.Selection<CollapsibleIndentedNode> {
-
-            var result =  selection.append("g")
+        let returnedSelection = selection.append("g")
             .attr("class", "node")
             .attr("transform", d => { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-            .style("opacity", 1e-6);
-
-// var tooltip = d3.select("body")
-//         .append("div")
-//         .style("position", "absolute")
-//         .style("z-index", "10")
-//         .style("visibility", "hidden")
-//         .text("a simple tooltip");
-
-
-        result.append("rect")
+            .style("opacity", 1e-6)  // start off invisible, transistion to visible
+            .append("foreignObject")
             .attr("y", -barHeight / 2)
             .attr("height", barHeight)
             .attr("width", barWidth)
-            .style("fill", caller.color)
-            .on("click", caller.click)
-    //         .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-	// .on("mousemove", function(){return tooltip.style("top", ((<MouseEvent>d3.event).pageY-10)+"px").style("left",((<MouseEvent>event).pageX+10)+"px");})
-	// .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 
-        result.append("text")
-            .attr("dy", 3.5)
-            .attr("dx", 5.5)
-            .text(d => NodeHelper.propertyText(d).slice(0,75))
-            .attr("title", d => NodeHelper.propertyText(d))
-             // pass events through the text to the rect
-             .style("pointer-events", "none")
+        returnedSelection = returnedSelection.append("xhtml:div")
+            .each(function (e) {
 
-            return result;
+                var header = d3.select(this);
+
+                if (e.children || e._children) {
+                    header.append("div")
+                        .style("background-color", caller.color)
+                        .style("padding", "2")
+                        //.style("height", 30)
+                        .style("border-width", 1)
+                        .style("border-style", "ridge")
+                        .style("font-weight", "bold")
+                        .attr("title", d => NodeHelper.propertyText(d))
+                        .attr("class", "inner")
+                        .text(d => NodeHelper.propertyText(d))
+                        .on("click", caller.click)
+                        //.style("pointer-events", "none");
+                }
+                else {
+
+                    let inner = header.append("div")
+
+                    inner.append("span")
+                        .style("font-weight", "bold")
+                        .style("background-color", "#c6dbef")
+                        .text(d => d.name);
+                        
+                    inner.append("input")
+                        .attr("type", "input")
+                        .style("background-color", d => caller.color(d))
+                        //.style("height", 30)
+                        .style("width", 600)
+                        .attr("title", d => d.name)
+                        .attr("value", d => d.value);
+                }
+
+            });
+
+        return returnedSelection;
     }
 
-    static propertyText(data : CollapsibleIndentedNode) {
+    static propertyText(data: CollapsibleIndentedNode) {
         if (data.value) {
-            return (data.name + ' : ' + data.value).slice(0, 50);                    
-        } 
+            return (data.name + ' : ' + data.value);
+        }
         return data.name;
     }
 }

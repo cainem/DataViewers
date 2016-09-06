@@ -43,7 +43,7 @@ export class ViewProperties implements OnChanges {
 
         this.margin = { top: 30, right: 20, bottom: 30, left: 20 };
         this.width = 960 - this.margin.left - this.margin.right;
-        this.barHeight = 20;
+        this.barHeight = 30;
         this.barWidth = this.width * .8;
     }
 
@@ -71,8 +71,10 @@ export class ViewProperties implements OnChanges {
     };
 
     color = (node : CollapsibleIndentedNode) => {
-        return node._children ? "#3182bd" : node.children ? "#c6dbef" : "#fd8d3c";
+        let result = node._children ? "#3182bd" : node.children ? "#c6dbef" : "#fd8d3c";
+        return result;
     }
+
     click = (data: CollapsibleIndentedNode) => {
         if (data.children) {
             data._children = data.children;
@@ -112,31 +114,13 @@ export class ViewProperties implements OnChanges {
                 // returns an id for a node;
                 d.id.toString());
 
+        // at this point selectedNodes contains the nodes that are not entering nor exiting
+        // i.e the ones left unaltered by the any "children" changes                
+        selectedNodes.select("div.inner").style("background-color", d => this.color(d));
+
         // select the new nodes        
         var nodeEnter = selectedNodes.enter();
-        NodeHelper.drawNodes(this, nodeEnter, source, this.barHeight, this.barWidth);
-        // .append("g")
-        //     .attr("class", "node")
-        //     .attr("transform", d => { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-        //     .style("opacity", 1e-6);
-
-        // // Enter any new nodes at the parent's previous position.
-        // nodeEnter.append("rect")
-        //     .attr("y", -this.barHeight / 2)
-        //     .attr("height", this.barHeight)
-        //     .attr("width", this.barWidth)
-        //     .style("fill", this.color)
-        //     .on("click", this.click);
-
-        // nodeEnter.append("text")
-        //     .attr("dy", 3.5)
-        //     .attr("dx", 5.5)
-        //     .text(d => {
-        //         if (d.value) {
-        //             return d.name + ' : ' + d.value;                    
-        //         } 
-        //         return d.name;
-        //      });
+        NodeHelper.add(this, nodeEnter, source, this.barHeight, this.barWidth);
 
         // Transition nodes to their new position.
         selectedNodes.transition()
@@ -144,8 +128,9 @@ export class ViewProperties implements OnChanges {
             .attr("transform", d => { return "translate(" + d.y + "," + d.x + ")"; })
             .style("opacity", 1)
             .select("rect")
-            .style("fill", this.color);
+            .style("fill", d => this.color(d));
 
+        // selectedNodes.exit() contains the nodes that are about to be deleted    
         // Transition exiting nodes to the parent's new position whilst fading out and then remove.
         selectedNodes.exit().transition()
             .duration(this.duration)
