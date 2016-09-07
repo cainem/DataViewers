@@ -27,8 +27,11 @@ export class NodeHelper {
                 if (e.children || e._children) {
                     header.append("div")
                         .style("background-color", caller.color)
-                        .style("padding", "2")
-                        //.style("height", 30)
+                        .style("padding", "2 20 2 2")
+                        .style("display", "inline-block")
+                        .style("white-space", "nowrap")
+                        .style("overflow", "hidden")
+                        .style("max-width", barWidth)
                         .style("border-width", 1)
                         .style("border-style", "ridge")
                         .style("font-weight", "bold")
@@ -36,24 +39,37 @@ export class NodeHelper {
                         .attr("class", "inner")
                         .text(d => NodeHelper.propertyText(d))
                         .on("click", caller.click)
-                        //.style("pointer-events", "none");
                 }
                 else {
+                    let tableRow = header.append("table").
+                        style("width", barWidth).
+                        style("background-color", "#fd8d3c").
+                        append("tbody").
+                        append("tr");
 
-                    let inner = header.append("div")
+                    tableRow.append("th")
+                        .style("width", "0%")
+                        .style("white-space", "nowrap")
+                            .append("div")
+                            .style("display", "inline-block")
+                            .style("overflow", "hidden")
+                            .style("max-width", barWidth * 0.8)
+                            .style("text-align", "left")
+                            .style("font-weight", "bold")
+                            .style("padding", "2 10 2 2")
+                            .text(d => d.name);
 
-                    inner.append("span")
-                        .style("font-weight", "bold")
-                        .style("background-color", "#c6dbef")
-                        .text(d => d.name);
-                        
-                    inner.append("input")
-                        .attr("type", "input")
-                        .style("background-color", d => caller.color(d))
-                        //.style("height", 30)
-                        .style("width", 600)
-                        .attr("title", d => d.name)
-                        .attr("value", d => d.value);
+                    tableRow.append("td")
+                        .style("width", "100%")
+                            .append("input")
+                            .attr("type", "input")
+                            .style("background-color", "#fe9e4d") //"#fd8d3c"
+                            .style("padding","0 0 0 10")
+                            .style("width", "100%")
+                            .style("height", "90%")
+                            .style("border", "none")
+                            .attr("title", d => d.name)
+                            .attr("value", d => d.value);
                 }
 
             });

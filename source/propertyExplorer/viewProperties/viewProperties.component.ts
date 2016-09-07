@@ -44,7 +44,7 @@ export class ViewProperties implements OnChanges {
         this.margin = { top: 30, right: 20, bottom: 30, left: 20 };
         this.width = 960 - this.margin.left - this.margin.right;
         this.barHeight = 30;
-        this.barWidth = this.width * .8;
+        this.barWidth = this.width * .4;
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -97,7 +97,8 @@ export class ViewProperties implements OnChanges {
 
         let height = Math.max(500, nodes.length * this.barHeight + this.margin.top + this.margin.bottom);
         // recalculate the height of the required area (minimum 500)
-        d3.select("svg").transition()
+        d3.select("svg")
+            .transition()
             .duration(this.duration)
             .attr("height", height);
 
@@ -123,8 +124,9 @@ export class ViewProperties implements OnChanges {
         NodeHelper.add(this, nodeEnter, source, this.barHeight, this.barWidth);
 
         // Transition nodes to their new position.
-        selectedNodes.transition()
-            .duration(this.duration)
+        selectedNodes
+            // .transition()
+            // .duration(this.duration)
             .attr("transform", d => { return "translate(" + d.y + "," + d.x + ")"; })
             .style("opacity", 1)
             .select("rect")
@@ -132,49 +134,51 @@ export class ViewProperties implements OnChanges {
 
         // selectedNodes.exit() contains the nodes that are about to be deleted    
         // Transition exiting nodes to the parent's new position whilst fading out and then remove.
-        selectedNodes.exit().transition()
-            .duration(this.duration)
-            .attr("transform", d => { return "translate(" + source.y + "," + source.x + ")"; })
-            .style("opacity", 1e-6)
+        selectedNodes.exit()
+            // .transition()
+            // .duration(this.duration)
+            // .attr("transform", d => { return "translate(" + source.y + "," + source.x + ")"; })
+            // .style("opacity", 1e-6)
             .remove();
 
         // Update the links…
-        let links: d3.layout.tree.Link<CollapsibleIndentedNode>[] = this.tree.links(nodes);
-        let link: d3.selection.Update<d3.layout.tree.Link<CollapsibleIndentedNode>> = this.svgSelection.selectAll("path.link")
-            .data(links, (d: d3.layout.tree.Link<CollapsibleIndentedNode>) => {
-                return d.target.id.toString();
-            });
+        // let links: d3.layout.tree.Link<CollapsibleIndentedNode>[] = this.tree.links(nodes);
+        // let link: d3.selection.Update<d3.layout.tree.Link<CollapsibleIndentedNode>> = this.svgSelection.selectAll("path.link")
+        //     .data(links, (d: d3.layout.tree.Link<CollapsibleIndentedNode>) => {
+        //         return d.target.id.toString();
+        //     });
 
-        // Enter any new links at the parent's previous position.
-        link.enter().insert("path", "g")
-            .attr("class", "link")
-            .attr("d", d => {
-                var o = { x: source.x0, y: source.y0 };
-                return this.diagonal({ source: o, target: o });
-            })
-            .transition()
-            .duration(this.duration)
-            .attr("d", this.diagonal);
+        // // Enter any new links at the parent's previous position.
+        // link.enter().insert("path", "g")
+        //     .attr("class", "link")
+        //     .attr("d", d => {
+        //         var o = { x: source.x0, y: source.y0 };
+        //         return this.diagonal({ source: o, target: o });
+        //     })
+        //     .transition()
+        //     .duration(this.duration)
+        //     .attr("d", this.diagonal);
 
-        // Transition links to their new position.
-        link.transition()
-            .duration(this.duration)
-            .attr("d", this.diagonal);
+        // // Transition links to their new position.
+        // link.transition()
+        //     .duration(this.duration)
+        //     .attr("d", this.diagonal);
 
-        // Transition exiting nodes to the parent's new position.
-        link.exit().transition()
-            .duration(this.duration)
-            .attr("d", d => {
-                var o = { x: source.x, y: source.y };
-                return this.diagonal({ source: o, target: o });
-            })
-            .remove();
+        // // Transition exiting nodes to the parent's new position.
+        // link.exit()
+        //     // .transition()
+        //     // .duration(this.duration)
+        //     // .attr("d", d => {
+        //     //     var o = { x: source.x, y: source.y };
+        //     //     return this.diagonal({ source: o, target: o });
+        //     // })
+        //     .remove();
 
         // Stash the old positions for transition.
-        nodes.forEach(d => {
-            d.x0 = d.x;
-            d.y0 = d.y;
-        });
+        // nodes.forEach(d => {
+        //     d.x0 = d.x;
+        //     d.y0 = d.y;
+        // });
     }
 }
 
