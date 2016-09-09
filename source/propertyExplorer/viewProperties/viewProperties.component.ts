@@ -16,6 +16,11 @@ import {MarginInterface} from '../../utils/d3Helpers/margin.interface';
 export class ViewProperties implements OnChanges {
     @Input() data: any;
 
+    public static get CollapsedColor() : string { return "tan"; }
+    public static get ExpandedColor() : string { return "blanchedalmond"; }
+    public static get ValueLabelColor() : string { return "beige"; }
+    public static get ValueColor() : string { return "beige"; }
+
     private tree: d3.layout.Tree<CollapsibleIndentedNode>;
     private svgSelection : d3.Selection<CollapsibleIndentedNode>;
     private diagonal : d3.svg.Diagonal<d3.svg.diagonal.Link<d3.svg.diagonal.Node>, d3.svg.diagonal.Node>;
@@ -71,17 +76,17 @@ export class ViewProperties implements OnChanges {
     };
 
     color = (node : CollapsibleIndentedNode) => {
-        let result = node._children ? "#3182bd" : node.children ? "#c6dbef" : "#fd8d3c";
+        let result = node.collapsedChildren ? ViewProperties.CollapsedColor : node.children ? ViewProperties.ExpandedColor : ViewProperties.ValueLabelColor;
         return result;
     }
 
     click = (data: CollapsibleIndentedNode) => {
         if (data.children) {
-            data._children = data.children;
+            data.collapsedChildren = data.children;
             data.children = null;
         } else {
-            data.children = data._children;
-            data._children = null;
+            data.children = data.collapsedChildren;
+            data.collapsedChildren = null;
         }
         this.update(data);
     }
@@ -123,62 +128,16 @@ export class ViewProperties implements OnChanges {
         var nodeEnter = selectedNodes.enter();
         NodeHelper.add(this, nodeEnter, source, this.barHeight, this.barWidth);
 
-        // Transition nodes to their new position.
+        // It appears that once enter has been called selectNodes now contains all additions and updates
+        // i.e. all of the nodes that are not exiting
         selectedNodes
-            // .transition()
-            // .duration(this.duration)
             .attr("transform", d => { return "translate(" + d.y + "," + d.x + ")"; })
-            .style("opacity", 1)
-            .select("rect")
-            .style("fill", d => this.color(d));
 
         // selectedNodes.exit() contains the nodes that are about to be deleted    
         // Transition exiting nodes to the parent's new position whilst fading out and then remove.
         selectedNodes.exit()
-            // .transition()
-            // .duration(this.duration)
-            // .attr("transform", d => { return "translate(" + source.y + "," + source.x + ")"; })
-            // .style("opacity", 1e-6)
             .remove();
 
-        // Update the links…
-        // let links: d3.layout.tree.Link<CollapsibleIndentedNode>[] = this.tree.links(nodes);
-        // let link: d3.selection.Update<d3.layout.tree.Link<CollapsibleIndentedNode>> = this.svgSelection.selectAll("path.link")
-        //     .data(links, (d: d3.layout.tree.Link<CollapsibleIndentedNode>) => {
-        //         return d.target.id.toString();
-        //     });
-
-        // // Enter any new links at the parent's previous position.
-        // link.enter().insert("path", "g")
-        //     .attr("class", "link")
-        //     .attr("d", d => {
-        //         var o = { x: source.x0, y: source.y0 };
-        //         return this.diagonal({ source: o, target: o });
-        //     })
-        //     .transition()
-        //     .duration(this.duration)
-        //     .attr("d", this.diagonal);
-
-        // // Transition links to their new position.
-        // link.transition()
-        //     .duration(this.duration)
-        //     .attr("d", this.diagonal);
-
-        // // Transition exiting nodes to the parent's new position.
-        // link.exit()
-        //     // .transition()
-        //     // .duration(this.duration)
-        //     // .attr("d", d => {
-        //     //     var o = { x: source.x, y: source.y };
-        //     //     return this.diagonal({ source: o, target: o });
-        //     // })
-        //     .remove();
-
-        // Stash the old positions for transition.
-        // nodes.forEach(d => {
-        //     d.x0 = d.x;
-        //     d.y0 = d.y;
-        // });
     }
 }
 

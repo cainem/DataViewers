@@ -13,6 +13,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         expect(result.id).toEqual(1);
         expect(result.children.length).toEqual(0);
+        expect(result.parent).toBeNull();
         expect(result.name).toEqual("o");
         expect(result.x).toEqual(0);
         expect(result.y).toEqual(0);
@@ -30,6 +31,7 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         expect(result.id).toEqual(1);
         expect(result.children.length).toEqual(0);
+        expect(result.parent).toBeNull();
         expect(result.name).toEqual("x");
         expect(result.x).toEqual(0);
         expect(result.y).toEqual(0);
@@ -48,7 +50,9 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         expect(result.id).toEqual(1);
         expect(result.children.length).toEqual(1);
+        expect(result.parent).toBeNull();
         expect(result.children[0].id).toEqual(2);
+        expect(result.children[0].parent).toEqual(result);
         expect(result.children[0].name).toEqual("property1");
         expect(result.children[0].value).toEqual("hello");
         expect(result.children[0].children.length).toEqual(0);
@@ -63,8 +67,10 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         let result = target.transform("o", o);
 
+        expect(result.parent).toBeNull();
         expect(result.id).toEqual(1);
         expect(result.children.length).toEqual(1);
+        expect(result.children[0].parent).toEqual(result);
         expect(result.children[0].id).toEqual(2);
         expect(result.children[0].name).toEqual("aProperty");
         expect(result.children[0].value).toEqual("helloAlso");
@@ -80,8 +86,10 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         let result = target.transform("o", o);
 
+        expect(result.parent).toBeNull();
         expect(result.id).toEqual(1);
         expect(result.children.length).toEqual(1);
+        expect(result.children[0].parent).toEqual(result);
         expect(result.children[0].id).toEqual(2);
         expect(result.children[0].name).toEqual("complex");
         expect(result.children[0].value).toBeNull();
@@ -97,8 +105,10 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         let result = target.transform("o", o);
 
+        expect(result.parent).toBeNull();
         expect(result.id).toEqual(1);
         expect(result.children.length).toEqual(1);
+        expect(result.children[0].parent).toEqual(result);
         expect(result.children[0].id).toEqual(2);
         expect(result.children[0].name).toEqual("aProperty");
         expect(result.children[0].value).toEqual(1);
@@ -114,8 +124,10 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         let result = target.transform("o", o);
 
+        expect(result.parent).toBeNull();
         expect(result.id).toEqual(1);
         expect(result.children.length).toEqual(1);
+        expect(result.children[0].parent).toEqual(result);
         expect(result.children[0].id).toEqual(2);
         expect(result.children[0].name).toEqual("aBoolProperty");
         expect(result.children[0].value).toEqual(false);
@@ -131,8 +143,10 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         let result = target.transform("o", o);
 
+        expect(result.parent).toBeNull();
         expect(result.id).toEqual(1);
         expect(result.children.length).toEqual(1);
+        expect(result.children[0].parent).toEqual(result);
         expect(result.children[0].id).toEqual(2);
         expect(result.children[0].name).toEqual("complexProperty");
         expect(result.children[0].value).toBeNull();
@@ -151,12 +165,15 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         let result = target.transform("o", o);
 
+        expect(result.parent).toBeNull();
         expect(result.id).toEqual(1);
         expect(result.children.length).toEqual(1);
+        expect(result.children[0].parent).toEqual(result);
         expect(result.children[0].id).toEqual(2);
         expect(result.children[0].name).toEqual("complexProperty");
         expect(result.children[0].value).toBeNull();
         expect(result.children[0].children.length).toEqual(1);
+        expect(result.children[0].children[0].parent).toEqual(result.children[0]);
         expect(result.children[0].children[0].id).toEqual(3);
         expect(result.children[0].children[0].name).toEqual("Number");
         expect(result.children[0].children[0].value).toEqual(1);
@@ -174,12 +191,15 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         let result = target.transform("o", o);
 
+        expect(result.parent).toBeNull();
         expect(result.id).toEqual(1);
         expect(result.children.length).toEqual(1);
+        expect(result.children[0].parent).toEqual(result);
         expect(result.children[0].id).toEqual(2);
         expect(result.children[0].name).toEqual("complexProperty");
         expect(result.children[0].value).toBeNull();
         expect(result.children[0].children.length).toEqual(1);
+        expect(result.children[0].children[0].parent).toEqual(result.children[0]);
         expect(result.children[0].children[0].id).toEqual(3);
         expect(result.children[0].children[0].name).toEqual("AlsoComplex");
         expect(result.children[0].children[0].value).toBeNull();
@@ -196,9 +216,12 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         let result = target.transform("o", o);
 
+        expect(result.parent).toBeNull();
         expect(result.id).toEqual(1);
         expect(result.children.length).toEqual(2);
+        expect(result.children[0].parent).toEqual(result);
         expect(result.children[0].id).toEqual(2);
+        expect(result.children[1].parent).toEqual(result);
         expect(result.children[1].id).toEqual(3);
     })
 
@@ -213,8 +236,11 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         let result = target.transform("o", o);
 
+        expect(result.parent).toBeNull();
         expect(result.id).toEqual(1);
+        expect(result.children[0].parent).toEqual(result);
         expect(result.children[0].id).toEqual(2);
+        expect(result.children[1].parent).toEqual(result);
         expect(result.children[1].id).toEqual(3);
     })
 
@@ -230,10 +256,29 @@ describe('TransformToCollapsibleIndentedNode tests', () => {
 
         let result = target.transform("o", o);
 
+        expect(result.parent).toBeNull();
         expect(result.id).toEqual(1);
         expect(result.children[0].id).toEqual(2);
         expect(result.children[0].children[0].id).toEqual(3)
         expect(result.children[1].id).toEqual(4);
+    })
+
+    ,it("3 level hierarchy of complex objects, set parent property as expected", () =>  {
+        let o = {
+            "complex1" : {         
+                "complex2" : {                    
+                }
+            }
+        };
+
+        let target = new TransformToCollapsibleIndentedNode(new KeyGenerator());
+
+        let result = target.transform("o", o);
+
+        expect(result.parent).toBeNull();
+        expect(result.id).toEqual(1);
+        expect(result.children[0].parent).toEqual(result);
+        expect(result.children[0].children[0].parent).toEqual(result.children[0]);
     })
 
     })

@@ -13,7 +13,6 @@ export class NodeHelper {
         let returnedSelection = selection.append("g")
             .attr("class", "node")
             .attr("transform", d => { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-            .style("opacity", 1e-6)  // start off invisible, transistion to visible
             .append("foreignObject")
             .attr("y", -barHeight / 2)
             .attr("height", barHeight)
@@ -22,12 +21,12 @@ export class NodeHelper {
         returnedSelection = returnedSelection.append("xhtml:div")
             .each(function (e) {
 
-                var header = d3.select(this);
+                var header : d3.Selection<CollapsibleIndentedNode> = d3.select(this);
 
-                if (e.children || e._children) {
+                if (e.children || e.collapsedChildren) {
                     header.append("div")
                         .style("background-color", caller.color)
-                        .style("padding", "2 20 2 2")
+                        .style("padding", "0 10 0 4")
                         .style("display", "inline-block")
                         .style("white-space", "nowrap")
                         .style("overflow", "hidden")
@@ -35,7 +34,7 @@ export class NodeHelper {
                         .style("border-width", 1)
                         .style("border-style", "ridge")
                         .style("font-weight", "bold")
-                        .attr("title", d => NodeHelper.propertyText(d))
+                        .attr("title", d => NodeHelper.ancestoryText(d))
                         .attr("class", "inner")
                         .text(d => NodeHelper.propertyText(d))
                         .on("click", caller.click)
@@ -43,7 +42,6 @@ export class NodeHelper {
                 else {
                     let tableRow = header.append("table").
                         style("width", barWidth).
-                        style("background-color", "#fd8d3c").
                         append("tbody").
                         append("tr");
 
@@ -51,24 +49,27 @@ export class NodeHelper {
                         .style("width", "0%")
                         .style("white-space", "nowrap")
                             .append("div")
-                            .style("display", "inline-block")
-                            .style("overflow", "hidden")
-                            .style("max-width", barWidth * 0.8)
-                            .style("text-align", "left")
-                            .style("font-weight", "bold")
-                            .style("padding", "2 10 2 2")
-                            .text(d => d.name);
+                                .style("background-color", ViewProperties.ValueLabelColor)
+                                .style("display", "inline-block")
+                                .style("overflow", "hidden")
+                                .style("max-width", barWidth * 0.8)
+                                .style("text-align", "left")
+                                .style("font-weight", "bold")
+                                .style("font-size", "14")
+                                .style("padding", "0 10 0 4")
+                                .attr("title", d => NodeHelper.ancestoryText(d))
+                                .text(d => d.name);
 
                     tableRow.append("td")
                         .style("width", "100%")
                             .append("input")
                             .attr("type", "input")
-                            .style("background-color", "#fe9e4d") //"#fd8d3c"
+                            .style("background-color", ViewProperties.ValueColor) 
                             .style("padding","0 0 0 10")
                             .style("width", "100%")
-                            .style("height", "90%")
+                            .style("font-size", "14")
                             .style("border", "none")
-                            .attr("title", d => d.name)
+                            .attr("title", d => NodeHelper.ancestoryText(d))
                             .attr("value", d => d.value);
                 }
 
@@ -82,5 +83,24 @@ export class NodeHelper {
             return (data.name + ' : ' + data.value);
         }
         return data.name;
+    }
+
+    static ancestoryText(data : CollapsibleIndentedNode) {
+
+        if (data.parent === null) {
+            return data.name;
+        }
+
+        let recurse : (d : CollapsibleIndentedNode, building : string) => string = (d : CollapsibleIndentedNode, building : string) => {           
+            building = d.name + '->' + building;
+            if (d.parent !== null) {
+                return recurse(d.parent, building)
+            }
+            return building;
+        }
+
+        let building = data.name;
+        let result = recurse(data.parent, building);
+        return result;
     }
 }

@@ -26,12 +26,14 @@ export class TransformToCollapsibleIndentedNode implements JsonTransformationInt
                     child.id = this._keyGenerator.getNextKey();
                     child.name = key;
                     child.value = value;
+                    child.parent = result;
                     result.children.push(child);
                 }
                 else
                 {
                     // is a complex type, create a branch node
                     let child = this.transform(key, value)
+                    child.parent = result;
                     result.children.push(child);                    
                 }
             }
