@@ -71,7 +71,9 @@ export class ViewProperties implements OnChanges {
             actual.x0 = 0;
             actual.y0 = 0;
             this.root = actual;
-            this.update(actual);
+
+            // normally would call update be expand the first level with click
+            this.click(actual);
         }
     };
 

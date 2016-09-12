@@ -16,8 +16,8 @@ export class CollapsibleIndentedNode {
         this.x = 0;
         this.y = 0;
         this.isCollapsed = false;
-        this.children = [];
-        this.collapsedChildren = null;
+        this.children = null;
+        this.collapsedChildren = [];
         this.value = null;
         this.parent = null;        
     }
