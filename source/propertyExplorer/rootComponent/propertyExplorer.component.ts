@@ -21,19 +21,19 @@ import {JsonTransformationToken, JsonTransformationInterface} from '../../servic
 
 export class PropertyExplorer {
     
-    public data : CollapsibleIndentedNode;
-    public selectedIndex : number;
+    @Input() public data : any;
+    // public selectedIndex : number;
 
     public onJsonChanged : (value : any) => void = (value: any) => {
-        this.data = this.transformationService.transformJson(value);
+        this.data = value; //this.transformationService.transformJson(value);
     }
 
-    constructor(@Inject(JsonTransformationToken) private transformationService :  JsonTransformationInterface) {
-        this.transformationService = transformationService;        
-    }         
+    // constructor(@Inject(JsonTransformationToken) private transformationService :  JsonTransformationInterface) {
+    //     this.transformationService = transformationService;        
+    // }         
 
-    public selectionChanged(event : number) {
-        this.selectedIndex = event;
-    }
+    // public selectionChanged(event : number) {
+    //     this.selectedIndex = event;
+    // }
       
 }

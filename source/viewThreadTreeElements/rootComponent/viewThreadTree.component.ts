@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Inject, provide } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Inject, provide, Input } from '@angular/core';
 import { ThreadViewDataset  } from '../../viewThreadTreeElements/model/threadViewDataset';
 import { ThreadsView } from '../../viewThreadTreeElements/threadsView/threadsView.component';
 import { ThreadView } from '../../viewThreadTreeElements/threadView/threadView.component'
@@ -26,7 +26,7 @@ import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 })
 export class ViewThreadTree {
     
-    public data : ThreadViewDataset;
+    @Input() data : ThreadViewDataset;
     public selectedIndex : number;
 
     public onJsonChanged : (value : any) => void = (value: any) => {

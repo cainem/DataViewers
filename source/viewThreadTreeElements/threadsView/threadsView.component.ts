@@ -59,8 +59,8 @@ export class ThreadsView implements OnInit, OnChanges {
             return;
         }
         
-        // define root of tree
-        let root : ThreadD3nodeInterface = newValue.rootThread;
+        // define root of tree; cloning the object
+        let root : ThreadD3nodeInterface =  JSON.parse(JSON.stringify(newValue.rootThread));
         
         // Compute the new tree layout.
         let nodes : ThreadD3nodeInterface[] = this.tree.nodes(root).reverse();

@@ -7,11 +7,12 @@ import {LinkHelper} from './linkHelper';
 import {NodeHelper} from './nodeHelper';
 import {MarginInterface} from '../../utils/d3Helpers/margin.interface';
 
+
 @Component({
     selector: 'view-properties',
     templateUrl: './app/propertyExplorer/viewProperties/viewProperties.html',
     directives: [],
-    providers: [],
+    providers: [TransformToCollapsibleIndentedNode],
 })
 export class ViewProperties implements OnChanges {
     @Input() data: any;
@@ -58,6 +59,10 @@ export class ViewProperties implements OnChanges {
         let actual = <CollapsibleIndentedNode>changes["data"].currentValue;
 
         if (divSelection && actual) {
+
+            let x = JSON.stringify(actual);
+
+            actual = this.transformToCollapsibleIndentedNode.transformJson(actual);
 
             // remove svg and re-add
             divSelection.select("svg").remove();
