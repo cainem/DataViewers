@@ -22,18 +22,10 @@ import {JsonTransformationToken, JsonTransformationInterface} from '../../servic
 export class PropertyExplorer {
     
     @Input() public data : any;
-    // public selectedIndex : number;
 
     public onJsonChanged : (value : any) => void = (value: any) => {
         this.data = value; //this.transformationService.transformJson(value);
     }
 
-    // constructor(@Inject(JsonTransformationToken) private transformationService :  JsonTransformationInterface) {
-    //     this.transformationService = transformationService;        
-    // }         
-
-    // public selectionChanged(event : number) {
-    //     this.selectedIndex = event;
-    // }
       
 }

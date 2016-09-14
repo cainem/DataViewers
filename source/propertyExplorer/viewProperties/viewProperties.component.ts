@@ -60,11 +60,10 @@ export class ViewProperties implements OnChanges {
 
         if (divSelection && actual) {
 
-            let x = JSON.stringify(actual);
-
+            // perform transformation of data
             actual = this.transformToCollapsibleIndentedNode.transformJson(actual);
 
-            // remove svg and re-add
+            // remove svg and re-add to provide a complete refresh
             divSelection.select("svg").remove();
 
             // create
