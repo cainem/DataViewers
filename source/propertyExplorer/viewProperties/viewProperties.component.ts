@@ -72,8 +72,6 @@ export class ViewProperties implements OnChanges {
                 .append("g")
                 .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
-            actual.x0 = 0;
-            actual.y0 = 0;
             this.root = actual;
 
             // normally would call update be expand the first level with click
@@ -82,7 +80,8 @@ export class ViewProperties implements OnChanges {
     };
 
     color = (node : CollapsibleIndentedNode) => {
-        let result = node.collapsedChildren ? ViewProperties.CollapsedColor : node.children ? ViewProperties.ExpandedColor : ViewProperties.ValueLabelColor;
+        let result = node.collapsedChildren && node.collapsedChildren.length > 0 ? ViewProperties.CollapsedColor :
+            node.children ? ViewProperties.ExpandedColor : ViewProperties.ValueLabelColor;
         return result;
     }
 

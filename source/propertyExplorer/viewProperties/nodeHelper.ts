@@ -12,7 +12,6 @@ export class NodeHelper {
 
         let returnedSelection = selection.append("g")
             .attr("class", "node")
-            .attr("transform", d => { return "translate(" + source.y0 + "," + source.x0 + ")"; })
             .append("foreignObject")
             .attr("y", -barHeight / 2)
             .attr("height", barHeight)
