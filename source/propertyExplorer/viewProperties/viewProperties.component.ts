@@ -107,7 +107,7 @@ export class ViewProperties implements OnChanges {
 
         let height = Math.max(500, nodes.length * this.barHeight + this.margin.top + this.margin.bottom);
         // recalculate the height of the required area (minimum 500)
-        d3.select("svg")
+        d3.select("#d3ProperyExplorer").select("svg")
             .transition()
             .duration(this.duration)
             .attr("height", height);
