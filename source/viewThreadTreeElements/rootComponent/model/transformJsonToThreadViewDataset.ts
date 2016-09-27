@@ -1,6 +1,6 @@
 import {Component, Input, Output, EventEmitter, Injectable, Inject, Injector} from '@angular/core';
-import {JsonTransformationInterface} from '../../service/jsonTransformationService';
-import {ThreadMapRootDto} from '../../data/AllDtos';
+import {JsonTransformationInterface} from '../../../service/jsonTransformationService';
+import {ThreadMapRootDto} from '../../../data/AllDtos';
 import {ThreadViewDataset} from './threadViewDataset';
 import {MapCreator} from './mapCreator';
 import {TransformToThreadD3node} from './transformToThreadD3node';

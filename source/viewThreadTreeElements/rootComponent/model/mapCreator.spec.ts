@@ -1,7 +1,7 @@
 import { ThreadViewDataset } from './threadViewDataset';
-import { ThreadD3nodeInterface } from './threadD3node.interface';
+//import { ThreadD3nodeInterface } from './threadD3node.interface';
 import { ThreadMapThreadDtoWithChildren } from './threadMapThreadDtoWithChildren';
-import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto } from '../../data/AllDtos';
+import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto } from '../../../data/AllDtos';
 import { MapCreator } from './mapCreator';
 
 describe('MapCreator tests', () => {

@@ -1,4 +1,4 @@
-import {ThreadD3nodeInterface} from '../model/threadD3node.interface';
+import {ThreadD3nodeInterface} from './model/threadD3node.interface';
 
 export class LinkHelper {
 

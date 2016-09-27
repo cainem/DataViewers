@@ -1,7 +1,7 @@
 import {Injectable, Inject} from '@angular/core';
-import {ThreadMapRootDto, ThreadMapThreadDto} from '../../data/AllDtos';
-import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
-import {ThreadD3node} from './ThreadD3node';
+import {ThreadMapRootDto, ThreadMapThreadDto} from '../../../data/AllDtos';
+import {KeyGenerator} from '../../../service/keyGenerator/keyGenerator';
+import {ThreadD3node} from '../../threadsView/model/ThreadD3node';
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
 import {KeyedThreadMapInterface} from './keyedThreadMap.interface';
 

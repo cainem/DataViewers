@@ -1,9 +1,13 @@
 import {Injectable} from '@angular/core';
-import {ThreadMapThreadDto, LazyThreadMapThreadReferenceDto, ThreadMapThreadKeyDto} from '../../data/AllDtos'
+import {ThreadMapThreadDto, LazyThreadMapThreadReferenceDto, ThreadMapThreadKeyDto} from '../../../data/AllDtos'
 import {ThreadMapThreadDtoWithChildren} from './ThreadMapThreadDtoWithChildren';
 import {KeyedThreadMapInterface} from './keyedThreadMap.interface';
 
 @Injectable()
+/*
+This class is responsible for creating KeyedThreadMapInterface.
+This maps a ThreadMapThreadDto to its short form key
+*/
 export class MapCreator {
     createThreadMapThreadDtoWithChildrenMap = (allThreads : ThreadMapThreadDto[]) :KeyedThreadMapInterface => {
         let result : KeyedThreadMapInterface = {};

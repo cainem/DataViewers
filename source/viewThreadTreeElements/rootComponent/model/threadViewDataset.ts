@@ -1,5 +1,5 @@
 
-import { ThreadD3nodeInterface } from './threadD3node.interface'
+import { ThreadD3nodeInterface } from '../../threadsView/model/threadD3node.interface'
 
 export class ThreadViewDataset {
     public rootThread : ThreadD3nodeInterface;

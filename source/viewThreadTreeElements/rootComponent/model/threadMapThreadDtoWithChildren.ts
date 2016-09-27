@@ -1,4 +1,4 @@
-import {ThreadMapThreadDto, ThreadMapThreadKeyDto} from '../../data/AllDtos'
+import {ThreadMapThreadDto, ThreadMapThreadKeyDto} from '../../../data/AllDtos'
 
 export class ThreadMapThreadDtoWithChildren {
     threadMapThreadDto : ThreadMapThreadDto;
@@ -24,6 +24,5 @@ export class ThreadMapThreadDtoWithChildren {
         
         return this.threadMapThreadDto.key.shortForm === key.shortForm;
     }
-
 
 }

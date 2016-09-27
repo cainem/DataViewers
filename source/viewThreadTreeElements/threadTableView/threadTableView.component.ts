@@ -1,6 +1,6 @@
 import {Component, OnChanges, OnInit, Input, Output, EventEmitter, SimpleChange} from '@angular/core';
-import {ThreadViewDataset} from '../model/threadViewDataset';
-import {ThreadD3nodeInterface} from '../model/threadD3node.interface';
+import {ThreadViewDataset} from '../rootComponent/model/threadViewDataset';
+import {ThreadD3nodeInterface} from '../threadsView/model/threadD3node.interface';
 import {SvgHelper} from '../../utils/d3Helpers/svgHelper'
 import * as d3 from 'd3';
 
