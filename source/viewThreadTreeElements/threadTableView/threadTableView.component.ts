@@ -1,6 +1,6 @@
 import {Component, OnChanges, OnInit, Input, Output, EventEmitter, SimpleChange} from '@angular/core';
 import {ThreadViewDataset} from '../rootComponent/model/threadViewDataset';
-import {ThreadD3nodeInterface} from '../threadsView/model/threadD3node.interface';
+import {ThreadD3node} from '../threadsView/model/threadD3node';
 import {SvgHelper} from '../../utils/d3Helpers/svgHelper'
 import * as d3 from 'd3';
 
@@ -11,7 +11,7 @@ import * as d3 from 'd3';
     styleUrls: []
 })
 export class ThreadTableView implements OnChanges { 
-    @Input() selectedThread : ThreadD3nodeInterface;
+    @Input() selectedThread : ThreadD3node;
      
     constructor() {
     }

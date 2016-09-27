@@ -1,5 +1,4 @@
 import { ThreadViewDataset } from './threadViewDataset';
-import { ThreadD3nodeInterface } from '../../threadsView/model/threadD3node.interface';
 import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto, ThreadMapRootDto } from '../../../data/AllDtos';
 import { TransformJsonToThreadViewDataset } from './transformJsonToThreadViewDataset';
 import { ThreadMapThreadDtoWithChildren } from './threadMapThreadDtoWithChildren';

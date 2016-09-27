@@ -1,12 +1,12 @@
 import {Injectable, OpaqueToken} from '@angular/core';
 import {ThreadViewDataset} from './threadViewDataset';
-import {ThreadD3nodeInterface} from '../../threadsView/model/ThreadD3node.interface';
+import {ThreadD3node} from '../../threadsView/model/ThreadD3node';
 
 export const ThreadViewDatasetCreatorToken = new OpaqueToken("ThreadViewDatasetCreator");
 
 @Injectable()
 export class ThreadViewDatasetCreator {
-    create = (rootThread : ThreadD3nodeInterface) : ThreadViewDataset => {
+    create = (rootThread : ThreadD3node) : ThreadViewDataset => {
         return new ThreadViewDataset(rootThread);
     }
 }

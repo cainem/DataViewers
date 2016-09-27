@@ -1,6 +1,6 @@
 import {Component, OnChanges, OnInit, Input, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
 import {ThreadViewDataset} from '../rootComponent/model/threadViewDataset';
-import {ThreadD3nodeInterface} from './model/threadD3node.interface';
+import {ThreadD3node} from './model/threadD3node';
 import {MarginInterface} from '../../utils/d3Helpers/margin.interface';
 import {SvgHelper} from '../../utils/d3Helpers/svgHelper';
 import {NodeHelper} from './NodeHelper';
@@ -21,17 +21,17 @@ export class ThreadsView implements OnInit, OnChanges {
 
     private svgHelper : SvgHelper; 
     private nodeIndexCounter: number;
-    private tree: d3.layout.Tree<ThreadD3nodeInterface>;
+    private tree: d3.layout.Tree<ThreadD3node>;
     private radius: number;
 
     constructor() {
         this.svgHelper = new SvgHelper();
         this.nodeIndexCounter = 0;
-        this.tree = d3.layout.tree<ThreadD3nodeInterface>()
+        this.tree = d3.layout.tree<ThreadD3node>()
             .size([this.svgHelper.height, this.svgHelper.width]);
 
         // define a function to get a nodes children
-        this.tree.children((d : ThreadD3nodeInterface) => d.childThreads);
+        this.tree.children((d : ThreadD3node) => d.childThreads);
     }
 
     ngOnInit() {
@@ -60,22 +60,22 @@ export class ThreadsView implements OnInit, OnChanges {
         }
         
         // define root of tree; cloning the object
-        let root : ThreadD3nodeInterface =  JSON.parse(JSON.stringify(newValue.rootThread));
+        let root : ThreadD3node =  JSON.parse(JSON.stringify(newValue.rootThread));
         
         // Compute the new tree layout.
-        let nodes : ThreadD3nodeInterface[] = this.tree.nodes(root).reverse();
-        let links : d3.layout.tree.Link<ThreadD3nodeInterface>[] = this.tree.links(nodes);
+        let nodes : ThreadD3node[] = this.tree.nodes(root).reverse();
+        let links : d3.layout.tree.Link<ThreadD3node>[] = this.tree.links(nodes);
 
         // Declare the nodes…
-        let selectedNodes : d3.selection.Update<ThreadD3nodeInterface> = this.svgHelper.svg.selectAll("g.node")
-            .data(nodes, (d : ThreadD3nodeInterface) =>  
+        let selectedNodes : d3.selection.Update<ThreadD3node> = this.svgHelper.svg.selectAll("g.node")
+            .data(nodes, (d : ThreadD3node) =>  
                 // returns an id for a node;
                 // if a node hasn't yet got an id then add one
                 (d.id || (d.id = ++this.nodeIndexCounter)).toString());
 
         // Declare the links…
-        let link : d3.selection.Update<d3.layout.tree.Link<ThreadD3nodeInterface>> = this.svgHelper.svg.selectAll("path.link")
-            .data(links, (d : d3.layout.tree.Link<ThreadD3nodeInterface>) => 
+        let link : d3.selection.Update<d3.layout.tree.Link<ThreadD3node>> = this.svgHelper.svg.selectAll("path.link")
+            .data(links, (d : d3.layout.tree.Link<ThreadD3node>) => 
             {
                 // returns the key for the link 
                 return d.target.id.toString(); 

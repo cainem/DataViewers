@@ -1,5 +1,5 @@
 import {ThreadViewDataset} from './threadViewDataset';
-import {ThreadD3nodeInterface} from '../../threadsView/model/threadD3node.interface';
+import {ThreadD3node} from '../../threadsView/model/threadD3node';
 import {TransformToThreadD3node} from './transformToThreadD3node';
 import {KeyGenerator} from '../../../service/keyGenerator/keyGenerator';
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';

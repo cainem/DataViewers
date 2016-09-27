@@ -1,13 +1,13 @@
 
-import { ThreadD3nodeInterface } from '../../threadsView/model/threadD3node.interface'
+import { ThreadD3node } from '../../threadsView/model/threadD3node'
 
 export class ThreadViewDataset {
-    public rootThread : ThreadD3nodeInterface;
+    public rootThread : ThreadD3node;
     findThreadById = (id : number) => {
         return this.findThreadInThreadById(this.rootThread, id);
     }
 
-    public findThreadInThreadById = (currentThread : ThreadD3nodeInterface, id : number) => {
+    public findThreadInThreadById = (currentThread : ThreadD3node, id : number) => {
         if (currentThread.id === id) {
             return currentThread;
         }
@@ -26,7 +26,7 @@ export class ThreadViewDataset {
         return null;
     }
 
-    constructor(rootThread : ThreadD3nodeInterface) {
+    constructor(rootThread : ThreadD3node) {
         this.rootThread = rootThread;
     }
 
