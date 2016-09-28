@@ -1,5 +1,8 @@
 import {ThreadD3node} from './model/threadD3node';
 
+/*
+    This class helps build the links for the threadsView component
+*/
 export class LinkHelper {
 
     // reverse x and y to give an "across the page" look

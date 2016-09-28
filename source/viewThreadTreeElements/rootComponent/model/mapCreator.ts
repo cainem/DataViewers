@@ -6,7 +6,11 @@ import {KeyedThreadMapInterface} from './keyedThreadMap.interface';
 @Injectable()
 /*
 This class is responsible for creating KeyedThreadMapInterface.
-This maps a ThreadMapThreadDto to its short form key
+This maps a ThreadMapThreadDto to its short form key, a string keyed dictionary in essence
+
+It is also responsible for contructing the threadMapThreadDtoWithChildren.
+It constructs the all important child array
+
 */
 export class MapCreator {
     createThreadMapThreadDtoWithChildrenMap = (allThreads : ThreadMapThreadDto[]) :KeyedThreadMapInterface => {

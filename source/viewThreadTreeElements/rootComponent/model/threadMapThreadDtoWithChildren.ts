@@ -1,5 +1,8 @@
 import {ThreadMapThreadDto, ThreadMapThreadKeyDto} from '../../../data/AllDtos'
 
+/*
+    This class is responsible for holding the ThreadMapThreadDto and its children
+*/
 export class ThreadMapThreadDtoWithChildren {
     threadMapThreadDto : ThreadMapThreadDto;
     private _internalChildren : ThreadMapThreadDtoWithChildren[];

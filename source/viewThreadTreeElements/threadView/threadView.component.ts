@@ -5,6 +5,9 @@ import {SvgHelper} from '../../utils/d3Helpers/svgHelper'
 import {ViewProperties} from '../../propertyExplorer/viewProperties/viewProperties.component';
 import * as d3 from 'd3';
 
+/*
+    This component will be responsible drawing a linear representation of the nodes within a geneset
+*/
 @Component({
     selector: 'thread-view',
     templateUrl: './app/viewThreadTreeElements/threadView/threadView.html',

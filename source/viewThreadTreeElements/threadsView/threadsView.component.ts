@@ -7,6 +7,9 @@ import {NodeHelper} from './NodeHelper';
 import {LinkHelper} from './LinkHelper';
 import * as d3 from 'd3';
 
+/*
+    This component is responsible for displaying the (hierarchical) relationship between threads
+*/
 @Component({
     selector: 'threads-view',
     templateUrl: './app/viewThreadTreeElements/threadsView/threadsView.html',

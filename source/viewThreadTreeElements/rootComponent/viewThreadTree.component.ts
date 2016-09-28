@@ -12,6 +12,9 @@ import {TransformToThreadD3node} from './model/TransformToThreadD3node';
 import {ThreadViewDatasetCreator, ThreadViewDatasetCreatorToken} from './model/threadviewDatasetCreator';
 import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 
+/*
+    This component is the top level component responsible for arranging the page with the various views
+*/
 @Component({
     templateUrl: './app/viewThreadTreeElements/rootComponent/viewThreadTree.html',
     directives: [ JsInputComponent, ThreadsView, ThreadView ],

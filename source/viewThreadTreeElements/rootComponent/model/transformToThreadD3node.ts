@@ -5,6 +5,12 @@ import {ThreadD3node} from '../../threadsView/model/ThreadD3node';
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
 import {KeyedThreadMapInterface} from './keyedThreadMap.interface';
 
+/*
+    This class is responsible for turning the hierarchical threadMapThreadDtoWithChildren into the hierarchical
+    structure of d3 nodes.
+    Not much work is required here, arguably not enough to justify transformation.
+    It's just setting up a unique id and the depth.
+*/
 @Injectable()
 export class TransformToThreadD3node {
 
