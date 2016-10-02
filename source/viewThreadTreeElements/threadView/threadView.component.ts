@@ -8,6 +8,7 @@ import {ThreadMapNodeD3node} from './model/threadMapNodeD3node';
 import {ConnectionD3node} from './model/connectionD3node';
 import {GeneSetKeyDto} from '../../data/AllDtos';
 import {DrawGeneSetNodes} from './drawGeneSets';
+import {DrawThreadMapNode} from './drawThreadMapNode'
 import * as d3 from 'd3';
 
 /*
@@ -44,17 +45,16 @@ export class ThreadView implements OnChanges {
                 divSelection.select("svg").remove();
 
                 // create a new svg
-                divSelection.append("svg")
+                let svg = divSelection.append("svg")
                     .attr("width", 800)
-                    .attr("height", 10000)
                     .attr("class", "threadViewContainer");
 
-                this.render(null);
+                this.render(null, svg);
             }
         }
     } 
 
-    public render = (newValue : ThreadD3node) => {     
+    public render = (newValue : ThreadD3node[], svg : d3.Selection<any>) => {     
 
         // let height = Math.max(500, nodes.length * this.barHeight + this.margin.top + this.margin.bottom);
         // // recalculate the height of the required area (minimum 500)
@@ -62,11 +62,17 @@ export class ThreadView implements OnChanges {
         //     .transition()
         //     .duration(this.duration)
         //     .attr("height", height);
+
         let geneSets = this.getGeneSetNode();
 
+        let height = 10;
+        geneSets.forEach((g, i) => {
+            height += g.heightOfGeneSet(DrawThreadMapNode.threadMapNodeHeight, DrawThreadMapNode.threadMapNodeSpacingHeight)
+        }) 
+
+        svg.attr("height", height);
+
         DrawGeneSetNodes.drawGeneSets(geneSets);
-
-
 
     }
 

@@ -1,14 +1,18 @@
 import {GeneSetD3node} from './model/geneSetD3node'
 import {DrawGeneSet} from './drawGeneSet';
+import {DrawThreadMapNode} from './drawThreadMapNode';
 
 export class DrawGeneSetNodes {
+
+    static geneSetSpacing : number = 10;
 
     static drawGeneSets(geneSetNodes : GeneSetD3node[]) {
 
         geneSetNodes.forEach((node, i) => {
             node.id = i;
             node.sequence = i;
-            node.x = 600 * i;
+            node.x = (node.heightOfGeneSet(DrawThreadMapNode.threadMapNodeHeight,
+                DrawThreadMapNode.threadMapNodeSpacingHeight) + DrawGeneSetNodes.geneSetSpacing) * i;
         })
 
         let geneSetg = d3.select("svg.threadViewContainer")
@@ -23,7 +27,7 @@ export class DrawGeneSetNodes {
             .attr("x", 10)
             .attr("y", 0)
             .attr("width", 800)
-            .attr("height", 500)
+            .attr("height", d => d.heightOfGeneSet(DrawThreadMapNode.threadMapNodeHeight, DrawThreadMapNode.threadMapNodeSpacingHeight))
             .attr("fill", "pink")
 
        geneSetg.append("text")

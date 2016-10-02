@@ -14,4 +14,13 @@ export class GeneSetD3node {
     public x : number;
     public y : number;
 
+    public heightOfGeneSet = (heightOfThreadMapNode : number, spacingOfThreadMapNode : number) => {
+        if (!this.threadMapNodeD3nodes || this.threadMapNodeD3nodes.length === 0) {
+            // minimum length
+            return 10;
+        }
+
+        return this.threadMapNodeD3nodes.length * heightOfThreadMapNode + (this.threadMapNodeD3nodes.length - 1) * spacingOfThreadMapNode;
+    }
+
 }
