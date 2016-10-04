@@ -8,10 +8,8 @@ export class DrawGeneSet {
         geneSetD3node.threadMapNodeD3nodes.forEach((threadMapNode, i) =>
         {
             threadMapNode.id = i;
+            threadMapNode.index = i;
         });
-
-        let heightOfGeneSet = geneSetD3node.threadMapNodeD3nodes.length *
-            geneSetD3node.heightOfGeneSet(DrawThreadMapNode.threadMapNodeHeight, DrawThreadMapNode.threadMapNodeSpacingHeight)
 
         let threadMapNodeg = selectContext
             .selectAll("g.threadMapNode")
@@ -22,33 +20,25 @@ export class DrawGeneSet {
 
          threadMapNodeg.append("g")   
             .attr("class", "inputConnections")
-            .attr("transform", d => "translate(10," + (d.id * (DrawThreadMapNode.threadMapNodeHeight + DrawThreadMapNode.threadMapNodeSpacingHeight)) + ")")
+            .attr("transform", d => {
+                 return "translate(10," + d.displacementOfThreadMapNode() + ")"
+            })
             .attr("width", 50)
-            .attr("height", DrawThreadMapNode.threadMapNodeHeight)
-            .attr("fill", "green")
-            .append("rect")
-            .attr("x", 10)
-            .attr("y", 10)
-            .attr("height", 10)
-            .attr("width", 10);
+            .attr("height", d => d.heightOfThreadMapNode)
+            .attr("fill", "green");
 
          threadMapNodeg.append("g")   
             .attr("class", "outputConnections")
-            .attr("transform", d => "translate(390," + (d.id * (DrawThreadMapNode.threadMapNodeHeight + DrawThreadMapNode.threadMapNodeSpacingHeight)) + ")")
+            .attr("transform", d => "translate(610," + d.displacementOfThreadMapNode() + ")")
             .attr("width", 50)
-            .attr("height", DrawThreadMapNode.threadMapNodeHeight)
-            .attr("fill", "orange")
-            .append("rect")
-            .attr("x", 10)
-            .attr("y", 10)
-            .attr("height", 10)
-            .attr("width", 10);
+            .attr("height", d => d.heightOfThreadMapNode)
+            .attr("fill", "orange");
 
         threadMapNodeg.append("rect")
-            .attr("y", d => d.id * (DrawThreadMapNode.threadMapNodeHeight + DrawThreadMapNode.threadMapNodeSpacingHeight))
-            .attr("x", 200)
+            .attr("y", d => d.displacementOfThreadMapNode())
+            .attr("x", 310)
             .attr("width", 50)
-            .attr("height", DrawThreadMapNode.threadMapNodeHeight)
+            .attr("height", d => d.heightOfThreadMapNode)
             .attr("fill", "purple");
 
         threadMapNodeg.each(function (tmn) {

@@ -2,9 +2,6 @@ import {ThreadMapNodeD3node} from './model/threadMapNodeD3node';
 import {DrawInputConnections} from './drawInputConnections';
 
 export class DrawThreadMapNode {
-
-    static threadMapNodeHeight : number = 50;
-    static threadMapNodeSpacingHeight = 10;
     
     static drawThreadMapNode(threadMapNodeD3node : ThreadMapNodeD3node, selectContext : d3.Selection<any>) {
 

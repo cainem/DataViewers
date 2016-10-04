@@ -67,7 +67,8 @@ export class ThreadView implements OnChanges {
 
         let height = 10;
         geneSets.forEach((g, i) => {
-            height += g.heightOfGeneSet(DrawThreadMapNode.threadMapNodeHeight, DrawThreadMapNode.threadMapNodeSpacingHeight)
+            height += g.heightOfGeneSet()
+            height += 10; // gene set spacing
         }) 
 
         svg.attr("height", height);
@@ -90,16 +91,16 @@ export class ThreadView implements OnChanges {
             new ConnectionD3node()
         ];
         threadMapNode1_1.outputConnections = [
-            new ConnectionD3node(),
-            new ConnectionD3node()
+            // new ConnectionD3node(),
+            // new ConnectionD3node()
         ];
         let threadMapNode1_2 = new ThreadMapNodeD3node();
         threadMapNode1_2.inputConnections = [
-            new ConnectionD3node()
+            // new ConnectionD3node()
         ];
         threadMapNode1_2.outputConnections = [
-            new ConnectionD3node(),
-            new ConnectionD3node()
+            // new ConnectionD3node(),
+            // new ConnectionD3node()
         ];
         geneSetNode1.threadMapNodeD3nodes = 
         [
@@ -112,9 +113,12 @@ export class ThreadView implements OnChanges {
         */
         let geneSetNode2 = new GeneSetD3node();
         geneSetNode2.geneSetKeyDto = new GeneSetKeyDto();
-        geneSetNode2.geneSetKeyDto.shortFormKey = "0.0";
+        geneSetNode2.geneSetKeyDto.shortFormKey = "0.1";
         let threadMapNode2_1 = new ThreadMapNodeD3node();
         threadMapNode2_1.inputConnections = [
+            new ConnectionD3node(),
+            new ConnectionD3node(),
+            new ConnectionD3node(),
             new ConnectionD3node()
         ];
         threadMapNode2_1.outputConnections = [
@@ -129,17 +133,63 @@ export class ThreadView implements OnChanges {
             new ConnectionD3node(),
             new ConnectionD3node()
         ];
+        let threadMapNode2_3 = new ThreadMapNodeD3node();
+        threadMapNode2_3.inputConnections = [
+            new ConnectionD3node()
+        ];
+        threadMapNode2_3.outputConnections = [
+            new ConnectionD3node(),
+            new ConnectionD3node()
+        ];
+        
         geneSetNode2.threadMapNodeD3nodes = 
         [
             threadMapNode2_1,
             threadMapNode2_2,
+            threadMapNode2_3,
         ];
 
 
+        /*
+            Gene set 3
+        */
+        let geneSetNode3 = new GeneSetD3node();
+        geneSetNode3.geneSetKeyDto = new GeneSetKeyDto();
+        geneSetNode3.geneSetKeyDto.shortFormKey = "0.2";
+        let threadMapNode3_1 = new ThreadMapNodeD3node();
+        threadMapNode3_1.inputConnections = [
+            new ConnectionD3node(),
+            new ConnectionD3node(),
+            new ConnectionD3node(),
+            new ConnectionD3node()
+        ];
+        threadMapNode3_1.outputConnections = [
+            new ConnectionD3node(),
+            new ConnectionD3node()
+        ];
+        let threadMapNode3_2 = new ThreadMapNodeD3node();
+        threadMapNode3_2.inputConnections = [
+            new ConnectionD3node()
+        ];
+        threadMapNode3_2.outputConnections = [
+            new ConnectionD3node(),
+            new ConnectionD3node()
+        ];
+        geneSetNode3.threadMapNodeD3nodes = 
+        [
+            threadMapNode3_1,
+            threadMapNode3_2,
+        ];
+
+
+        /*
+            Combine all gene sets into one array
+        */
         let result : GeneSetD3node[] = 
         [
             geneSetNode1,
             geneSetNode2,
+            geneSetNode3,
         ];
 
         return result;
