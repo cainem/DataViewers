@@ -48,11 +48,8 @@ export class DrawGeneSet {
             .attr("fill", "purple");
 
         threadMapNodeg.each(function (tmn) {
-
             let site = d3.select(this);
-
-            DrawThreadMapNode.drawThreadMapNode(tmn, site, "");            
-
+            DrawThreadMapNode.drawThreadMapNode(tmn, site);            
         });   
 
 
