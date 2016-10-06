@@ -119,7 +119,16 @@ export class ThreadView implements OnChanges {
             new ConnectionD3node(),
             new ConnectionD3node(),
             new ConnectionD3node(),
-            new ConnectionD3node()
+            new ConnectionD3node(),
+            new ConnectionD3node(),
+            new ConnectionD3node(),
+            new ConnectionD3node(),
+            new ConnectionD3node(),
+            new ConnectionD3node(),
+            new ConnectionD3node(),
+            new ConnectionD3node(),
+            new ConnectionD3node(),
+            new ConnectionD3node(),
         ];
         threadMapNode2_1.outputConnections = [
             new ConnectionD3node(),

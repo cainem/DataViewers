@@ -25,7 +25,11 @@ export class DrawGeneSet {
             })
             .attr("width", 50)
             .attr("height", d => d.heightOfThreadMapNode)
-            .attr("fill", "green");
+            .append("path")
+            .attr("stroke", "black")
+            .attr("stroke-width", "1")
+            .attr("fill", "transparent")
+            .attr("d", "M 0 0 L 200 0 L 200 50 L 0 50 L 0 0")
 
          threadMapNodeg.append("g")   
             .attr("class", "outputConnections")
