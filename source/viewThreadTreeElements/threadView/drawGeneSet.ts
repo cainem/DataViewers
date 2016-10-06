@@ -23,7 +23,6 @@ export class DrawGeneSet {
             .attr("transform", d => {
                  return "translate(10," + d.displacementOfThreadMapNode() + ")"
             })
-            .attr("width", 50)
             .attr("height", d => d.heightOfThreadMapNode)
             .append("path")
             .attr("stroke", "black")
@@ -33,10 +32,13 @@ export class DrawGeneSet {
 
          threadMapNodeg.append("g")   
             .attr("class", "outputConnections")
-            .attr("transform", d => "translate(610," + d.displacementOfThreadMapNode() + ")")
-            .attr("width", 50)
+            .attr("transform", d => "translate(460," + d.displacementOfThreadMapNode() + ")")
             .attr("height", d => d.heightOfThreadMapNode)
-            .attr("fill", "orange");
+            .append("path")
+            .attr("stroke", "black")
+            .attr("stroke-width", "1")
+            .attr("fill", "transparent")
+            .attr("d", "M 0 0 L 200 0 L 200 50 L 0 50 L 0 0")
 
         threadMapNodeg.append("rect")
             .attr("y", d => d.displacementOfThreadMapNode())
@@ -49,7 +51,7 @@ export class DrawGeneSet {
 
             let site = d3.select(this);
 
-            DrawThreadMapNode.drawThreadMapNode(tmn, site);            
+            DrawThreadMapNode.drawThreadMapNode(tmn, site, "");            
 
         });   
 

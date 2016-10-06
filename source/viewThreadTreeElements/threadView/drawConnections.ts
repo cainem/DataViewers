@@ -1,12 +1,12 @@
 import {GeneSetD3node} from './model/geneSetD3node';
 import {ConnectionD3node} from './model/connectionD3node';
 
-export class DrawInputConnections {
+export class DrawConnections {
 
     static diagonal = d3.svg.diagonal<ConnectionD3node>()
             .projection((d : ConnectionD3node) => [d.y, d.x]);
 
-    static drawInputConnections(inputConnections : ConnectionD3node[], selectContext : d3.Selection<any>) {
+    static drawConnections(inputConnections : ConnectionD3node[], selectContext : d3.Selection<any>, className : string) {
 
         let radius = 10;
         let boundingHeight = 50;
@@ -18,12 +18,12 @@ export class DrawInputConnections {
             .charge(-30)
             .gravity(0.1)
 
-        let connectiong = selectContext.select("g.inputConnections")
-            .selectAll("circle.outputConnection")
+        let connectiong = selectContext.select("g." + className)
+            .selectAll("circle." + className)
             .data(inputConnections)
             .enter()
             .append("g")
-            .attr("class", "outputConnection");
+            .attr("class", className);
 
         connectiong.append("circle");
 

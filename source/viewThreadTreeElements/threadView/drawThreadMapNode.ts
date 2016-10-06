@@ -1,5 +1,5 @@
 import {ThreadMapNodeD3node} from './model/threadMapNodeD3node';
-import {DrawInputConnections} from './drawInputConnections';
+import {DrawConnections} from './drawConnections';
 
 export class DrawThreadMapNode {
     
@@ -13,8 +13,7 @@ export class DrawThreadMapNode {
             c.id = i;
         })
 
-        // TODO - draw the detail of the thread map node
-
-        DrawInputConnections.drawInputConnections(threadMapNodeD3node.inputConnections, selectContext)
+        DrawConnections.drawConnections(threadMapNodeD3node.inputConnections, selectContext, "inputConnections");
+        DrawConnections.drawConnections(threadMapNodeD3node.outputConnections, selectContext, "outputConnections");
     }
 }
