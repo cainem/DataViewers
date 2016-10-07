@@ -17,4 +17,10 @@ export class ThreadD3node  {
     y : number;
     x : number;
     debugText: string;    
+    isSelected: boolean;
+
+    constructor() {
+        this.isSelected = false;
+    }
+
 }

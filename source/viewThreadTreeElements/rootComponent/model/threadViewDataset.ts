@@ -14,7 +14,7 @@ export class ThreadViewDataset {
         return this.findThreadInThreadById(this.rootThread, id);
     }
 
-    public findThreadInThreadById = (currentThread : ThreadD3node, id : number) => {
+    public findThreadInThreadById = (currentThread : ThreadD3node, id : number) : ThreadD3node => {
         if (currentThread.id === id) {
             return currentThread;
         }
