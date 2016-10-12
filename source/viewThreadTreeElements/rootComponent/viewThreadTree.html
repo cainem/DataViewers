@@ -3,10 +3,13 @@
         <jsInput (jsonChanged)="onJsonChanged($event)"></jsInput>
     </div>
 
-    <div class="row col-lg-6">
-        <threads-view [data]="data" (selectDataObjectChanged)="selectionChanged($event)"></threads-view>
+    <div class="{{classLeft}}">
+        <button (click)="toggleLeft($event)">{{leftButtonText}}</button>
+        <threads-view [data]="data" (selectDataObjectChanged)="selectionChanged($event)" *ngIf="showLeft"></threads-view>
     </div>
-    <div class="row col-lg-6">
-        <thread-view [data]="data" [selectedIndex]="selectedIndex"></thread-view>
+    <div class="{{classRight}}">
+        <button (click)="toggleRight($event)">{{rightButtonText}}</button>
+        <thread-view [data]="data" [selectedIndex]="selectedIndex" *ngIf="showRight"></thread-view>
     </div>
+
 <div>
