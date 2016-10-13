@@ -33,9 +33,9 @@ export class ViewThreadTree {
     
     public showLeft : boolean = true;
     public showRight : boolean = true;
-    public class6 : string = "col-lg-6 expanded";
-    public collapsedClass : string = "col-lg-1 collapsed";
-    public class11 : string = "col-lg-11 expanded"
+    public class6 : string = "col-md-6 expanded";
+    public collapsedClass : string = "col-md-1 collapsed";
+    public class11 : string = "col-md-11 expanded"
     public classLeft : string;
     public classRight : string;
     public leftButtonText : string;

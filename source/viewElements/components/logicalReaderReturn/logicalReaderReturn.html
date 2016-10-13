@@ -5,27 +5,27 @@
         </div>
         <div [collapse]="isCollapsed" class="container-fluid" >
             <div class="row">
-                <div class="col-lg-3"><strong>Logical building unit</strong></div>
-                <div class="col-lg-9">{{model.typeOfLogicalBuildingUnit}}</div>
+                <div class="col-md-3"><strong>Logical building unit</strong></div>
+                <div class="col-md-9">{{model.typeOfLogicalBuildingUnit}}</div>
             </div>
             <div class="row">
-                <div class="col-lg-3"><strong>Food units used</strong></div>
-                <div class="col-lg-9">{{model.foodUnitsUsed}}</div>
+                <div class="col-md-3"><strong>Food units used</strong></div>
+                <div class="col-md-9">{{model.foodUnitsUsed}}</div>
             </div>
             <div class="row">
-                <div class="col-lg-3"><strong>Current position</strong></div>
+                <div class="col-md-3"><strong>Current position</strong></div>
             </div>
             <div class="container-fluid">
                 <genomePosition [model]="model.currentPositionInGenome"></genomePosition>
             </div>
             <div class="row">
-                <div class="col-lg-3"><strong>Next position</strong></div>
+                <div class="col-md-3"><strong>Next position</strong></div>
             </div>
             <div class="container-fluid">
                 <genomePosition [model]="model.nextGenomePosition"></genomePosition>
             </div>
             <div class="row">
-                <div class="col-lg-3"><strong>Logical building unit</strong></div>
+                <div class="col-md-3"><strong>Logical building unit</strong></div>
             </div>
             <div class="container-fluid node" *ngIf="model.typeOfLogicalBuildingUnit == 'LogicalNode'">
                 <logicalNode [model]="model.logicalBuildingUnit"></logicalNode>
