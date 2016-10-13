@@ -46,7 +46,7 @@ export class ThreadView implements OnChanges {
 
                 // create a new svg
                 let svg = divSelection.append("svg")
-                    .attr("width", 800)
+                    .attr("width", "100%")
                     .attr("class", "threadViewContainer");
 
                 this.render(null, svg);

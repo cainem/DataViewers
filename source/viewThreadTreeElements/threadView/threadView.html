@@ -1,11 +1,11 @@
-<div class="container-fluid">
-    <div class="row col-lg-12">
+<div class="container-fluid" style="height: 100%; overflow-y:auto;">
+    <div class="col-lg-12">
         <span>Thread view</span>
     </div>
-    <div id="d3ThreadContainer" class="row col-lg-12" style="max-height: 500;overflow-y: scroll;">
+    <div id="d3ThreadContainer" class="col-lg-12" style="overflow-y: scroll;">
         <span>{{selectedIndex}}</span>
     </div>
-    <div class="row col-lg-12">
+    <div class="col-lg-12">
         <view-properties [data]="selectedThread"></view-properties>
     </div>
 </div>

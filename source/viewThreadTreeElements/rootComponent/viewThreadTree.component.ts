@@ -33,9 +33,9 @@ export class ViewThreadTree {
     
     public showLeft : boolean = true;
     public showRight : boolean = true;
-    public class6 : string = "row col-lg-6";
-    public class1 : string = "row col-lg-1";
-    public class11 : string = "row col-lg-11"
+    public class6 : string = "col-lg-6 expanded";
+    public collapsedClass : string = "col-lg-1 collapsed";
+    public class11 : string = "col-lg-11 expanded"
     public classLeft : string;
     public classRight : string;
     public leftButtonText : string;
@@ -71,9 +71,9 @@ export class ViewThreadTree {
     }      
 
     private onChange = () => {
-        this.classLeft = !this.showLeft ? this.class1 : this.showRight ? this.class6 : this.class11;  
+        this.classLeft = !this.showLeft ? this.collapsedClass : this.showRight ? this.class6 : this.class11;  
         this.leftButtonText = this.showLeft ? "hide left" : "show left";
-        this.classRight = !this.showRight ? this.class1 : this.showLeft ? this.class6 : this.class11;
+        this.classRight = !this.showRight ? this.collapsedClass : this.showLeft ? this.class6 : this.class11;
         this.rightButtonText =this.showRight ? "hide right" : "show right";
     }
 }

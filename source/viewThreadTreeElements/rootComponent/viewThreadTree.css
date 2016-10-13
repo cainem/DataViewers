@@ -3,3 +3,15 @@
   stroke: #ccc;
   stroke-width: 1.5px;
 }*/
+
+div.collapsed {
+  background-color : gray;  
+}
+
+div.expanded {
+  background-color: paleturquoise;
+}
+
+.invisible {
+  visibility: hidden;
+}

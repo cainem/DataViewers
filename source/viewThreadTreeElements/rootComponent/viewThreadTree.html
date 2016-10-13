@@ -1,15 +1,17 @@
 <div class="container-fluid">
-    <div class="row col-lg-12">
+    <div class="col-lg-12">
         <jsInput (jsonChanged)="onJsonChanged($event)"></jsInput>
     </div>
 
-    <div class="{{classLeft}}">
-        <button (click)="toggleLeft($event)">{{leftButtonText}}</button>
-        <threads-view [data]="data" (selectDataObjectChanged)="selectionChanged($event)" *ngIf="showLeft"></threads-view>
-    </div>
-    <div class="{{classRight}}">
-        <button (click)="toggleRight($event)">{{rightButtonText}}</button>
-        <thread-view [data]="data" [selectedIndex]="selectedIndex" *ngIf="showRight"></thread-view>
+    <div class="container-fluid" style="height: 100%">
+        <div class="{{classLeft}}">
+            <button (click)="toggleLeft($event)">{{leftButtonText}}</button>
+            <threads-view [data]="data" (selectDataObjectChanged)="selectionChanged($event)" [class.invisible]="!showLeft"></threads-view>
+        </div>
+        <div class="{{classRight}}">
+            <button (click)="toggleRight($event)">{{rightButtonText}}</button>
+            <thread-view [data]="data" [selectedIndex]="selectedIndex"></thread-view>
+        </div>
     </div>
 
 <div>
