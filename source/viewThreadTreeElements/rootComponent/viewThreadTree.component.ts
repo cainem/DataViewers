@@ -70,6 +70,11 @@ export class ViewThreadTree {
         this.onChange();
     }      
 
+    public insideChanged = (insideRightShown : boolean) => {
+        this.showLeft = this.showLeft && !insideRightShown;
+        this.onChange();
+    }
+
     private onChange = () => {
         this.classLeft = !this.showLeft ? this.collapsedClass : this.showRight ? this.class6 : this.class11;  
         this.leftButtonText = this.showLeft ? "hide left" : "show left";

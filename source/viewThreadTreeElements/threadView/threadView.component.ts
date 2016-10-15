@@ -18,19 +18,50 @@ import * as d3 from 'd3';
     selector: 'thread-view',
     templateUrl: './app/viewThreadTreeElements/threadView/threadView.html',
     directives: [ViewProperties],
-    styleUrls: []
+    styleUrls: [ './app/viewThreadTreeElements/threadView/threadView.css']
 })
 export class ThreadView implements OnChanges { 
     @Input() data : ThreadViewDataset;   
     @Input() selectedIndex : number;
-    @Output() selectedThread : ThreadD3node;
+    @Output() selectedThread : ThreadD3node;    
+    @Output() hidingChanged : EventEmitter<boolean> = new EventEmitter<boolean>();
+
+    @Input() public set showOuterLeft(value : boolean) {
+        this._showOuterLeft = value;
+        if (this._showOuterLeft && this.showRight) {
+            this.toggleRight(null);
+        }
+    }
+    public get showOuterLeft() : boolean {
+        return this._showOuterLeft;
+    }
+
+    public showRight : boolean = false;
+    public showLeft : boolean = true;
+    public class6 : string = "col-md-6 expanded";
+    public collapsedClass : string = "col-md-1 collapsed";
+    public class11 : string = "col-md-11 expanded"
+    public classLeft : string;
+    public classRight : string;
+    public leftButtonText : string;
+    public rightButtonText : string;
+    private _showOuterLeft: boolean;
     private svgHelper : SvgHelper; 
-     
+
     constructor() {
         this.svgHelper = new SvgHelper();
+
+        this.classLeft = this.class6;
+        this.classRight = this.class6;
+        this.rightButtonText = "hide right";
+        this.leftButtonText = "hide left";       
+        this.onShowChange(); 
     }
 
     ngOnChanges(data : {[key: string]: SimpleChange;}) {
+
+        // an external change could have driven the ngOnChanges so recheck.
+        this.onShowChange();
 
         if (this.selectedIndex) {
             let divSelection = d3.select("#d3ThreadContainer");
@@ -76,6 +107,26 @@ export class ThreadView implements OnChanges {
         DrawGeneSetNodes.drawGeneSets(geneSets);
 
     }
+
+    public toggleLeft = (event) => {
+        this.showLeft = !this.showLeft;
+        this.onShowChange();
+    }
+
+    public toggleRight = (event) => {
+        this.showRight = !this.showRight;
+        this.hidingChanged.emit(this.showRight);
+        this.onShowChange();
+    }      
+
+    private onShowChange = () => {
+        this.classLeft = !this.showLeft ? this.collapsedClass : this.showRight ? this.class6 : this.class11;  
+        this.leftButtonText = this.showLeft ? "hide left" : "show left";
+        this.classRight = !this.showRight ? this.collapsedClass : this.showLeft ? this.class6 : this.class11;
+        this.rightButtonText =this.showRight ? "hide right" : "show right";
+        this.hidingChanged.emit(this.showRight);
+    }
+
 
     // this is currently just test data
     getGeneSetNode = () => {
