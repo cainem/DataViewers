@@ -12,7 +12,8 @@ export class NodeHelper {
         nodeSelection.append("circle")
             .attr("class", "threadNode")
             .attr("r", (d : ThreadD3node) => 15)
-            .style("stroke", (d: ThreadD3node) => "red")
+            .style("stroke", (d: ThreadD3node) => "green")
+            .style("stroke-width", "5px")
             .attr("onclick", (d: ThreadD3node) => 
                 "document.getElementById('localInput').value = " + d.id + "; document.getElementById('eventRaiser').click();")            
 

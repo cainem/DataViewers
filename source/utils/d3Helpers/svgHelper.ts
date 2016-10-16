@@ -46,7 +46,7 @@ export class SvgHelper {
                     // it seems to be because call behaves differently
             this.svg.append("g")
                     .append("rect")
-                    .attr("style", "fill: pink; pointer-events: all;") 
+                    .attr("style", "fill: transparent; pointer-events: all;") 
                     .attr("width", this.width)
                     .attr("height", this.height);
         }
