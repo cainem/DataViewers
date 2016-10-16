@@ -52,8 +52,8 @@ export class ViewThreadTree {
 
         this.classLeft = this.class6;
         this.classRight = this.class6;
-        this.rightButtonText = "hide right";
-        this.leftButtonText = "hide left";
+        this.rightButtonText = "hide single thread view";
+        this.leftButtonText = "hide top view";
     }         
 
     public selectionChanged(event : number) {
@@ -77,8 +77,8 @@ export class ViewThreadTree {
 
     private onChange = () => {
         this.classLeft = !this.showLeft ? this.collapsedClass : this.showRight ? this.class6 : this.class11;  
-        this.leftButtonText = this.showLeft ? "hide left" : "show left";
+        this.leftButtonText = this.showLeft ? "hide top view" : "show top view";
         this.classRight = !this.showRight ? this.collapsedClass : this.showLeft ? this.class6 : this.class11;
-        this.rightButtonText =this.showRight ? "hide right" : "show right";
+        this.rightButtonText =this.showRight ? "hide single thread view" : "show single thread view";
     }
 }

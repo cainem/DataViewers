@@ -1,17 +1,27 @@
-<div class="container-fluid" style="height: 100%; overflow-y:auto;">
+<div class="boundingBox" style="height: 100%">
 	<div class="col-md-12">
 		<span>Thread view</span>
 	</div>
 
 	<div class="container-fluid">
+		<div class="col-md-12">
+			<div class="{{classLeft}} text-left">
+	            <a class="text-nowrap" (click)="toggleLeft($event)" [class.invisible]="!showRight">{{leftButtonText}}</a>
+			</div>
+			<div class="{{classRight}} text-right">
+	            <a class="text-nowrap" (click)="toggleRight($event)" [class.invisible]="!showLeft">{{rightButtonText}}</a>      
+			</div>			
+		</div>
 		<div class="{{classLeft}}">
-            <button (click)="toggleLeft($event)" [class.invisible]="!showRight">{{leftButtonText}}</button>
-			<div id="d3ThreadContainer" style="overflow-y: scroll;" [class.invisible]="!showLeft">
+			<div class="boundingBox" style="height: 90%;">
+				<div id="d3ThreadContainer" [class.invisible]="!showLeft">
+				</div>
 			</div>
         </div>
         <div class="{{classRight}}">
-            <button (click)="toggleRight($event)" [class.invisible]="!showLeft">{{rightButtonText}}</button>            
-            <view-properties [data]="selectedThread" [class.invisible]="!showRight"></view-properties>
+			<div class="boundingBox" style="height: 90%;">      
+				<view-properties [data]="selectedThread" [class.invisible]="!showRight"></view-properties>
+			</div>
         </div>
 	</div>
 </div>

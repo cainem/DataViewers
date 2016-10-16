@@ -5,11 +5,11 @@
 
     <div class="container-fluid" style="height: 100%">
         <div class="{{classLeft}}">
-            <button (click)="toggleLeft($event)" [class.invisible]="!showRight">{{leftButtonText}}</button>
+            <a (click)="toggleLeft($event)" [class.invisible]="!showRight">{{leftButtonText}}</a>
             <threads-view [data]="data" (selectDataObjectChanged)="selectionChanged($event)" [class.invisible]="!showLeft"></threads-view>
         </div>
         <div class="{{classRight}}">
-            <button (click)="toggleRight($event)" [class.invisible]="!showLeft">{{rightButtonText}}</button>
+            <a (click)="toggleRight($event)" [class.invisible]="!showLeft">{{rightButtonText}}</a>
             <thread-view (hidingChanged)="insideChanged($event)" [showOuterLeft]="showLeft" [data]="data" [selectedIndex]="selectedIndex" [class.invisible]="!showRight"></thread-view>
         </div>
     </div>
