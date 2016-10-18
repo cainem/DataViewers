@@ -47,6 +47,8 @@ export class ThreadView implements OnChanges {
     public rightButtonText : string;
     private _showOuterLeft: boolean;
     private svgHelper : SvgHelper; 
+    private lastSelectedIndex : number = -1;
+    private currentGeneSets : GeneSetD3node[] = null;
 
     constructor() {
         this.svgHelper = new SvgHelper();
@@ -72,20 +74,37 @@ export class ThreadView implements OnChanges {
             //draw the selected threads nodes and connections
             if (divSelection && this.selectedThread) {
 
-                // select and remove any exisiting svg 
-                divSelection.select("svg").remove();
+                if (this.selectedIndex != this.lastSelectedIndex)
+                {
+                    this.lastSelectedIndex = this.selectedIndex;
 
-                // create a new svg
-                let svg = divSelection.append("svg")
-                    .attr("width", "100%")
-                    .attr("class", "threadViewContainer");
+                    console.log("removing and adding svg");
 
-                this.render(null, svg);
+                    // select and remove any exisiting svg 
+                    divSelection.select("svg").remove();
+
+                    this.currentGeneSets = this.getGeneSetNode();
+                    let height = 10;
+                    this.currentGeneSets.forEach((g, i) => {
+                        height += g.heightOfGeneSet()
+                        height += 10; // gene set spacing
+                    }) 
+
+                    // create a new svg
+                    let svg = divSelection.append("svg")
+                        .attr("width", "100%")
+                        .attr("preserveAspectRatio", "none")
+                        .attr("class", "threadViewContainer")
+                        .attr("height", height)
+                        .attr("viewBox", "0 0 1000 " + height);
+                }
+
+                this.render(null);
             }
         }
     } 
 
-    public render = (newValue : ThreadD3node[], svg : d3.Selection<any>) => {     
+    public render = (newValue : ThreadD3node[]) => {     
 
         // let height = Math.max(500, nodes.length * this.barHeight + this.margin.top + this.margin.bottom);
         // // recalculate the height of the required area (minimum 500)
@@ -94,17 +113,8 @@ export class ThreadView implements OnChanges {
         //     .duration(this.duration)
         //     .attr("height", height);
 
-        let geneSets = this.getGeneSetNode();
-
-        let height = 10;
-        geneSets.forEach((g, i) => {
-            height += g.heightOfGeneSet()
-            height += 10; // gene set spacing
-        }) 
-
-        svg.attr("height", height);
-
-        DrawGeneSetNodes.drawGeneSets(geneSets);
+        //let geneSets = this.getGeneSetNode();
+        DrawGeneSetNodes.drawGeneSets(this.currentGeneSets);
 
     }
 

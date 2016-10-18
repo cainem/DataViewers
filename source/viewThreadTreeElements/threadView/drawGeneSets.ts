@@ -6,12 +6,13 @@ export class DrawGeneSetNodes {
 
     static drawGeneSets(geneSetNodes : GeneSetD3node[]) {
 
+        let edge = 10;
         let displacementRunningTotal = 10;
         geneSetNodes.forEach((node, i) => {
             node.id = i;
             node.index = i;
             displacementRunningTotal += node.spacingOfGeneSets;
-            node.x = displacementRunningTotal;
+            node.y = displacementRunningTotal;
             displacementRunningTotal += node.heightOfGeneSet();
         })
 
@@ -21,14 +22,14 @@ export class DrawGeneSetNodes {
             .enter()
             .append("g")
             .attr("class", "geneSet")
-            .attr("transform", (d : GeneSetD3node) => "translate(" + d.spacingOfGeneSets + "," + d.x + ")");
+            .attr("transform", (d : GeneSetD3node) => "translate(" + d.spacingOfGeneSets + "," + d.y + ")");
 
         geneSetg.append("rect")
             .attr("x", 0)
             .attr("y", 0)
-            .attr("width", 800)
+            .attr("width", 1000 - (2 * edge))
             .attr("height", d => d.heightOfGeneSet())
-            .attr("fill", "pink")
+            .attr("fill", "palegoldenrod")
 
        geneSetg.append("text")
             .attr("x", 10)

@@ -10,13 +10,14 @@ export class DrawConnections {
 
         let radius = 10;
         let boundingHeight = 50;
-        let boundingWidth = 200;
+        // the bounding height is defined further up the stack; could be passed down the calling chain
+        let boundingWidth = 350;
 
         let force = d3.layout.force<ConnectionD3node>()
             .size([boundingWidth, boundingHeight])
             .nodes(inputConnections)
-            .charge(-30)
-            .gravity(0.1)
+            .charge(-30) // push the circles apart
+            .gravity(0.1) // but group round the middle, with no gravity they end up at the edge of the bounding box
 
         let connectiong = selectContext.select("g." + className)
             .selectAll("circle." + className)
@@ -32,15 +33,16 @@ export class DrawConnections {
                 .attr("fill", "green")
                 .attr('r', radius)
                 .attr('cx', function(d) {
-                        return d.x = Math.max(radius, Math.min(boundingWidth - radius, d.x));
+                        // this function (and the one below) keeps the connections inside the bounding box
+                        return d.x = Math.max(radius + 5, Math.min(boundingWidth - radius - 5, d.x));
                  })
                 .attr('cy', function(d) {
-                        return d.y = Math.max(radius, Math.min(boundingHeight - radius, d.y));; 
+                        // this function (and the one above) keeps the connections inside the bounding box
+                        return d.y = Math.max(radius + 5, Math.min(boundingHeight - radius - 5, d.y));; 
                  });
         })            
 
         force.start();
-
     }
 
 }

@@ -1,8 +1,17 @@
 import {GeneSetD3node} from './model/geneSetD3node';
-import {DrawThreadMapNode} from './drawThreadMapNode'
+import {DrawThreadMapNode} from './drawThreadMapNode';
+import {ThreadMapNodeD3node} from './model/threadMapNodeD3node';
 
 export class DrawGeneSet {
 
+    /*
+        This static function draws a single gene set.
+        The y displacement of the thread map nodes is held by the data object
+        The x displacement is a viewbox of 1000 units.
+
+        It draws a circle for each node and two boxes either side containing the input and output connections
+
+    */
     static drawGeneSet(geneSetD3node : GeneSetD3node, selectContext : d3.Selection<any>) {
 
         geneSetD3node.threadMapNodeD3nodes.forEach((threadMapNode, i) =>
@@ -18,40 +27,35 @@ export class DrawGeneSet {
             .append("g")
             .attr("class", "threadMapNode");
 
-         threadMapNodeg.append("g")   
-            .attr("class", "inputConnections")
-            .attr("transform", d => {
-                 return "translate(10," + d.displacementOfThreadMapNode() + ")"
-            })
-            .attr("height", d => d.heightOfThreadMapNode)
-            .append("path")
-            .attr("stroke", "black")
-            .attr("stroke-width", "1")
-            .attr("fill", "transparent")
-            .attr("d", "M 0 0 L 200 0 L 200 50 L 0 50 L 0 0")
-
-         threadMapNodeg.append("g")   
-            .attr("class", "outputConnections")
-            .attr("transform", d => "translate(460," + d.displacementOfThreadMapNode() + ")")
-            .attr("height", d => d.heightOfThreadMapNode)
-            .append("path")
-            .attr("stroke", "black")
-            .attr("stroke-width", "1")
-            .attr("fill", "transparent")
-            .attr("d", "M 0 0 L 200 0 L 200 50 L 0 50 L 0 0")
-
-        threadMapNodeg.append("rect")
-            .attr("y", d => d.displacementOfThreadMapNode())
-            .attr("x", 310)
-            .attr("width", 50)
-            .attr("height", d => d.heightOfThreadMapNode)
-            .attr("fill", "purple");
+        DrawGeneSet.drawConnectionBoundary(threadMapNodeg, 10, "inputConnections");
+        DrawGeneSet.drawConnectionBoundary(threadMapNodeg, 620, "outputConnections");
+        DrawGeneSet.drawNode(threadMapNodeg);
 
         threadMapNodeg.each(function (tmn) {
             let site = d3.select(this);
             DrawThreadMapNode.drawThreadMapNode(tmn, site);            
         });   
-
-
     }
+
+    static drawConnectionBoundary(context : d3.Selection<ThreadMapNodeD3node>, xDisplacement : number, className : string) {
+         context.append("g")   
+            .attr("class", className)
+            .attr("transform", d => "translate(" + xDisplacement + "," + d.displacementOfThreadMapNode() + ")")
+            .attr("height", d => d.heightOfThreadMapNode)
+            .append("path")
+            .attr("stroke", "black")
+            .attr("stroke-width", "1")
+            .attr("fill", "transparent")
+            // the height of the "connection box" is hardcoded to be 50; the width 350
+            .attr("d", "M 0 0 L 350 0 L 350 50 L 0 50 L 0 0")
+    }
+
+    static drawNode(context : d3.Selection<ThreadMapNodeD3node>) {
+        context.append("circle")
+            .attr("cy", d => d.displacementOfThreadMapNode() + 25)
+            .attr("cx", 475)
+            .attr("r", 25)
+            .attr("fill", "purple");
+    }
+
 }
