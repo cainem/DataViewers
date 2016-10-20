@@ -28,7 +28,9 @@ export class DrawGeneSet {
             .attr("class", "threadMapNode");
 
         DrawGeneSet.drawConnectionBoundary(threadMapNodeg, 10, "inputConnections");
+        DrawGeneSet.drawArrowedLine(threadMapNodeg, 360, 455);
         DrawGeneSet.drawConnectionBoundary(threadMapNodeg, 620, "outputConnections");
+        DrawGeneSet.drawArrowedLine(threadMapNodeg, 620, 525);
         DrawGeneSet.drawNode(threadMapNodeg);
 
         threadMapNodeg.each(function (tmn) {
@@ -53,9 +55,20 @@ export class DrawGeneSet {
     static drawNode(context : d3.Selection<ThreadMapNodeD3node>) {
         context.append("circle")
             .attr("cy", d => d.displacementOfThreadMapNode() + 25)
-            .attr("cx", 475)
+            .attr("cx", 490)
             .attr("r", 25)
             .attr("fill", "purple");
+    }
+
+    static drawArrowedLine(context : d3.Selection<ThreadMapNodeD3node>, X1: number, X2: number) {
+        context.append("line")
+            .attr("x1", X1)
+            .attr("y1", d => d.displacementOfThreadMapNode() + 25)
+            .attr("x2", X2)
+            .attr("y2", d => d.displacementOfThreadMapNode() + 25)
+            .attr("marker-end", "url(" + location.href + "#Triangle)")
+            .style("stroke", "black")
+            .style("stroke-width", "2")
     }
 
 }

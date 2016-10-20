@@ -39,12 +39,10 @@ export class DrawGeneSetNodes {
                 return n.id.toString();
             });
 
-
         geneSetg.each(function(d : GeneSetD3node) {
             let site = d3.select(this);
 
             DrawGeneSet.drawGeneSet(d, site);
-
         });
     }
 

@@ -8,7 +8,8 @@ import {ThreadMapNodeD3node} from './model/threadMapNodeD3node';
 import {ConnectionD3node} from './model/connectionD3node';
 import {GeneSetKeyDto} from '../../data/AllDtos';
 import {DrawGeneSetNodes} from './drawGeneSets';
-import {DrawThreadMapNode} from './drawThreadMapNode'
+import {DrawThreadMapNode} from './drawThreadMapNode';
+import {SvgAssets} from './svgAssets';
 import * as d3 from 'd3';
 
 /*
@@ -97,6 +98,8 @@ export class ThreadView implements OnChanges {
                         .attr("class", "threadViewContainer")
                         .attr("height", height)
                         .attr("viewBox", "0 0 1000 " + height);
+
+                    SvgAssets.addArrowHead("threadViewContainer");
                 }
 
                 this.render(null);
