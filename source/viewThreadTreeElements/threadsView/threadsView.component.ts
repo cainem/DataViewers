@@ -75,6 +75,7 @@ export class ThreadsView implements OnInit, OnChanges {
             this.data.findThreadById(this.lastSelected).isSelected = false;
         }
 
+        // set isSelected on the selected node
         this.lastSelected = selected;
         this.nodes.forEach(n => {
             n.isSelected = n.id === selected;
@@ -106,6 +107,7 @@ export class ThreadsView implements OnInit, OnChanges {
         // a new node is a "g" element presumably so that it can contain more than one element (circle and text)
         NodeHelper.drawNodes(selectedNodes.enter());    
 
+        // color the selected node
         selectedNodes.selectAll("circle.threadNode").style("fill", (d: ThreadD3node) =>
         { 
             return d.isSelected ? "cyan" : "black";

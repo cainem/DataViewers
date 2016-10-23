@@ -8,4 +8,5 @@ export class ConnectionD3node {
     id : number;
     x : number;
     y: number;
+    isSelected: boolean = false;
 }

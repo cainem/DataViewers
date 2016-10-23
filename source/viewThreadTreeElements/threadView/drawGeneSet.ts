@@ -1,6 +1,7 @@
 import {GeneSetD3node} from './model/geneSetD3node';
 import {DrawThreadMapNode} from './drawThreadMapNode';
 import {ThreadMapNodeD3node} from './model/threadMapNodeD3node';
+import {SelectedAssetTracker} from './model/assetTracker/selectedAssetTracker';
 
 export class DrawGeneSet {
 
@@ -12,7 +13,7 @@ export class DrawGeneSet {
         It draws a circle for each node and two boxes either side containing the input and output connections
 
     */
-    static drawGeneSet(geneSetD3node : GeneSetD3node, selectContext : d3.Selection<any>) {
+    static drawGeneSet(selectedAssetTracker : SelectedAssetTracker, geneSetD3node : GeneSetD3node, selectContext : d3.Selection<any>) {
 
         geneSetD3node.threadMapNodeD3nodes.forEach((threadMapNode, i) =>
         {
@@ -35,7 +36,7 @@ export class DrawGeneSet {
 
         threadMapNodeg.each(function (tmn) {
             let site = d3.select(this);
-            DrawThreadMapNode.drawThreadMapNode(tmn, site);            
+            DrawThreadMapNode.drawThreadMapNode(selectedAssetTracker, tmn, site);            
         });   
     }
 

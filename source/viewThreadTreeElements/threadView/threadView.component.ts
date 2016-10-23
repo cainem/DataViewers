@@ -10,6 +10,7 @@ import {GeneSetKeyDto} from '../../data/AllDtos';
 import {DrawGeneSetNodes} from './drawGeneSets';
 import {DrawThreadMapNode} from './drawThreadMapNode';
 import {SvgAssets} from './svgAssets';
+import {SelectedAssetTracker} from './model/assetTracker/selectedAssetTracker';
 import * as d3 from 'd3';
 
 /*
@@ -19,7 +20,10 @@ import * as d3 from 'd3';
     selector: 'thread-view',
     templateUrl: './app/viewThreadTreeElements/threadView/threadView.html',
     directives: [ViewProperties],
-    styleUrls: [ './app/viewThreadTreeElements/threadView/threadView.css']
+    styleUrls: [ './app/viewThreadTreeElements/threadView/threadView.css'],
+    providers: [
+        SelectedAssetTracker
+    ]
 })
 export class ThreadView implements OnChanges { 
     @Input() data : ThreadViewDataset;   
@@ -51,7 +55,7 @@ export class ThreadView implements OnChanges {
     private lastSelectedIndex : number = -1;
     private currentGeneSets : GeneSetD3node[] = null;
 
-    constructor() {
+    constructor(private selectedAssetTracker : SelectedAssetTracker) {
         this.svgHelper = new SvgHelper();
 
         this.classLeft = this.class6;
@@ -117,7 +121,7 @@ export class ThreadView implements OnChanges {
         //     .attr("height", height);
 
         //let geneSets = this.getGeneSetNode();
-        DrawGeneSetNodes.drawGeneSets(this.currentGeneSets);
+        DrawGeneSetNodes.drawGeneSets(this.selectedAssetTracker, this.currentGeneSets);
 
     }
 

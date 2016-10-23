@@ -1,12 +1,14 @@
 import {GeneSetD3node} from './model/geneSetD3node';
 import {ConnectionD3node} from './model/connectionD3node';
+import {SelectedAssetTracker} from './model/assetTracker/selectedAssetTracker';
+import {SelectedAsset} from './model/assetTracker/selectedAsset'
 
 export class DrawConnections {
 
     static diagonal = d3.svg.diagonal<ConnectionD3node>()
             .projection((d : ConnectionD3node) => [d.y, d.x]);
 
-    static drawConnections(inputConnections : ConnectionD3node[], selectContext : d3.Selection<any>, className : string) {
+    static drawConnections(selectedAssetTracker : SelectedAssetTracker,  inputConnections : ConnectionD3node[], selectContext : d3.Selection<any>, className : string) {
 
         let radius = 10;
         let boundingHeight = 50;
@@ -16,7 +18,7 @@ export class DrawConnections {
         let force = d3.layout.force<ConnectionD3node>()
             .size([boundingWidth, boundingHeight])
             .nodes(inputConnections)
-            .charge(-30) // push the circles apart
+            .charge(-50) // push the circles apart
             .gravity(0.1) // but group round the middle, with no gravity they end up at the edge of the bounding box
 
         let connectiong = selectContext.select("g." + className)
@@ -24,13 +26,26 @@ export class DrawConnections {
             .data(inputConnections)
             .enter()
             .append("g")
-            .attr("class", className);
+            .attr("class", className)
+            .attr("fill", "green");
 
-        connectiong.append("circle");
+        connectiong.append("circle")
+            .on("click", function(d) {
+                // unselect all
+                // inputConnections.forEach((c, i) => {
+                //     c.isSelected = false;
+                // });
+
+                //d.isSelected = true;
+                //d3.select(this).attr("fill", "red");
+                //connectiong.select("circle").attr("fill", d => d.isSelected ? "red" : "green");
+                selectedAssetTracker.currentlySelectedAsset = new SelectedAsset(d3.select(this), d);
+            });
 
         force.on('tick', () => {
             connectiong.select("circle")
-                .attr("fill", "green")
+                .attr("class", "circle." + className)
+                //.attr("fill", "green")
                 .attr('r', radius)
                 .attr('cx', function(d) {
                         // this function (and the one below) keeps the connections inside the bounding box

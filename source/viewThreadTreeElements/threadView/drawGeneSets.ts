@@ -1,10 +1,11 @@
 import {GeneSetD3node} from './model/geneSetD3node'
 import {DrawGeneSet} from './drawGeneSet';
 import {DrawThreadMapNode} from './drawThreadMapNode';
+import {SelectedAssetTracker} from './model/assetTracker/selectedAssetTracker';
 
 export class DrawGeneSetNodes {
 
-    static drawGeneSets(geneSetNodes : GeneSetD3node[]) {
+    static drawGeneSets(selectedAssetTracker : SelectedAssetTracker, geneSetNodes : GeneSetD3node[]) {
 
         let edge = 10;
         let displacementRunningTotal = 10;
@@ -42,7 +43,7 @@ export class DrawGeneSetNodes {
         geneSetg.each(function(d : GeneSetD3node) {
             let site = d3.select(this);
 
-            DrawGeneSet.drawGeneSet(d, site);
+            DrawGeneSet.drawGeneSet(selectedAssetTracker, d, site);
         });
     }
 
