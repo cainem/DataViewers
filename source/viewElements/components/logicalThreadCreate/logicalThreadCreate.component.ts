@@ -7,7 +7,6 @@ import {Collapse} from '../../../sharedControls/collapsibleDiv/collapsibleDiv.co
 @Component({
     selector: 'logicalThreadCreate',
     templateUrl: './app/viewElements/components/logicalThreadCreate/logicalThreadCreate.html',
-    directives: [WoollyKey, Collapse, ContextBasedActionSwitchComponent],
     styleUrls: ['./app/viewElements/components/logicalThreadCreate/logicalThreadCreate.css']
 })
 export class LogicalThreadCreateComponent {    

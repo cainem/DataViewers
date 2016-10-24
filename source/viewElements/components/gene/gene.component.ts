@@ -6,7 +6,6 @@ import {LogicalReaderReturnComponent} from '../logicalReaderReturn/logicalReader
 @Component({
     selector: 'gene',
     templateUrl: './app/viewElements/components/gene/gene.html',
-    directives: [Collapse, LogicalReaderReturnComponent],
     styleUrls: ['./app/viewElements/components/gene/gene.css']
 })
 export class GeneComponent {

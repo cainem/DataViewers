@@ -1,4 +1,4 @@
-import {Component, provide, Inject, EventEmitter} from '@angular/core';
+import {Component, Inject, EventEmitter} from '@angular/core';
 import {JsInputComponent} from '../../jsInput/jsInput.component';
 import {ChromosomeComponent} from '../../viewElements/components/chromosome/chromosome.component';
 import {TransformJsonToLogicalStream} from '../data/transformJsonToLogicalStream'
@@ -8,9 +8,8 @@ import {JsonTransformationToken, JsonTransformationInterface} from '../../servic
 
 @Component({
     templateUrl: './app/viewElements/rootComponent/viewLogicalStream.html',
-    directives: [ChromosomeComponent, JsInputComponent],
     providers: [   
-        provide(JsonTransformationToken, { useClass: TransformJsonToLogicalStream }) 
+        { provide : JsonTransformationToken, useClass: TransformJsonToLogicalStream }
     ],
 })
 export class ViewLogicalStream {          

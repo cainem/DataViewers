@@ -5,7 +5,6 @@ import {Collapse} from '../../../sharedControls/collapsibleDiv/collapsibleDiv.co
 @Component({
     selector: 'genomePosition',
     templateUrl: './app/viewElements/components/genomePosition/genomePosition.html',
-    directives: [Collapse],
     styleUrls: ['./app/viewElements/components/genomePosition/genomePosition.css']
 })
 export class GenomePositionComponent {

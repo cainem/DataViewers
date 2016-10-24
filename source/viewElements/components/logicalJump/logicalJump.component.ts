@@ -7,7 +7,6 @@ import {Collapse} from '../../../sharedControls/collapsibleDiv/collapsibleDiv.co
 @Component({
     selector: 'logicalJump',
     templateUrl: './app/viewElements/components/logicalJump/logicalJump.html',
-    directives: [WoollyKey, Collapse, ContextBasedActionSwitchComponent],
     styleUrls: ['./app/viewElements/components/logicalJump/logicalJump.css']
 })
 export class LogicalJumpComponent {    

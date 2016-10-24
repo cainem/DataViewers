@@ -13,7 +13,6 @@ import * as d3 from 'd3';
 @Component({
     selector: 'threads-view',
     templateUrl: './app/viewThreadTreeElements/threadsView/threadsView.html',
-    directives: [],
     styleUrls: ['./app/viewThreadTreeElements/threadsView/threadsView.css'],
 })
 export class ThreadsView implements OnInit, OnChanges {  

@@ -6,7 +6,6 @@ import {GeneComponent} from '../gene/gene.component';
 @Component({
     selector: 'chromosome',
     templateUrl: './app/viewElements/components/chromosome/chromosome.html',
-    directives: [Collapse, GeneComponent],
     styleUrls: ['./app/viewElements/components/chromosome/chromosome.css']
 })
 export class ChromosomeComponent {

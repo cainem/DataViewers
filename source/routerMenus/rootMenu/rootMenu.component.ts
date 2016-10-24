@@ -1,4 +1,4 @@
-import {Component, provide} from '@angular/core';
+import {Component} from '@angular/core';
 import {ViewLogicalStream} from "../../viewElements/rootComponent/viewLogicalStream.component";
 import {ViewMachine} from "../viewMachine/viewMachine.component";
 import {ViewThreadTree} from "../../viewThreadTreeElements/rootComponent/viewThreadTree.component";
@@ -11,15 +11,6 @@ import {JsInputComponent} from '../../jsInput/jsInput.component';
 @Component({
     selector: 'rootMenu',
     templateUrl: './app/routerMenus/rootMenu/rootMenu.html',
-    directives: [
-        ViewLogicalStream,
-        ViewMachine,
-        LogicalConnectionComponent,
-        LogicalNodeComponent,
-        ViewThreadTree,
-        PropertyExplorer,
-        JsInputComponent
-        ],
     providers: [ 
     ],
 })

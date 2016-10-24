@@ -6,7 +6,6 @@ import {Collapse} from '../../../sharedControls/collapsibleDiv/collapsibleDiv.co
 @Component({
     selector: 'logicalNodeFunction',
     templateUrl: './app/viewElements/components/logicalNodeFunction/logicalNodeFunction.html',
-    directives: [Collapse],
     providers : [],
     styleUrls: ['./app/viewElements/components/logicalNodeFunction/logicalNodeFunction.css']
 })

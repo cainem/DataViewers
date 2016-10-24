@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Inject, provide, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Inject, Input } from '@angular/core';
 import { ThreadViewDataset  } from './model/threadViewDataset';
 import { ThreadsView } from '../../viewThreadTreeElements/threadsView/threadsView.component';
 import { ThreadView } from '../../viewThreadTreeElements/threadView/threadView.component'
@@ -17,12 +17,11 @@ import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 */
 @Component({
     templateUrl: './app/viewThreadTreeElements/rootComponent/viewThreadTree.html',
-    directives: [ JsInputComponent, ThreadsView, ThreadView ],
     styleUrls: ['./app/viewThreadTreeElements/rootComponent/viewThreadTree.css'],
     providers: [ 
-        provide(JsonTransformationToken, { useClass: TransformJsonToThreadViewDataset }),
-        provide ("ThreadViewDatasetCreatorToken", { useClass : ThreadViewDatasetCreator }),
-        provide("TransformToThreadD3node", { useClass : TransformToThreadD3node}),
+        { provide : JsonTransformationToken, useClass: TransformJsonToThreadViewDataset },
+        { provide : "ThreadViewDatasetCreatorToken", useClass : ThreadViewDatasetCreator },
+        { provide : "TransformToThreadD3node", useClass : TransformToThreadD3node},
         KeyGenerator,
         MapCreator   
     ]

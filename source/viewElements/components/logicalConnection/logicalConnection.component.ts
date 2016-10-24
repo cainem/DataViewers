@@ -7,7 +7,6 @@ import {LogicalConnectionDto} from '../../../data/AllDtos';
 @Component({
     selector: 'logicalConnection',
     templateUrl: './app/viewElements/components/logicalConnection/logicalConnection.html',
-    directives: [WoollyKey, Collapse],
     styleUrls: ['./app/viewElements/components/logicalConnection/logicalConnection.css']
 })
 export class LogicalConnectionComponent {

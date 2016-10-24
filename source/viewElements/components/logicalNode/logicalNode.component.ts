@@ -8,7 +8,6 @@ import {LogicalImplicitConnectionSettingsComponent} from '../logicalImplicitConn
 @Component({
     selector: 'logicalNode',
     templateUrl: './app/viewElements/components/logicalNode/logicalNode.html',
-    directives: [WoollyKey, LogicalNodeFunctionComponent, Collapse, LogicalImplicitConnectionSettingsComponent],
     styleUrls: ['./app/viewElements/components/logicalNode/logicalNode.css']
 })
 export class LogicalNodeComponent {    

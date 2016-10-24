@@ -1,4 +1,4 @@
-import {Component, provide, Input, OnChanges, Inject, SimpleChanges, ElementRef} from '@angular/core';
+import {Component, Input, OnChanges, Inject, SimpleChanges, ElementRef} from '@angular/core';
 import {SvgHelper} from '../../utils/d3Helpers/svgHelper';
 import {TransformToCollapsibleIndentedNode} from '../model/transformToCollapsibleIndentedNode';
 import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
@@ -11,7 +11,6 @@ import {MarginInterface} from '../../utils/d3Helpers/margin.interface';
 @Component({
     selector: 'view-properties',
     templateUrl: './app/propertyExplorer/viewProperties/viewProperties.html',
-    directives: [],
     providers: [TransformToCollapsibleIndentedNode],
 })
 export class ViewProperties implements OnChanges {

@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {ROUTER_DIRECTIVES} from "@angular/router-deprecated";
 import {LogicalNodeComponent} from '../logicalNode/logicalNode.component';
 import {LogicalConnectionComponent} from '../logicalConnection/logicalConnection.component';
 import {LogicalJumpComponent} from '../logicalJump/logicalJump.component';
@@ -13,8 +12,6 @@ import {Collapse} from '../../../sharedControls/collapsibleDiv/collapsibleDiv.co
 @Component({
     selector: 'logicalReaderReturn',
     templateUrl: './app/viewElements/components/logicalReaderReturn/logicalReaderReturn.html',
-    directives: [LogicalNodeComponent, LogicalConnectionComponent, LogicalJumpComponent, LogicalThreadControlComponent,
-                 GenomePositionComponent, Collapse, LogicalThreadCreateComponent],
     providers : [],
     styleUrls: ['./app/viewElements/components/logicalReaderReturn/logicalReaderReturn.css']
     
