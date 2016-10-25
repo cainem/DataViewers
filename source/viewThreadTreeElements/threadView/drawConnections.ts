@@ -30,6 +30,7 @@ export class DrawConnections {
             .attr("fill", "green");
 
         connectiong.append("circle")
+            .attr("fill", "green")
             .on("click", function(d) {
                 // unselect all
                 // inputConnections.forEach((c, i) => {
