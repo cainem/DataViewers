@@ -26,12 +26,12 @@
 
     // #3. Import the spec file explicitly
     Promise.all([
-       System.import('app/viewThreadTreeElements/model/mapCreator.spec')
+       System.import('app/viewThreadTreeElements/rootComponent/model/mapCreator.spec')
       ,System.import('app/service/keyGenerator/keyGenerator.spec')      
-      ,System.import('app/viewThreadTreeElements/model/threadMapThreadDtoWithChildren.spec')      
-      ,System.import('app/viewThreadTreeElements/model/threadViewDataset.spec')            
-      ,System.import('app/viewThreadTreeElements/model/transformJsonToThreadViewDataset.spec')    
-      ,System.import('app/viewThreadTreeElements/model/transformToThreadD3node.spec')
+      ,System.import('app/viewThreadTreeElements/rootComponent/model/threadMapThreadDtoWithChildren.spec')      
+      ,System.import('app/viewThreadTreeElements/rootComponent/model/threadViewDataset.spec')            
+      ,System.import('app/viewThreadTreeElements/rootComponent/model/transformJsonToThreadViewDataset.spec')    
+      ,System.import('app/viewThreadTreeElements/rootComponent/model/transformToThreadD3node.spec')
       ,System.import('app/propertyExplorer/model/transformToCollapsibleIndentedNode.spec')         
     ])
 
