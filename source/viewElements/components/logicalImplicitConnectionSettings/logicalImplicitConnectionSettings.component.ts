@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {LogicalImplicitConnectionSettingsDto} from '../../../data/AllDtos';
 import {LogicalNodeFunctionComponent} from '../logicalNodeFunction/logicalNodeFunction.component';
-import {Collapse} from '../../collapsibleDiv/collapsibleDiv.component';
+import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 
 @Component({
     selector: 'logicalImplicitConnectionSettings',

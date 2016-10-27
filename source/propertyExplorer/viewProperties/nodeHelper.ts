@@ -1,10 +1,10 @@
 import {CollapsibleIndentedNode} from '../model/collapsibleIndentedNode';
-import {ViewProperties} from './viewProperties.component'
+import {ViewPropertiesComponent} from './viewProperties.component'
 
 export class NodeHelper {
 
     static add(
-        caller: ViewProperties,
+        caller: ViewPropertiesComponent,
         selection: d3.selection.Enter<CollapsibleIndentedNode>,
         source: CollapsibleIndentedNode,
         barHeight: number,
@@ -48,7 +48,7 @@ export class NodeHelper {
                         .style("width", "0%")
                         .style("white-space", "nowrap")
                             .append("div")
-                                .style("background-color", ViewProperties.ValueLabelColor)
+                                .style("background-color", ViewPropertiesComponent.ValueLabelColor)
                                 .style("display", "inline-block")
                                 .style("overflow", "hidden")
                                 .style("max-width", barWidth * 0.8)
@@ -63,7 +63,7 @@ export class NodeHelper {
                         .style("width", "100%")
                             .append("input")
                             .attr("type", "input")
-                            .style("background-color", ViewProperties.ValueColor) 
+                            .style("background-color", ViewPropertiesComponent.ValueColor) 
                             .style("padding","0 0 0 10")
                             .style("width", "100%")
                             .style("font-size", "14")

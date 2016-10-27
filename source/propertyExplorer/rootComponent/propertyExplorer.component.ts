@@ -4,7 +4,6 @@ import {SvgHelper} from '../../utils/d3Helpers/svgHelper';
 import {TransformToCollapsibleIndentedNode} from '../model/transformToCollapsibleIndentedNode';
 import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 import {CollapsibleIndentedNode} from '../model/collapsibleIndentedNode'
-import {JsInputComponent} from '../../jsInput/jsInput.component';
 import {JsonTransformationToken, JsonTransformationInterface} from '../../service/JsonTransformationService';
 
 @Component({
@@ -17,8 +16,7 @@ import {JsonTransformationToken, JsonTransformationInterface} from '../../servic
         KeyGenerator
     ],
 })
-
-export class PropertyExplorer {
+export class PropertyExplorerComponent {
     
     @Input() public data : any;
 

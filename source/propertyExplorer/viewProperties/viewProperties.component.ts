@@ -13,7 +13,7 @@ import {MarginInterface} from '../../utils/d3Helpers/margin.interface';
     templateUrl: './app/propertyExplorer/viewProperties/viewProperties.html',
     providers: [TransformToCollapsibleIndentedNode],
 })
-export class ViewProperties implements OnChanges {
+export class ViewPropertiesComponent implements OnChanges {
     @Input() data: any;
 
     public static get CollapsedColor() : string { return "tan"; }
@@ -79,8 +79,8 @@ export class ViewProperties implements OnChanges {
     };
 
     color = (node : CollapsibleIndentedNode) => {
-        let result = node.collapsedChildren && node.collapsedChildren.length > 0 ? ViewProperties.CollapsedColor :
-            node.children ? ViewProperties.ExpandedColor : ViewProperties.ValueLabelColor;
+        let result = node.collapsedChildren && node.collapsedChildren.length > 0 ? ViewPropertiesComponent.CollapsedColor :
+            node.children ? ViewPropertiesComponent.ExpandedColor : ViewPropertiesComponent.ValueLabelColor;
         return result;
     }
 

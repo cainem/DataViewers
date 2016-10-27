@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Collapse} from '../../collapsibleDiv/collapsibleDiv.component';
+import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 import {Gene} from '../../data/gene';
 import {LogicalReaderReturnComponent} from '../logicalReaderReturn/logicalReaderReturn.component'
 

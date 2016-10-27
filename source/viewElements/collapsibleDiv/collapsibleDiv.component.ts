@@ -1,7 +1,7 @@
 import {Directive, Input, HostBinding, ElementRef} from '@angular/core'
 
 @Directive({selector: '[collapse]'})
-export class Collapse { 
+export class CollapseDirective { 
 
   @HostBinding('class.collapsing') 
   @HostBinding('style.height') 

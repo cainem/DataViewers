@@ -2,7 +2,7 @@ import {Component, OnChanges, OnInit, Input, Output, EventEmitter, SimpleChange}
 import {ThreadViewDataset} from '../rootComponent/model/threadViewDataset';
 import {ThreadD3node} from '../threadsView/model/threadD3node';
 import {SvgHelper} from '../../utils/d3Helpers/svgHelper'
-import {ViewProperties} from '../../propertyExplorer/viewProperties/viewProperties.component';
+import {ViewPropertiesComponent} from '../../propertyExplorer/viewProperties/viewProperties.component';
 import {GeneSetD3node} from './model/geneSetD3node';
 import {ThreadMapNodeD3node} from './model/threadMapNodeD3node';
 import {ConnectionD3node} from './model/connectionD3node';
@@ -24,7 +24,7 @@ import * as d3 from 'd3';
         SelectedAssetTracker
     ]
 })
-export class ThreadView implements OnChanges { 
+export class ThreadViewComponent implements OnChanges { 
     @Input() data : ThreadViewDataset;   
     @Input() selectedIndex : number;
     @Output() selectedThread : ThreadD3node;    

@@ -6,7 +6,7 @@ import {LogicalThreadControlComponent} from '../logicalThreadControl/logicalThre
 import {LogicalThreadCreateComponent} from '../logicalThreadCreate/logicalThreadCreate.component';
 import {GenomePositionComponent} from '../genomePosition/genomePosition.component';
 import {LogicalReaderReturnDto} from '../../../data/AllDtos';
-import {Collapse} from '../../collapsibleDiv/collapsibleDiv.component';
+import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 
 
 @Component({

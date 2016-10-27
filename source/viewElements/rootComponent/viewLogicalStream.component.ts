@@ -1,5 +1,4 @@
 import {Component, Inject, EventEmitter} from '@angular/core';
-import {JsInputComponent} from '../../jsInput/jsInput.component';
 import {ChromosomeComponent} from '../../viewElements/components/chromosome/chromosome.component';
 import {TransformJsonToLogicalStream} from '../data/transformJsonToLogicalStream'
 import {LogicalReaderReturnDto} from '../../data/AllDtos';
@@ -12,7 +11,7 @@ import {JsonTransformationToken, JsonTransformationInterface} from '../../servic
         { provide : JsonTransformationToken, useClass: TransformJsonToLogicalStream }
     ],
 })
-export class ViewLogicalStream {          
+export class ViewLogicalStreamComponent {          
     public json : Chromosome[];    
     public onJsonChanged : (value : any) => void = (value: any) => {
         this.json = this.transformationService.transformJson(value);

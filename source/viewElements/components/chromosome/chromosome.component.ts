@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Collapse} from '../../collapsibleDiv/collapsibleDiv.component';
+import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 import {Chromosome} from '../../data/chromosome';
 import {GeneComponent} from '../gene/gene.component';
 

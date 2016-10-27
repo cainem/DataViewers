@@ -12,11 +12,10 @@ import {LogicalNodeFunctionComponent} from './components/logicalNodeFunction/log
 import {LogicalReaderReturnComponent} from './components/logicalReaderReturn/logicalReaderReturn.component';
 import {LogicalThreadControlComponent} from './components/logicalThreadControl/logicalThreadControl.component';
 import {LogicalThreadCreateComponent} from './components/logicalThreadCreate/logicalThreadCreate.component';
-import {ViewLogicalStream} from "./rootComponent/viewLogicalStream.component";
-import {WoollyKey} from './components/woollyKey/woollyKey.component';
-import {Collapse} from './collapsibleDiv/collapsibleDiv.component';
+import {ViewLogicalStreamComponent} from "./rootComponent/viewLogicalStream.component";
+import {WoollyKeyComponent} from './components/woollyKey/woollyKey.component';
+import {CollapseDirective} from './collapsibleDiv/collapsibleDiv.component';
 import {JsInputModule} from '../jsInput/jsInput.module';
-
 
 @NgModule({
     imports : [CommonModule, JsInputModule],
@@ -33,11 +32,11 @@ import {JsInputModule} from '../jsInput/jsInput.module';
      LogicalReaderReturnComponent,
      LogicalThreadControlComponent,
      LogicalThreadCreateComponent,
-     WoollyKey,
-     Collapse,
-     ViewLogicalStream
+     WoollyKeyComponent,
+     ViewLogicalStreamComponent,
+     CollapseDirective,
     ],
-    exports : [ ViewLogicalStream ],
+    exports : [ ViewLogicalStreamComponent ],
     providers : [ ]
 })
 export class ViewElementsModule { }

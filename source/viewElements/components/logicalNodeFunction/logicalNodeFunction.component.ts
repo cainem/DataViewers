@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {LogicalNodeFunctionDto} from '../../../data/AllDtos';
-import {Collapse} from '../../collapsibleDiv/collapsibleDiv.component';
+import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 
 
 @Component({

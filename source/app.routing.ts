@@ -1,28 +1,28 @@
 import { Routes, RouterModule, RouterLinkActive } from '@angular/router';
 
-import {ViewLogicalStream} from "./viewElements/rootComponent/viewLogicalStream.component";
-import {ViewMachine} from "./routerMenus/viewMachine/viewMachine.component";
-import {ViewThreadTree} from "./viewThreadTreeElements/rootComponent/viewThreadTree.component";
-import {PropertyExplorer} from './propertyExplorer/rootComponent/propertyExplorer.component';
+import {ViewLogicalStreamComponent} from "./viewElements/rootComponent/viewLogicalStream.component";
+import {ViewMachineComponent} from "./routerMenus/viewMachine/viewMachine.component";
+import {ViewThreadTreeComponent} from "./viewThreadTreeElements/rootComponent/viewThreadTree.component";
+import {PropertyExplorerComponent} from './propertyExplorer/rootComponent/propertyExplorer.component';
 // import {LogicalConnectionComponent} from './viewElements/components/logicalConnection/logicalConnection.component';
 // import {LogicalNodeComponent} from './viewElements/components/logicalNode/logicalNode.component';
 
 const appRoutes: Routes = [
   {
     path: 'viewLogicalStream',
-    component: ViewLogicalStream,    
+    component: ViewLogicalStreamComponent,    
   },
   {
     path : 'viewMachine',
-    component : ViewMachine
+    component : ViewMachineComponent
   },
   {
     path : 'viewThreadTree',
-    component : ViewThreadTree
+    component : ViewThreadTreeComponent
   },
   {
     path : 'propertyExplorer',
-    component : PropertyExplorer
+    component : PropertyExplorerComponent
   },
   {
     path: '',

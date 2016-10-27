@@ -6,7 +6,7 @@ import * as d3 from 'd3';
     templateUrl: './app/routerMenus/viewMachine/viewMachine.html',
     styleUrls: ['./app/routerMenus/viewMachine/viewMachine.css']
 })
-export class ViewMachine implements OnInit {
+export class ViewMachineComponent implements OnInit {
     
     //public data : LinksAndNodesData;
 

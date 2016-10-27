@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {WoollyKey} from '../woollyKey/woollyKey.component';
-import {Collapse} from '../../collapsibleDiv/collapsibleDiv.component';
+import {WoollyKeyComponent} from '../woollyKey/woollyKey.component';
+import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 import {LogicalConnectionDto} from '../../../data/AllDtos';
 
 
