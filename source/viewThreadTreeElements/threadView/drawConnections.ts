@@ -1,14 +1,17 @@
 import {GeneSetD3node} from './model/geneSetD3node';
 import {ConnectionD3node} from './model/connectionD3node';
-import {SelectedAssetTracker} from './model/assetTracker/selectedAssetTracker';
-import {SelectedAsset} from './model/assetTracker/selectedAsset'
+import {SelectedAssetTracker} from '../services/assetTracker/selectedAssetTracker';
+import {SelectedAsset} from '../services/assetTracker/selectedAsset'
 
 export class DrawConnections {
 
     static diagonal = d3.svg.diagonal<ConnectionD3node>()
             .projection((d : ConnectionD3node) => [d.y, d.x]);
 
-    static drawConnections(selectedAssetTracker : SelectedAssetTracker,  inputConnections : ConnectionD3node[], selectContext : d3.Selection<any>, className : string) {
+    static drawConnections(selectedAssetTracker : SelectedAssetTracker,
+        inputConnections : ConnectionD3node[],
+        selectContext : d3.Selection<any>,
+        className : string) {
 
         let radius = 10;
         let boundingHeight = 50;

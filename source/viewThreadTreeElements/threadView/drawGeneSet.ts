@@ -1,7 +1,7 @@
 import {GeneSetD3node} from './model/geneSetD3node';
 import {DrawThreadMapNode} from './drawThreadMapNode';
 import {ThreadMapNodeD3node} from './model/threadMapNodeD3node';
-import {SelectedAssetTracker} from './model/assetTracker/selectedAssetTracker';
+import {SelectedAssetTracker} from '../services/assetTracker/selectedAssetTracker';
 
 export class DrawGeneSet {
 

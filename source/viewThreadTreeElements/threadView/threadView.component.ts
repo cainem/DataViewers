@@ -10,7 +10,7 @@ import {GeneSetKeyDto} from '../../data/AllDtos';
 import {DrawGeneSetNodes} from './drawGeneSets';
 import {DrawThreadMapNode} from './drawThreadMapNode';
 import {SvgAssets} from './svgAssets';
-import {SelectedAssetTracker} from './model/assetTracker/selectedAssetTracker';
+import {SelectedAssetTracker} from '../services/assetTracker/selectedAssetTracker';
 import * as d3 from 'd3';
 
 /*
@@ -20,8 +20,7 @@ import * as d3 from 'd3';
     selector: 'thread-view',
     templateUrl: './app/viewThreadTreeElements/threadView/threadView.html',
     styleUrls: [ './app/viewThreadTreeElements/threadView/threadView.css'],
-    providers: [
-        SelectedAssetTracker
+    providers: [        
     ]
 })
 export class ThreadViewComponent implements OnChanges { 

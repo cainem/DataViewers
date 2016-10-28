@@ -5,6 +5,8 @@ import {ThreadViewComponent} from './threadView/threadView.component';
 import {ThreadsViewComponent} from './threadsView/threadsView.component';
 import {ViewThreadTreeComponent} from './rootComponent/viewThreadTree.component';
 import {PropertyExplorerModule} from '../propertyExplorer/propertyExplorer.module';
+import {SelectedAssetTracker} from './services/assetTracker/selectedAssetTracker';
+
 
 @NgModule({
     imports : [
@@ -18,6 +20,6 @@ import {PropertyExplorerModule} from '../propertyExplorer/propertyExplorer.modul
         ViewThreadTreeComponent
     ],
     exports : [ ViewThreadTreeComponent ],
-    providers : [ ]
+    providers : [ SelectedAssetTracker ]
 })
 export class ViewThreadTreeElementsModule { }

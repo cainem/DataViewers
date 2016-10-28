@@ -1,6 +1,6 @@
 import {ThreadMapNodeD3node} from './model/threadMapNodeD3node';
 import {DrawConnections} from './drawConnections';
-import {SelectedAssetTracker} from './model/assetTracker/selectedAssetTracker';
+import {SelectedAssetTracker} from '../services/assetTracker/selectedAssetTracker';
 
 
 export class DrawThreadMapNode {
