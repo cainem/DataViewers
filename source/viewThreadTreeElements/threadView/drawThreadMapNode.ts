@@ -1,6 +1,6 @@
 import {ThreadMapNodeD3node} from './model/threadMapNodeD3node';
 import {DrawConnections} from './drawConnections';
-import {SelectedAssetTracker} from '../services/assetTracker/selectedAssetTracker';
+import {SelectedAssetTrackerService} from '../services/assetTracker/selectedAssetTracker.service';
 
 
 export class DrawThreadMapNode {
@@ -9,7 +9,9 @@ export class DrawThreadMapNode {
         For each thread map node there is the need to draw the input and output connections.
         Each connection needs to be assigned a key
     */
-    static drawThreadMapNode(selectedAssetTracker : SelectedAssetTracker, threadMapNodeD3node : ThreadMapNodeD3node, selectContext : d3.Selection<any>) {
+    static drawThreadMapNode(selectedAssetTracker : SelectedAssetTrackerService,
+        threadMapNodeD3node : ThreadMapNodeD3node,
+        selectContext : d3.Selection<any>) {
         threadMapNodeD3node.inputConnections.forEach((c, i) => {
             c.id = i;
         })

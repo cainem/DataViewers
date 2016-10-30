@@ -1,11 +1,12 @@
 import {GeneSetD3node} from './model/geneSetD3node'
 import {DrawGeneSet} from './drawGeneSet';
 import {DrawThreadMapNode} from './drawThreadMapNode';
-import {SelectedAssetTracker} from '../services/assetTracker/selectedAssetTracker';
+import {SelectedAssetTrackerService} from '../services/assetTracker/selectedAssetTracker.service';
 
 export class DrawGeneSetNodes {
 
-    static drawGeneSets(selectedAssetTracker : SelectedAssetTracker, geneSetNodes : GeneSetD3node[]) {
+    static drawGeneSets(selectedAssetTracker : SelectedAssetTrackerService,
+        geneSetNodes : GeneSetD3node[]) {
 
         let edge = 10;
         let displacementRunningTotal = 10;

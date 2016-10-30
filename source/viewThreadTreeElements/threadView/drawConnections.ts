@@ -1,6 +1,6 @@
 import {GeneSetD3node} from './model/geneSetD3node';
 import {ConnectionD3node} from './model/connectionD3node';
-import {SelectedAssetTracker} from '../services/assetTracker/selectedAssetTracker';
+import {SelectedAssetTrackerService} from '../services/assetTracker/selectedAssetTracker.service';
 import {SelectedAsset} from '../services/assetTracker/selectedAsset'
 
 export class DrawConnections {
@@ -8,7 +8,7 @@ export class DrawConnections {
     static diagonal = d3.svg.diagonal<ConnectionD3node>()
             .projection((d : ConnectionD3node) => [d.y, d.x]);
 
-    static drawConnections(selectedAssetTracker : SelectedAssetTracker,
+    static drawConnections(selectedAssetTracker : SelectedAssetTrackerService,
         inputConnections : ConnectionD3node[],
         selectContext : d3.Selection<any>,
         className : string) {
@@ -33,16 +33,8 @@ export class DrawConnections {
             .attr("fill", "green");
 
         connectiong.append("circle")
-            .attr("fill", "green")
+            //.attr("fill", "green")
             .on("click", function(d) {
-                // unselect all
-                // inputConnections.forEach((c, i) => {
-                //     c.isSelected = false;
-                // });
-
-                //d.isSelected = true;
-                //d3.select(this).attr("fill", "red");
-                //connectiong.select("circle").attr("fill", d => d.isSelected ? "red" : "green");
                 selectedAssetTracker.currentlySelectedAsset = new SelectedAsset(d3.select(this), d);
             });
 

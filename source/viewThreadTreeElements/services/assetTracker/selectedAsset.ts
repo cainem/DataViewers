@@ -13,5 +13,4 @@ export class SelectedAsset {
 
     constructor(private _selectionContext : d3.Selection<any>, private _selected : Selectable) {
     }
-
 }

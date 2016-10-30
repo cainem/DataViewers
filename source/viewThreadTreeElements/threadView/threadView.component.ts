@@ -10,7 +10,7 @@ import {GeneSetKeyDto} from '../../data/AllDtos';
 import {DrawGeneSetNodes} from './drawGeneSets';
 import {DrawThreadMapNode} from './drawThreadMapNode';
 import {SvgAssets} from './svgAssets';
-import {SelectedAssetTracker} from '../services/assetTracker/selectedAssetTracker';
+import {SelectedAssetTrackerService} from '../services/assetTracker/selectedAssetTracker.service';
 import * as d3 from 'd3';
 
 /*
@@ -53,7 +53,7 @@ export class ThreadViewComponent implements OnChanges {
     private lastSelectedIndex : number = -1;
     private currentGeneSets : GeneSetD3node[] = null;
 
-    constructor(private selectedAssetTracker : SelectedAssetTracker) {
+    constructor(private selectedAssetTracker : SelectedAssetTrackerService) {
         this.svgHelper = new SvgHelper();
 
         this.classLeft = this.class6;

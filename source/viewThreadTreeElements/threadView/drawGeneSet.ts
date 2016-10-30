@@ -1,7 +1,7 @@
 import {GeneSetD3node} from './model/geneSetD3node';
 import {DrawThreadMapNode} from './drawThreadMapNode';
 import {ThreadMapNodeD3node} from './model/threadMapNodeD3node';
-import {SelectedAssetTracker} from '../services/assetTracker/selectedAssetTracker';
+import {SelectedAssetTrackerService} from '../services/assetTracker/selectedAssetTracker.service';
 
 export class DrawGeneSet {
 
@@ -13,7 +13,9 @@ export class DrawGeneSet {
         It draws a circle for each node and two boxes either side containing the input and output connections
 
     */
-    static drawGeneSet(selectedAssetTracker : SelectedAssetTracker, geneSetD3node : GeneSetD3node, selectContext : d3.Selection<any>) {
+    static drawGeneSet(selectedAssetTracker : SelectedAssetTrackerService,
+        geneSetD3node : GeneSetD3node,
+        selectContext : d3.Selection<any>) {
 
         geneSetD3node.threadMapNodeD3nodes.forEach((threadMapNode, i) =>
         {

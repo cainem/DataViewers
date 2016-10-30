@@ -1,11 +1,15 @@
 import {Injectable} from '@angular/core';
 import {SelectedAsset} from './selectedAsset';
+import {WindowGetPropertyValueService} from './windowGetPropertyValue.service';
 
 @Injectable()
-export class SelectedAssetTracker {
+export class SelectedAssetTrackerService {
     private _currentlySelectedAsset : SelectedAsset;
     private _previouslySelectedAsset: SelectedAsset;
     private _previousFillColor : string;
+
+    constructor(private _windowGetPropertyValueService : WindowGetPropertyValueService) {        
+    }
 
     public get currentlySelectedAsset() : SelectedAsset {
         return this._currentlySelectedAsset;
@@ -19,11 +23,7 @@ export class SelectedAssetTracker {
             }
         }
 
-        if (value.selectionContext.node().attributes['fill'] && value.selectionContext.node().attributes['fill'].nodeValue) {
-            this._previousFillColor = value.selectionContext.node().attributes['fill'].nodeValue;
-        } else {
-            throw("element must have its fill color set to work as a selectable");
-        }
+        this._previousFillColor = this._windowGetPropertyValueService.getPropertyValue(<Element>value.selectionContext.node(), "fill");
         value.selectionContext.attr("fill", "red");
         value.selected.isSelected = true;
 
