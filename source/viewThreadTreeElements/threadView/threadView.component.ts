@@ -53,8 +53,10 @@ export class ThreadViewComponent implements OnChanges {
     private lastSelectedIndex : number = -1;
     private currentGeneSets : GeneSetD3node[] = null;
 
-    constructor(private selectedAssetTracker : SelectedAssetTrackerService) {
+    constructor(private _selectedAssetTracker : SelectedAssetTrackerService) {
         this.svgHelper = new SvgHelper();
+
+        this._selectedAssetTracker.selectedChanged.subscribe(item => this.selectedThread = <ThreadD3node>item.selected);
 
         this.classLeft = this.class6;
         this.classRight = this.class6;
@@ -119,7 +121,7 @@ export class ThreadViewComponent implements OnChanges {
         //     .attr("height", height);
 
         //let geneSets = this.getGeneSetNode();
-        DrawGeneSetNodes.drawGeneSets(this.selectedAssetTracker, this.currentGeneSets);
+        DrawGeneSetNodes.drawGeneSets(this._selectedAssetTracker, this.currentGeneSets);
 
     }
 
