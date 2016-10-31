@@ -1,5 +1,5 @@
-import {ThreadMapThreadDto} from '../../../data/generatedTypescript/ThreadMapThreadDto';
-import {GeneSetD3node} from '../../threadView/model/geneSetD3node';
+import {ThreadMapThreadDto} from '../../data/generatedTypescript/ThreadMapThreadDto';
+import {GeneSetD3node} from './geneSetD3node';
 
 /*
     This class represents a (d3) node witin the thread view.

@@ -1,4 +1,4 @@
-import {ThreadD3node} from './model/threadD3node';
+import {ThreadD3node} from '../model/threadD3node';
 
 /*
     This class helps build the links for the threadsView component

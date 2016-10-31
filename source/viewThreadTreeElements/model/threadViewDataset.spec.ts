@@ -1,5 +1,5 @@
 import { ThreadViewDataset } from './ThreadViewDataset';
-import { ThreadD3node } from '../../threadsView/model/threadD3node';
+import { ThreadD3node } from './threadD3node';
 
 describe('ThreadViewDataset tests', () => {
     describe("findThreadInThreadById", () => {

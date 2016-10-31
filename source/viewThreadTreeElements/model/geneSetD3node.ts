@@ -1,4 +1,4 @@
-import {GeneSetKeyDto} from '../../../data/AllDtos';
+import {GeneSetKeyDto} from '../../data/AllDtos';
 import {ThreadMapNodeD3node} from './threadMapNodeD3node';
 
 /*

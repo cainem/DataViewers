@@ -1,5 +1,5 @@
 
-import { ThreadD3node } from '../../threadsView/model/threadD3node'
+import { ThreadD3node } from './threadD3node'
 
 /*
     This class is responsible for holding the a reference to the root thread.

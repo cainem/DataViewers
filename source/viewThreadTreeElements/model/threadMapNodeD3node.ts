@@ -1,5 +1,5 @@
 import {ConnectionD3node} from './connectionD3node';
-import {ThreadMapThreadDto} from '../../../data/AllDtos';
+import {ThreadMapThreadDto} from '../../data/AllDtos';
 
 /*
     This class holds the information to draw thread map nodes in d3

@@ -1,4 +1,4 @@
-import {ThreadMapThreadDto, ThreadMapThreadKeyDto} from '../../../data/AllDtos'
+import {ThreadMapThreadDto, ThreadMapThreadKeyDto} from '../../data/AllDtos'
 
 /*
     This class is responsible for holding the ThreadMapThreadDto and its children

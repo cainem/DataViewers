@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ThreadMapThreadDto, LazyThreadMapThreadReferenceDto, ThreadMapThreadKeyDto} from '../../../data/AllDtos'
+import {ThreadMapThreadDto, LazyThreadMapThreadReferenceDto, ThreadMapThreadKeyDto} from '../../data/AllDtos'
 import {ThreadMapThreadDtoWithChildren} from './ThreadMapThreadDtoWithChildren';
 import {KeyedThreadMapInterface} from './keyedThreadMap.interface';
 

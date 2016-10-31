@@ -1,5 +1,5 @@
-import {GeneSetD3node} from './model/geneSetD3node';
-import {ConnectionD3node} from './model/connectionD3node';
+import {GeneSetD3node} from '../model/geneSetD3node';
+import {ConnectionD3node} from '../model/connectionD3node';
 import {SelectedAssetTrackerService} from '../services/assetTracker/selectedAssetTracker.service';
 import {SelectedAsset} from '../services/assetTracker/selectedAsset'
 

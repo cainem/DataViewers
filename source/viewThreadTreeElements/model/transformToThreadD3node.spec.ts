@@ -1,9 +1,9 @@
 import {ThreadViewDataset} from './threadViewDataset';
-import {ThreadD3node} from '../../threadsView/model/threadD3node';
+import {ThreadD3node} from './threadD3node';
 import {TransformToThreadD3node} from './transformToThreadD3node';
-import {KeyGenerator} from '../../../service/keyGenerator/keyGenerator';
+import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
 import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
-import {ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto} from '../../../data/AllDtos';
+import {ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto} from '../../data/AllDtos';
 import {MapCreator} from './mapCreator';
 
 

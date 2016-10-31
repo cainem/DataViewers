@@ -1,11 +1,11 @@
 import { ThreadViewDataset } from './threadViewDataset';
-import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto, ThreadMapRootDto } from '../../../data/AllDtos';
+import { ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto, ThreadMapRootDto } from '../../data/AllDtos';
 import { TransformJsonToThreadViewDataset } from './transformJsonToThreadViewDataset';
 import { ThreadMapThreadDtoWithChildren } from './threadMapThreadDtoWithChildren';
 import { MapCreator } from './mapCreator';
 import { KeyedThreadMapInterface } from './keyedThreadMap.interface';
 import { TransformToThreadD3node } from './transformToThreadD3node';
-import { ThreadD3node } from '../../threadsView/model/ThreadD3node';
+import { ThreadD3node } from './ThreadD3node';
 
 
 describe('TransformJsonToThreadViewDataset tests', () => {
