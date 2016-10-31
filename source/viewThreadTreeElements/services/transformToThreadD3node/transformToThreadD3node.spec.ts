@@ -1,11 +1,10 @@
-import {ThreadViewDataset} from './threadViewDataset';
-import {ThreadD3node} from './threadD3node';
-import {TransformToThreadD3node} from './transformToThreadD3node';
-import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
-import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
-import {ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto} from '../../data/AllDtos';
-import {MapCreator} from './mapCreator';
-
+import {ThreadViewDataset} from '../threadViewDataset';
+import {ThreadD3node} from '../threadD3node';
+import {TransformToThreadD3node} from '../transformToThreadD3node/transformToThreadD3node';
+import {KeyGenerator} from '../../../service/keyGenerator/keyGenerator';
+import {ThreadMapThreadDtoWithChildren} from '../threadMapThreadDtoWithChildren';
+import {ThreadMapThreadDto, ThreadMapThreadKeyDto, LazyThreadMapThreadReferenceDto} from '../../../data/AllDtos';
+import {MapCreator} from '../mapCreator';
 
 describe('TransformToThreadD3node tests', () => {
     describe("createThreadD3node", () => {

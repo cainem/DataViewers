@@ -1,4 +1,4 @@
-import {GeneSetD3node} from '../model/geneSetD3node'
+import {GeneSetD3node} from '../services/geneSetD3node'
 import {DrawGeneSet} from './drawGeneSet';
 import {DrawThreadMapNode} from './drawThreadMapNode';
 import {SelectedAssetTrackerService} from '../services/assetTracker/selectedAssetTracker.service';

@@ -1,11 +1,11 @@
 import {Component, OnChanges, OnInit, Input, Output, EventEmitter, SimpleChange} from '@angular/core';
-import {ThreadViewDataset} from '../model/threadViewDataset';
-import {ThreadD3node} from '../model/threadD3node';
+import {ThreadViewDataset} from '../services/threadViewDataset';
+import {ThreadD3node} from '../services/threadD3node';
 import {SvgHelper} from '../../utils/d3Helpers/svgHelper'
 import {ViewPropertiesComponent} from '../../propertyExplorer/viewProperties/viewProperties.component';
-import {GeneSetD3node} from '../model/geneSetD3node';
-import {ThreadMapNodeD3node} from '../model/threadMapNodeD3node';
-import {ConnectionD3node} from '../model/connectionD3node';
+import {GeneSetD3node} from '../services/geneSetD3node';
+import {ThreadMapNodeD3node} from '../services/threadMapNodeD3node';
+import {ConnectionD3node} from '../services/connectionD3node';
 import {GeneSetKeyDto} from '../../data/AllDtos';
 import {DrawGeneSetNodes} from './drawGeneSets';
 import {DrawThreadMapNode} from './drawThreadMapNode';

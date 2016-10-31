@@ -1,4 +1,4 @@
-import {ConvertToGeneSetD3Nodes} from './convertToGeneSetD3nodes.service';
+import {ConvertToGeneSetD3Nodes} from './transformToGeneSetD3nodes.service';
 
 describe('ConvertToGeneSetD3nodesService tests', () => {
     describe("convert", () => {

@@ -1,9 +1,9 @@
 import {Injectable, Inject} from '@angular/core';
-import {ThreadMapRootDto, ThreadMapThreadDto} from '../../data/AllDtos';
-import {KeyGenerator} from '../../service/keyGenerator/keyGenerator';
-import {ThreadD3node} from './ThreadD3node';
-import {ThreadMapThreadDtoWithChildren} from './threadMapThreadDtoWithChildren';
-import {KeyedThreadMapInterface} from './keyedThreadMap.interface';
+import {ThreadMapRootDto, ThreadMapThreadDto} from '../../../data/AllDtos';
+import {KeyGenerator} from '../../../service/keyGenerator/keyGenerator';
+import {ThreadD3node} from '../ThreadD3node';
+import {ThreadMapThreadDtoWithChildren} from '../threadMapThreadDtoWithChildren';
+import {KeyedThreadMapInterface} from '../keyedThreadMap.interface';
 
 /*
     This class is responsible for turning the hierarchical threadMapThreadDtoWithChildren into the hierarchical

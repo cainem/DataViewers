@@ -3,7 +3,7 @@ import {JsonTransformationInterface} from '../../service/jsonTransformationServi
 import {ThreadMapRootDto} from '../../data/AllDtos';
 import {ThreadViewDataset} from './threadViewDataset';
 import {MapCreator} from './mapCreator';
-import {TransformToThreadD3node} from './transformToThreadD3node';
+import {TransformToThreadD3node} from './transformToThreadD3node/transformToThreadD3node';
 import {ThreadViewDatasetCreator, ThreadViewDatasetCreatorToken} from './threadViewDatasetCreator';
 /*
     This class is responsible is transforming a ThreadMapRootDto into a ThreadViewDataset

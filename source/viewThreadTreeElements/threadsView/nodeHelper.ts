@@ -1,4 +1,4 @@
-import {ThreadD3node} from '../model/threadD3node';
+import {ThreadD3node} from '../services/threadD3node';
 
 export class NodeHelper {
     static drawNodes (selection : d3.Selection<ThreadD3node> | d3.selection.Enter<ThreadD3node>) : d3.Selection<ThreadD3node> {
