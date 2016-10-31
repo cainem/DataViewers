@@ -4,8 +4,6 @@ import {ViewLogicalStreamComponent} from "./viewElements/rootComponent/viewLogic
 import {ViewMachineComponent} from "./routerMenus/viewMachine/viewMachine.component";
 import {ViewThreadTreeComponent} from "./viewThreadTreeElements/rootComponent/viewThreadTree.component";
 import {PropertyExplorerComponent} from './propertyExplorer/rootComponent/propertyExplorer.component';
-// import {LogicalConnectionComponent} from './viewElements/components/logicalConnection/logicalConnection.component';
-// import {LogicalNodeComponent} from './viewElements/components/logicalNode/logicalNode.component';
 
 const appRoutes: Routes = [
   {

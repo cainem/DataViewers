@@ -24,9 +24,9 @@ import * as d3 from 'd3';
     ]
 })
 export class ThreadViewComponent implements OnChanges { 
+    public selectedThread : ThreadD3node;    
     @Input() data : ThreadViewDataset;   
     @Input() selectedIndex : number;
-    @Output() selectedThread : ThreadD3node;    
     @Output() hidingChanged : EventEmitter<boolean> = new EventEmitter<boolean>();
 
     @Input() public set showOuterLeft(value : boolean) {
@@ -56,7 +56,9 @@ export class ThreadViewComponent implements OnChanges {
     constructor(private _selectedAssetTracker : SelectedAssetTrackerService) {
         this.svgHelper = new SvgHelper();
 
-        this._selectedAssetTracker.selectedChanged.subscribe(item => this.selectedThread = <ThreadD3node>item.selected);
+        this._selectedAssetTracker.selectedChanged.subscribe(item => { 
+            this.selectedThread = <ThreadD3node>item.selected;
+            });
 
         this.classLeft = this.class6;
         this.classRight = this.class6;
@@ -112,17 +114,7 @@ export class ThreadViewComponent implements OnChanges {
     } 
 
     public render = (newValue : ThreadD3node[]) => {     
-
-        // let height = Math.max(500, nodes.length * this.barHeight + this.margin.top + this.margin.bottom);
-        // // recalculate the height of the required area (minimum 500)
-        // d3.select("#d3ProperyExplorer").select("svg")
-        //     .transition()
-        //     .duration(this.duration)
-        //     .attr("height", height);
-
-        //let geneSets = this.getGeneSetNode();
         DrawGeneSetNodes.drawGeneSets(this._selectedAssetTracker, this.currentGeneSets);
-
     }
 
     public toggleLeft = (event) => {

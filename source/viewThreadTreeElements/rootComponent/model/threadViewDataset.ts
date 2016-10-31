@@ -8,7 +8,10 @@ import { ThreadD3node } from '../../threadsView/model/threadD3node'
     and therefore it indirectly holds a reference to all of the threads.
 */
 export class ThreadViewDataset {
-    public rootThread : ThreadD3node;
+
+    constructor(public rootThread : ThreadD3node) {
+        this.rootThread = rootThread;
+    }
 
     findThreadById = (id : number) => {
         return this.findThreadInThreadById(this.rootThread, id);
@@ -32,9 +35,4 @@ export class ThreadViewDataset {
         //not found
         return null;
     }
-
-    constructor(rootThread : ThreadD3node) {
-        this.rootThread = rootThread;
-    }
-
 }
