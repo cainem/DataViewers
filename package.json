@@ -9,11 +9,11 @@
     "tsc:w": "tsc -w",
     "typings": "typings",
     "lite-server-test": "lite-server --config=liteserver-test-config.json",
-    "test": "tsc && concurrently \"npm run tsc:w\" \"npm run lite-server-test\" "    
+    "test": "tsc && concurrently \"npm run tsc:w\" \"npm run lite-server-test\" "
   },
   "license": "ISC",
   "dependencies": {
-  "@angular/common": "~2.1.0",
+    "@angular/common": "~2.1.0",
     "@angular/compiler": "~2.1.0",
     "@angular/core": "~2.1.0",
     "@angular/forms": "~2.1.0",
@@ -22,7 +22,6 @@
     "@angular/platform-browser-dynamic": "~2.1.0",
     "@angular/router": "~3.1.0",
     "@angular/upgrade": "~2.1.0",
-
     "systemjs": "0.19.39",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
@@ -33,7 +32,11 @@
     "d3": "^3.5.17"
   },
   "devDependencies": {
+    "browser-sync": "^2.17.5",
     "concurrently": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-typescript": "^3.1.2",
     "jasmine-core": "2.4.1",
     "lite-server": "^2.2.2",
     "typescript": "^2.0.3",

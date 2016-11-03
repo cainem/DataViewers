@@ -11,5 +11,4 @@
         public internalGeneSets: GeneSetDto[];
         public key: ThreadMapThreadKeyDto;
         public lifeManager: ThreadLifeManagerDto;
-        public threadPosition: ThreadPositionDto;
     }

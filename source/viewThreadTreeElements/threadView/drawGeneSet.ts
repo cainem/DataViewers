@@ -17,11 +17,11 @@ export class DrawGeneSet {
         geneSetD3node : GeneSetD3node,
         selectContext : d3.Selection<any>) {
 
-        geneSetD3node.threadMapNodeD3nodes.forEach((threadMapNode, i) =>
-        {
-            threadMapNode.id = i;
-            threadMapNode.index = i;
-        });
+        // geneSetD3node.threadMapNodeD3nodes.forEach((threadMapNode, i) =>
+        // {
+        //     threadMapNode.id = i;
+        //     threadMapNode.index = i;
+        // });
 
         let threadMapNodeg = selectContext
             .selectAll("g.threadMapNode")

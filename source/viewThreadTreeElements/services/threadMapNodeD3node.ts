@@ -10,7 +10,6 @@ export class ThreadMapNodeD3node {
     public inputConnections : ConnectionD3node[];
     public outputConnections : ConnectionD3node[];
 
-    public index : number = -1
     public id : number;
 
     get spacingOfThreadMapNode() : number {
@@ -22,11 +21,7 @@ export class ThreadMapNodeD3node {
     } 
 
     displacementOfThreadMapNode = () => {
-        if (this.index < 0) {
-            throw "Index not set";
-        }
-
-        return (this.index * (this.heightOfThreadMapNode + this.spacingOfThreadMapNode)) + this.spacingOfThreadMapNode;
+        return ((this.id - 1) * (this.heightOfThreadMapNode + this.spacingOfThreadMapNode)) + this.spacingOfThreadMapNode;
     }
 
 }

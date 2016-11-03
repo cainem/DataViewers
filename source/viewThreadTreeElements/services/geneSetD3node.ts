@@ -8,7 +8,6 @@ export class GeneSetD3node {
     private cachedHeightOfGeneSet : number = -1;
 
     public id : number;
-    public index: number;
 
     public geneSetKeyDto : GeneSetKeyDto;
     public threadMapNodeD3nodes : ThreadMapNodeD3node[];
