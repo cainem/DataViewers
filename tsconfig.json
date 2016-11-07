@@ -8,12 +8,16 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
-    "strictNullChecks": true,
-    "outDir" : "./app"
+    //"strictNullChecks": true,
+    "outDir" : "./app",
+    "typeRoots" : [
+      "node_modules/@types"
+    ]
   },
-  "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
+  "include" : [
+    //"typings/d3/index.d.ts"
+  ],
+  "exclude": [    
+    "node_modules"
   ]
 }

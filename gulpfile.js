@@ -6,13 +6,11 @@ var gulp = require("gulp"),
 var tsProject = tsc.createProject("tsconfig.json");
 
 gulp.task("build-ts", function() {
-    return gulp.src([
-            "source/**/**.ts",
-            "typings/main.d.ts/",
-            "source/interfaces/interfaces.d.ts"
-        ])
+    return gulp.src("source/**/**.ts"            //"typings/main.d.ts/",
+            //"source/interfaces/interfaces.d.ts"
+        )
         .pipe(sourcemaps.init())
-        .pipe(tsc(tsProject))
+        .pipe(tsProject())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest("app/"));
 });   
