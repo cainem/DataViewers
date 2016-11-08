@@ -11,7 +11,7 @@ export class DrawGeneSetNodes {
         let edge = 10;
         let displacementRunningTotal = 10;
         geneSetNodes.forEach((node, i) => {
-            // node.id = i;
+            node.id = i;
             // node.index = i;
             displacementRunningTotal += node.spacingOfGeneSets;
             node.y = displacementRunningTotal;

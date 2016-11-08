@@ -21,7 +21,7 @@ export class ThreadMapNodeD3node {
     } 
 
     displacementOfThreadMapNode = () => {
-        return ((this.id - 1) * (this.heightOfThreadMapNode + this.spacingOfThreadMapNode)) + this.spacingOfThreadMapNode;
+        return ((this.id) * (this.heightOfThreadMapNode + this.spacingOfThreadMapNode)) + this.spacingOfThreadMapNode;
     }
 
 }

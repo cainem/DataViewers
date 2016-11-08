@@ -34,10 +34,10 @@ export class ViewThreadTreeComponent {
     public class6 : string = "col-md-6 expanded";
     public collapsedClass : string = "col-md-1 collapsed";
     public class11 : string = "col-md-11 expanded"
-    public classLeft : string;
-    public classRight : string;
-    public leftButtonText : string;
-    public rightButtonText : string;
+    public classLeft : string = "";
+    public classRight : string = "";
+    public leftButtonText : string = "";
+    public rightButtonText : string = "";
 
     public selectedIndex : number;
 

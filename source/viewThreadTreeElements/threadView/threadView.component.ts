@@ -50,7 +50,7 @@ export class ThreadViewComponent implements OnChanges {
     public rightButtonText : string;
     private _showOuterLeft: boolean;
     private svgHelper : SvgHelper; 
-    private lastSelectedIndex : number = -1;
+    private lastSelectedIndex : number;
     private currentGeneSets : GeneSetD3node[] = null;
 
     constructor(private _selectedAssetTracker : SelectedAssetTrackerService) {

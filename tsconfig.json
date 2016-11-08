@@ -15,6 +15,7 @@
     ]
   },
   "include" : [
+    "source/**/*"
     //"typings/d3/index.d.ts"
   ],
   "exclude": [    
