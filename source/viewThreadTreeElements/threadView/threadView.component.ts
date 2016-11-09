@@ -24,7 +24,7 @@ import * as d3 from 'd3';
     ]
 })
 export class ThreadViewComponent implements OnChanges { 
-    public selectedThread : ThreadD3node;    
+    public selectedThread : ThreadD3node | null;    
     @Input() data : ThreadViewDataset;   
     @Input() selectedIndex : number;
     @Output() hidingChanged : EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -51,14 +51,15 @@ export class ThreadViewComponent implements OnChanges {
     private _showOuterLeft: boolean;
     private svgHelper : SvgHelper; 
     private lastSelectedIndex : number;
-    private currentGeneSets : GeneSetD3node[] = null;
+    private currentGeneSets : GeneSetD3node[] = [];
 
     constructor(private _selectedAssetTracker : SelectedAssetTrackerService) {
         this.svgHelper = new SvgHelper();
 
         this._selectedAssetTracker.selectedChanged.subscribe(item => { 
-            this.selectedThread = <ThreadD3node>item.selected;
-            });
+            if (item.hasValue) {
+                this.selectedThread = <ThreadD3node>item.selected;
+            }});
 
         this.classLeft = this.class6;
         this.classRight = this.class6;
@@ -108,7 +109,7 @@ export class ThreadViewComponent implements OnChanges {
                     SvgAssets.addArrowHead("threadViewContainer");
                 }
 
-                this.render(null);
+                this.render([]);
             }
         }
     } 

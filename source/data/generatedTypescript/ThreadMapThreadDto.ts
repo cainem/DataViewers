@@ -7,7 +7,7 @@
 
   export class ThreadMapThreadDto { 
         public creationGeneSet: GeneSetKeyDto;
-        public lazyParentThread: LazyThreadMapThreadReferenceDto;
+        public lazyParentThread: LazyThreadMapThreadReferenceDto | null;
         public internalGeneSets: GeneSetDto[];
         public key: ThreadMapThreadKeyDto;
         public lifeManager: ThreadLifeManagerDto;

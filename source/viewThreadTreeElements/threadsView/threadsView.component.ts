@@ -71,7 +71,10 @@ export class ThreadsViewComponent implements OnInit, OnChanges {
         this.selectDataObjectChanged.next(selected);
 
         if (this.lastSelected !== -1) {
-            this.data.findThreadById(this.lastSelected).isSelected = false;
+            let thread = this.data.findThreadById(this.lastSelected);
+            if (thread) {
+                thread.isSelected = false;
+            }
         }
 
         // set isSelected on the selected node

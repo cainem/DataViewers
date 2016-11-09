@@ -29,7 +29,7 @@ describe('TransformToThreadD3node tests', () => {
         expect(result.id).toEqual(1);
         expect(result.depth).toEqual(0);
         expect(result.threadMapThread).toEqual(thread1);
-        expect(result.geneSets).toBeNull();
+        expect(result.geneSets.length).toEqual(0);
 
     })
     ,it("single root node with one child, transforms as expected", () =>  {

@@ -6,32 +6,25 @@ import { MapCreator } from './mapCreator';
 import { KeyedThreadMapInterface } from './keyedThreadMap.interface';
 import { TransformToThreadD3node } from './transformToThreadD3node/transformToThreadD3node';
 import { ThreadD3node } from './ThreadD3node';
+import { KeyGenerator } from './../../service/keyGenerator/keyGenerator';
 
 
 describe('TransformJsonToThreadViewDataset tests', () => {
     describe("typedTransformJson", () => {
-    it("when null ThreadMapRootDto is passed in returns throws", () =>  {
-            let target = new TransformJsonToThreadViewDataset(null, null, null);
-
-            let threadMapRootDto = null;
-
-            expect(target.typedTransformJson.bind(threadMapRootDto)).
-                toThrow('json not valid');
-        })
-    ,it("calls map creator as expected (1)", () =>  {
+    it("calls map creator as expected (1)", () =>  {
 
             var calledWithAllThreads;
             var calledWithMap1;
             var calledWithRootThreadMapThreadDto;
             var calledWithRootThreadD3Node;
 
-            let rootThreadMapThreadDtoWithChildren = new ThreadMapThreadDtoWithChildren(null); 
+            let rootThreadMapThreadDtoWithChildren = new ThreadMapThreadDtoWithChildren(new ThreadMapThreadDto()); 
             let mapResultMock : KeyedThreadMapInterface = 
             {
             };
             mapResultMock["key"] = rootThreadMapThreadDtoWithChildren; 
 
-            let threadViewDatasetMock = new ThreadViewDataset(null);
+            let threadViewDatasetMock = new ThreadViewDataset(new ThreadD3node());
             let rootNode = new ThreadD3node();
             let mapCreatorMock : MapCreator = {
                 createThreadMapThreadDtoWithChildrenMap : (allThreads : ThreadMapThreadDto[]) => {
@@ -47,7 +40,7 @@ describe('TransformJsonToThreadViewDataset tests', () => {
                     return rootNode;
                 },
                 createThreadD3node : (allThreads) => new ThreadD3node(),
-                keyGeneratorService : null
+                keyGeneratorService : new KeyGenerator()
             };
             let threadViewDatasetFactoryMock = {
                 create : (rootThread) => {

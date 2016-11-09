@@ -10,7 +10,7 @@ export class SelectedAssetTrackerService {
     private _previouslySelectedAsset: SelectedAsset;
     private _previousFillColor : string;
 
-    public selectedChanged : BehaviorSubject<SelectedAsset> = new BehaviorSubject(new SelectedAsset(null, null)); 
+    public selectedChanged : BehaviorSubject<SelectedAsset> = new BehaviorSubject(new SelectedAsset()); 
 
     constructor(private _windowGetPropertyValueService : WindowGetPropertyValueService) {        
     }

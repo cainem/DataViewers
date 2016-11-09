@@ -1,8 +1,8 @@
 export class CollapsibleIndentedNode {
     name : string;
-    children : CollapsibleIndentedNode[];
+    children : CollapsibleIndentedNode[] | undefined;
     isCollapsed : boolean;
-    parent : CollapsibleIndentedNode;
+    parent : CollapsibleIndentedNode | undefined;
     x : number;
     y : number;
     id : number;
@@ -14,10 +14,10 @@ export class CollapsibleIndentedNode {
         this.x = 0;
         this.y = 0;
         this.isCollapsed = false;
-        this.children = null;
+        this.children = undefined;
         this.collapsedChildren = [];
-        this.value = null;
-        this.parent = null;        
+        this.value = 0;
+        this.parent = undefined;        
     }
 
 }

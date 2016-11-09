@@ -7,7 +7,7 @@ var gulp = require("gulp"),
 var tsProject = tsc.createProject("tsconfig.json", { sourceMap : false });
 
 gulp.task("build-ts", function() {
-    return gulp.src("source/**/**.ts")
+    return gulp.src("source/**/*.ts")
         .pipe(sourcemaps.init())
         .pipe(tsProject())
         .pipe(sourcemaps.write({

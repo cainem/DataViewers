@@ -28,7 +28,7 @@ export class TransformToCollapsibleIndentedNode implements JsonTransformationInt
                     child.value = value;
                     child.parent = result;
                     // this is a leaf node; it has no children
-                    child.collapsedChildren = null;                    
+                    child.collapsedChildren = new Array<CollapsibleIndentedNode>();                    
                     result.collapsedChildren.push(child);
                 }
                 else

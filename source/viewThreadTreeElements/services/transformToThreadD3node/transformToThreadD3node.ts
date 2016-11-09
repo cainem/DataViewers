@@ -30,7 +30,7 @@ export class TransformToThreadD3node {
         threadD3Node.id = this.keyGeneratorService.getNextKey();
         threadD3Node.threadMapThread = threadMapThreadDtoWithChildren.threadMapThreadDto;
         threadD3Node.childThreads = [];
-        threadD3Node.geneSets = null;
+        threadD3Node.geneSets = [];
 
         if (threadMapThreadDtoWithChildren.children && threadMapThreadDtoWithChildren.children.length > 0) {
             for(let i = 0; i < threadMapThreadDtoWithChildren.children.length; i++) {

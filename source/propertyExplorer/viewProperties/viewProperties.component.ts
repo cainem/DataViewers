@@ -44,7 +44,7 @@ export class ViewPropertiesComponent implements OnChanges {
             .projection(d => { return [d.y, d.x]; });
 
         // define a function to get a nodes children
-        this.tree.children((d: CollapsibleIndentedNode) => d.children);
+        this.tree.children((d: CollapsibleIndentedNode) =>  d.children ? d.children : new Array<CollapsibleIndentedNode>());
 
         this.margin = { top: 30, right: 20, bottom: 30, left: 20 };
         this.width = 960 - this.margin.left - this.margin.right;
@@ -87,10 +87,10 @@ export class ViewPropertiesComponent implements OnChanges {
     click = (data: CollapsibleIndentedNode) => {
         if (data.children) {
             data.collapsedChildren = data.children;
-            data.children = null;
+            data.children = undefined;
         } else {
             data.children = data.collapsedChildren;
-            data.collapsedChildren = null;
+            data.collapsedChildren = new Array<CollapsibleIndentedNode>();
         }
         this.update(data);
     }

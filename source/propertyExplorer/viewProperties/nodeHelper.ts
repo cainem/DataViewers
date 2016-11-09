@@ -22,7 +22,7 @@ export class NodeHelper {
 
                 var header : d3.Selection<CollapsibleIndentedNode> = d3.select(this);
 
-                if (e.children || e.collapsedChildren) {
+                if (e.children || e.collapsedChildren.length > 0) {
                     header.append("div")
                         .style("background-color", caller.color)
                         .style("padding", "0 10 0 4")
@@ -86,15 +86,16 @@ export class NodeHelper {
 
     static ancestoryText(data : CollapsibleIndentedNode) {
 
-        if (data.parent === null) {
+        if (data.parent === undefined) {
             return data.name;
         }
 
-        let recurse : (d : CollapsibleIndentedNode, building : string) => string = (d : CollapsibleIndentedNode, building : string) => {           
+        let recurse : (d : CollapsibleIndentedNode | undefined, building : string) => string = (d : CollapsibleIndentedNode, building : string) => {               
             building = d.name + '->' + building;
-            if (d.parent !== null) {
+            if (d.parent) {
                 return recurse(d.parent, building)
             }
+
             return building;
         }
 
