@@ -12,14 +12,16 @@
     "skipLibCheck": true,
     "outDir" : "./app",
     "typeRoots" : [
-      "node_modules/@types"
+      "./node_modules/@types"
     ]
   },
+  "compileOnSave": true,
   "include" : [
-    "source/**/*"
+    //"source/**/*"
     //"typings/d3/index.d.ts"
   ],
   "exclude": [    
-    "node_modules"
+    "node_modules/*",
+    "**/*-aot.ts"    
   ]
 }

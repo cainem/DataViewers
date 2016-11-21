@@ -1,4 +1,4 @@
-import { ThreadViewDataset } from './ThreadViewDataset';
+import { ThreadViewDataset } from './threadViewDataset';
 import { ThreadD3node } from './threadD3node';
 
 describe('ThreadViewDataset tests', () => {

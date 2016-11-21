@@ -5,7 +5,7 @@ import { ThreadMapThreadDtoWithChildren } from './threadMapThreadDtoWithChildren
 import { MapCreator } from './mapCreator';
 import { KeyedThreadMapInterface } from './keyedThreadMap.interface';
 import { TransformToThreadD3node } from './transformToThreadD3node/transformToThreadD3node';
-import { ThreadD3node } from './ThreadD3node';
+import { ThreadD3node } from './threadD3node';
 import { KeyGenerator } from './../../service/keyGenerator/keyGenerator';
 
 

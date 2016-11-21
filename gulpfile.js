@@ -17,17 +17,23 @@ gulp.task("build-ts", function() {
                 return path.relative(path.dirname(sourceFile), file.cwd);
             }
         }))
-        .pipe(gulp.dest("app/"));
+        .pipe(gulp.dest("built/app"));
 });   
+
+gulp.task('copy', function() {
+    return gulp.src(['source/systemjs.config.js', 'source/index.html', 'source/styles.css'])
+        .pipe(gulp.dest("built/"))
+});
 
 gulp.task('build-html', function () {
     return gulp.src('source/**/*.html')
-        .pipe(gulp.dest("app/"));
+        .pipe(gulp.dest("built/app/"));
 });
 
 gulp.task('build-css', function () {
     return gulp.src('source/**/*.css')
-        .pipe(gulp.dest("app/"));
+        .pipe(gulp.dest("built/app/"));
 });
 
-gulp.task("build", [ 'build-ts', 'build-html', 'build-css'])
+gulp.task("build", [ 'copy', 'build-ts', 'build-html', 'build-css'])
+//gulp.task("build", [ 'copy' ]);
