@@ -4,6 +4,12 @@ module.exports = function(config) {
     basePath: '',
 
     frameworks: ['jasmine'],
+    plugins: [
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
+      require('karma-jasmine-html-reporter'), // click "Debug" in browser to see it
+      require('karma-htmlfile-reporter') // crashing w/ strange socket error
+    ],    
 
     files: [
       // Polyfills.
@@ -55,7 +61,13 @@ module.exports = function(config) {
       "/built/app/": "/base/built/app/"
     },
 
-    reporters: ['progress'],
+    reporters: ['progress', 'kjhtml'],
+    htmlReporter: {
+      outputFile : '_test-output/test.html',
+      // Optional
+      pageTitle: 'Unit Tests',
+      subPageTitle: __dirname
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
