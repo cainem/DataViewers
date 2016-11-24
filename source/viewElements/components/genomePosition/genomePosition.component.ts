@@ -4,8 +4,8 @@ import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 
 @Component({
     selector: 'genomePosition',
-    templateUrl: './app/viewElements/components/genomePosition/genomePosition.html',
-    styleUrls: ['./app/viewElements/components/genomePosition/genomePosition.css']
+    templateUrl: './viewElements/components/genomePosition/genomePosition.html',
+    styleUrls: ['./viewElements/components/genomePosition/genomePosition.css']
 })
 export class GenomePositionComponent {
     @Input() model : GenomePositionDto    

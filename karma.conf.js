@@ -58,7 +58,7 @@ module.exports = function(config) {
     // proxied base paths
     proxies: {
       // required for component assests fetched by Angular's compiler
-      "/built/app/": "/base/built/app/"
+      "/built/app/": "/base/built/"
     },
 
     reporters: ['progress', 'kjhtml'],

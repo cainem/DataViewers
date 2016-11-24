@@ -7,8 +7,8 @@ import {LogicalImplicitConnectionSettingsComponent} from '../logicalImplicitConn
 
 @Component({
     selector: 'logicalNode',
-    templateUrl: './app/viewElements/components/logicalNode/logicalNode.html',
-    styleUrls: ['./app/viewElements/components/logicalNode/logicalNode.css']
+    templateUrl: './viewElements/components/logicalNode/logicalNode.html',
+    styleUrls: ['./viewElements/components/logicalNode/logicalNode.css']
 })
 export class LogicalNodeComponent {    
     @Input() model : LogicalNodeDto    

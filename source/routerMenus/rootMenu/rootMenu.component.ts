@@ -9,7 +9,7 @@ import {PropertyExplorerComponent} from '../../propertyExplorer/rootComponent/pr
 
 @Component({
     selector: 'rootMenu',
-    templateUrl: './app/routerMenus/rootMenu/rootMenu.html',
+    templateUrl: './routerMenus/rootMenu/rootMenu.html',
     providers: [ 
     ],
 })

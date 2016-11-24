@@ -5,8 +5,8 @@ import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 
 @Component({
     selector: 'logicalImplicitConnectionSettings',
-    templateUrl: './app/viewElements/components/logicalImplicitConnectionSettings/logicalImplicitConnectionSettings.html',
-    styleUrls: ['./app/viewElements/components/logicalImplicitConnectionSettings/logicalImplicitConnectionSettings.css']
+    templateUrl: './viewElements/components/logicalImplicitConnectionSettings/logicalImplicitConnectionSettings.html',
+    styleUrls: ['./viewElements/components/logicalImplicitConnectionSettings/logicalImplicitConnectionSettings.css']
 })
 export class LogicalImplicitConnectionSettingsComponent {    
     @Input() model : LogicalImplicitConnectionSettingsDto    

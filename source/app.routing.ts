@@ -23,7 +23,7 @@ const appRoutes: Routes = [
     component : PropertyExplorerComponent
   },
   {
-    path: '',
+    path: 'built',
     redirectTo: '/viewLogicalStream',
     pathMatch: 'full'
   }

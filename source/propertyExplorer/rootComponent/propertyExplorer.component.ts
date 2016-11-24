@@ -8,7 +8,7 @@ import {JsonTransformationToken, JsonTransformationInterface} from '../../servic
 
 @Component({
     selector: 'property-explorer',
-    templateUrl: './app/propertyExplorer/rootComponent/propertyExplorer.html',
+    templateUrl: './propertyExplorer/rootComponent/propertyExplorer.html',
     providers: 
     [
         TransformToCollapsibleIndentedNode,

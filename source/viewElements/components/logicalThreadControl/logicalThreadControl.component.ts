@@ -6,8 +6,8 @@ import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 
 @Component({
     selector: 'logicalThreadControl',
-    templateUrl: './app/viewElements/components/logicalThreadControl/logicalThreadControl.html',
-    styleUrls: ['./app/viewElements/components/logicalThreadControl/logicalThreadControl.css']
+    templateUrl: './viewElements/components/logicalThreadControl/logicalThreadControl.html',
+    styleUrls: ['./viewElements/components/logicalThreadControl/logicalThreadControl.css']
 })
 export class LogicalThreadControlComponent {    
     @Input() model : LogicalThreadControlDto    

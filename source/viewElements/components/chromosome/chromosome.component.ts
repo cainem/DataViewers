@@ -5,8 +5,8 @@ import {GeneComponent} from '../gene/gene.component';
 
 @Component({
     selector: 'chromosome',
-    templateUrl: './app/viewElements/components/chromosome/chromosome.html',
-    styleUrls: ['./app/viewElements/components/chromosome/chromosome.css']
+    templateUrl: './viewElements/components/chromosome/chromosome.html',
+    styleUrls: ['./viewElements/components/chromosome/chromosome.css']
 })
 export class ChromosomeComponent {
     @Input() model : Chromosome;

@@ -6,8 +6,8 @@ import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 
 @Component({
     selector: 'logicalJump',
-    templateUrl: './app/viewElements/components/logicalJump/logicalJump.html',
-    styleUrls: ['./app/viewElements/components/logicalJump/logicalJump.css']
+    templateUrl: './viewElements/components/logicalJump/logicalJump.html',
+    styleUrls: ['./viewElements/components/logicalJump/logicalJump.css']
 })
 export class LogicalJumpComponent {    
     @Input() model : LogicalJumpDto    
