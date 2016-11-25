@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch localhost with sourcemaps",
+            "name": "Launch localhost - server must be running",
             "type": "chrome",
             "request": "launch",
             "url": "http://localhost:3000/built/index.html",
@@ -14,12 +14,13 @@
             "webRoot": "${workspaceRoot}"
         },
         {
-            "name": "Launch tests",
+            "name": "Launch tests - karma server must be running",
             "type": "chrome",
-            "request": "launch",
-            "url": "http://localhost:9876/debug.html",
+            "request": "attach",
+            "port" : 9222,
+            "verboseDiagnosticLogging": true,
             "sourceMaps": true,
-            "webRoot": "${workspaceRoot}"
+            "webRoot": "${workspaceRoot}/built/"
         }
     ]
 }
