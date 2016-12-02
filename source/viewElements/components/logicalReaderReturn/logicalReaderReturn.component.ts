@@ -11,9 +11,9 @@ import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 
 @Component({
     selector: 'logicalReaderReturn',
-    templateUrl: './viewElements/components/logicalReaderReturn/logicalReaderReturn.html',
+    templateUrl: './built/viewElements/components/logicalReaderReturn/logicalReaderReturn.html',
     providers : [],
-    styleUrls: ['./viewElements/components/logicalReaderReturn/logicalReaderReturn.css']
+    styleUrls: ['./built/viewElements/components/logicalReaderReturn/logicalReaderReturn.css']
     
 })
 export class LogicalReaderReturnComponent {

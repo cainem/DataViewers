@@ -3,7 +3,7 @@ import {WrappedJson} from  './wrappedJson';
 
 @Component({
     selector: 'jsInput',
-    templateUrl: './jsInput/jsInput.html'
+    templateUrl: './built/jsInput/jsInput.html'
 })
 export class JsInputComponent {
         

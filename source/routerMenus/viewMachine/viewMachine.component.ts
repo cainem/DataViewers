@@ -3,8 +3,8 @@ import {Component, OnInit} from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
-    templateUrl: './routerMenus/viewMachine/viewMachine.html',
-    styleUrls: ['./routerMenus/viewMachine/viewMachine.css']
+    templateUrl: './built/routerMenus/viewMachine/viewMachine.html',
+    styleUrls: ['./built/routerMenus/viewMachine/viewMachine.css']
 })
 export class ViewMachineComponent implements OnInit {
     

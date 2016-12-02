@@ -6,7 +6,7 @@ import {Chromosome} from '../../viewElements/data/chromosome';
 import {JsonTransformationToken, JsonTransformationInterface} from '../../service/JsonTransformationService';
 
 @Component({
-    templateUrl: './viewElements/rootComponent/viewLogicalStream.html',
+    templateUrl: './built/viewElements/rootComponent/viewLogicalStream.html',
     providers: [   
         { provide : JsonTransformationToken, useClass: TransformJsonToLogicalStream }
     ],

@@ -15,8 +15,8 @@ import * as d3 from 'd3';
     This component is the top level component responsible for arranging the page with the various views
 */
 @Component({
-    templateUrl: './viewThreadTreeElements/rootComponent/viewThreadTree.html',
-    styleUrls: ['./viewThreadTreeElements/rootComponent/viewThreadTree.css'],
+    templateUrl: './built/viewThreadTreeElements/rootComponent/viewThreadTree.html',
+    styleUrls: ['./built/viewThreadTreeElements/rootComponent/viewThreadTree.css'],
     providers: [ 
         { provide : JsonTransformationToken, useClass: TransformJsonToThreadViewDataset },
         { provide : "ThreadViewDatasetCreatorToken", useClass : ThreadViewDatasetCreator },

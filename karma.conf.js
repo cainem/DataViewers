@@ -58,7 +58,15 @@ module.exports = function(config) {
     // proxied base paths
     proxies: {
       // required for component assests fetched by Angular's compiler
-      "/built/app/": "/base/built/"
+      "/built/": "/built/"
+    },
+
+    customLaunchers : {
+      chrome_with_debug : {
+        base: 'Chrome',
+        flags: ['--remote-debugging-port=9222'],
+        displayName : 'Chrome with debugger'
+      }
     },
 
     reporters: ['progress', 'kjhtml'],
@@ -72,7 +80,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['chrome_with_debug'],
     singleRun: false
   })
 }

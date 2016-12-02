@@ -10,7 +10,7 @@ import {MarginInterface} from '../../utils/d3Helpers/margin.interface';
 
 @Component({
     selector: 'view-properties',
-    templateUrl: './propertyExplorer/viewProperties/viewProperties.html',
+    templateUrl: './built/propertyExplorer/viewProperties/viewProperties.html',
     providers: [TransformToCollapsibleIndentedNode],
 })
 export class ViewPropertiesComponent implements OnChanges {

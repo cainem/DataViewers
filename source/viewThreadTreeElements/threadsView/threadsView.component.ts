@@ -12,8 +12,8 @@ import * as d3 from 'd3';
 */
 @Component({
     selector: 'threads-view',
-    templateUrl: './viewThreadTreeElements/threadsView/threadsView.html',
-    styleUrls: ['./viewThreadTreeElements/threadsView/threadsView.css'],
+    templateUrl: './built/viewThreadTreeElements/threadsView/threadsView.html',
+    styleUrls: ['./built/viewThreadTreeElements/threadsView/threadsView.css'],
 })
 export class ThreadsViewComponent implements OnInit, OnChanges {  
     @Input() data : ThreadViewDataset;

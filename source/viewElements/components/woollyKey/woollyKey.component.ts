@@ -4,8 +4,8 @@ import {CollapseDirective} from '../../collapsibleDiv/collapsibleDiv.component';
 
 @Component({
     selector: 'woollyKey',
-    templateUrl: './viewElements/components/woollyKey/woollyKey.html',
-    styleUrls: ['./viewElements/components/woollyKey/woollyKey.css']
+    templateUrl: './built/viewElements/components/woollyKey/woollyKey.html',
+    styleUrls: ['./built/viewElements/components/woollyKey/woollyKey.css']
 })
 export class WoollyKeyComponent {
     @Input() model: WoollyKeyDto;

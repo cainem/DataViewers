@@ -1,5 +1,6 @@
 import {NgModule}           from '@angular/core';
 import {CommonModule}       from '@angular/common';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {JsInputModule} from '../jsInput/jsInput.module';
 import {ThreadViewComponent} from './threadView/threadView.component';
 import {ThreadsViewComponent} from './threadsView/threadsView.component';
@@ -21,6 +22,8 @@ import {WindowGetPropertyValueService} from './services/assetTracker/windowGetPr
         ViewThreadTreeComponent
     ],
     exports : [ ViewThreadTreeComponent ],
-    providers : [ SelectedAssetTrackerService, WindowGetPropertyValueService ]
+    providers : [ SelectedAssetTrackerService, WindowGetPropertyValueService,
+        { provide: LocationStrategy, useClass: HashLocationStrategy }
+ ]
 })
 export class ViewThreadTreeElementsModule { }

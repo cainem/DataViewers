@@ -18,8 +18,8 @@ import * as d3 from 'd3';
 */
 @Component({
     selector: 'thread-view',
-    templateUrl: './viewThreadTreeElements/threadView/threadView.html',
-    styleUrls: ['./viewThreadTreeElements/threadView/threadView.css'],
+    templateUrl: './built/viewThreadTreeElements/threadView/threadView.html',
+    styleUrls: ['./built/viewThreadTreeElements/threadView/threadView.css'],
     providers: [        
     ]
 })
