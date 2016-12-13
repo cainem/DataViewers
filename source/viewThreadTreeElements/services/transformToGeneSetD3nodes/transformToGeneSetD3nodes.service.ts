@@ -28,12 +28,12 @@ export class ConvertToGeneSetD3Nodes {
         outputConnection.id = 1;
         outputConnection.threadMapConnectionBaseDto = selectedThreadMapThread.internalGeneSets[0].threadMapNodes[0].pendingConnectionList.outputConnections[0];
 
-        threadMapNodeD3node.threadMapThreadDto = selectedThreadMapThread;
+        threadMapNodeD3node.threadMapNodeDto = selectedThreadMapThread.internalGeneSets[0].threadMapNodes[0];
         threadMapNodeD3node.outputConnections.push(outputConnection);
         threadMapNodeD3node.inputConnections.push(inputConnection);
         geneSetD3node.threadMapNodeD3nodes.push(threadMapNodeD3node);        
         resultArray.push(geneSetD3node); 
 
-        return new Array<GeneSetD3node>();
+        return resultArray;
     }
 }
