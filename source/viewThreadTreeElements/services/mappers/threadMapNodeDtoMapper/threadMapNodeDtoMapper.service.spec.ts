@@ -14,7 +14,10 @@ describe('ThreadMapNodeDtoMapperService tests', () => {
            let pendingConnectionListDtoMapperService : PendingConnectionListDtoMapperService = <any>{
                 convertInputConnections : (p) => {
                     return new Array<ConnectionD3node>();
-                }
+                },
+                convertOutputConnections : (p) => {
+                    return new Array<ConnectionD3node>();
+                }                
            } 
 
            let target = new ThreadMapNodeDtoMapperService(keyGenerator, pendingConnectionListDtoMapperService);
@@ -31,7 +34,10 @@ describe('ThreadMapNodeDtoMapperService tests', () => {
            let pendingConnectionListDtoMapperService : PendingConnectionListDtoMapperService = <any>{
                 convertInputConnections : (p) => {
                     return new Array<ConnectionD3node>();
-                }
+                },
+                convertOutputConnections : (p) => {
+                    return new Array<ConnectionD3node>();
+                }                
            } 
 
            let target = new ThreadMapNodeDtoMapperService(keyGenerator, pendingConnectionListDtoMapperService);
@@ -53,6 +59,9 @@ describe('ThreadMapNodeDtoMapperService tests', () => {
                 convertInputConnections : (p) => {
                     pendingConnectionsInput = p;
                     return outputArray;        
+                },
+                convertOutputConnections : (p) => {
+                    return new Array<ConnectionD3node>();
                 }
            } 
 
@@ -67,6 +76,58 @@ describe('ThreadMapNodeDtoMapperService tests', () => {
 
            expect(pendingConnectionsInput).toBe(data.pendingConnectionList);
            expect(result.inputConnections).toBe(outputArray);
+        }),
+        it("Convertion calls pendingConnectionListDtoMapper to map output connections", () =>  {
+           let keyGenerator = new KeyGenerator();
+           
+           let pendingConnectionsOutput = null;
+           let outputArray = new Array<ConnectionD3node>();
+           outputArray.push(new ConnectionD3node());
+
+           let pendingConnectionListDtoMapperService : PendingConnectionListDtoMapperService = <any>{
+                convertInputConnections : (p) => {
+                    return new Array<ConnectionD3node>();
+                },
+                convertOutputConnections : (po) => {
+                    pendingConnectionsOutput = po;
+                    return outputArray;        
+                } 
+           } 
+
+           let target = new ThreadMapNodeDtoMapperService(keyGenerator, pendingConnectionListDtoMapperService);
+
+           let data = new ThreadMapNodeDto();
+           data.pendingConnectionList = new PendingConnectionListDto();
+           let inputConnections = new Array<ThreadMapConnectionBaseDto>();
+
+           var result = target.convert(data);
+
+           expect(pendingConnectionsOutput).toBe(data.pendingConnectionList);
+           expect(result.outputConnections).toBe(outputArray);
+        }),
+        it("Convertion copies threadMapNodeDto into appropriate holding property", () =>  {
+           let keyGenerator = new KeyGenerator();
+           
+           let pendingConnectionListDtoMapperService : PendingConnectionListDtoMapperService = <any>{
+                convertInputConnections : (p) => {
+                    return new Array<ConnectionD3node>();
+                },
+                convertOutputConnections : (po) => {
+                    return new Array<ConnectionD3node>();
+                } 
+           } 
+
+           let target = new ThreadMapNodeDtoMapperService(keyGenerator, pendingConnectionListDtoMapperService);
+
+           let data = new ThreadMapNodeDto();
+           data.pendingConnectionList = new PendingConnectionListDto();
+           let inputConnections = new Array<ThreadMapConnectionBaseDto>();
+           data.pendingConnectionList.inputConnections = inputConnections;
+
+           var result = target.convert(data);
+
+           expect(result.threadMapNodeDto).toBe(data);
         })                       
+                                                              
     })
 });

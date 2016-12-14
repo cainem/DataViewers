@@ -11,10 +11,12 @@ export class ThreadMapNodeDtoMapperService {
         public pendingConnectionListDtoMapperService : PendingConnectionListDtoMapperService) {
     }
 
-    public convert(threadMapThreadDto : ThreadMapNodeDto) : ThreadMapNodeD3node {
+    public convert(threadMapNodeDto : ThreadMapNodeDto) : ThreadMapNodeD3node {
         let result = new ThreadMapNodeD3node();
         result.id = this.keyGenerator.getNextKey();
-        result.inputConnections = this.pendingConnectionListDtoMapperService.convertInputConnections(threadMapThreadDto.pendingConnectionList);
+        result.inputConnections = this.pendingConnectionListDtoMapperService.convertInputConnections(threadMapNodeDto.pendingConnectionList);
+        result.outputConnections = this.pendingConnectionListDtoMapperService.convertOutputConnections(threadMapNodeDto.pendingConnectionList);
+        result.threadMapNodeDto = threadMapNodeDto;
         return result;
     }
 }
