@@ -68,7 +68,7 @@ export class ThreadViewComponent implements OnChanges {
         this.onShowChange(); 
     }
 
-    ngOnChanges(data : {[key: string]: SimpleChange;}) {
+    ngOnChanges(changes : {[key: string]: SimpleChange;}) {
 
         // an external change could have driven the ngOnChanges so recheck.
         this.onShowChange();
