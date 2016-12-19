@@ -4,7 +4,9 @@ import {ThreadMapNodeD3node} from '../../threadMapNodeD3node';
 import {ConnectionD3node} from '../../connectionD3node';
 import {KeyGenerator} from '../../../../service/keyGenerator/keyGenerator';
 import {PendingConnectionListDtoMapperService} from '../pendingConnectionListDtoMapper/pendingConnectionListDtoMapper.service';
+import {Injectable, EventEmitter} from '@angular/core';
 
+@Injectable()
 export class ThreadMapNodeDtoMapperService {
 
     constructor(public keyGenerator : KeyGenerator,

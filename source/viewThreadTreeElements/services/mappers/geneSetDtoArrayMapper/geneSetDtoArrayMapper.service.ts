@@ -1,7 +1,9 @@
+import {Injectable, EventEmitter} from '@angular/core';
 import {ThreadMapThreadDto, GeneSetDto} from '../../../../data/AllDtos';
 import {GeneSetDtoMapperService} from '../geneSetDtoMapper/geneSetDtoMapper.service';
 import {GeneSetD3node} from '../../geneSetD3node';
 
+@Injectable()
 export class GeneSetDtoArrayMapperService {
 
     constructor(public geneSetDtoMapperService : GeneSetDtoMapperService) {

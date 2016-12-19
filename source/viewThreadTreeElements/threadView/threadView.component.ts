@@ -11,6 +11,7 @@ import {DrawGeneSetNodes} from './drawGeneSets';
 import {DrawThreadMapNode} from './drawThreadMapNode';
 import {SvgAssets} from './svgAssets';
 import {SelectedAssetTrackerService} from '../services/assetTracker/selectedAssetTracker.service';
+import {GeneSetDtoArrayMapperService} from '../services/mappers/geneSetDtoArrayMapper/geneSetDtoArrayMapper.service';
 import * as d3 from 'd3';
 
 /*
@@ -53,10 +54,11 @@ export class ThreadViewComponent implements OnChanges {
     private lastSelectedIndex : number;
     private currentGeneSets : GeneSetD3node[] = [];
 
-    constructor(private _selectedAssetTracker : SelectedAssetTrackerService) {
+    constructor(private selectedAssetTracker : SelectedAssetTrackerService,
+        private geneSetDtoArrayMapperService : GeneSetDtoArrayMapperService) {
         this.svgHelper = new SvgHelper();
 
-        this._selectedAssetTracker.selectedChanged.subscribe(item => { 
+        this.selectedAssetTracker.selectedChanged.subscribe(item => { 
             if (item.hasValue) {
                 this.selectedThread = <ThreadD3node>item.selected;
             }});
@@ -115,7 +117,7 @@ export class ThreadViewComponent implements OnChanges {
     } 
 
     public render = (newValue : ThreadD3node[]) => {     
-        DrawGeneSetNodes.drawGeneSets(this._selectedAssetTracker, this.currentGeneSets);
+        DrawGeneSetNodes.drawGeneSets(this.selectedAssetTracker, this.currentGeneSets);
     }
 
     public toggleLeft = (event) => {
@@ -140,129 +142,138 @@ export class ThreadViewComponent implements OnChanges {
 
     // this is currently just test data
     getGeneSetNode = () => {
+        let result = new Array<GeneSetD3node>();
 
-        /*
-            Gene set 1
-        */
-        let geneSetNode1 = new GeneSetD3node();
-        geneSetNode1.geneSetKeyDto = new GeneSetKeyDto();
-        geneSetNode1.geneSetKeyDto.shortFormKey = "0.0";
-        let threadMapNode1_1 = new ThreadMapNodeD3node();
-        threadMapNode1_1.inputConnections = [
-            new ConnectionD3node()
-        ];
-        threadMapNode1_1.outputConnections = [
-            // new ConnectionD3node(),
-            // new ConnectionD3node()
-        ];
-        let threadMapNode1_2 = new ThreadMapNodeD3node();
-        threadMapNode1_2.inputConnections = [
-            // new ConnectionD3node()
-        ];
-        threadMapNode1_2.outputConnections = [
-            // new ConnectionD3node(),
-            // new ConnectionD3node()
-        ];
-        geneSetNode1.threadMapNodeD3nodes = 
-        [
-            threadMapNode1_1,
-            threadMapNode1_2,
-        ];
-
-        /*
-            Gene set 2
-        */
-        let geneSetNode2 = new GeneSetD3node();
-        geneSetNode2.geneSetKeyDto = new GeneSetKeyDto();
-        geneSetNode2.geneSetKeyDto.shortFormKey = "0.1";
-        let threadMapNode2_1 = new ThreadMapNodeD3node();
-        threadMapNode2_1.inputConnections = [
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-        ];
-        threadMapNode2_1.outputConnections = [
-            new ConnectionD3node(),
-            new ConnectionD3node()
-        ];
-        let threadMapNode2_2 = new ThreadMapNodeD3node();
-        threadMapNode2_2.inputConnections = [
-            new ConnectionD3node()
-        ];
-        threadMapNode2_2.outputConnections = [
-            new ConnectionD3node(),
-            new ConnectionD3node()
-        ];
-        let threadMapNode2_3 = new ThreadMapNodeD3node();
-        threadMapNode2_3.inputConnections = [
-            new ConnectionD3node()
-        ];
-        threadMapNode2_3.outputConnections = [
-            new ConnectionD3node(),
-            new ConnectionD3node()
-        ];
-        
-        geneSetNode2.threadMapNodeD3nodes = 
-        [
-            threadMapNode2_1,
-            threadMapNode2_2,
-            threadMapNode2_3,
-        ];
-
-
-        /*
-            Gene set 3
-        */
-        let geneSetNode3 = new GeneSetD3node();
-        geneSetNode3.geneSetKeyDto = new GeneSetKeyDto();
-        geneSetNode3.geneSetKeyDto.shortFormKey = "0.2";
-        let threadMapNode3_1 = new ThreadMapNodeD3node();
-        threadMapNode3_1.inputConnections = [
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node(),
-            new ConnectionD3node()
-        ];
-        threadMapNode3_1.outputConnections = [
-            new ConnectionD3node(),
-            new ConnectionD3node()
-        ];
-        let threadMapNode3_2 = new ThreadMapNodeD3node();
-        threadMapNode3_2.inputConnections = [
-            new ConnectionD3node()
-        ];
-        threadMapNode3_2.outputConnections = [
-            new ConnectionD3node(),
-            new ConnectionD3node()
-        ];
-        geneSetNode3.threadMapNodeD3nodes = 
-        [
-            threadMapNode3_1,
-            threadMapNode3_2,
-        ];
-
-
-        /*
-            Combine all gene sets into one array
-        */
-        let result : GeneSetD3node[] = 
-        [
-            geneSetNode1,
-            geneSetNode2,
-            geneSetNode3,
-        ];
+        if (this.selectedThread) {
+            result.concat(this.geneSetDtoArrayMapperService.convert(this.selectedThread.threadMapThread.internalGeneSets));
+        }
 
         return result;
+
+        // let x = this.selectedThread.threadMapThread;
+
+        // /*
+        //     Gene set 1
+        // */
+        // let geneSetNode1 = new GeneSetD3node();
+        // geneSetNode1.geneSetKeyDto = new GeneSetKeyDto();
+        // geneSetNode1.geneSetKeyDto.shortFormKey = "0.0";
+        // let threadMapNode1_1 = new ThreadMapNodeD3node();
+        // threadMapNode1_1.inputConnections = [
+        //     new ConnectionD3node()
+        // ];
+        // threadMapNode1_1.outputConnections = [
+        //     // new ConnectionD3node(),
+        //     // new ConnectionD3node()
+        // ];
+        // let threadMapNode1_2 = new ThreadMapNodeD3node();
+        // threadMapNode1_2.inputConnections = [
+        //     // new ConnectionD3node()
+        // ];
+        // threadMapNode1_2.outputConnections = [
+        //     // new ConnectionD3node(),
+        //     // new ConnectionD3node()
+        // ];
+        // geneSetNode1.threadMapNodeD3nodes = 
+        // [
+        //     threadMapNode1_1,
+        //     threadMapNode1_2,
+        // ];
+
+        // /*
+        //     Gene set 2
+        // */
+        // let geneSetNode2 = new GeneSetD3node();
+        // geneSetNode2.geneSetKeyDto = new GeneSetKeyDto();
+        // geneSetNode2.geneSetKeyDto.shortFormKey = "0.1";
+        // let threadMapNode2_1 = new ThreadMapNodeD3node();
+        // threadMapNode2_1.inputConnections = [
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        // ];
+        // threadMapNode2_1.outputConnections = [
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node()
+        // ];
+        // let threadMapNode2_2 = new ThreadMapNodeD3node();
+        // threadMapNode2_2.inputConnections = [
+        //     new ConnectionD3node()
+        // ];
+        // threadMapNode2_2.outputConnections = [
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node()
+        // ];
+        // let threadMapNode2_3 = new ThreadMapNodeD3node();
+        // threadMapNode2_3.inputConnections = [
+        //     new ConnectionD3node()
+        // ];
+        // threadMapNode2_3.outputConnections = [
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node()
+        // ];
+        
+        // geneSetNode2.threadMapNodeD3nodes = 
+        // [
+        //     threadMapNode2_1,
+        //     threadMapNode2_2,
+        //     threadMapNode2_3,
+        // ];
+
+
+        // /*
+        //     Gene set 3
+        // */
+        // let geneSetNode3 = new GeneSetD3node();
+        // geneSetNode3.geneSetKeyDto = new GeneSetKeyDto();
+        // geneSetNode3.geneSetKeyDto.shortFormKey = "0.2";
+        // let threadMapNode3_1 = new ThreadMapNodeD3node();
+        // threadMapNode3_1.inputConnections = [
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node()
+        // ];
+        // threadMapNode3_1.outputConnections = [
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node()
+        // ];
+        // let threadMapNode3_2 = new ThreadMapNodeD3node();
+        // threadMapNode3_2.inputConnections = [
+        //     new ConnectionD3node()
+        // ];
+        // threadMapNode3_2.outputConnections = [
+        //     new ConnectionD3node(),
+        //     new ConnectionD3node()
+        // ];
+        // geneSetNode3.threadMapNodeD3nodes = 
+        // [
+        //     threadMapNode3_1,
+        //     threadMapNode3_2,
+        // ];
+
+
+        // /*
+        //     Combine all gene sets into one array
+        // */
+        // let result : GeneSetD3node[] = 
+        // [
+        //     geneSetNode1,
+        //     geneSetNode2,
+        //     geneSetNode3,
+        // ];
+
+        // return result;
 
     }
 

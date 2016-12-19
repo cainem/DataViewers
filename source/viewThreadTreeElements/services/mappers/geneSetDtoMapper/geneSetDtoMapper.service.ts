@@ -4,7 +4,9 @@ import {ThreadMapNodeD3node} from '../../threadMapNodeD3node';
 import {ConnectionD3node} from '../../connectionD3node';
 import {KeyGenerator} from '../../../../service/keyGenerator/keyGenerator';
 import {ThreadMapNodeDtoMapperService} from '../threadMapNodeDtoMapper/threadMapNodeDtoMapper.service';
+import {Injectable, EventEmitter} from '@angular/core';
 
+@Injectable()
 export class GeneSetDtoMapperService {
 
     constructor(public keyGenerator : KeyGenerator,

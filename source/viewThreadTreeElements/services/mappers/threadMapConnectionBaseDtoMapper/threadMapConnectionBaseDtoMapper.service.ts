@@ -2,7 +2,9 @@ import {ThreadMapConnectionBaseDto} from '../../../../data/AllDtos';
 import {GeneSetD3node} from '../../geneSetD3node';
 import {ConnectionD3node} from '../../connectionD3node';
 import {KeyGenerator} from '../../../../service/keyGenerator/keyGenerator';
+import {Injectable, EventEmitter} from '@angular/core';
 
+@Injectable()
 export class ThreadMapConnectionBaseDtoMapperService {
 
     constructor(public keyGenerator : KeyGenerator) {
