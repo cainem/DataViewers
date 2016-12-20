@@ -2,6 +2,7 @@ import {GeneSetD3node} from '../services/geneSetD3node';
 import {DrawThreadMapNode} from './drawThreadMapNode';
 import {ThreadMapNodeD3node} from '../services/threadMapNodeD3node';
 import {SelectedAssetTrackerService} from '../services/assetTracker/selectedAssetTracker.service';
+import {SelectedAsset} from '../services/assetTracker/selectedAsset'
 
 export class DrawGeneSet {
 
@@ -33,7 +34,7 @@ export class DrawGeneSet {
         DrawGeneSet.drawArrowedLine(threadMapNodeg, 360, 455);
         DrawGeneSet.drawConnectionBoundary(threadMapNodeg, 620, "outputConnections");
         DrawGeneSet.drawArrowedLine(threadMapNodeg, 620, 525);
-        DrawGeneSet.drawNode(threadMapNodeg);
+        DrawGeneSet.drawNode(selectedAssetTracker, threadMapNodeg);
 
         threadMapNodeg.each(function (tmn) {
             let site = d3.select(this);
@@ -54,12 +55,16 @@ export class DrawGeneSet {
             .attr("d", "M 0 0 L 350 0 L 350 50 L 0 50 L 0 0")
     }
 
-    static drawNode(context : d3.Selection<ThreadMapNodeD3node>) {
+    static drawNode(selectedAssetTracker : SelectedAssetTrackerService, context : d3.Selection<ThreadMapNodeD3node>) {
         context.append("circle")
             .attr("cy", d => d.displacementOfThreadMapNode() + 25)
             .attr("cx", 490)
             .attr("r", 25)
-            .attr("fill", "purple");
+            .attr("fill", "purple")
+            .on("click", function(d) {
+                selectedAssetTracker.currentlySelectedAsset = new SelectedAsset(d3.select(this), d);
+            });
+            
     }
 
     static drawArrowedLine(context : d3.Selection<ThreadMapNodeD3node>, X1: number, X2: number) {

@@ -12,6 +12,7 @@ export class ThreadMapNodeD3node {
 
     public id : number;
     public sequenceNumber: number;
+    public isSelected: boolean = false;
 
     get spacingOfThreadMapNode() : number {
         return 10;

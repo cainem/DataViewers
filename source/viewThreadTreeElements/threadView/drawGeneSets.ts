@@ -38,7 +38,7 @@ export class DrawGeneSetNodes {
             .attr("y", 10)
             .html(n =>
             { 
-                return n.id.toString();
+                return n.geneSetKeyDto.shortFormKey.toString();
             });
 
         geneSetg.each(function(d : GeneSetD3node) {
