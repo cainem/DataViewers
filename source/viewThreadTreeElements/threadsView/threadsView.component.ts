@@ -22,7 +22,6 @@ export class ThreadsViewComponent implements OnInit, OnChanges {
     public selectedIndex : string;
     
     private svgHelper : SvgHelper; 
-    private nodeIndexCounter: number;
     private tree: d3.layout.Tree<ThreadD3node>;
     private radius: number;
     private selectedRoot : ThreadD3node;
@@ -33,7 +32,6 @@ export class ThreadsViewComponent implements OnInit, OnChanges {
     constructor() {
         this.lastSelected = -1;
         this.svgHelper = new SvgHelper();
-        this.nodeIndexCounter = 0;
         this.tree = d3.layout.tree<ThreadD3node>()
             .size([this.svgHelper.height, this.svgHelper.width]);
 
@@ -89,10 +87,12 @@ export class ThreadsViewComponent implements OnInit, OnChanges {
     public render = () => {
         // Declare the nodes…
         let selectedNodes : d3.selection.Update<ThreadD3node> = this.svgHelper.svg.selectAll("g.threadNode")
-            .data(this.nodes, (d : ThreadD3node) =>  
-                // returns an id for a node;
-                // if a node hasn't yet got an id then add one
-                (d.id || (d.id = ++this.nodeIndexCounter)).toString());
+            .data(this.nodes, (d : ThreadD3node) =>  {
+                if (!d.id) {
+                    throw "expect nodes to have ids";
+                }
+                return d.id.toString();
+            });
 
         // Declare the links…
         let link : d3.selection.Update<d3.layout.tree.Link<ThreadD3node>> = this.svgHelper.svg.selectAll("path.link")

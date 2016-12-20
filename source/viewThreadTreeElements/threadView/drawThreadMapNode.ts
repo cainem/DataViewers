@@ -12,13 +12,7 @@ export class DrawThreadMapNode {
     static drawThreadMapNode(selectedAssetTracker : SelectedAssetTrackerService,
         threadMapNodeD3node : ThreadMapNodeD3node,
         selectContext : d3.Selection<any>) {
-        threadMapNodeD3node.inputConnections.forEach((c, i) => {
-            c.id = i;
-        })
 
-        threadMapNodeD3node.outputConnections.forEach((c,i) => {
-            c.id = i;
-        })
 
         DrawConnections.drawConnections(selectedAssetTracker, threadMapNodeD3node.inputConnections, selectContext, "inputConnections");
         DrawConnections.drawConnections(selectedAssetTracker, threadMapNodeD3node.outputConnections, selectContext, "outputConnections");
