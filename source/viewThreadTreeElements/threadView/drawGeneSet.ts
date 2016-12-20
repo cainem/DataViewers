@@ -19,7 +19,7 @@ export class DrawGeneSet {
 
         geneSetD3node.threadMapNodeD3nodes.forEach((threadMapNode, i) =>
         {
-            threadMapNode.id = i;
+            threadMapNode.sequenceNumber = i;
         });
 
         let threadMapNodeg = selectContext

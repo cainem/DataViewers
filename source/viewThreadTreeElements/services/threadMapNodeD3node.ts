@@ -11,6 +11,7 @@ export class ThreadMapNodeD3node {
     public outputConnections : ConnectionD3node[];
 
     public id : number;
+    public sequenceNumber: number;
 
     get spacingOfThreadMapNode() : number {
         return 10;
@@ -21,7 +22,7 @@ export class ThreadMapNodeD3node {
     } 
 
     displacementOfThreadMapNode = () => {
-        return ((this.id) * (this.heightOfThreadMapNode + this.spacingOfThreadMapNode)) + this.spacingOfThreadMapNode;
+        return ((this.sequenceNumber) * (this.heightOfThreadMapNode + this.spacingOfThreadMapNode)) + this.spacingOfThreadMapNode;
     }
 
 }
